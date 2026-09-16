@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+
+# file di lavorazione
+*.bak
+*.pre-*
+_originali/
+_anteprime/
+_to_delete/
+_tmpimg/
+_preview/
+
+# Python
+__pycache__/
+*.pyc
