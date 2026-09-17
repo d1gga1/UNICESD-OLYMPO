@@ -1032,6 +1032,43 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 }
 
 
+
+/* ===== PROGRAMMA DEL GIORNO ===== */
+.prg{scroll-margin-top:120px}
+.feat-grid.g-prg{grid-template-columns:1.02fr .98fr;align-items:center}
+.prg-list{display:grid;gap:10px;margin-top:4px}
+.prg-i{display:flex;gap:18px;align-items:flex-start;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(165deg,var(--card-a),var(--card-b));transition:.4s var(--ease)}
+.prg-i:hover{transform:translateX(5px);border-color:var(--line-strong)}
+.prg-t{flex:0 0 auto;min-width:76px;font-family:'Sora';font-size:15.4px;font-weight:700;color:var(--cy);line-height:1.2;letter-spacing:.02em}
+.prg-t em{display:block;font-style:normal;font-size:12.6px;font-weight:600;color:var(--txt-mute);margin-top:2px}
+.prg-b{min-width:0}
+.prg-b b{display:block;font-family:'Sora';font-size:15px;color:#fff;margin-bottom:3px;line-height:1.3}
+.prg-b span{display:block;font-size:13.2px;color:var(--txt-mute);line-height:1.55}
+.prg-poster{position:relative;display:block;border-radius:20px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:var(--shadow-lg);background:var(--thumb-bg)}
+.prg-poster img{width:100%;display:block;transition:transform .9s var(--ease)}
+.prg-poster:hover img{transform:scale(1.03)}
+.prg-zoom{position:absolute;right:14px;bottom:14px;padding:8px 14px;border-radius:999px;font-family:'Sora';font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(10,20,54,.72);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);opacity:0;transform:translateY(6px);transition:.4s var(--ease)}
+.prg-poster:hover .prg-zoom{opacity:1;transform:none}
+@media(max-width:1080px){
+  .feat-grid.g-prg{grid-template-columns:1fr}
+  .prg-poster{max-width:560px;margin:0 auto}
+}
+@media(max-width:600px){
+  .prg-i{gap:12px;padding:12px 14px}
+  .prg-t{min-width:64px;font-size:14px}
+}
+
+
+/* ===== SEZIONE JANUS ===== */
+#janus{scroll-margin-top:120px}
+#programma-sec{scroll-margin-top:120px}
+.jn-pages{display:grid;grid-template-columns:repeat(auto-fit,minmax(186px,1fr));gap:18px}
+.jn-page{position:relative;display:block;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow-md);transition:.5s var(--ease)}
+.jn-page img{width:100%;display:block;transition:transform .8s var(--ease)}
+.jn-page:hover{transform:translateY(-6px);border-color:var(--line-strong);box-shadow:var(--shadow-lg)}
+.jn-page:hover img{transform:scale(1.04)}
+.jn-page b{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 13px;font-family:'Sora';font-size:12.4px;line-height:1.3;color:#fff;background:linear-gradient(180deg,rgba(5,10,28,0),rgba(5,10,28,.9))}
+@media(max-width:560px){.jn-pages{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -1099,6 +1136,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
             <div class="mega-col">
               <h5>Terza missione</h5>
               <a href="#" data-modal="territorio" class="mega-item"><div class="mega-ic">&#127965;</div><div><b>Territorio</b><span>Progetti in tutta Italia</span></div></a>
+              <a href="#janus" class="mega-item"><div class="mega-ic">&#127979;</div><div><b>Janus</b><span>La scuola del diploma, in primo piano</span></div></a>
               <a href="#eventi" class="mega-item"><div class="mega-ic">&#127914;</div><div><b>Eventi</b><span>Convention, open day e incontri</span></div></a>
               <a href="#master" class="mega-item"><div class="mega-ic">&#127758;</div><div><b>Internazionalizzazione</b><span>Export e Made in Italy</span></div></a>
               <a href="#ai" class="mega-item"><div class="mega-ic">&#129504;</div><div><b>Progetto AI</b><span>AI Act, competenze e SCALE</span></div></a>
@@ -1171,6 +1209,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         </div>
       </li>
 
+      <li><a href="#janus">Janus</a></li>
       <li><a href="#master">Made in Italy</a></li>
       <li><a href="#ai">Progetto AI</a></li>
       <li class="opt"><a href="#fnc">Imprese</a></li>
@@ -1197,7 +1236,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 <!-- ===== MOBILE MENU ===== -->
 <div class="mob dark" id="mob">
   <div class="mob-group"><button>Ateneo <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="#ateneo">Il Centro Studi</a><a href="#fondatore">Il fondatore</a><a href="#storia">La nostra storia</a><a href="#eventi">Eventi</a><a href="#stampa">Rassegna stampa</a><a href="#voce">Interventi e interviste</a><a href="#partner">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
+    <div class="mob-sub"><div><a href="#janus">Janus</a><a href="#ateneo">Il Centro Studi</a><a href="#fondatore">Il fondatore</a><a href="#storia">La nostra storia</a><a href="#eventi">Eventi</a><a href="#stampa">Rassegna stampa</a><a href="#voce">Interventi e interviste</a><a href="#partner">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
   <div class="mob-group"><button>Offerta Formativa <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="#offerta">Corsi di Laurea</a><a href="#offerta">Master I e II livello</a><a href="#offerta">Certificazioni</a><a href="#offerta">Corsi singoli</a><a href="#athena">Studia all'estero</a><a href="#ai">Progetto AI</a><a href="#fnc">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
@@ -1306,6 +1345,228 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 </section>
 
 <!-- ===== OFFERTA FORMATIVA ===== -->
+<!-- ===== JANUS IN PRIMO PIANO ===== -->
+<section id="janus" style="padding-top:78px">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="eyebrow"><em></em> In primo piano</div>
+      <h2>Janus &mdash; <span class="grad">Istituto Superiore per la Formazione</span></h2>
+      <p>La scuola online del diploma dentro la rete UNICESD Olympo: undici indirizzi fra licei, istituti tecnici e professionali, piattaforma e&#8209;learning attiva ventiquattr'ore su ventiquattro, un tutor personale per ogni studente e una sede vera a Roma.</p>
+    </div>
+
+    <!-- FRONTESPIZIO DELLA BROCHURE -->
+    <div class="feature rv-s dark">
+      <div class="feat-grid g-book">
+        <div>
+          <a class="prg-poster" href="assets/janus/janus-brochure.webp" target="_blank" rel="noopener" aria-label="Apri a schermo intero la copertina della brochure Istituto Janus 2026">
+            <img src="assets/janus/janus-brochure.webp" alt="Copertina della brochure 2026 dell'Istituto Janus per la Formazione Superiore: il marchio Janus su fondo blu notte e un tablet con la scritta E-learning appoggiato su una pila di libri" loading="lazy">
+            <span class="prg-zoom">Ingrandisci</span>
+          </a>
+        </div>
+        <div>
+          <div class="eyebrow"><em></em> Brochure 2026</div>
+          <h2>Una scuola online <span class="grad">con una struttura vera</span></h2>
+          <p>L'<b>Istituto Janus</b> nasce dall'esperienza trentennale dei suoi fondatori nella formazione a distanza, con l'obiettivo di offrire un'istruzione orientata alle reali esigenze del mercato del lavoro. &Egrave; una scuola pensata per diventare un punto di riferimento nella formazione superiore a distanza, capace di rispondere alle necessit&agrave; degli studenti in Italia e all'estero.</p>
+          <p>Studiare con Janus significa entrare in una comunit&agrave; che accompagna lo studente in ogni fase del percorso: niente perdite di tempo, niente ostacoli burocratici, un percorso chiaro ed efficace costruito sulla singola persona.</p>
+          <div class="feat-box">
+            <div class="fb-row"><span>Che cos'&egrave;</span><b>Scuola online per il diploma</b></div>
+            <div class="fb-row"><span>Indirizzi</span><b>11 corsi di studio</b></div>
+            <div class="fb-row"><span>Piattaforma</span><b>E&#8209;learning attiva 24/7</b></div>
+            <div class="fb-row"><span>Lezioni</span><b>Oltre 15.000 ore</b></div>
+            <div class="fb-row"><span>Affiancamento</span><b>Tutor personale dedicato</b></div>
+            <div class="fb-row"><span>Struttura</span><b>15 persone e oltre 20 docenti</b></div>
+            <div class="fb-row"><span>Sede</span><b>Roma</b></div>
+          </div>
+          <div class="hero-cta" style="opacity:1;animation:none;margin-top:24px">
+            <a href="#janus-corsi" class="btn btn-p" data-cursor><span>Gli undici indirizzi</span><span class="shine"></span></a>
+            <a href="https://istitutojanus.it/" target="_blank" rel="noopener" class="btn btn-g" data-cursor>istitutojanus.it</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NUMERI JANUS -->
+    <div class="stats" style="margin-top:30px">
+      <div class="stat rv"><b data-count="2000" data-suffix="+">0</b><span>Studenti</span><small>Negli ultimi anni scolastici</small></div>
+      <div class="stat rv" style="transition-delay:.1s"><b data-count="11">0</b><span>Corsi di studio</span><small>Licei, tecnici e professionali</small></div>
+      <div class="stat rv" style="transition-delay:.2s"><b data-count="15000" data-suffix="+">0</b><span>Ore di lezione</span><small>In piattaforma, sempre disponibili</small></div>
+      <div class="stat rv" style="transition-delay:.3s"><b data-count="100" data-suffix="%">0</b><span>Promossi con l'Academy</span><small>Alla maturit&agrave;, tra chi l'ha frequentata</small></div>
+    </div>
+
+    <!-- IL MODELLO -->
+    <div class="sec-head center rv" style="margin-top:66px;margin-bottom:34px">
+      <div class="eyebrow"><em></em> Il modello educativo</div>
+      <h2 style="font-size:clamp(26px,3.4vw,38px)">Tecnologia e relazione umana, <span class="grad">il binomio</span></h2>
+      <p>La tecnologia toglie gli ostacoli, le persone restano al centro: l'intelligenza artificiale &egrave; al servizio dell'apprendimento, mai in sostituzione del rapporto umano.</p>
+    </div>
+
+    <div class="bento four">
+      <div class="card rv bg-online"><div class="card-ic">&#128187;</div><h3>La piattaforma e le lezioni</h3><p>Con <b>LMS Innova</b> lo studio si organizza come serve allo studente: oltre <b>15.000 ore</b> di lezioni disponibili quando e dove si vuole, ogni lezione arricchita da <b>mappe concettuali</b> e <b>pdf</b>. Il sistema include traduzioni in pi&ugrave; lingue e una voce artificiale che legge i testi, utile per la pronuncia e la comprensione orale delle lingue straniere.</p><div class="card-meta"><span class="chip cy">24/7</span><span class="chip">Mappe e pdf</span><span class="chip">Multilingua</span></div></div>
+      <div class="card rv bg-tutor" style="transition-delay:.08s"><div class="card-ic">&#129309;</div><h3>Il servizio di tutoraggio</h3><p>Ogni iscritto ha un <b>tutor personale</b>, un professionista qualificato che lo affianca fin dall'iscrizione: orientamento sulla piattaforma, <b>piano di studio su misura</b>, controllo del ritmo anche per chi ha poco tempo o deve recuperare uno o pi&ugrave; anni scolastici. Nessuna tecnologia sostituisce chi ascolta, motiva e aiuta nei momenti di difficolt&agrave;.</p><div class="card-meta"><span class="chip go">Tutor dedicato</span><span class="chip">Recupero anni</span></div></div>
+      <div class="card rv bg-informatica" style="transition-delay:.16s"><div class="card-ic">&#129302;</div><h3>Assistente virtuale H24</h3><p>Il <b>tutor virtuale</b> risponde in tempo reale, spiega e guida passo dopo passo dentro la lezione. Accanto c'&egrave; un sistema di <b>interrogazioni simulate</b> con self&#8209;assessment e feedback personalizzati: il risultato viene condiviso con il tutor umano, che interviene dove serve. E poi <b>laboratori live</b> e <b>speaking areas</b> per esercitarsi con docenti e compagni.</p><div class="card-meta"><span class="chip cy">Attivo 24 ore</span><span class="chip">Self-assessment</span></div></div>
+      <div class="card rv bg-master" style="transition-delay:.24s"><div class="card-ic">&#127891;</div><h3>La Janus Academy</h3><p>Percorso esclusivo per gli studenti del <b>V anno</b>: <b>9 ore di lezioni live a settimana</b>, in diretta con docenti specializzati, di sera <b>dopo le 18:00</b> e sempre registrate per chi non pu&ograve; esserci. Si affrontano le materie e i temi pi&ugrave; complessi dell'ultimo anno: come essere in classe, ma con la flessibilit&agrave; dello studio online.</p><div class="card-meta"><span class="chip go">100% promossi</span><span class="chip">9 ore live</span><span class="chip">Serale</span></div></div>
+    </div>
+
+    <!-- GLI INDIRIZZI -->
+    <div class="sec-head center rv" id="janus-corsi" style="margin-top:66px;margin-bottom:30px;scroll-margin-top:120px">
+      <div class="eyebrow"><em></em> I corsi di studio</div>
+      <h2 style="font-size:clamp(26px,3.4vw,38px)">Undici indirizzi, <span class="grad">un diploma</span></h2>
+      <p>Licei, istituti tecnici e professionali: il piano di studi completo di ciascun indirizzo &egrave; nella brochure.</p>
+    </div>
+
+    <div class="rail">
+      <div class="rail-i rv"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
+      <div class="rail-i rv"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
+      <div class="rail-i rv"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
+      <div class="rail-i rv"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
+      <div class="rail-i rv"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
+      <div class="rail-i rv"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
+      <div class="rail-i rv"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
+      <div class="rail-i rv"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
+      <div class="rail-i rv"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
+      <div class="rail-i rv"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
+      <div class="rail-i rv"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
+    </div>
+
+    <!-- I RISULTATI -->
+    <div class="feature rv-s dark" style="margin-top:58px">
+      <div class="feat-grid g-conv">
+        <div>
+          <div class="eyebrow"><em></em> I risultati parlano per noi</div>
+          <h2>I traguardi <span class="grad">degli studenti</span></h2>
+          <p>Pi&ugrave; di <b>2.000 studenti</b> negli ultimi anni: chi lavora e incastra lo studio fra turni e scadenze, chi pratica sport a livello agonistico, chi vive fuori sede o all'estero, chi aveva interrotto gli studi e vuole recuperare gli anni. Oltre la met&agrave; degli iscritti sta affrontando l'esame di idoneit&agrave;, pi&ugrave; del 42% si prepara alla maturit&agrave;.</p>
+          <div class="feat-box">
+            <div class="fb-row"><span>Maturit&agrave; presso scuole paritarie</span><b>100% promossi</b></div>
+            <div class="fb-row"><span>Studenti della Janus Academy</span><b>100% promossi</b></div>
+            <div class="fb-row"><span>Esami di idoneit&agrave;</span><b>98% promossi</b></div>
+            <div class="fb-row"><span>Maturit&agrave; presso scuole statali</span><b>70% promossi</b></div>
+            <div class="fb-row"><span>Votazione fra 75 e 90 (Academy)</span><b>80% degli studenti</b></div>
+          </div>
+          <div class="feat-box" style="margin-top:18px">
+            <div class="fb-row"><span>Recensioni Google</span><b>4,9 su 5</b></div>
+            <div class="fb-row"><span>Trustpilot</span><b>4,8 su 5 &middot; 112 recensioni</b></div>
+          </div>
+          <p style="color:var(--txt-mute);font-size:13.4px;margin-top:18px">Dati e percentuali dichiarati nella brochure 2026 dell'Istituto Janus.</p>
+        </div>
+        <div>
+          <a class="prg-poster" href="assets/janus/janus-pg-risultati.webp" target="_blank" rel="noopener" aria-label="Apri la pagina dei risultati della brochure Janus">
+            <img src="assets/janus/janus-pg-risultati.webp" alt="Pagina della brochure Janus con le percentuali di successo degli studenti" loading="lazy">
+            <span class="prg-zoom">Ingrandisci</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SFOGLIA LA BROCHURE -->
+    <div class="sec-head center rv" style="margin-top:66px;margin-bottom:30px">
+      <div class="eyebrow"><em></em> Dentro la brochure</div>
+      <h2 style="font-size:clamp(26px,3.4vw,38px)">Qualche pagina, <span class="grad">a schermo intero</span></h2>
+      <p>Clicca una pagina per aprirla ingrandita.</p>
+    </div>
+
+    <div class="jn-pages rv-s">
+      <a class="jn-page" href="assets/janus/janus-brochure.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-brochure.webp" alt="Copertina della brochure Istituto Janus 2026" loading="lazy"><b>La copertina</b></a>
+      <a class="jn-page" href="assets/janus/janus-pg-nascita.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-pg-nascita.webp" alt="Pagina della brochure Janus sulla nascita dell'Istituto" loading="lazy"><b>La nascita dell'Istituto</b></a>
+      <a class="jn-page" href="assets/janus/janus-pg-modello.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-pg-modello.webp" alt="Pagina della brochure Janus sul modello educativo" loading="lazy"><b>Il modello educativo</b></a>
+      <a class="jn-page" href="assets/janus/janus-pg-corsi.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-pg-corsi.webp" alt="Pagina della brochure Janus con i corsi di studio" loading="lazy"><b>I corsi di studio</b></a>
+      <a class="jn-page" href="assets/janus/janus-pg-staff.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-pg-staff.webp" alt="Pagina della brochure Janus con gli uffici e lo staff di Roma" loading="lazy"><b>Uffici e staff a Roma</b></a>
+    </div>
+
+    <!-- LA RETE DEI POLI REMOTI -->
+    <div class="feature rv-s dark" style="margin-top:58px">
+      <div class="feat-grid g-prg">
+        <div>
+          <div class="eyebrow"><em></em> La rete dei poli remoti</div>
+          <h2>Dal contratto <span class="grad">all'Open Day nazionale</span></h2>
+          <p>Il percorso che ogni polo remoto ha seguito per entrare nella rete Janus, completare la formazione e arrivare pronto al grande Open Day nazionale del <b>12 settembre</b>.</p>
+          <div class="prg-list">
+            <div class="prg-i"><span class="prg-t">1<em>10 lug</em></span><div class="prg-b"><b>Firma dell'accordo contrattuale</b><span>Il primo passo per entrare ufficialmente nella rete dei poli remoti</span></div></div>
+            <div class="prg-i"><span class="prg-t">2<em>24 lug</em></span><div class="prg-b"><b>Onboarding e formazione iniziale</b><span>Formazione online con il team Janus: modello, procedure, percorsi e attivit&agrave;</span></div></div>
+            <div class="prg-i"><span class="prg-t">3<em>31 lug</em></span><div class="prg-b"><b>Formazione strutturata in sede</b><span>Giornata di formazione e coordinamento presso la sede Janus di Roma</span></div></div>
+            <div class="prg-i"><span class="prg-t">4<em>31 lug</em></span><div class="prg-b"><b>Ritiro del kit pubblicitario</b><span>Consegna dei materiali ufficiali durante la giornata formativa</span></div></div>
+            <div class="prg-i"><span class="prg-t">5<em>4 set</em></span><div class="prg-b"><b>Pagine social ufficiali</b><span>Facebook e Instagram di ogni polo, nel rispetto delle linee guida di comunicazione</span></div></div>
+            <div class="prg-i"><span class="prg-t">6<em>12 set</em></span><div class="prg-b"><b>Ricerca e mappatura delle scuole paritarie</b><span>Per offrire agli studenti del territorio un servizio serio e organizzato</span></div></div>
+            <div class="prg-i"><span class="prg-t">7<em>12 set</em></span><div class="prg-b"><b>Open Day Nazionale</b><span>Tutte le sedi accolgono studenti e famiglie, da Roma la diretta streaming. Borse di studio al 100% e al 50%</span></div></div>
+          </div>
+        </div>
+        <div>
+          <a class="prg-poster" href="assets/janus/janus-roadmap.webp" target="_blank" rel="noopener" aria-label="Apri la roadmap dei poli remoti Janus">
+            <img src="assets/janus/janus-roadmap.webp" alt="Roadmap dei poli remoti Janus: le sette tappe dal contratto all'Open Day nazionale del 12 settembre" loading="lazy">
+            <span class="prg-zoom">Ingrandisci</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTNER DAY -->
+    <div class="feature rv-s dark" style="margin-top:26px">
+      <div class="feat-grid g-conv">
+        <div>
+          <div class="eyebrow"><em></em> 31 luglio 2026</div>
+          <h2>Janus <span class="grad">Partner Day</span></h2>
+          <p>Una giornata di formazione, allineamento operativo e confronto strategico dedicata ai poli che si preparano al lancio dell'anno scolastico <b>2026/27</b>: linee guida operative della rete, confronto diretto con il team e lo staff, promozioni e strategie, consegna dei kit pubblicitari ufficiali e preparazione all'Open Day.</p>
+          <p>La giornata &egrave; proseguita in serata con la <b>Janus Partner Night</b> a Villa Veientana: cena e dj set per rafforzare la collaborazione fra Janus, i poli e lo staff.</p>
+          <div class="feat-box">
+            <div class="fb-row"><span>Quando</span><b>Venerd&igrave; 31 luglio 2026, 11:30 &ndash; 15:00</b></div>
+            <div class="fb-row"><span>Dove</span><b>Sede Janus &middot; Via Castense 8, 00182 Roma</b></div>
+            <div class="fb-row"><span>Partner Night</span><b>Ore 20:00 &middot; Villa Veientana, Roma</b></div>
+            <div class="fb-row"><span>Accesso</span><b>Poli contrattualizzati e formati</b></div>
+          </div>
+          <div class="hero-cta" style="opacity:1;animation:none;margin-top:22px">
+            <a href="#eventi" class="btn btn-g btn-sm" data-cursor>Tutti gli eventi</a>
+            <a href="#iscrizione" class="btn btn-g btn-sm" data-cursor>Diventa polo della rete</a>
+          </div>
+        </div>
+        <div>
+          <a class="prg-poster" href="assets/janus/janus-partnerday.webp" target="_blank" rel="noopener" aria-label="Apri la locandina del Janus Partner Day">
+            <img src="assets/janus/janus-partnerday.webp" alt="Locandina del Janus Partner Day del 31 luglio 2026 e della Janus Partner Night a Villa Veientana" loading="lazy">
+            <span class="prg-zoom">Ingrandisci</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="pnote rv" style="margin-top:30px"><b>Nota.</b> Janus &mdash; Istituto Superiore per la Formazione &egrave; un soggetto distinto da UNICESD OLYMPO SRL. Dati, percentuali e contenuti di questa sezione sono ripresi dalla brochure ufficiale 2026 dell'Istituto e dai materiali della rete dei poli remoti.</p>
+  </div>
+</section>
+
+<!-- ===== PROGRAMMA DEL GIORNO ===== -->
+<section id="programma-sec" style="padding-top:8px">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="eyebrow"><em></em> Venerd&igrave; 18 settembre 2026</div>
+      <h2>La locandina con il <span class="grad">programma del giorno</span></h2>
+      <p>La giornata UNICESD Olympo al TH Roma Carpegna Palace, ora per ora: registrazione, lavori, interventi e cena.</p>
+    </div>
+    <div class="feature rv-s dark prg" id="programma">
+      <div class="feat-grid g-prg">
+        <div>
+          <div class="eyebrow"><em></em> Programma ufficiale</div>
+          <h2>Programma del <span class="grad">giorno</span></h2>
+          <p>Idee &middot; Persone &middot; Territori &middot; Opportunit&agrave;. La scaletta di <b>venerd&igrave; 18 settembre 2026</b> al <b>TH Roma Carpegna Palace</b>, Via Aurelia 481, Roma.</p>
+          <div class="prg-list">
+            <div class="prg-i"><span class="prg-t">15:00</span><div class="prg-b"><b>Registrazione dei partecipanti</b><span>Aperitivo di accoglienza presso il TH Roma Carpegna Palace</span></div></div>
+            <div class="prg-i"><span class="prg-t">16:00</span><div class="prg-b"><b>Inizio dei lavori</b></div></div>
+            <div class="prg-i"><span class="prg-t">16:30</span><div class="prg-b"><b>Intervento di Calogero Di Carlo</b></div></div>
+            <div class="prg-i"><span class="prg-t">17:00<em>20:00</em></span><div class="prg-b"><b>Interventi dei partecipanti</b><span>Sui nuovi temi della formazione partecipata</span></div></div>
+            <div class="prg-i"><span class="prg-t">20:00</span><div class="prg-b"><b>Cena e taglio della torta</b></div></div>
+          </div>
+          <div class="hero-cta" style="opacity:1;animation:none;margin-top:26px">
+            <button class="btn btn-p" data-evopen><span>Conferma la presenza</span><span class="shine"></span></button>
+            <a href="assets/eventi/programma-18set2026.webp" target="_blank" rel="noopener" class="btn btn-g">Apri la locandina</a>
+          </div>
+        </div>
+        <div>
+          <a class="prg-poster" href="assets/eventi/programma-18set2026.webp" target="_blank" rel="noopener" aria-label="Apri la locandina del programma del giorno">
+            <img src="assets/eventi/programma-18set2026.webp" alt="Programma del giorno della Convention UNICESD Olympo del 18 settembre 2026: registrazione alle 15:00, inizio dei lavori alle 16:00, intervento di Calogero Di Carlo alle 16:30, interventi dei partecipanti dalle 17:00 alle 20:00, cena e taglio della torta alle 20:00" loading="lazy">
+            <span class="prg-zoom">Ingrandisci</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== EVENTI ===== -->
 <section id="eventi">
   <div class="wrap">
@@ -1323,12 +1584,13 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         <div class="ev-kicker">Incontrarsi, confrontarsi, crescere &mdash; Ripartiamo insieme</div>
         <p class="ev-lead">Una giornata per presentare la visione e il rilancio di UNICESD Olympo, condividere progetti e strategie, creare sinergie tra organizzazioni e partner e costruire insieme il futuro della formazione. Al centro: formazione universitaria e professionale, certificazioni linguistiche e informatiche, formazione online e internazionale, training on&#8209;the&#8209;job, innovazione e gamification, fondi professionali e servizi su misura.</p>
         <div class="ev-facts">
-          <div class="ev-fact"><div class="ic">&#128197;</div><div><b>Venerd&igrave; 18 settembre 2026</b><span>Inizio lavori ore 15:00</span></div></div>
-          <div class="ev-fact"><div class="ic">&#128337;</div><div><b>Registrazione</b><span>dalle ore 14:00</span></div></div>
+          <div class="ev-fact"><div class="ic">&#128197;</div><div><b>Venerd&igrave; 18 settembre 2026</b><span>Inizio dei lavori ore 16:00</span></div></div>
+          <div class="ev-fact"><div class="ic">&#128337;</div><div><b>Registrazione e aperitivo</b><span>dalle ore 15:00</span></div></div>
           <div class="ev-fact"><div class="ic">&#128205;</div><div><b>TH Roma Carpegna Palace</b><span>Via Aurelia 481, 00165 Roma</span></div></div>
         </div>
         <div class="hero-cta" style="opacity:1;animation:none">
           <button class="btn btn-p" data-evopen><span>Richiedi informazioni</span><span class="shine"></span></button>
+          <a href="#programma" class="btn btn-g">Programma del giorno</a>
           <a href="#contatti" class="btn btn-g">Contatta la segreteria</a>
         </div>
       </div>
@@ -2766,9 +3028,12 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           <p>Accanto alle partnership accademiche esistono convenzioni rivolte a categorie professionali intere: sindacati, ordini, associazioni e aziende che aprono ai propri iscritti e ai loro familiari tariffe dedicate e percorsi costruiti sui turni di lavoro.</p>
           <p>&Egrave; il caso di <b>SIULP Torino</b>, la segreteria provinciale del sindacato di Polizia, con l'iniziativa &laquo;Investi sul tuo futuro e su quello della tua famiglia&raquo;: grazie alle convenzioni con i primari atenei telematici e digitali italiani, gli iscritti accedono a un catalogo interdisciplinare completo &mdash; giuridico, economico, umanistico, sanitario, psicologico, ingegneristico, politico-sociale e scienze motorie &mdash; con lauree triennali e magistrali, master di I e II livello, corsi di perfezionamento e formazione, tutto <b>100% online</b> e a rette agevolate estese ai familiari.</p>
           <p>Non serve scegliere fra lavoro, famiglia e studio: &egrave; esattamente il principio su cui &egrave; nata UNICESD Olympo. Se rappresenti un ente, un ordine professionale o un'azienda, possiamo costruire una convenzione dedicata.</p>
+          <p>Lo stesso discorso vale per il <b>settore pubblico</b>. La <b>UIPA &mdash; Universit&agrave; Internazionale delle Pubbliche Amministrazioni</b>, con sede nella Repubblica di San Marino, &egrave; nata nel 2024 per la formazione di funzionari e amministratori pubblici e dei giovani che vogliono lavorare nel settore pubblico: un corso di laurea triennale in <b>Scienze Politiche, Giuridiche e Strategie Internazionali</b>, master di I e II livello su amministrazione digitale, contabilit&agrave; pubblica, contratti pubblici, diritto sanitario, gestione del personale e turismo locale, e un percorso in <b>Management Sportivo</b>. &Egrave; l'interlocutore naturale per comuni, enti e amministrazioni che vogliono una convenzione costruita sui propri dipendenti.</p>
+
           <div class="hero-cta" style="opacity:1;animation:none">
             <a href="#iscrizione" class="btn btn-p" data-cursor><span>Proponi una convenzione</span><span class="shine"></span></a>
             <a href="https://www.siulptorino.it/" target="_blank" rel="noopener" class="btn btn-g" data-cursor>L'iniziativa SIULP Torino</a>
+            <a href="https://www.uipa.sm/" target="_blank" rel="noopener" class="btn btn-g" data-cursor>UIPA &middot; San Marino</a>
           </div>
         </div>
         <div>
@@ -3184,7 +3449,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
       <div class="ev-kicker">Incontrarsi, confrontarsi, crescere</div>
       <div class="evpop-meta">
         <span>&#128197; Venerd&igrave; 18 settembre 2026</span>
-        <span>&#128337; Ore 15:00 &middot; reg. dalle 14:00</span>
+        <span>&#128337; Lavori ore 16:00 &middot; reg. dalle 15:00</span>
         <span>&#128205; TH Roma Carpegna Palace &mdash; Roma</span>
       </div>
       <p style="color:#b9c7e6;font-size:14.4px;margin-bottom:20px">Una giornata per presentare il rilancio di UNICESD Olympo, creare sinergie tra organizzazioni e partner e costruire insieme il futuro della formazione. <b style="color:#fff">Lascia i tuoi dati e ti inviamo il programma completo e le modalit&agrave; di adesione.</b></p>
