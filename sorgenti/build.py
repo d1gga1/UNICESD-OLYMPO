@@ -36,6 +36,7 @@ IMAGES = {
     "__IMG_ASDP__": "partner/pegaso-athletic.webp",
     "__IMG_UPM__": "partner/mauriziana.webp",
     "__IMG_YHANK__": "partner/yhank.webp",
+    "__IMG_EUROFORM__": "partner/euroform.webp",
     "__IMG_LUXIUM__": "partner/luxium.webp",
     "__IMG_ISET__": "partner/iset.webp",
     "__IMG_GIURECOFORM__": "partner/giurecoform.webp",
