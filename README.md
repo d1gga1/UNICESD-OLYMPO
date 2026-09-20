@@ -14,10 +14,16 @@ Pagina singola statica, senza framework e senza build di produzione: HTML, CSS e
 | `assets/ai/` | Sfondi delle card e video (hero, globo, piattaforma). |
 | `assets/partner/` | Loghi delle realtà della rete. |
 | `assets/eventi/` | Locandine degli eventi. |
+| `sorgenti/head.html` | Il blocco SEO: meta, canonical, Open Graph, Twitter Card, favicon, font. |
 | `sorgenti/content.html` | `<title>` e tutto il CSS: palette, animazioni, responsive. |
+| `sorgenti/schema.html` | I dati strutturati JSON-LD (organizzazione, fondatore, FAQ, evento, galleria). |
 | `sorgenti/body.html` | Il markup: header, sezioni, footer, modali. |
 | `sorgenti/script.html` | Il JavaScript: animazioni, menu, tab, form, popup, testi dei modali. |
-| `sorgenti/build.py` | Ricompone i tre pezzi in `index.html` e sostituisce i segnaposto delle immagini. |
+| `sorgenti/build.py` | Ricompone i pezzi nel file unico `unicesd-olympo.html` (immagini incorporate). |
+| `sorgenti/build_repo.py` | Genera `index.html` con le immagini in `assets/` e allinea `sorgenti/`. |
+| `sitemap.xml` | Sitemap con la home e le immagini principali. |
+| `robots.txt` | Regole per i crawler e rimando alla sitemap. |
+| `404.html` | Pagina di errore, con rimando automatico alla home. |
 | `CNAME` | Il dominio collegato a GitHub Pages. |
 | `.nojekyll` | Dice a GitHub Pages di servire i file così come sono, senza passare da Jekyll. |
 
@@ -27,7 +33,7 @@ Pagina singola statica, senza framework e senza build di produzione: HTML, CSS e
 2. Rigenera la pagina:
 
    ```bash
-   python3 sorgenti/build.py
+   python3 sorgenti/build_repo.py
    ```
 
 3. Commit e push: GitHub Pages pubblica in un paio di minuti.

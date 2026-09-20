@@ -2,6 +2,7 @@
 """
 Ricompone i sorgenti in un unico file HTML autonomo, incorporando le immagini
 come data URI (cosi' il sito resta un file solo, senza cartelle da portarsi dietro).
+Il blocco SEO sta in head.html, i dati strutturati in schema.html.
 
 Uso:  python3 build.py
 """
@@ -119,15 +120,6 @@ AI_ASSETS = {
     "__PLAT_VIDEO__": "img/ai/plat.mp4",        # b-roll studentessa al laptop, loop di 4s
 }
 
-HEAD = """<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="UNICESD Olympo - Universitas Centro Studi Olympo. Corsi di laurea, master universitari, certificazioni e alta formazione. Palermo.">
-"""
-
-
 MIMES = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
          ".webp": "image/webp", ".mp4": "video/mp4"}
 
@@ -138,14 +130,17 @@ def data_uri(path: pathlib.Path) -> str:
 
 
 def main() -> None:
-    parts = [(HERE / n).read_text(encoding="utf-8") for n in ("content.html", "body.html", "script.html")]
-    content, body, script = parts
+    parts = [(HERE / n).read_text(encoding="utf-8")
+             for n in ("head.html", "content.html", "body.html", "script.html", "schema.html")]
+    head, content, body, script, schema = parts
 
     for token, rel in IMAGES.items():
         p = HERE / rel
         if not p.exists():
             raise SystemExit(f"Immagine mancante: {p}")
-        body = body.replace(token, data_uri(p))
+        uri = data_uri(p)
+        head = head.replace(token, uri)
+        body = body.replace(token, uri)
 
     for token, rel in AI_ASSETS.items():
         p = HERE / rel
@@ -156,10 +151,18 @@ def main() -> None:
         body = body.replace(token, uri)
 
     # versione per Artifact (senza doctype/head/body: li aggiunge la piattaforma)
-    OUT_ARTIFACT.write_text(content + body + script, encoding="utf-8")
+    FONTS = ('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
+             'family=Sora:wght@300;400;600;700;800&amp;'
+             'family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">\n')
+    OUT_ARTIFACT.write_text(FONTS + content + body + script, encoding="utf-8")
 
-    # versione autonoma completa
-    OUT_FULL.write_text(HEAD + content + "</head>\n<body>\n" + body + script + "\n</body></html>\n", encoding="utf-8")
+    # versione autonoma completa, con il blocco SEO e i dati strutturati
+    OUT_FULL.write_text(
+        '<!DOCTYPE html>\n<html lang="it">\n<head>\n'
+        + head + content + schema
+        + "</head>\n<body>\n" + body + script + "\n</body></html>\n",
+        encoding="utf-8")
 
     kb = OUT_FULL.stat().st_size / 1024
     print(f"Fatto: {OUT_FULL}  ({kb:.0f} KB)")
