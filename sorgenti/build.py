@@ -94,6 +94,22 @@ IMAGES = {
     "__ICB_22__": "img/eventi/icb/icb-22.webp",
     "__ICB_23__": "img/eventi/icb/icb-23.webp",
     "__ICB_24__": "img/eventi/icb/icb-24.webp",
+    "__ICB_25__": "img/eventi/icb/icb-25.webp",
+    "__ICB_26__": "img/eventi/icb/icb-26.webp",
+    "__ICB_27__": "img/eventi/icb/icb-27.webp",
+    "__ICB_28__": "img/eventi/icb/icb-28.webp",
+    "__ICB_29__": "img/eventi/icb/icb-29.webp",
+    "__ICB_30__": "img/eventi/icb/icb-30.webp",
+    "__ICB_31__": "img/eventi/icb/icb-31.webp",
+    "__ICB_32__": "img/eventi/icb/icb-32.webp",
+    "__ICB_33__": "img/eventi/icb/icb-33.webp",
+    "__ICB_34__": "img/eventi/icb/icb-34.webp",
+    "__ICB_35__": "img/eventi/icb/icb-35.webp",
+    "__ICB_36__": "img/eventi/icb/icb-36.webp",
+    "__ICB_37__": "img/eventi/icb/icb-37.webp",
+    "__ICB_38__": "img/eventi/icb/icb-38.webp",
+    # logo del fotografo ufficiale, sotto la galleria
+    "__IMG_STRINO__": "img/tony-strino.webp",
 }
 
 # Sfondi generati con Higgsfield + globo animato: finiscono nel CSS e nel markup.

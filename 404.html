@@ -18,6 +18,13 @@
   a{display:inline-block;padding:13px 26px;border-radius:999px;background:#1f5fd0;color:#fff;
     text-decoration:none;font-weight:600}
   a:hover{background:#2e4fd4}
+  .dnv{position:fixed;left:0;right:0;bottom:22px;margin:auto;width:max-content;display:flex;align-items:center;gap:10px;
+       padding:0;background:none;color:#e7eeff;opacity:.72;font-weight:400;border-radius:0}
+  .dnv:hover{background:none;opacity:1}
+  .dnv svg{width:24px;height:24px}
+  .dnv small{font-size:11.6px;color:#8d9cbe}
+  .dnv b{display:flex;flex-direction:column;line-height:1;font-size:12px;letter-spacing:.19em;text-align:left}
+  .dnv b i{font-style:normal;font-size:7.6px;font-weight:600;letter-spacing:.34em;color:#95A1B6;margin-top:3px}
 </style>
 </head>
 <body>
@@ -27,5 +34,10 @@
     <p>L&rsquo;indirizzo che hai aperto non esiste o &egrave; stato spostato. Ti riportiamo alla home fra pochi secondi.</p>
     <a href="/">Torna alla home</a>
   </div>
+  <a class="dnv" href="https://danova-tech.com/" target="_blank" rel="noopener" aria-label="Sito realizzato da Danova Tech">
+    <small>Sito realizzato da</small>
+    <svg viewBox="0 0 96 96" aria-hidden="true"><rect x="14" y="18" width="60" height="60" rx="17" fill="none" stroke="currentColor" stroke-width="7.5"/><rect x="30" y="34" width="28" height="28" rx="9" fill="none" stroke="currentColor" stroke-width="7.5"/><line x1="8" y1="92" x2="82" y2="4" stroke="#2B6BF0" stroke-width="7.5"/></svg>
+    <b>DANOVA<i>TECH</i></b>
+  </a>
 </body>
 </html>

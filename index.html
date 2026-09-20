@@ -780,6 +780,28 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 .pcard:hover .pc-link svg{transform:translateX(4px)}
 .pnote{margin-top:30px;padding:20px 24px;border-radius:16px;border:1px solid var(--line);background:var(--surface);font-size:13.2px;color:var(--txt-mute);line-height:1.65}
 .pnote b{color:var(--txt-dim)}
+/* credito del fotografo sotto la galleria I came back */
+.icb-credit{display:flex;align-items:center;gap:28px;margin-top:34px;padding:22px 28px;border-radius:20px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-md)}
+.icb-credit-logo{flex:0 0 auto;background:#fff;border-radius:14px;padding:14px 20px;box-shadow:0 1px 0 rgba(20,32,90,.06),0 6px 18px rgba(20,32,90,.08)}
+.icb-credit-logo img{display:block;width:210px;height:auto}
+.icb-credit-txt{display:flex;flex-direction:column;gap:4px;line-height:1.5}
+.icb-credit-eye{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cy)}
+.icb-credit-txt b{font-family:'Sora',sans-serif;font-size:18px;color:var(--txt)}
+.icb-credit-txt span:last-child{font-size:13.4px;color:var(--txt-mute)}
+@media(max-width:720px){
+  .icb-credit{flex-direction:column;text-align:center;gap:16px;padding:22px 18px}
+  .icb-credit-logo img{width:180px}
+  .icb-credit-txt{align-items:center}
+}
+/* firma Danova Tech nel footer */
+.f-credit{display:flex;justify-content:center;padding:4px 0 26px}
+.dnv{display:inline-flex;align-items:center;gap:10px;color:#e7eeff;text-decoration:none;opacity:.72;transition:opacity .3s,transform .3s}
+.dnv:hover{opacity:1;transform:translateY(-2px)}
+.dnv svg{width:24px;height:24px;display:block}
+.dnv-lab{font-size:11.6px;color:var(--txt-mute);margin-right:2px}
+.dnv-wm{display:flex;flex-direction:column;line-height:1}
+.dnv-n1{font-size:12px;font-weight:700;letter-spacing:.19em}
+.dnv-n2{font-size:7.6px;font-weight:600;letter-spacing:.34em;color:#95A1B6;margin-top:3px}
 @media(max-width:640px){.pgrid{grid-template-columns:1fr}.pc-logo{width:110px;height:58px}.pcard{padding:20px}}
 
 
@@ -1180,6 +1202,14 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         },
         {
           "@type": "ContactPoint",
+          "contactType": "customer service",
+          "name": "Segreteria",
+          "telephone": "+39 335 695 9796",
+          "areaServed": "IT",
+          "availableLanguage": ["Italian"]
+        },
+        {
+          "@type": "ContactPoint",
           "contactType": "admissions",
           "name": "Orientamento e immatricolazioni",
           "telephone": "+39 350 965 1711",
@@ -1366,6 +1396,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
       <a href="tel:+393509651711">&#9742; +39 350 965 1711</a>
       <a href="tel:+393881133550">&#9742; +39 388 113 3550</a>
       <a href="tel:+393281376792">&#9742; +39 328 137 6792</a>
+      <a href="tel:+393356959796">&#9742; +39 335 695 9796</a>
       <a href="mailto:Calogero60@yahoo.it">Calogero60@yahoo.it</a>
     </div>
   </div>
@@ -1724,6 +1755,62 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         <img src="assets/eventi/icb/icb-19.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: domande e risposte con il fondatore" loading="lazy" decoding="async">
         <span class="icb-cap">Domande e risposte con il fondatore</span>
       </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Il tavolo dei relatori sotto lo schermo &laquo;Il futuro della formazione parte da qui&raquo;">
+        <img src="assets/eventi/icb/icb-25.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori sotto lo schermo Il futuro della formazione parte da qui" loading="lazy" decoding="async">
+        <span class="icb-cap">Il tavolo dei relatori sotto lo schermo &laquo;Il futuro della formazione parte da qui&raquo;</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Gli interventi in piedi, davanti alla sala">
+        <img src="assets/eventi/icb/icb-26.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: gli interventi in piedi, davanti alla sala" loading="lazy" decoding="async">
+        <span class="icb-cap">Gli interventi in piedi, davanti alla sala</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="La presentazione di Luxium Education">
+        <img src="assets/eventi/icb/icb-27.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la presentazione di Luxium Education" loading="lazy" decoding="async">
+        <span class="icb-cap">La presentazione di Luxium Education</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo durante il suo intervento">
+        <img src="assets/eventi/icb/icb-28.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo durante il suo intervento" loading="lazy" decoding="async">
+        <span class="icb-cap">Calogero Di Carlo durante il suo intervento</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dalla sala">
+        <img src="assets/eventi/icb/icb-29.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala" loading="lazy" decoding="async">
+        <span class="icb-cap">Un intervento dalla sala</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Un momento di confronto con Calogero Di Carlo">
+        <img src="assets/eventi/icb/icb-30.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un momento di confronto con Calogero Di Carlo" loading="lazy" decoding="async">
+        <span class="icb-cap">Un momento di confronto con Calogero Di Carlo</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partner della rete">
+        <img src="assets/eventi/icb/icb-31.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
+        <span class="icb-cap">Un intervento dei partner della rete</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo in ascolto al tavolo dei relatori">
+        <img src="assets/eventi/icb/icb-32.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo in ascolto al tavolo dei relatori" loading="lazy" decoding="async">
+        <span class="icb-cap">Calogero Di Carlo in ascolto al tavolo dei relatori</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento davanti allo schermo della Convention">
+        <img src="assets/eventi/icb/icb-33.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento davanti allo schermo della Convention" loading="lazy" decoding="async">
+        <span class="icb-cap">Un intervento davanti allo schermo della Convention</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dal pubblico, con Calogero Di Carlo">
+        <img src="assets/eventi/icb/icb-34.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dal pubblico, con Calogero Di Carlo" loading="lazy" decoding="async">
+        <span class="icb-cap">Un intervento dal pubblico, con Calogero Di Carlo</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo fra i partecipanti">
+        <img src="assets/eventi/icb/icb-35.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo fra i partecipanti" loading="lazy" decoding="async">
+        <span class="icb-cap">Calogero Di Carlo fra i partecipanti</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Un abbraccio in sala con Calogero Di Carlo">
+        <img src="assets/eventi/icb/icb-36.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un abbraccio in sala con Calogero Di Carlo" loading="lazy" decoding="async">
+        <span class="icb-cap">Un abbraccio in sala con Calogero Di Carlo</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="Sul palco con Calogero Di Carlo">
+        <img src="assets/eventi/icb/icb-37.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: sul palco con Calogero Di Carlo" loading="lazy" decoding="async">
+        <span class="icb-cap">Sul palco con Calogero Di Carlo</span>
+      </button>
+      <button type="button" class="icb-it rv-s" data-icb data-cap="La sala del TH Roma Carpegna Palace, vista dal fondo">
+        <img src="assets/eventi/icb/icb-38.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la sala del TH Roma Carpegna Palace, vista dal fondo" loading="lazy" decoding="async">
+        <span class="icb-cap">La sala del TH Roma Carpegna Palace, vista dal fondo</span>
+      </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="&laquo;Innovare oggi, guidare il domani&raquo;: una delle presentazioni">
         <img src="assets/eventi/icb/icb-20.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: innovare oggi, guidare il domani: una delle presentazioni" loading="lazy" decoding="async">
         <span class="icb-cap">&laquo;Innovare oggi, guidare il domani&raquo;: una delle presentazioni</span>
@@ -1746,6 +1833,14 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
       </button>
     </div>
 
+    <div class="icb-credit rv">
+      <div class="icb-credit-logo"><img src="assets/tony-strino.webp" alt="Tony Strino Studio Fotografico" loading="lazy" decoding="async"></div>
+      <div class="icb-credit-txt">
+        <span class="icb-credit-eye">Fotografo ufficiale</span>
+        <b>Tony Strino Studio Fotografico</b>
+        <span>Fotografo ufficiale di UNICESD Olympo. Gli scatti della Convention del 18 settembre 2026 sono suoi.</span>
+      </div>
+    </div>
     <p class="pnote rv" style="margin-top:26px"><b>Nota.</b> Le fotografie sono state scattate durante la Convention UNICESD Olympo di venerd&igrave; 18 settembre 2026 al TH Roma Carpegna Palace di Roma. Clicca su una foto per ingrandirla; con le frecce scorri l&#39;intera galleria.</p>
   </div>
 </section>
@@ -2708,6 +2803,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
             <a href="tel:+393509651711" class="btn btn-g" data-cursor>350 965 1711</a>
             <a href="tel:+393881133550" class="btn btn-g" data-cursor>388 113 3550</a>
             <a href="tel:+393281376792" class="btn btn-g" data-cursor>328 137 6792</a>
+            <a href="tel:+393356959796" class="btn btn-g" data-cursor>335 695 9796</a>
           </div>
         </div>
         <div>
@@ -2807,6 +2903,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
             <a href="tel:+393509651711" class="btn btn-g" data-cursor>350 965 1711</a>
             <a href="tel:+393881133550" class="btn btn-g" data-cursor>388 113 3550</a>
             <a href="tel:+393281376792" class="btn btn-g" data-cursor>328 137 6792</a>
+            <a href="tel:+393356959796" class="btn btn-g" data-cursor>335 695 9796</a>
           </div>
         </div>
         <div>
@@ -2815,6 +2912,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
             <div class="fb-row"><span>Calogero Di Carlo</span><b>+39 350 965 1711</b></div>
             <div class="fb-row"><span>Jose Palazzolo</span><b>+39 388 113 3550</b></div>
             <div class="fb-row"><span>Segreteria UNICESD</span><b>+39 328 137 6792</b></div>
+            <div class="fb-row"><span>Segreteria</span><b>+39 335 695 9796</b></div>
             <div class="fb-row"><span>Email</span><b>Calogero60@yahoo.it</b></div>
             <div class="fb-row"><span>Ammissioni</span><b>Chiusura entro giugno</b></div>
             <div class="fb-row"><span>Attesa titoli Ucraina</span><b>Massimo 3 mesi</b></div>
@@ -3477,6 +3575,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         <div class="srv-i"><div class="ic">&#128222;</div><div><b>Calogero Di Carlo</b><span><a href="tel:+393509651711" style="color:inherit">+39 350 965 1711</a> &middot; <a href="mailto:Calogero60@yahoo.it" style="color:inherit">Calogero60@yahoo.it</a></span></div></div>
         <div class="srv-i"><div class="ic">&#128222;</div><div><b>Jose Palazzolo</b><span><a href="tel:+393881133550" style="color:inherit">+39 388 113 3550</a> &middot; <a href="mailto:Palazzolo.jose@gmail.com" style="color:inherit">Palazzolo.jose@gmail.com</a></span></div></div>
         <div class="srv-i"><div class="ic">&#128222;</div><div><b>Segreteria UNICESD</b><span><a href="tel:+393281376792" style="color:inherit">+39 328 137 6792</a></span></div></div>
+        <div class="srv-i"><div class="ic">&#128222;</div><div><b>Segreteria</b><span><a href="tel:+393356959796" style="color:inherit">+39 335 695 9796</a></span></div></div>
         <div class="srv-i"><div class="ic">&#128337;</div><div><b>Sempre disponibili</b><span>Assistenza h24, 7 giorni su 7 &middot; piattaforma e supporto attivi senza interruzioni</span></div></div>
       </div>
     </div>
@@ -3638,7 +3737,9 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
             <a href="tel:+393881133550" style="font-family:'Sora';font-size:17.5px;font-weight:700;color:var(--cy);display:block">+39 388 113 3550</a>
             <div style="font-size:12.2px;color:var(--txt-mute);margin:2px 0 12px">Jose Palazzolo &middot; <a href="mailto:Palazzolo.jose@gmail.com" style="color:var(--txt-dim)">Palazzolo.jose@gmail.com</a></div>
             <a href="tel:+393281376792" style="font-family:'Sora';font-size:17.5px;font-weight:700;color:var(--cy);display:block">+39 328 137 6792</a>
-            <div style="font-size:12.2px;color:var(--txt-mute);margin-top:2px">Segreteria UNICESD Olympo</div>
+            <div style="font-size:12.2px;color:var(--txt-mute);margin:2px 0 12px">Segreteria UNICESD Olympo</div>
+            <a href="tel:+393356959796" style="font-family:'Sora';font-size:17.5px;font-weight:700;color:var(--cy);display:block">+39 335 695 9796</a>
+            <div style="font-size:12.2px;color:var(--txt-mute);margin-top:2px">Segreteria</div>
           </div>
         </div>
 
@@ -3731,7 +3832,9 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
             <a href="tel:+393881133550" style="font-family:'Sora';font-size:19px;font-weight:700;color:var(--cy);display:block">+39 388 113 3550</a>
             <div style="font-size:12.2px;color:var(--txt-mute);margin:2px 0 10px">Jose Palazzolo</div>
             <a href="tel:+393281376792" style="font-family:'Sora';font-size:19px;font-weight:700;color:var(--cy);display:block">+39 328 137 6792</a>
-            <div style="font-size:12.2px;color:var(--txt-mute);margin-top:2px">Segreteria UNICESD Olympo</div>
+            <div style="font-size:12.2px;color:var(--txt-mute);margin:2px 0 12px">Segreteria UNICESD Olympo</div>
+            <a href="tel:+393356959796" style="font-family:'Sora';font-size:19px;font-weight:700;color:var(--cy);display:block">+39 335 695 9796</a>
+            <div style="font-size:12.2px;color:var(--txt-mute);margin-top:2px">Segreteria</div>
           </div>
         </div>
 
@@ -3792,6 +3895,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         <a href="tel:+393509651711" class="btn btn-g" data-cursor>Chiama +39 350 965 1711</a>
         <a href="tel:+393881133550" class="btn btn-g" data-cursor>+39 388 113 3550</a>
         <a href="tel:+393281376792" class="btn btn-g" data-cursor>+39 328 137 6792</a>
+        <a href="tel:+393356959796" class="btn btn-g" data-cursor>+39 335 695 9796</a>
       </div>
     </div>
   </div>
@@ -3826,6 +3930,13 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
       <div style="display:flex;gap:20px;flex-wrap:wrap">
         <a href="#" data-modal="privacy">Privacy</a><a href="#" data-modal="privacy">Cookie</a><a href="#" data-modal="privacy">Note legali</a>
       </div>
+    </div>
+    <div class="f-credit">
+      <a href="https://danova-tech.com/" target="_blank" rel="noopener" class="dnv" aria-label="Sito realizzato da Danova Tech">
+        <span class="dnv-lab">Sito realizzato da</span>
+        <svg viewBox="0 0 96 96" aria-hidden="true"><rect x="14" y="18" width="60" height="60" rx="17" fill="none" stroke="currentColor" stroke-width="7.5"/><rect x="30" y="34" width="28" height="28" rx="9" fill="none" stroke="currentColor" stroke-width="7.5"/><line x1="8" y1="92" x2="82" y2="4" stroke="#2B6BF0" stroke-width="7.5"/></svg>
+        <span class="dnv-wm"><span class="dnv-n1">DANOVA</span><span class="dnv-n2">TECH</span></span>
+      </a>
     </div>
   </div>
 </footer>

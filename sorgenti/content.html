@@ -741,6 +741,28 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 .pcard:hover .pc-link svg{transform:translateX(4px)}
 .pnote{margin-top:30px;padding:20px 24px;border-radius:16px;border:1px solid var(--line);background:var(--surface);font-size:13.2px;color:var(--txt-mute);line-height:1.65}
 .pnote b{color:var(--txt-dim)}
+/* credito del fotografo sotto la galleria I came back */
+.icb-credit{display:flex;align-items:center;gap:28px;margin-top:34px;padding:22px 28px;border-radius:20px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-md)}
+.icb-credit-logo{flex:0 0 auto;background:#fff;border-radius:14px;padding:14px 20px;box-shadow:0 1px 0 rgba(20,32,90,.06),0 6px 18px rgba(20,32,90,.08)}
+.icb-credit-logo img{display:block;width:210px;height:auto}
+.icb-credit-txt{display:flex;flex-direction:column;gap:4px;line-height:1.5}
+.icb-credit-eye{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cy)}
+.icb-credit-txt b{font-family:'Sora',sans-serif;font-size:18px;color:var(--txt)}
+.icb-credit-txt span:last-child{font-size:13.4px;color:var(--txt-mute)}
+@media(max-width:720px){
+  .icb-credit{flex-direction:column;text-align:center;gap:16px;padding:22px 18px}
+  .icb-credit-logo img{width:180px}
+  .icb-credit-txt{align-items:center}
+}
+/* firma Danova Tech nel footer */
+.f-credit{display:flex;justify-content:center;padding:4px 0 26px}
+.dnv{display:inline-flex;align-items:center;gap:10px;color:#e7eeff;text-decoration:none;opacity:.72;transition:opacity .3s,transform .3s}
+.dnv:hover{opacity:1;transform:translateY(-2px)}
+.dnv svg{width:24px;height:24px;display:block}
+.dnv-lab{font-size:11.6px;color:var(--txt-mute);margin-right:2px}
+.dnv-wm{display:flex;flex-direction:column;line-height:1}
+.dnv-n1{font-size:12px;font-weight:700;letter-spacing:.19em}
+.dnv-n2{font-size:7.6px;font-weight:600;letter-spacing:.34em;color:#95A1B6;margin-top:3px}
 @media(max-width:640px){.pgrid{grid-template-columns:1fr}.pc-logo{width:110px;height:58px}.pcard{padding:20px}}
 
 
