@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://unicesd-olympo.com/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -11,176 +11,954 @@
       <image:title>UNICESD Olympo - Il futuro della formazione parte da qui</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://unicesd-olympo.com/assets/logo-master.png</image:loc>
+      <image:loc>https://unicesd-olympo.com/assets/logo-schema.png</image:loc>
       <image:title>Logo UNICESD Olympo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/logo-light-480.webp</image:loc>
+      <image:title>UNICESD Olympo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/logo-navy-480.webp</image:loc>
+      <image:title>UNICESD Olympo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-01.webp</image:loc>
+      <image:title>Copertina di Mondo Universitario di settembre 2026 con Calogero Di Carlo e il titolo I came back! Sono tornato per stupirvi ancora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-02.webp</image:loc>
+      <image:title>Copertina di Mondo Universitario dedicata alla forza della comunita universitaria, con il taglio della torta UNICESD Olympo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-03.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: la locandina della Convention nella sala del TH Roma Carpegna Palace</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-04.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: la sala durante i lavori della giornata</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-05.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il pubblico della Convention</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-06.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: le prime file, durante gli interventi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-07.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo al microfono</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-08.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo davanti allo schermo della Convention</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-09.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori e lo schermo UNICESD Olympo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-10.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il confronto al tavolo dei relatori</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-11.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un passaggio dell&#x27;intervento dal tavolo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-12.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-13.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un contributo dei partecipanti</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-14.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-15.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-16.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-17.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-18.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il microfono passa fra i partecipanti</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-19.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: domande e risposte con il fondatore</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-25.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori sotto lo schermo Il futuro della formazione parte da qui</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-26.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: gli interventi in piedi, davanti alla sala</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-27.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: la presentazione di Luxium Education</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-28.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo durante il suo intervento</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-29.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-30.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un momento di confronto con Calogero Di Carlo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-31.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-32.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo in ascolto al tavolo dei relatori</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-33.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento davanti allo schermo della Convention</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-34.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dal pubblico, con Calogero Di Carlo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-35.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo fra i partecipanti</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-36.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un abbraccio in sala con Calogero Di Carlo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-37.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: sul palco con Calogero Di Carlo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-38.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: la sala del TH Roma Carpegna Palace, vista dal fondo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-20.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: innovare oggi, guidare il domani: una delle presentazioni</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-21.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: gli applausi della sala</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-22.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: sul palco, a fine intervento</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-23.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un saluto al microfono</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-24.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il saluto finale ai partecipanti</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/tony-strino.webp</image:loc>
+      <image:title>Tony Strino Studio Fotografico</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-brochure.webp</image:loc>
+      <image:title>Copertina della brochure 2026 dell&#x27;Istituto Janus per la Formazione Superiore: il marchio Janus su fondo blu notte e un tablet con la scritta E-learning appoggiato su una pila di libri</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-risultati.webp</image:loc>
+      <image:title>Pagina della brochure Janus con le percentuali di successo degli studenti</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-nascita.webp</image:loc>
+      <image:title>Pagina della brochure Janus sulla nascita dell&#x27;Istituto</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-modello.webp</image:loc>
+      <image:title>Pagina della brochure Janus sul modello educativo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-corsi.webp</image:loc>
+      <image:title>Pagina della brochure Janus con i corsi di studio</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-staff.webp</image:loc>
+      <image:title>Pagina della brochure Janus con gli uffici e lo staff di Roma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-roadmap.webp</image:loc>
+      <image:title>Roadmap dei poli remoti Janus: le sette tappe dal contratto all&#x27;Open Day nazionale del 12 settembre</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-partnerday.webp</image:loc>
+      <image:title>Locandina del Janus Partner Day del 31 luglio 2026 e della Janus Partner Night a Villa Veientana</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/programma-18set2026.webp</image:loc>
+      <image:title>Programma del giorno della Convention UNICESD Olympo del 18 settembre 2026: registrazione alle 15:00, inizio dei lavori alle 16:00, intervento di Calogero Di Carlo alle 16:30, interventi dei partecipanti dalle 17:00 alle 20:00, cena e taglio della torta alle 20:00</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/convention-18set2026.webp</image:loc>
+      <image:title>Locandina della Convention UNICESD Olympo del 18 settembre 2026 al TH Roma Carpegna Palace</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/master-protocollo.jpg</image:loc>
+      <image:title>Comunicato stampa della firma del protocollo d&#x27;intesa a Villa Niscemi, Palermo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/iset-produzione.webp</image:loc>
+      <image:title>Linea di montaggio automatico di schede elettroniche I.S.E.T.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/iset-controllo.webp</image:loc>
+      <image:title>Sala di controllo e impianti per il trasporto su ferro realizzati da I.S.E.T.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/cefalu-render.webp</image:loc>
+      <image:title>Render del progetto di riqualificazione sul lungomare di Cefalù</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/cefalu-aerea.webp</image:loc>
+      <image:title>Veduta aerea di Cefalù con l&#x27;area di intervento evidenziata</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/villa-ricettivo.webp</image:loc>
+      <image:title>Struttura ricettiva in pietra con piscina</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/madonie-terreni.webp</image:loc>
+      <image:title>Terreni e oliveti delle Madonie affacciati sul mare</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/kalos-magazzino.webp</image:loc>
+      <image:title>Deposito aziendale dell&#x27;azienda agricola nelle Madonie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/kalos-etichetta.webp</image:loc>
+      <image:title>Etichetta dell&#x27;olio extravergine di oliva biologico Bio Kalos Madonie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/teatro-massimo.webp</image:loc>
+      <image:title>Incontro istituzionale a Palermo davanti al Teatro Massimo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/founder-cers.webp</image:loc>
       <image:title>Calogero Di Carlo, fondatore di UNICESD Olympo</image:title>
     </image:image>
     <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eccellenze.webp</image:loc>
+      <image:title>Prefazione di Calogero Di Carlo su Eccellenze Italiane</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/premiazione.webp</image:loc>
+      <image:title>Calogero Di Carlo durante la consegna di un riconoscimento</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/effettotre.webp</image:loc>
+      <image:title>Copertina di Effettotre, giugno 2022</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/libro-sedi.webp</image:loc>
+      <image:title>Le sedi dell&#x27;Università Telematica Pegaso, percorsi d&#x27;Arte e di Stile</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/monografia-cover.webp</image:loc>
+      <image:title>Calogero Di Carlo — Tante vite in una, monografia ItaliaVale</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/press-cover.jpg</image:loc>
+      <image:title>Copertina Hashtag Magazine: UNICESD Olympo riparte</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/pegaso-evento.jpg</image:loc>
+      <image:title>Incontro nella rete della formazione universitaria telematica</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/swa-medicina.webp</image:loc>
+      <image:title>Studia Medicina all&#x27;estero — Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/swa-odontoiatria.webp</image:loc>
+      <image:title>Studia Odontoiatria all&#x27;estero — Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/swa-infermieristica.webp</image:loc>
+      <image:title>Studia Infermieristica all&#x27;estero — Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/swa-igiene.webp</image:loc>
+      <image:title>Corso di formazione professionale in Igiene Dentale — Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eremita-cover.webp</image:loc>
+      <image:title>Brochure Studio Eremita, AI &amp; Business Intelligence</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/fnc-cover.webp</image:loc>
+      <image:title>Fondo Nuove Competenze 2026 — Competenze per l&#x27;Innovazione</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/uniscuole.webp</image:loc>
+      <image:title>Uniscuole</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/siulp.webp</image:loc>
+      <image:title>SIULP Torino</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/eremita.webp</image:loc>
+      <image:title>Studio Eremita</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/iset.webp</image:loc>
+      <image:title>I.S.E.T. – Industria Sistemi Elettronici</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/giurecoform.webp</image:loc>
+      <image:title>Giurecoform – Centro di Formazione Giuridica ed Economica</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/luxium.webp</image:loc>
+      <image:title>Luxium Solutions</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/euroform.webp</image:loc>
+      <image:title>Euroform – Scuola dei Mestieri</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/biokalos.webp</image:loc>
+      <image:title>Bio Kalos Madonie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/janus.webp</image:loc>
+      <image:title>Janus – Istituto Superiore per la Formazione</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/pegaso-athletic.webp</image:loc>
+      <image:title>A.S.D.P. Pegaso Athletic</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/mauriziana.webp</image:loc>
+      <image:title>Università Popolare Mauriziana</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/hashtag.webp</image:loc>
+      <image:title>Hashtag Magazine</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/polaris.webp</image:loc>
+      <image:title>Polaris Campus</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/athena.webp</image:loc>
+      <image:title>Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/siulp-locandina.webp</image:loc>
+      <image:title>Locandina SIULP Torino: Investi sul tuo futuro e su quello della tua famiglia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/lisboa-sede.webp</image:loc>
+      <image:title>UNICESD Olympo Lisboa, sede portoghese in Rua Castilho 13</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/ecp-sedi.webp</image:loc>
+      <image:title>Le nuove sedi ECP Olympo – UNICESD</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-di-laurea/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/master-universitari/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/certificazioni/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-di-laurea/giurisprudenza/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-di-laurea/economia-aziendale/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-psicologiche/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-educazione/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-di-laurea/ingegneria-informatica/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-motorie/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/master-made-in-italy-global-leadership/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/master-universitari/management-imprese-turistiche/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/master-universitari/didattica-innovazione-digitale/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/master-universitari/diritto-impresa-internazionale/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/master-universitari/data-analytics-business/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/master-universitari/management-sanitario/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/certificazioni/informatiche/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/certificazioni/linguistiche/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/certificazioni/graduatorie-scuola/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-singoli-cfu/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/riconoscimento-cfu/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/formazione-aziendale/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/offerta-formativa/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/master-protocollo.jpg</image:loc>
+      <image:title>Comunicato stampa della firma del protocollo d&#x27;intesa a Villa Niscemi, Palermo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/janus-diploma-online/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-brochure.webp</image:loc>
+      <image:title>Copertina della brochure 2026 dell&#x27;Istituto Janus per la Formazione Superiore: il marchio Janus su fondo blu notte e un tablet con la scritta E-learning appoggiato su una pila di libri</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-risultati.webp</image:loc>
+      <image:title>Pagina della brochure Janus con le percentuali di successo degli studenti</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-nascita.webp</image:loc>
+      <image:title>Pagina della brochure Janus sulla nascita dell&#x27;Istituto</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-modello.webp</image:loc>
+      <image:title>Pagina della brochure Janus sul modello educativo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-corsi.webp</image:loc>
+      <image:title>Pagina della brochure Janus con i corsi di studio</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-pg-staff.webp</image:loc>
+      <image:title>Pagina della brochure Janus con gli uffici e lo staff di Roma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-roadmap.webp</image:loc>
+      <image:title>Roadmap dei poli remoti Janus: le sette tappe dal contratto all&#x27;Open Day nazionale del 12 settembre</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/janus/janus-partnerday.webp</image:loc>
+      <image:title>Locandina del Janus Partner Day del 31 luglio 2026 e della Janus Partner Night a Villa Veientana</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/medicina-senza-test-ingresso/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/swa-medicina.webp</image:loc>
+      <image:title>Studia Medicina all&#x27;estero — Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/swa-odontoiatria.webp</image:loc>
+      <image:title>Studia Odontoiatria all&#x27;estero — Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/swa-infermieristica.webp</image:loc>
+      <image:title>Studia Infermieristica all&#x27;estero — Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/swa-igiene.webp</image:loc>
+      <image:title>Corso di formazione professionale in Igiene Dentale — Study with Athena</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/intelligenza-artificiale-ai-act/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eremita-cover.webp</image:loc>
+      <image:title>Brochure Studio Eremita, AI &amp; Business Intelligence</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/fondo-nuove-competenze-2026/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/fnc-cover.webp</image:loc>
+      <image:title>Fondo Nuove Competenze 2026 — Competenze per l&#x27;Innovazione</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/chi-siamo/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/iset-produzione.webp</image:loc>
+      <image:title>Linea di montaggio automatico di schede elettroniche I.S.E.T.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/iset-controllo.webp</image:loc>
+      <image:title>Sala di controllo e impianti per il trasporto su ferro realizzati da I.S.E.T.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/cefalu-render.webp</image:loc>
+      <image:title>Render del progetto di riqualificazione sul lungomare di Cefalù</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/cefalu-aerea.webp</image:loc>
+      <image:title>Veduta aerea di Cefalù con l&#x27;area di intervento evidenziata</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/villa-ricettivo.webp</image:loc>
+      <image:title>Struttura ricettiva in pietra con piscina</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/madonie-terreni.webp</image:loc>
+      <image:title>Terreni e oliveti delle Madonie affacciati sul mare</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/kalos-magazzino.webp</image:loc>
+      <image:title>Deposito aziendale dell&#x27;azienda agricola nelle Madonie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/kalos-etichetta.webp</image:loc>
+      <image:title>Etichetta dell&#x27;olio extravergine di oliva biologico Bio Kalos Madonie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/teatro-massimo.webp</image:loc>
+      <image:title>Incontro istituzionale a Palermo davanti al Teatro Massimo</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/convention-18set2026.webp</image:loc>
-      <image:title>Locandina della Convention UNICESD Olympo del 18 settembre 2026</image:title>
+      <image:title>Il Corriere di Firenze: la convention UNICESD Olympo del 18 settembre a Roma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/press-cover.jpg</image:loc>
+      <image:title>Copertina Hashtag Magazine: UNICESD Olympo riparte</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/master-protocollo.jpg</image:loc>
+      <image:title>Comunicato stampa: nasce il Master Made in Italy Global Leadership</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/pegaso-evento.jpg</image:loc>
+      <image:title>Incontro nella rete della formazione universitaria telematica</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/calogero-di-carlo/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/founder-cers.webp</image:loc>
+      <image:title>Calogero Di Carlo, fondatore di UNICESD Olympo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eccellenze.webp</image:loc>
+      <image:title>Prefazione di Calogero Di Carlo su Eccellenze Italiane</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/premiazione.webp</image:loc>
+      <image:title>Calogero Di Carlo durante la consegna di un riconoscimento</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/effettotre.webp</image:loc>
+      <image:title>Copertina di Effettotre, giugno 2022</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/libro-sedi.webp</image:loc>
+      <image:title>Le sedi dell&#x27;Università Telematica Pegaso, percorsi d&#x27;Arte e di Stile</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/monografia-cover.webp</image:loc>
+      <image:title>Calogero Di Carlo — Tante vite in una, monografia ItaliaVale</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/eventi/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/convention-18set2026.webp</image:loc>
+      <image:title>Locandina della Convention UNICESD Olympo del 18 settembre 2026 al TH Roma Carpegna Palace</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/programma-18set2026.webp</image:loc>
-      <image:title>Programma della Convention UNICESD Olympo del 18 settembre 2026</image:title>
+      <image:title>Programma del giorno della Convention UNICESD Olympo del 18 settembre 2026: registrazione alle 15:00, inizio dei lavori alle 16:00, intervento di Calogero Di Carlo alle 16:30, interventi dei partecipanti dalle 17:00 alle 20:00, cena e taglio della torta alle 20:00</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-01.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 1 di 38</image:title>
+      <image:title>Copertina di Mondo Universitario di settembre 2026 con Calogero Di Carlo e il titolo I came back! Sono tornato per stupirvi ancora</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-02.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 2 di 38</image:title>
+      <image:title>Copertina di Mondo Universitario dedicata alla forza della comunita universitaria, con il taglio della torta UNICESD Olympo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-03.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 3 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: la locandina della Convention nella sala del TH Roma Carpegna Palace</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-04.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 4 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: la sala durante i lavori della giornata</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-05.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 5 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il pubblico della Convention</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-06.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 6 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: le prime file, durante gli interventi</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-07.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 7 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo al microfono</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-08.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 8 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo davanti allo schermo della Convention</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-09.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 9 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori e lo schermo UNICESD Olympo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-10.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 10 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il confronto al tavolo dei relatori</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-11.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 11 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un passaggio dell&#x27;intervento dal tavolo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-12.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 12 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-13.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 13 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un contributo dei partecipanti</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-14.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 14 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-15.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 15 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-16.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 16 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-17.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 17 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-18.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 18 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il microfono passa fra i partecipanti</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-19.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 19 di 38</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-20.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 20 di 38</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-21.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 21 di 38</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-22.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 22 di 38</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-23.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 23 di 38</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-24.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 24 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: domande e risposte con il fondatore</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-25.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 25 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori sotto lo schermo Il futuro della formazione parte da qui</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-26.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 26 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: gli interventi in piedi, davanti alla sala</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-27.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 27 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: la presentazione di Luxium Education</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-28.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 28 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo durante il suo intervento</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-29.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 29 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-30.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 30 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un momento di confronto con Calogero Di Carlo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-31.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 31 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-32.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 32 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo in ascolto al tavolo dei relatori</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-33.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 33 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento davanti allo schermo della Convention</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-34.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 34 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un intervento dal pubblico, con Calogero Di Carlo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-35.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 35 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo fra i partecipanti</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-36.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 36 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un abbraccio in sala con Calogero Di Carlo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-37.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 37 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: sul palco con Calogero Di Carlo</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-38.webp</image:loc>
-      <image:title>Convention UNICESD Olympo, 18 settembre 2026 - foto 38 di 38</image:title>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: la sala del TH Roma Carpegna Palace, vista dal fondo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-20.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: innovare oggi, guidare il domani: una delle presentazioni</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-21.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: gli applausi della sala</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-22.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: sul palco, a fine intervento</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-23.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: un saluto al microfono</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/eventi/icb/icb-24.webp</image:loc>
+      <image:title>Convention UNICESD Olympo del 18 settembre 2026: il saluto finale ai partecipanti</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/tony-strino.webp</image:loc>
-      <image:title>Tony Strino Studio Fotografico - fotografo ufficiale di UNICESD Olympo</image:title>
+      <image:title>Tony Strino Studio Fotografico</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/servizi-studenti/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/rete-e-partner/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/uniscuole.webp</image:loc>
+      <image:title>Uniscuole</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/siulp.webp</image:loc>
+      <image:title>SIULP Torino</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/eremita.webp</image:loc>
+      <image:title>Studio Eremita</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/iset.webp</image:loc>
+      <image:title>I.S.E.T. – Industria Sistemi Elettronici</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/giurecoform.webp</image:loc>
+      <image:title>Giurecoform – Centro di Formazione Giuridica ed Economica</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/luxium.webp</image:loc>
+      <image:title>Luxium Solutions</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/euroform.webp</image:loc>
+      <image:title>Euroform – Scuola dei Mestieri</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/biokalos.webp</image:loc>
+      <image:title>Bio Kalos Madonie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/janus.webp</image:loc>
+      <image:title>Janus – Istituto Superiore per la Formazione</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/pegaso-athletic.webp</image:loc>
+      <image:title>A.S.D.P. Pegaso Athletic</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/mauriziana.webp</image:loc>
+      <image:title>Università Popolare Mauriziana</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/hashtag.webp</image:loc>
+      <image:title>Hashtag Magazine</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/polaris.webp</image:loc>
+      <image:title>Polaris Campus</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/athena.webp</image:loc>
+      <image:title>Study with Athena</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/siulp-locandina.webp</image:loc>
+      <image:title>Locandina SIULP Torino: Investi sul tuo futuro e su quello della tua famiglia</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/sedi/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/lisboa-sede.webp</image:loc>
+      <image:title>UNICESD Olympo Lisboa, sede portoghese in Rua Castilho 13</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/apri-una-sede/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/ecp-sedi.webp</image:loc>
+      <image:title>Le nuove sedi ECP Olympo – UNICESD</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/faq/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/contatti/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

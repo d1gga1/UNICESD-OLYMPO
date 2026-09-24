@@ -14,8 +14,8 @@ OUT_FULL = HERE.parent / "unicesd-olympo.html"
 OUT_ARTIFACT = HERE / "artifact.html"
 
 IMAGES = {
-    "__IMG_LOGO__": "img/logo-light.png",          # bianco, per preloader e footer (fondo scuro)
-    "__IMG_LOGO_NAVY__": "img/logo-navy.webp",     # navy, per l'header del tema chiaro
+    "__IMG_LOGO__": "img/logo-light-480.webp",          # bianco, per preloader e footer (fondo scuro)
+    "__IMG_LOGO_NAVY__": "img/logo-navy-480.webp",     # navy, per l'header del tema chiaro
     "__IMG_FOUNDER_NEW__": "img/founder-cers.webp",
     "__IMG_PRESS__": "img/press-cover.jpg",
     "__IMG_GRUPPO__": "img/gruppo-olympo.webp",
@@ -110,6 +110,8 @@ IMAGES = {
     "__ICB_38__": "img/eventi/icb/icb-38.webp",
     # logo del fotografo ufficiale, sotto la galleria
     "__IMG_STRINO__": "img/tony-strino.webp",
+    # logo 600px per i dati strutturati (Google Knowledge Panel)
+    "__IMG_LOGO_SCHEMA__": "img/logo-schema.png",
 }
 
 # Sfondi generati con Higgsfield + globo animato: finiscono nel CSS e nel markup.

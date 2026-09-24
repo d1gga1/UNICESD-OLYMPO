@@ -1,11 +1,14 @@
+# UNICESD Olympo - robots.txt
 User-agent: *
 Allow: /
+Disallow: /sorgenti/
+Disallow: /_to_delete/
 
-# risorse necessarie al rendering della pagina
-Allow: /assets/
-
-# bot di scraping per dataset generativi
+# scraping per dataset generativi (non porta visite)
 User-agent: CCBot
 Disallow: /
+
+# i motori di risposta AI (ChatGPT search, Perplexity, Claude, Gemini) restano ammessi:
+# citano la fonte e portano traffico qualificato
 
 Sitemap: https://unicesd-olympo.com/sitemap.xml

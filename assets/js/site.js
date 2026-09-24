@@ -1,5 +1,4 @@
 
-<script>
 (function(){
 'use strict';
 var $=function(s,c){return (c||document).querySelector(s)};
@@ -900,4 +899,3 @@ window.addEventListener('scroll',function(){
   },{passive:true});
 })();
 
-</script>

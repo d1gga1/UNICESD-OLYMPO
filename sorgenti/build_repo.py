@@ -7,6 +7,9 @@ Uso:  python3 build_repo.py
 """
 import pathlib
 import shutil
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -48,11 +51,16 @@ def main() -> None:
 
     (REPO / "index.html").write_text(out, encoding="utf-8")
 
-    for n in ("head.html", "content.html", "body.html", "script.html", "schema.html", "build.py", "build_repo.py"):
+    for n in ("head.html", "content.html", "body.html", "script.html", "schema.html", "build.py", "build_repo.py",
+              "build_pages.py", "pagine.py"):
         shutil.copy2(HERE / n, REPO / "sorgenti" / n)
 
     kb = (REPO / "index.html").stat().st_size / 1024
     print(f"Fatto: {REPO / 'index.html'}  ({kb:.0f} KB)")
+
+    # pagine dedicate, sitemap, robots, llms.txt, icone (vedi build_pages.py)
+    import build_pages
+    build_pages.main()
 
 
 if __name__ == "__main__":

@@ -5,14 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="googlebot" content="index,follow">
-<meta name="description" content="UNICESD Olympo, Centro Studi di Palermo: orientamento, tutoraggio e coordinamento di corsi di laurea online, master universitari di I e II livello, certificazioni informatiche e linguistiche. Riconoscimento CFU gratuito e tutor dedicato.">
+<meta name="description" content="Centro Studi di Palermo per lauree online, master di I e II livello e certificazioni: orientamento gratuito, tutor dedicato e riconoscimento CFU in 48 ore.">
 <meta name="author" content="UNICESD Olympo SRL">
 <meta name="publisher" content="UNICESD Olympo SRL">
 <meta name="theme-color" content="#23387e">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://unicesd-olympo.com/">
-<link rel="icon" href="assets/logo-navy.webp" type="image/webp">
-<link rel="apple-touch-icon" href="assets/logo-navy.webp">
+<link rel="alternate" hreflang="it-IT" href="https://unicesd-olympo.com/">
+<link rel="alternate" hreflang="x-default" href="https://unicesd-olympo.com/">
+<link rel="alternate" type="text/plain" title="llms.txt" href="https://unicesd-olympo.com/llms.txt">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" as="image" href="assets/ai/hero-bg.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">
@@ -22,7 +28,7 @@
 <meta name="ICBM" content="38.1157, 13.3615">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNICESD Olympo">
-<meta property="og:title" content="UNICESD Olympo | Centro Studi a Palermo: lauree, master e certificazioni">
+<meta property="og:title" content="UNICESD Olympo | Centro Studi Palermo: lauree online e master">
 <meta property="og:description" content="Orientamento, tutoraggio e coordinamento di percorsi universitari e di alta formazione. Corsi di laurea online, master, certificazioni e riconoscimento CFU gratuito.">
 <meta property="og:url" content="https://unicesd-olympo.com/">
 <meta property="og:image" content="https://unicesd-olympo.com/assets/og-cover.jpg">
@@ -37,7 +43,7 @@
 <meta name="twitter:description" content="Corsi di laurea online, master universitari, certificazioni e alta formazione. Riconoscimento CFU gratuito e tutor dedicato.">
 <meta name="twitter:image" content="https://unicesd-olympo.com/assets/og-cover.jpg">
 <meta name="twitter:image:alt" content="UNICESD Olympo - Il futuro della formazione parte da qui">
-<title>UNICESD Olympo | Centro Studi a Palermo: lauree, master e certificazioni</title>
+<title>UNICESD Olympo | Centro Studi Palermo: lauree online e master</title>
 
 <style>
 
@@ -1159,6 +1165,56 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
 /* testo per screen reader e motori di ricerca, invisibile a schermo */
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* ===== pagine interne (build_pages.py) ===== */
+.phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
+.phero h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:16px 0 18px;max-width:980px}
+.phero .ph-lead{font-size:18px;color:var(--txt-dim);max-width:780px;margin-bottom:26px}
+.ph-cta{display:flex;gap:12px;flex-wrap:wrap}
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22px;padding:0;font-size:13px;color:var(--txt-mute)}
+.crumbs li+li::before{content:"\203A";margin-right:6px;opacity:.7}
+.crumbs a{color:var(--txt-dim);text-decoration:none}
+.crumbs a:hover{color:var(--txt-strong);text-decoration:underline}
+.phero+section[style*="padding-top:0"],.phero+section[style*="padding-top:8px"]{padding-top:80px!important}
+.course{padding:70px 0 30px}
+.c-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:40px;align-items:start}
+.c-main h2{font-size:clamp(20px,2.4vw,26px);margin:30px 0 14px}
+.c-main p{color:var(--txt-dim);font-size:16px;margin-bottom:14px}
+.c-main .m-list{padding:0;margin:0 0 10px}
+.c-note{font-size:14px!important;border-left:3px solid var(--cy);padding:10px 14px;background:var(--surface);border-radius:8px;margin-top:22px}
+.c-side{position:sticky;top:110px}
+.c-box{border-radius:22px;padding:28px 24px;background:linear-gradient(135deg,#0a1436,#152668 48%,#1d2f7c);border:1px solid rgba(130,180,255,.3);box-shadow:var(--shadow-xl)}
+.c-box h2{font-size:20px;margin-bottom:14px}
+.c-small{font-size:12.5px;color:var(--txt-mute);margin-top:14px}
+.c-small a{color:inherit}
+.card-link{color:inherit;text-decoration:none}
+.card-link::after{content:"";position:absolute;inset:0;z-index:3}
+.pcards{padding:60px 0}
+.hubs{padding:56px 0 0}
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.hub-i{display:flex;flex-direction:column;gap:4px;position:relative;padding:20px 44px 20px 20px;border-radius:16px;border:1px solid var(--line);background:var(--panel);text-decoration:none;color:var(--txt);transition:.35s var(--ease)}
+.hub-i b{font-family:'Sora';font-size:16px;color:var(--txt-strong)}
+.hub-i span{font-size:13.5px;color:var(--txt-dim)}
+.hub-i svg{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--cy);transition:.35s var(--ease)}
+.hub-i:hover{border-color:var(--line-strong);box-shadow:var(--shadow-md)}
+.hub-i:hover svg{transform:translate(4px,-50%)}
+.cblock{padding:64px 0 10px}
+.c3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.c-card{padding:26px 24px;border-radius:18px;border:1px solid var(--line);background:var(--panel)}
+.c-card h2{font-size:18px;margin-bottom:12px}
+.c-card p{margin-bottom:12px;color:var(--txt-dim)}
+.c-card address{font-style:normal}
+.c-card a{color:var(--cy);font-weight:600}
+.f-seo{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;padding:34px 0 30px;margin-top:10px;border-top:1px solid rgba(160,190,255,.14)}
+.f-seo h5{font-family:'Sora';font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;opacity:.85}
+.f-seo ul{list-style:none;padding:0;margin:0}
+.f-seo li{margin-bottom:7px;font-size:13px}
+.f-seo a{color:inherit;opacity:.72;text-decoration:none}
+.f-seo a:hover{opacity:1;text-decoration:underline}
+@media(max-width:980px){.c-grid{grid-template-columns:1fr}.c-side{position:static}.c3{grid-template-columns:1fr}.f-seo{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.phero{padding:44px 0 44px}.f-seo{grid-template-columns:1fr}}
+
+.card-more{text-decoration:none}
 </style>
 <script type="application/ld+json">
 {
@@ -1174,7 +1230,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
       "logo": {
         "@type": "ImageObject",
         "@id": "https://unicesd-olympo.com/#logo",
-        "url": "https://unicesd-olympo.com/assets/logo-master.png",
+        "url": "https://unicesd-olympo.com/assets/logo-schema.png",
         "caption": "UNICESD Olympo"
       },
       "image": "https://unicesd-olympo.com/assets/og-cover.jpg",
@@ -1373,7 +1429,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
 <!-- ===== PRELOADER ===== -->
 <div id="preloader" class="dark">
-  <img class="pl-logo" src="assets/logo-light.png" alt="UNICESD Olympo">
+  <img width="480" height="187" class="pl-logo" src="assets/logo-light-480.webp" alt="UNICESD Olympo">
   <div class="pl-bar"><i></i></div>
   <div class="pl-txt">Universitas Centro Studi Olympo</div>
   <div class="pl-pct">0%</div>
@@ -1406,7 +1462,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 <header id="hdr">
   <nav class="nav">
     <a href="#top" class="brand" aria-label="UNICESD Olympo, torna all'inizio">
-      <img class="brand-logo" src="assets/logo-navy.webp" alt="UNICESD Olympo">
+      <img width="480" height="187" class="brand-logo" src="assets/logo-navy-480.webp" fetchpriority="high" alt="UNICESD Olympo">
       <span class="brand-rule"></span>
       <span class="brand-sub">Centro Studi</span>
     </a>
@@ -1418,34 +1474,34 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           <div class="mega-grid">
             <div class="mega-col">
               <h5>Chi siamo</h5>
-              <a href="#ateneo" class="mega-item"><div class="mega-ic">&#127963;</div><div><b>Il Centro Studi</b><span>Storia, missione e visione dal 2008</span></div></a>
-              <a href="#gruppo" class="mega-item"><div class="mega-ic">&#127970;</div><div><b>Il Gruppo</b><span>Assetto societario Olympo CDC</span></div></a>
-              <a href="#storia" class="mega-item"><div class="mega-ic">&#128220;</div><div><b>Dati istituzionali</b><span>P.IVA, REA, sede legale</span></div></a>
-              <a href="#storia" class="mega-item"><div class="mega-ic">&#9201;</div><div><b>La nostra storia</b><span>Timeline 2015 &ndash; 2026</span></div></a>
-              <a href="#stampa" class="mega-item"><div class="mega-ic">&#128240;</div><div><b>Rassegna stampa</b><span>Il progetto sui media</span></div></a>
-              <a href="#voce" class="mega-item"><div class="mega-ic">&#127897;</div><div><b>Interventi e interviste</b><span>La voce del fondatore</span></div></a>
+              <a href="/chi-siamo/" class="mega-item"><div class="mega-ic">&#127963;</div><div><b>Il Centro Studi</b><span>Storia, missione e visione dal 2008</span></div></a>
+              <a href="/chi-siamo/#gruppo" class="mega-item"><div class="mega-ic">&#127970;</div><div><b>Il Gruppo</b><span>Assetto societario Olympo CDC</span></div></a>
+              <a href="/chi-siamo/#storia" class="mega-item"><div class="mega-ic">&#128220;</div><div><b>Dati istituzionali</b><span>P.IVA, REA, sede legale</span></div></a>
+              <a href="/chi-siamo/#storia" class="mega-item"><div class="mega-ic">&#9201;</div><div><b>La nostra storia</b><span>Timeline 2015 &ndash; 2026</span></div></a>
+              <a href="/chi-siamo/#stampa" class="mega-item"><div class="mega-ic">&#128240;</div><div><b>Rassegna stampa</b><span>Il progetto sui media</span></div></a>
+              <a href="/calogero-di-carlo/#voce" class="mega-item"><div class="mega-ic">&#127897;</div><div><b>Interventi e interviste</b><span>La voce del fondatore</span></div></a>
             </div>
             <div class="mega-col">
               <h5>Governance</h5>
-              <a href="#fondatore" class="mega-item"><div class="mega-ic">&#11088;</div><div><b>Il fondatore</b><span>Calogero Di Carlo</span></div></a>
-              <a href="#ateneo" class="mega-item"><div class="mega-ic">&#128100;</div><div><b>Organi societari</b><span>Direzione e coordinamento</span></div></a>
-              <a href="#partner" class="mega-item"><div class="mega-ic">&#129309;</div><div><b>Partnership</b><span>Atenei e reti accreditate</span></div></a>
+              <a href="/calogero-di-carlo/" class="mega-item"><div class="mega-ic">&#11088;</div><div><b>Il fondatore</b><span>Calogero Di Carlo</span></div></a>
+              <a href="/chi-siamo/" class="mega-item"><div class="mega-ic">&#128100;</div><div><b>Organi societari</b><span>Direzione e coordinamento</span></div></a>
+              <a href="/rete-e-partner/" class="mega-item"><div class="mega-ic">&#129309;</div><div><b>Partnership</b><span>Atenei e reti accreditate</span></div></a>
               <a href="#" data-modal="qualita" class="mega-item"><div class="mega-ic">&#9989;</div><div><b>Qualit&agrave; e trasparenza</b><span>Standard e procedure</span></div></a>
             </div>
             <div class="mega-col">
               <h5>Terza missione</h5>
               <a href="#" data-modal="territorio" class="mega-item"><div class="mega-ic">&#127965;</div><div><b>Territorio</b><span>Progetti in tutta Italia</span></div></a>
-              <a href="#janus" class="mega-item"><div class="mega-ic">&#127979;</div><div><b>Janus</b><span>La scuola del diploma, in primo piano</span></div></a>
-              <a href="#eventi" class="mega-item"><div class="mega-ic">&#127914;</div><div><b>Eventi</b><span>Convention, open day e incontri</span></div></a>
-              <a href="#icameback" class="mega-item"><div class="mega-ic">&#128247;</div><div><b>I came back</b><span>Le foto della Convention 2026</span></div></a>
-              <a href="#master" class="mega-item"><div class="mega-ic">&#127758;</div><div><b>Internazionalizzazione</b><span>Export e Made in Italy</span></div></a>
-              <a href="#ai" class="mega-item"><div class="mega-ic">&#129504;</div><div><b>Progetto AI</b><span>AI Act, competenze e SCALE</span></div></a>
-              <a href="#fnc" class="mega-item"><div class="mega-ic">&#127981;</div><div><b>Fondo Nuove Competenze</b><span>Formazione finanziata per le imprese</span></div></a>
+              <a href="/janus-diploma-online/" class="mega-item"><div class="mega-ic">&#127979;</div><div><b>Janus</b><span>La scuola del diploma, in primo piano</span></div></a>
+              <a href="/eventi/" class="mega-item"><div class="mega-ic">&#127914;</div><div><b>Eventi</b><span>Convention, open day e incontri</span></div></a>
+              <a href="/eventi/#icameback" class="mega-item"><div class="mega-ic">&#128247;</div><div><b>I came back</b><span>Le foto della Convention 2026</span></div></a>
+              <a href="/master-made-in-italy-global-leadership/" class="mega-item"><div class="mega-ic">&#127758;</div><div><b>Internazionalizzazione</b><span>Export e Made in Italy</span></div></a>
+              <a href="/intelligenza-artificiale-ai-act/" class="mega-item"><div class="mega-ic">&#129504;</div><div><b>Progetto AI</b><span>AI Act, competenze e SCALE</span></div></a>
+              <a href="/fondo-nuove-competenze-2026/" class="mega-item"><div class="mega-ic">&#127981;</div><div><b>Fondo Nuove Competenze</b><span>Formazione finanziata per le imprese</span></div></a>
             </div>
           </div>
           <div class="mega-cta">
             <p>Oltre 10 anni di attivit&agrave; nei servizi di supporto all'istruzione universitaria.</p>
-            <a href="#ateneo" class="btn btn-g btn-sm">Scopri il Centro Studi</a>
+            <a href="/chi-siamo/" class="btn btn-g btn-sm">Scopri il Centro Studi</a>
           </div>
         </div>
       </li>
@@ -1456,23 +1512,23 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           <div class="mega-grid">
             <div class="mega-col">
               <h5>Corsi di Laurea</h5>
-              <a href="#offerta" class="mega-item" data-tab="0"><div class="mega-ic">&#127891;</div><div><b>Triennali</b><span>L-18, L-33, L-24, L-14, L-8</span></div></a>
-              <a href="#offerta" class="mega-item" data-tab="0"><div class="mega-ic">&#128218;</div><div><b>Magistrali</b><span>LM-56, LM-51, LM-77, LM-32</span></div></a>
-              <a href="#offerta" class="mega-item" data-tab="0"><div class="mega-ic">&#9878;</div><div><b>Ciclo unico</b><span>Giurisprudenza LMG-01</span></div></a>
-              <a href="#offerta" class="mega-item" data-tab="0"><div class="mega-ic">&#10133;</div><div><b>Corsi singoli</b><span>Integrazione crediti CFU</span></div></a>
+              <a href="/corsi-di-laurea/" class="mega-item"><div class="mega-ic">&#127891;</div><div><b>Triennali</b><span>L-18, L-33, L-24, L-14, L-8</span></div></a>
+              <a href="/corsi-di-laurea/" class="mega-item"><div class="mega-ic">&#128218;</div><div><b>Magistrali</b><span>LM-56, LM-51, LM-77, LM-32</span></div></a>
+              <a href="/corsi-di-laurea/giurisprudenza/" class="mega-item"><div class="mega-ic">&#9878;</div><div><b>Ciclo unico</b><span>Giurisprudenza LMG-01</span></div></a>
+              <a href="/corsi-singoli-cfu/" class="mega-item"><div class="mega-ic">&#10133;</div><div><b>Corsi singoli</b><span>Integrazione crediti CFU</span></div></a>
             </div>
             <div class="mega-col">
               <h5>Post Laurea</h5>
-              <a href="#offerta" class="mega-item" data-tab="1"><div class="mega-ic">&#127942;</div><div><b>Master I livello</b><span>60 CFU &middot; 1500 ore</span></div></a>
-              <a href="#offerta" class="mega-item" data-tab="1"><div class="mega-ic">&#128081;</div><div><b>Master II livello</b><span>Alta specializzazione</span></div></a>
-              <a href="#offerta" class="mega-item" data-tab="1"><div class="mega-ic">&#128296;</div><div><b>Alta formazione</b><span>Perfezionamento e aggiornamento</span></div></a>
+              <a href="/master-universitari/" class="mega-item"><div class="mega-ic">&#127942;</div><div><b>Master I livello</b><span>60 CFU &middot; 1500 ore</span></div></a>
+              <a href="/master-universitari/" class="mega-item"><div class="mega-ic">&#128081;</div><div><b>Master II livello</b><span>Alta specializzazione</span></div></a>
+              <a href="/master-universitari/" class="mega-item"><div class="mega-ic">&#128296;</div><div><b>Alta formazione</b><span>Perfezionamento e aggiornamento</span></div></a>
             </div>
             <div class="mega-col">
               <h5>Certificazioni</h5>
-              <a href="#offerta" class="mega-item" data-tab="2"><div class="mega-ic">&#128187;</div><div><b>Informatiche</b><span>EIPASS, ECDL, coding</span></div></a>
-              <a href="#offerta" class="mega-item" data-tab="2"><div class="mega-ic">&#127760;</div><div><b>Linguistiche</b><span>Livelli B1 &ndash; C2 CEFR</span></div></a>
-              <a href="#offerta" class="mega-item" data-tab="2"><div class="mega-ic">&#128203;</div><div><b>Concorsi e graduatorie</b><span>Punteggio ATA e docenti</span></div></a>
-              <a href="#athena" class="mega-item"><div class="mega-ic">&#9992;</div><div><b>Studia all'estero</b><span>Medicina e area sanitaria in UE</span></div></a>
+              <a href="/certificazioni/" class="mega-item"><div class="mega-ic">&#128187;</div><div><b>Informatiche</b><span>EIPASS, ECDL, coding</span></div></a>
+              <a href="/certificazioni/" class="mega-item"><div class="mega-ic">&#127760;</div><div><b>Linguistiche</b><span>Livelli B1 &ndash; C2 CEFR</span></div></a>
+              <a href="/certificazioni/" class="mega-item"><div class="mega-ic">&#128203;</div><div><b>Concorsi e graduatorie</b><span>Punteggio ATA e docenti</span></div></a>
+              <a href="/medicina-senza-test-ingresso/" class="mega-item"><div class="mega-ic">&#9992;</div><div><b>Studia all'estero</b><span>Medicina e area sanitaria in UE</span></div></a>
             </div>
           </div>
           <div class="mega-cta">
@@ -1488,34 +1544,34 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           <div class="mega-grid">
             <div class="mega-col">
               <h5>Servizi</h5>
-              <a href="#servizi" class="mega-item"><div class="mega-ic">&#128172;</div><div><b>Tutor personale</b><span>Affiancamento dedicato</span></div></a>
-              <a href="#servizi" class="mega-item"><div class="mega-ic">&#128187;</div><div><b>Piattaforma e-learning</b><span>Lezioni 24/7 on demand</span></div></a>
-              <a href="#servizi" class="mega-item"><div class="mega-ic">&#128221;</div><div><b>Segreteria didattica</b><span>Pratiche e carriera</span></div></a>
+              <a href="/servizi-studenti/" class="mega-item"><div class="mega-ic">&#128172;</div><div><b>Tutor personale</b><span>Affiancamento dedicato</span></div></a>
+              <a href="/servizi-studenti/#piattaforma" class="mega-item"><div class="mega-ic">&#128187;</div><div><b>Piattaforma e-learning</b><span>Lezioni 24/7 on demand</span></div></a>
+              <a href="/servizi-studenti/" class="mega-item"><div class="mega-ic">&#128221;</div><div><b>Segreteria didattica</b><span>Pratiche e carriera</span></div></a>
             </div>
             <div class="mega-col">
               <h5>Supporto</h5>
-              <a href="#servizi" class="mega-item"><div class="mega-ic">&#9855;</div><div><b>Riconoscimento CFU</b><span>Valutazione gratuita</span></div></a>
-              <a href="#servizi" class="mega-item"><div class="mega-ic">&#129504;</div><div><b>DSA e BES</b><span>Percorsi personalizzati</span></div></a>
-              <a href="#servizi" class="mega-item"><div class="mega-ic">&#128188;</div><div><b>Placement</b><span>Tirocini e lavoro</span></div></a>
+              <a href="/riconoscimento-cfu/" class="mega-item"><div class="mega-ic">&#9855;</div><div><b>Riconoscimento CFU</b><span>Valutazione gratuita</span></div></a>
+              <a href="/servizi-studenti/" class="mega-item"><div class="mega-ic">&#129504;</div><div><b>DSA e BES</b><span>Percorsi personalizzati</span></div></a>
+              <a href="/servizi-studenti/" class="mega-item"><div class="mega-ic">&#128188;</div><div><b>Placement</b><span>Tirocini e lavoro</span></div></a>
             </div>
             <div class="mega-col">
               <h5>Sedi d'esame</h5>
-              <a href="#sedi" class="mega-item"><div class="mega-ic">&#128205;</div><div><b>Palermo</b><span>Sede principale</span></div></a>
-              <a href="#sedi" class="mega-item"><div class="mega-ic">&#128205;</div><div><b>Poli sul territorio</b><span>Rete nazionale</span></div></a>
-              <a href="#sedi" class="mega-item"><div class="mega-ic">&#128205;</div><div><b>Sedi convenzionate</b><span>Copertura nazionale</span></div></a>
-              <a href="#apri-sede" class="mega-item"><div class="mega-ic">&#127959;</div><div><b>Apri una sede</b><span>E&#8209;Learning Center Point</span></div></a>
+              <a href="/sedi/" class="mega-item"><div class="mega-ic">&#128205;</div><div><b>Palermo</b><span>Sede principale</span></div></a>
+              <a href="/sedi/" class="mega-item"><div class="mega-ic">&#128205;</div><div><b>Poli sul territorio</b><span>Rete nazionale</span></div></a>
+              <a href="/sedi/" class="mega-item"><div class="mega-ic">&#128205;</div><div><b>Sedi convenzionate</b><span>Copertura nazionale</span></div></a>
+              <a href="/apri-una-sede/" class="mega-item"><div class="mega-ic">&#127959;</div><div><b>Apri una sede</b><span>E&#8209;Learning Center Point</span></div></a>
             </div>
           </div>
         </div>
       </li>
 
-      <li><a href="#janus">Janus</a></li>
-      <li><a href="#master">Made in Italy</a></li>
-      <li><a href="#ai">Progetto AI</a></li>
-      <li class="opt"><a href="#fnc">Imprese</a></li>
-      <li class="opt"><a href="#sedi">Sedi</a></li>
-      <li class="opt"><a href="#apri-sede">Apri una sede</a></li>
-      <li class="opt"><a href="#contatti">Contatti</a></li>
+      <li><a href="/janus-diploma-online/">Janus</a></li>
+      <li><a href="/master-made-in-italy-global-leadership/">Made in Italy</a></li>
+      <li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li>
+      <li class="opt"><a href="/fondo-nuove-competenze-2026/">Imprese</a></li>
+      <li class="opt"><a href="/sedi/">Sedi</a></li>
+      <li class="opt"><a href="/apri-una-sede/">Apri una sede</a></li>
+      <li class="opt"><a href="/contatti/">Contatti</a></li>
       <li class="more" id="navMore" hidden>
         <button type="button">Altro <svg width="11" height="7" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
         <div class="more-drop" id="navMoreDrop"></div>
@@ -1536,16 +1592,16 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 <!-- ===== MOBILE MENU ===== -->
 <div class="mob dark" id="mob">
   <div class="mob-group"><button>Ateneo <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="#janus">Janus</a><a href="#ateneo">Il Centro Studi</a><a href="#fondatore">Il fondatore</a><a href="#storia">La nostra storia</a><a href="#eventi">Eventi</a><a href="#icameback">I came back &mdash; Convention 2026</a><a href="#stampa">Rassegna stampa</a><a href="#voce">Interventi e interviste</a><a href="#partner">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
+    <div class="mob-sub"><div><a href="/janus-diploma-online/">Janus</a><a href="/chi-siamo/">Il Centro Studi</a><a href="/calogero-di-carlo/">Il fondatore</a><a href="/chi-siamo/#storia">La nostra storia</a><a href="/eventi/">Eventi</a><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a><a href="/chi-siamo/#stampa">Rassegna stampa</a><a href="/calogero-di-carlo/#voce">Interventi e interviste</a><a href="/rete-e-partner/">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
   <div class="mob-group"><button>Offerta Formativa <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="#offerta">Corsi di Laurea</a><a href="#offerta">Master I e II livello</a><a href="#offerta">Certificazioni</a><a href="#offerta">Corsi singoli</a><a href="#athena">Studia all'estero</a><a href="#ai">Progetto AI</a><a href="#fnc">Fondo Nuove Competenze</a></div></div></div>
+    <div class="mob-sub"><div><a href="/corsi-di-laurea/">Corsi di Laurea</a><a href="/master-universitari/">Master I e II livello</a><a href="/certificazioni/">Certificazioni</a><a href="/corsi-singoli-cfu/">Corsi singoli</a><a href="/medicina-senza-test-ingresso/">Studia all'estero</a><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="#piattaforma">La piattaforma</a><a href="#servizi">Tutor personale</a><a href="#servizi">Piattaforma e-learning</a><a href="#servizi">Riconoscimento CFU</a><a href="#servizi">Placement</a></div></div></div>
-  <div class="mob-group"><button onclick="location.hash='#master'">Master Made in Italy</button></div>
-  <div class="mob-group"><button onclick="location.hash='#ai'">Progetto AI</button></div>
-  <div class="mob-group"><button onclick="location.hash='#sedi'">Sedi</button></div>
-  <div class="mob-group"><button onclick="location.hash='#apri-sede'">Apri una sede</button></div>
-  <div class="mob-group"><button onclick="location.hash='#contatti'">Contatti</button></div>
+    <div class="mob-sub"><div><a href="/servizi-studenti/#piattaforma">La piattaforma</a><a href="/servizi-studenti/">Tutor personale</a><a href="/servizi-studenti/#piattaforma">Piattaforma e-learning</a><a href="/riconoscimento-cfu/">Riconoscimento CFU</a><a href="/servizi-studenti/">Placement</a></div></div></div>
+  <div class="mob-group"><button onclick="location.href='/master-made-in-italy-global-leadership/'">Master Made in Italy</button></div>
+  <div class="mob-group"><button onclick="location.href='/intelligenza-artificiale-ai-act/'">Progetto AI</button></div>
+  <div class="mob-group"><button onclick="location.href='/sedi/'">Sedi</button></div>
+  <div class="mob-group"><button onclick="location.href='/apri-una-sede/'">Apri una sede</button></div>
+  <div class="mob-group"><button onclick="location.href='/contatti/'">Contatti</button></div>
   <a href="#iscrizione" class="btn btn-p" style="width:100%;margin-top:26px"><span>Iscriviti ora</span></a>
   <button class="btn btn-lock" style="width:100%;margin-top:12px" data-modal="area">
     <svg class="lock" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
@@ -1688,153 +1744,153 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
     <div class="icb-grid">
       <button type="button" class="icb-it rv-s" data-icb data-cap="La locandina della Convention nella sala del TH Roma Carpegna Palace">
-        <img src="assets/eventi/icb/icb-03.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la locandina della Convention nella sala del TH Roma Carpegna Palace" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-03.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la locandina della Convention nella sala del TH Roma Carpegna Palace" loading="lazy" decoding="async">
         <span class="icb-cap">La locandina della Convention nella sala del TH Roma Carpegna Palace</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="La sala durante i lavori della giornata">
-        <img src="assets/eventi/icb/icb-04.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la sala durante i lavori della giornata" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-04.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la sala durante i lavori della giornata" loading="lazy" decoding="async">
         <span class="icb-cap">La sala durante i lavori della giornata</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Il pubblico della Convention">
-        <img src="assets/eventi/icb/icb-05.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il pubblico della Convention" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-05.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il pubblico della Convention" loading="lazy" decoding="async">
         <span class="icb-cap">Il pubblico della Convention</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Le prime file, durante gli interventi">
-        <img src="assets/eventi/icb/icb-06.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: le prime file, durante gli interventi" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-06.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: le prime file, durante gli interventi" loading="lazy" decoding="async">
         <span class="icb-cap">Le prime file, durante gli interventi</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo al microfono">
-        <img src="assets/eventi/icb/icb-07.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo al microfono" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-07.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo al microfono" loading="lazy" decoding="async">
         <span class="icb-cap">Calogero Di Carlo al microfono</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo davanti allo schermo della Convention">
-        <img src="assets/eventi/icb/icb-08.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo davanti allo schermo della Convention" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-08.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo davanti allo schermo della Convention" loading="lazy" decoding="async">
         <span class="icb-cap">Calogero Di Carlo davanti allo schermo della Convention</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Il tavolo dei relatori e lo schermo UNICESD Olympo">
-        <img src="assets/eventi/icb/icb-09.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori e lo schermo UNICESD Olympo" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-09.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori e lo schermo UNICESD Olympo" loading="lazy" decoding="async">
         <span class="icb-cap">Il tavolo dei relatori e lo schermo UNICESD Olympo</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Il confronto al tavolo dei relatori">
-        <img src="assets/eventi/icb/icb-10.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il confronto al tavolo dei relatori" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-10.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il confronto al tavolo dei relatori" loading="lazy" decoding="async">
         <span class="icb-cap">Il confronto al tavolo dei relatori</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un passaggio dell&#39;intervento dal tavolo">
-        <img src="assets/eventi/icb/icb-11.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un passaggio dell'intervento dal tavolo" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-11.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un passaggio dell'intervento dal tavolo" loading="lazy" decoding="async">
         <span class="icb-cap">Un passaggio dell&#39;intervento dal tavolo</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dalla sala">
-        <img src="assets/eventi/icb/icb-12.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-12.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento dalla sala</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un contributo dei partecipanti">
-        <img src="assets/eventi/icb/icb-13.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un contributo dei partecipanti" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-13.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un contributo dei partecipanti" loading="lazy" decoding="async">
         <span class="icb-cap">Un contributo dei partecipanti</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partner della rete">
-        <img src="assets/eventi/icb/icb-14.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-14.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento dei partner della rete</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partner della rete">
-        <img src="assets/eventi/icb/icb-15.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-15.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento dei partner della rete</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partecipanti">
-        <img src="assets/eventi/icb/icb-16.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-16.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento dei partecipanti</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partecipanti">
-        <img src="assets/eventi/icb/icb-17.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-17.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento dei partecipanti</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Il microfono passa fra i partecipanti">
-        <img src="assets/eventi/icb/icb-18.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il microfono passa fra i partecipanti" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-18.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il microfono passa fra i partecipanti" loading="lazy" decoding="async">
         <span class="icb-cap">Il microfono passa fra i partecipanti</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Domande e risposte con il fondatore">
-        <img src="assets/eventi/icb/icb-19.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: domande e risposte con il fondatore" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-19.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: domande e risposte con il fondatore" loading="lazy" decoding="async">
         <span class="icb-cap">Domande e risposte con il fondatore</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Il tavolo dei relatori sotto lo schermo &laquo;Il futuro della formazione parte da qui&raquo;">
-        <img src="assets/eventi/icb/icb-25.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori sotto lo schermo Il futuro della formazione parte da qui" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-25.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori sotto lo schermo Il futuro della formazione parte da qui" loading="lazy" decoding="async">
         <span class="icb-cap">Il tavolo dei relatori sotto lo schermo &laquo;Il futuro della formazione parte da qui&raquo;</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Gli interventi in piedi, davanti alla sala">
-        <img src="assets/eventi/icb/icb-26.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: gli interventi in piedi, davanti alla sala" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-26.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: gli interventi in piedi, davanti alla sala" loading="lazy" decoding="async">
         <span class="icb-cap">Gli interventi in piedi, davanti alla sala</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="La presentazione di Luxium Education">
-        <img src="assets/eventi/icb/icb-27.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la presentazione di Luxium Education" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-27.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la presentazione di Luxium Education" loading="lazy" decoding="async">
         <span class="icb-cap">La presentazione di Luxium Education</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo durante il suo intervento">
-        <img src="assets/eventi/icb/icb-28.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo durante il suo intervento" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-28.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo durante il suo intervento" loading="lazy" decoding="async">
         <span class="icb-cap">Calogero Di Carlo durante il suo intervento</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dalla sala">
-        <img src="assets/eventi/icb/icb-29.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-29.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento dalla sala</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un momento di confronto con Calogero Di Carlo">
-        <img src="assets/eventi/icb/icb-30.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un momento di confronto con Calogero Di Carlo" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-30.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un momento di confronto con Calogero Di Carlo" loading="lazy" decoding="async">
         <span class="icb-cap">Un momento di confronto con Calogero Di Carlo</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partner della rete">
-        <img src="assets/eventi/icb/icb-31.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-31.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento dei partner della rete</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo in ascolto al tavolo dei relatori">
-        <img src="assets/eventi/icb/icb-32.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo in ascolto al tavolo dei relatori" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-32.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo in ascolto al tavolo dei relatori" loading="lazy" decoding="async">
         <span class="icb-cap">Calogero Di Carlo in ascolto al tavolo dei relatori</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento davanti allo schermo della Convention">
-        <img src="assets/eventi/icb/icb-33.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento davanti allo schermo della Convention" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-33.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento davanti allo schermo della Convention" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento davanti allo schermo della Convention</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dal pubblico, con Calogero Di Carlo">
-        <img src="assets/eventi/icb/icb-34.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dal pubblico, con Calogero Di Carlo" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-34.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dal pubblico, con Calogero Di Carlo" loading="lazy" decoding="async">
         <span class="icb-cap">Un intervento dal pubblico, con Calogero Di Carlo</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo fra i partecipanti">
-        <img src="assets/eventi/icb/icb-35.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo fra i partecipanti" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-35.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo fra i partecipanti" loading="lazy" decoding="async">
         <span class="icb-cap">Calogero Di Carlo fra i partecipanti</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un abbraccio in sala con Calogero Di Carlo">
-        <img src="assets/eventi/icb/icb-36.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un abbraccio in sala con Calogero Di Carlo" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-36.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un abbraccio in sala con Calogero Di Carlo" loading="lazy" decoding="async">
         <span class="icb-cap">Un abbraccio in sala con Calogero Di Carlo</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Sul palco con Calogero Di Carlo">
-        <img src="assets/eventi/icb/icb-37.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: sul palco con Calogero Di Carlo" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-37.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: sul palco con Calogero Di Carlo" loading="lazy" decoding="async">
         <span class="icb-cap">Sul palco con Calogero Di Carlo</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="La sala del TH Roma Carpegna Palace, vista dal fondo">
-        <img src="assets/eventi/icb/icb-38.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la sala del TH Roma Carpegna Palace, vista dal fondo" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-38.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la sala del TH Roma Carpegna Palace, vista dal fondo" loading="lazy" decoding="async">
         <span class="icb-cap">La sala del TH Roma Carpegna Palace, vista dal fondo</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="&laquo;Innovare oggi, guidare il domani&raquo;: una delle presentazioni">
-        <img src="assets/eventi/icb/icb-20.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: innovare oggi, guidare il domani: una delle presentazioni" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-20.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: innovare oggi, guidare il domani: una delle presentazioni" loading="lazy" decoding="async">
         <span class="icb-cap">&laquo;Innovare oggi, guidare il domani&raquo;: una delle presentazioni</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Gli applausi della sala">
-        <img src="assets/eventi/icb/icb-21.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: gli applausi della sala" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-21.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: gli applausi della sala" loading="lazy" decoding="async">
         <span class="icb-cap">Gli applausi della sala</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Sul palco, a fine intervento">
-        <img src="assets/eventi/icb/icb-22.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: sul palco, a fine intervento" loading="lazy" decoding="async">
+        <img width="853" height="1280" src="assets/eventi/icb/icb-22.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: sul palco, a fine intervento" loading="lazy" decoding="async">
         <span class="icb-cap">Sul palco, a fine intervento</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Un saluto al microfono">
-        <img src="assets/eventi/icb/icb-23.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un saluto al microfono" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-23.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un saluto al microfono" loading="lazy" decoding="async">
         <span class="icb-cap">Un saluto al microfono</span>
       </button>
       <button type="button" class="icb-it rv-s" data-icb data-cap="Il saluto finale ai partecipanti">
-        <img src="assets/eventi/icb/icb-24.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il saluto finale ai partecipanti" loading="lazy" decoding="async">
+        <img width="1280" height="853" src="assets/eventi/icb/icb-24.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il saluto finale ai partecipanti" loading="lazy" decoding="async">
         <span class="icb-cap">Il saluto finale ai partecipanti</span>
       </button>
     </div>
 
     <div class="icb-credit rv">
-      <div class="icb-credit-logo"><img src="assets/tony-strino.webp" alt="Tony Strino Studio Fotografico" loading="lazy" decoding="async"></div>
+      <div class="icb-credit-logo"><img width="700" height="339" src="assets/tony-strino.webp" alt="Tony Strino Studio Fotografico" loading="lazy" decoding="async"></div>
       <div class="icb-credit-txt">
         <span class="icb-credit-eye">Fotografo ufficiale</span>
         <b>Tony Strino Studio Fotografico</b>
@@ -2087,7 +2143,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
     </div>
 
     <div class="ev-feat rv-s">
-      <div class="ev-poster"><img src="assets/eventi/convention-18set2026.webp" alt="Locandina della Convention UNICESD Olympo del 18 settembre 2026 al TH Roma Carpegna Palace" loading="lazy" decoding="async"></div>
+      <div class="ev-poster"><img width="680" height="1020" src="assets/eventi/convention-18set2026.webp" alt="Locandina della Convention UNICESD Olympo del 18 settembre 2026 al TH Roma Carpegna Palace" loading="lazy" decoding="async"></div>
       <div class="ev-main">
         <span class="ev-badge">Prossimo evento <i></i></span>
         <h3>Convention UNICESD Olympo</h3>
@@ -2171,39 +2227,39 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
     <div class="panel on" data-panel="0">
       <div class="cards">
-        <article class="card rv tilt bg-giuris" data-modal="c1"><div class="card-ic">&#9878;</div><h3>Giurisprudenza</h3><p>Percorso a ciclo unico per l'accesso alle professioni legali, con approfondimenti di diritto civile, penale e amministrativo.</p><div class="card-meta"><span class="chip cy">LMG-01</span><span class="chip">5 anni</span><span class="chip">300 CFU</span></div><span class="card-more">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-economia" style="transition-delay:.08s" data-modal="c2"><div class="card-ic">&#128176;</div><h3>Economia Aziendale</h3><p>Gestione d'impresa, bilancio, controllo di gestione e marketing per formare professionisti del management.</p><div class="card-meta"><span class="chip cy">L-18</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><span class="card-more">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-psico" style="transition-delay:.16s" data-modal="c3"><div class="card-ic">&#129504;</div><h3>Scienze Psicologiche</h3><p>Fondamenti di psicologia generale, dello sviluppo, sociale e clinica con laboratori applicativi.</p><div class="card-meta"><span class="chip cy">L-24</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><span class="card-more">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-educazione" data-modal="c4"><div class="card-ic">&#128218;</div><h3>Scienze dell'Educazione</h3><p>Percorso per educatori nei servizi per l'infanzia, nel sociale e nei contesti formativi.</p><div class="card-meta"><span class="chip cy">L-19</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><span class="card-more">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-informatica" style="transition-delay:.08s" data-modal="c5"><div class="card-ic">&#128187;</div><h3>Ingegneria Informatica</h3><p>Programmazione, reti, basi di dati, intelligenza artificiale e sviluppo software.</p><div class="card-meta"><span class="chip cy">L-8</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><span class="card-more">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-motorie" style="transition-delay:.16s" data-modal="c6"><div class="card-ic">&#127939;</div><h3>Scienze Motorie</h3><p>Attivit&agrave; motoria preventiva, sportiva e adattata, con approfondimenti di fisiologia e management dello sport.</p><div class="card-meta"><span class="chip cy">L-22</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><span class="card-more">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
+        <article class="card rv tilt bg-giuris" data-modal="c1"><div class="card-ic">&#9878;</div><h3>Giurisprudenza</h3><p>Percorso a ciclo unico per l'accesso alle professioni legali, con approfondimenti di diritto civile, penale e amministrativo.</p><div class="card-meta"><span class="chip cy">LMG-01</span><span class="chip">5 anni</span><span class="chip">300 CFU</span></div><a class="card-more" data-page href="/corsi-di-laurea/giurisprudenza/">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-economia" style="transition-delay:.08s" data-modal="c2"><div class="card-ic">&#128176;</div><h3>Economia Aziendale</h3><p>Gestione d'impresa, bilancio, controllo di gestione e marketing per formare professionisti del management.</p><div class="card-meta"><span class="chip cy">L-18</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><a class="card-more" data-page href="/corsi-di-laurea/economia-aziendale/">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-psico" style="transition-delay:.16s" data-modal="c3"><div class="card-ic">&#129504;</div><h3>Scienze Psicologiche</h3><p>Fondamenti di psicologia generale, dello sviluppo, sociale e clinica con laboratori applicativi.</p><div class="card-meta"><span class="chip cy">L-24</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><a class="card-more" data-page href="/corsi-di-laurea/scienze-psicologiche/">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-educazione" data-modal="c4"><div class="card-ic">&#128218;</div><h3>Scienze dell'Educazione</h3><p>Percorso per educatori nei servizi per l'infanzia, nel sociale e nei contesti formativi.</p><div class="card-meta"><span class="chip cy">L-19</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><a class="card-more" data-page href="/corsi-di-laurea/scienze-educazione/">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-informatica" style="transition-delay:.08s" data-modal="c5"><div class="card-ic">&#128187;</div><h3>Ingegneria Informatica</h3><p>Programmazione, reti, basi di dati, intelligenza artificiale e sviluppo software.</p><div class="card-meta"><span class="chip cy">L-8</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><a class="card-more" data-page href="/corsi-di-laurea/ingegneria-informatica/">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-motorie" style="transition-delay:.16s" data-modal="c6"><div class="card-ic">&#127939;</div><h3>Scienze Motorie</h3><p>Attivit&agrave; motoria preventiva, sportiva e adattata, con approfondimenti di fisiologia e management dello sport.</p><div class="card-meta"><span class="chip cy">L-22</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><a class="card-more" data-page href="/corsi-di-laurea/scienze-motorie/">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
       </div>
     </div>
 
     <div class="panel" data-panel="1">
       <div class="cards">
-        <article class="card rv tilt bg-master" data-modal="m1"><div class="card-ic">&#127758;</div><h3>Made in Italy Global Leadership</h3><p>Executive Master in Export, Geopolitics &amp; International Business, in collaborazione con atenei online partner, Orienta Campus e Forum Italiano dell'Export.</p><div class="card-meta"><span class="chip go">Master I livello</span><span class="chip">60 CFU</span><span class="chip cy">Executive</span></div><span class="card-more">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-territorio" style="transition-delay:.08s" data-modal="m2"><div class="card-ic">&#127979;</div><h3>Management delle Imprese Turistiche</h3><p>Destination management, hospitality, valorizzazione del patrimonio e turismo esperienziale.</p><div class="card-meta"><span class="chip go">Master I livello</span><span class="chip">60 CFU</span><span class="chip">1500 ore</span></div><span class="card-more">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-educazione" style="transition-delay:.16s" data-modal="m3"><div class="card-ic">&#127979;</div><h3>Didattica e Innovazione Digitale</h3><p>Metodologie didattiche innovative, tecnologie per l'apprendimento e inclusione scolastica.</p><div class="card-meta"><span class="chip go">Master I livello</span><span class="chip">60 CFU</span><span class="chip">Punteggio</span></div><span class="card-more">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-giuris" data-modal="m4"><div class="card-ic">&#128081;</div><h3>Diritto dell'Impresa Internazionale</h3><p>Contrattualistica internazionale, compliance, arbitrato e fiscalit&agrave; transfrontaliera.</p><div class="card-meta"><span class="chip go">Master II livello</span><span class="chip">60 CFU</span></div><span class="card-more">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-economia" style="transition-delay:.08s" data-modal="m5"><div class="card-ic">&#128202;</div><h3>Data Analytics per il Business</h3><p>Analisi dei dati, business intelligence e strumenti di AI applicata ai processi aziendali.</p><div class="card-meta"><span class="chip go">Alta formazione</span><span class="chip">30 CFU</span></div><span class="card-more">Scopri il percorso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-psico" style="transition-delay:.16s" data-modal="m6"><div class="card-ic">&#127974;</div><h3>Management Sanitario</h3><p>Organizzazione dei servizi sanitari, risk management e governance delle strutture.</p><div class="card-meta"><span class="chip go">Master I livello</span><span class="chip">60 CFU</span></div><span class="card-more">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
+        <article class="card rv tilt bg-master" data-modal="m1"><div class="card-ic">&#127758;</div><h3>Made in Italy Global Leadership</h3><p>Executive Master in Export, Geopolitics &amp; International Business, in collaborazione con atenei online partner, Orienta Campus e Forum Italiano dell'Export.</p><div class="card-meta"><span class="chip go">Master I livello</span><span class="chip">60 CFU</span><span class="chip cy">Executive</span></div><a class="card-more" data-page href="/master-made-in-italy-global-leadership/">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-territorio" style="transition-delay:.08s" data-modal="m2"><div class="card-ic">&#127979;</div><h3>Management delle Imprese Turistiche</h3><p>Destination management, hospitality, valorizzazione del patrimonio e turismo esperienziale.</p><div class="card-meta"><span class="chip go">Master I livello</span><span class="chip">60 CFU</span><span class="chip">1500 ore</span></div><a class="card-more" data-page href="/master-universitari/management-imprese-turistiche/">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-educazione" style="transition-delay:.16s" data-modal="m3"><div class="card-ic">&#127979;</div><h3>Didattica e Innovazione Digitale</h3><p>Metodologie didattiche innovative, tecnologie per l'apprendimento e inclusione scolastica.</p><div class="card-meta"><span class="chip go">Master I livello</span><span class="chip">60 CFU</span><span class="chip">Punteggio</span></div><a class="card-more" data-page href="/master-universitari/didattica-innovazione-digitale/">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-giuris" data-modal="m4"><div class="card-ic">&#128081;</div><h3>Diritto dell'Impresa Internazionale</h3><p>Contrattualistica internazionale, compliance, arbitrato e fiscalit&agrave; transfrontaliera.</p><div class="card-meta"><span class="chip go">Master II livello</span><span class="chip">60 CFU</span></div><a class="card-more" data-page href="/master-universitari/diritto-impresa-internazionale/">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-economia" style="transition-delay:.08s" data-modal="m5"><div class="card-ic">&#128202;</div><h3>Data Analytics per il Business</h3><p>Analisi dei dati, business intelligence e strumenti di AI applicata ai processi aziendali.</p><div class="card-meta"><span class="chip go">Alta formazione</span><span class="chip">30 CFU</span></div><a class="card-more" data-page href="/master-universitari/data-analytics-business/">Scopri il percorso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-psico" style="transition-delay:.16s" data-modal="m6"><div class="card-ic">&#127974;</div><h3>Management Sanitario</h3><p>Organizzazione dei servizi sanitari, risk management e governance delle strutture.</p><div class="card-meta"><span class="chip go">Master I livello</span><span class="chip">60 CFU</span></div><a class="card-more" data-page href="/master-universitari/management-sanitario/">Scopri il master <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
       </div>
     </div>
 
     <div class="panel" data-panel="2">
       <div class="cards">
-        <article class="card rv tilt bg-informatica" data-modal="k1"><div class="card-ic">&#128187;</div><h3>Certificazioni Informatiche</h3><p>Percorsi riconosciuti per l'attestazione delle competenze digitali, validi come titolo valutabile.</p><div class="card-meta"><span class="chip cy">Digitale</span><span class="chip">Online</span></div><span class="card-more">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-territorio" style="transition-delay:.08s" data-modal="k2"><div class="card-ic">&#127760;</div><h3>Certificazioni Linguistiche</h3><p>Livelli da B1 a C2 secondo il Quadro Comune Europeo, con preparazione ed esame in sede.</p><div class="card-meta"><span class="chip cy">CEFR</span><span class="chip">B1 &ndash; C2</span></div><span class="card-more">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-certif" style="transition-delay:.16s" data-modal="k3"><div class="card-ic">&#128203;</div><h3>Percorsi per Graduatorie</h3><p>Corsi e certificazioni utili all'incremento del punteggio nelle graduatorie del comparto scuola.</p><div class="card-meta"><span class="chip cy">Scuola</span><span class="chip">Punteggio</span></div><span class="card-more">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
+        <article class="card rv tilt bg-informatica" data-modal="k1"><div class="card-ic">&#128187;</div><h3>Certificazioni Informatiche</h3><p>Percorsi riconosciuti per l'attestazione delle competenze digitali, validi come titolo valutabile.</p><div class="card-meta"><span class="chip cy">Digitale</span><span class="chip">Online</span></div><a class="card-more" data-page href="/certificazioni/informatiche/">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-territorio" style="transition-delay:.08s" data-modal="k2"><div class="card-ic">&#127760;</div><h3>Certificazioni Linguistiche</h3><p>Livelli da B1 a C2 secondo il Quadro Comune Europeo, con preparazione ed esame in sede.</p><div class="card-meta"><span class="chip cy">CEFR</span><span class="chip">B1 &ndash; C2</span></div><a class="card-more" data-page href="/certificazioni/linguistiche/">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-certif" style="transition-delay:.16s" data-modal="k3"><div class="card-ic">&#128203;</div><h3>Percorsi per Graduatorie</h3><p>Corsi e certificazioni utili all'incremento del punteggio nelle graduatorie del comparto scuola.</p><div class="card-meta"><span class="chip cy">Scuola</span><span class="chip">Punteggio</span></div><a class="card-more" data-page href="/certificazioni/graduatorie-scuola/">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
       </div>
     </div>
 
     <div class="panel" data-panel="3">
       <div class="cards">
-        <article class="card rv tilt bg-singoli" data-modal="s1"><div class="card-ic">&#10133;</div><h3>Corsi Singoli</h3><p>Acquisisci i CFU mancanti per accedere a concorsi, magistrali o classi di concorso, senza immatricolarti a un intero corso di laurea.</p><div class="card-meta"><span class="chip cy">CFU</span><span class="chip">Flessibile</span></div><span class="card-more">Come funziona <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-certif" style="transition-delay:.08s" data-modal="s2"><div class="card-ic">&#9855;</div><h3>Riconoscimento Carriera</h3><p>Valutazione gratuita dei crediti gi&agrave; maturati in precedenti percorsi universitari o professionali.</p><div class="card-meta"><span class="chip cy">Gratuito</span><span class="chip">48h</span></div><span class="card-more">Richiedi valutazione <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
-        <article class="card rv tilt bg-economia" style="transition-delay:.16s" data-modal="s3"><div class="card-ic">&#128188;</div><h3>Formazione Aziendale</h3><p>Percorsi su misura per imprese ed enti, anche finanziabili tramite fondi interprofessionali.</p><div class="card-meta"><span class="chip cy">B2B</span><span class="chip">Su misura</span></div><span class="card-more">Richiedi un progetto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
+        <article class="card rv tilt bg-singoli" data-modal="s1"><div class="card-ic">&#10133;</div><h3>Corsi Singoli</h3><p>Acquisisci i CFU mancanti per accedere a concorsi, magistrali o classi di concorso, senza immatricolarti a un intero corso di laurea.</p><div class="card-meta"><span class="chip cy">CFU</span><span class="chip">Flessibile</span></div><a class="card-more" data-page href="/corsi-singoli-cfu/">Come funziona <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-certif" style="transition-delay:.08s" data-modal="s2"><div class="card-ic">&#9855;</div><h3>Riconoscimento Carriera</h3><p>Valutazione gratuita dei crediti gi&agrave; maturati in precedenti percorsi universitari o professionali.</p><div class="card-meta"><span class="chip cy">Gratuito</span><span class="chip">48h</span></div><a class="card-more" data-page href="/riconoscimento-cfu/">Richiedi valutazione <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-economia" style="transition-delay:.16s" data-modal="s3"><div class="card-ic">&#128188;</div><h3>Formazione Aziendale</h3><p>Percorsi su misura per imprese ed enti, anche finanziabili tramite fondi interprofessionali.</p><div class="card-meta"><span class="chip cy">B2B</span><span class="chip">Su misura</span></div><a class="card-more" data-page href="/formazione-aziendale/">Richiedi un progetto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
       </div>
     </div>
   </div>
@@ -2230,7 +2286,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           </div>
         </div>
         <div>
-        <div class="proto" style="margin-bottom:20px"><img src="assets/master-protocollo.jpg" alt="Comunicato stampa della firma del protocollo d'intesa a Villa Niscemi, Palermo" loading="lazy" decoding="async"></div>
+        <div class="proto" style="margin-bottom:20px"><img width="760" height="1138" src="assets/master-protocollo.jpg" alt="Comunicato stampa della firma del protocollo d'intesa a Villa Niscemi, Palermo" loading="lazy" decoding="async"></div>
         <div class="feat-box">
           <div class="fb-row"><span>Livello</span><b>Master universitario I livello</b></div>
           <div class="fb-row"><span>Crediti</span><b>60 CFU &middot; 1500 ore</b></div>
@@ -2457,47 +2513,47 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
       <div class="press" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
 
         <article class="press-i rv-s">
-          <div class="press-thumb"><img src="assets/iset-produzione.webp" alt="Linea di montaggio automatico di schede elettroniche I.S.E.T." loading="lazy" decoding="async" style="object-position:center center"></div>
+          <div class="press-thumb"><img width="820" height="598" src="assets/iset-produzione.webp" alt="Linea di montaggio automatico di schede elettroniche I.S.E.T." loading="lazy" decoding="async" style="object-position:center center"></div>
           <div class="press-body"><em>I.S.E.T. &middot; produzione</em><b>La linea di montaggio</b><p>Assemblaggio automatico a montaggio superficiale: le schede elettroniche prendono forma componente dopo componente, con collaudo in linea.</p></div>
         </article>
 
         <article class="press-i rv-s" style="transition-delay:.08s">
-          <div class="press-thumb"><img src="assets/iset-controllo.webp" alt="Sala di controllo e impianti per il trasporto su ferro realizzati da I.S.E.T." loading="lazy" decoding="async" style="object-position:center center"></div>
+          <div class="press-thumb"><img width="800" height="800" src="assets/iset-controllo.webp" alt="Sala di controllo e impianti per il trasporto su ferro realizzati da I.S.E.T." loading="lazy" decoding="async" style="object-position:center center"></div>
           <div class="press-body"><em>I.S.E.T. &middot; sistemi</em><b>Sale operative e impianti di linea</b><p>Supervisione e controllo del trasporto pubblico su ferro: videowall di esercizio, postazioni operatore e lavori sugli impianti di stazione.</p></div>
         </article>
 
         <article class="press-i rv-s" style="transition-delay:.16s">
-          <div class="press-thumb"><img src="assets/cefalu-render.webp" alt="Render del progetto di riqualificazione sul lungomare di Cefal&ugrave;" loading="lazy" decoding="async" style="object-position:center 60%"></div>
+          <div class="press-thumb"><img width="1000" height="750" src="assets/cefalu-render.webp" alt="Render del progetto di riqualificazione sul lungomare di Cefal&ugrave;" loading="lazy" decoding="async" style="object-position:center 60%"></div>
           <div class="press-body"><em>Immobiliare &middot; Cefal&ugrave;</em><b>Il progetto sul lungomare</b><p>Render della riqualificazione: residenze, ricettivo e uno spazio pubblico coperto affacciato sul mare, a pochi passi dalla spiaggia.</p></div>
         </article>
 
         <article class="press-i rv-s" style="transition-delay:.24s">
-          <div class="press-thumb"><img src="assets/cefalu-aerea.webp" alt="Veduta aerea di Cefal&ugrave; con l'area di intervento evidenziata" loading="lazy" decoding="async" style="object-position:center center"></div>
+          <div class="press-thumb"><img width="800" height="482" src="assets/cefalu-aerea.webp" alt="Veduta aerea di Cefal&ugrave; con l'area di intervento evidenziata" loading="lazy" decoding="async" style="object-position:center center"></div>
           <div class="press-body"><em>Immobiliare &middot; l'area</em><b>Dove si interviene</b><p>La veduta dall'alto con il perimetro dell'area e i percorsi di collegamento fra il fronte mare, la spiaggia e il centro storico.</p></div>
         </article>
 
         <article class="press-i rv-s" style="transition-delay:.32s">
-          <div class="press-thumb"><img src="assets/villa-ricettivo.webp" alt="Struttura ricettiva in pietra con piscina" loading="lazy" decoding="async" style="object-position:center 40%"></div>
+          <div class="press-thumb"><img width="480" height="844" src="assets/villa-ricettivo.webp" alt="Struttura ricettiva in pietra con piscina" loading="lazy" decoding="async" style="object-position:center 40%"></div>
           <div class="press-body"><em>Ricettivo</em><b>Ospitalit&agrave; fuori citt&agrave;</b><p>Il ramo ricettivo del gruppo: casali in pietra recuperati e messi a reddito, con la formula del soggiorno breve.</p></div>
         </article>
 
         <article class="press-i rv-s" style="transition-delay:.4s">
-          <div class="press-thumb"><img src="assets/madonie-terreni.webp" alt="Terreni e oliveti delle Madonie affacciati sul mare" loading="lazy" decoding="async" style="object-position:center center"></div>
+          <div class="press-thumb"><img width="1000" height="450" src="assets/madonie-terreni.webp" alt="Terreni e oliveti delle Madonie affacciati sul mare" loading="lazy" decoding="async" style="object-position:center center"></div>
           <div class="press-body"><em>Agroalimentare &middot; Madonie</em><b>I terreni sul mare</b><p>Gli oliveti che guardano la costa tirrenica: da qui nasce l'olio extravergine biologico della rete agricola del gruppo.</p></div>
         </article>
 
         <article class="press-i rv-s" style="transition-delay:.48s">
-          <div class="press-thumb"><img src="assets/kalos-magazzino.webp" alt="Deposito aziendale dell'azienda agricola nelle Madonie" loading="lazy" decoding="async" style="object-position:center 55%"></div>
+          <div class="press-thumb"><img width="600" height="800" src="assets/kalos-magazzino.webp" alt="Deposito aziendale dell'azienda agricola nelle Madonie" loading="lazy" decoding="async" style="object-position:center 55%"></div>
           <div class="press-body"><em>Agroalimentare &middot; struttura</em><b>Il deposito aziendale</b><p>Il fabbricato di servizio a supporto della raccolta e dello stoccaggio, in mezzo ai terreni di Campofelice di Roccella.</p></div>
         </article>
 
         <article class="press-i rv-s" style="transition-delay:.56s">
-          <div class="press-thumb"><img src="assets/kalos-etichetta.webp" alt="Etichetta dell'olio extravergine di oliva biologico Bio Kalos Madonie" loading="lazy" decoding="async" style="object-position:center center"></div>
+          <div class="press-thumb"><img width="800" height="533" src="assets/kalos-etichetta.webp" alt="Etichetta dell'olio extravergine di oliva biologico Bio Kalos Madonie" loading="lazy" decoding="async" style="object-position:center center"></div>
           <div class="press-body"><em>Agroalimentare &middot; prodotto</em><b>Bio Kalos Madonie</b><p>Olio extravergine di oliva biologico, categoria superiore, ottenuto dalle olive unicamente mediante procedimenti naturali. 100% italiano.</p></div>
         </article>
 
         <article class="press-i rv-s" style="transition-delay:.64s">
-          <div class="press-thumb"><img src="assets/teatro-massimo.webp" alt="Incontro istituzionale a Palermo davanti al Teatro Massimo" loading="lazy" decoding="async" style="object-position:center 30%"></div>
+          <div class="press-thumb"><img width="880" height="660" src="assets/teatro-massimo.webp" alt="Incontro istituzionale a Palermo davanti al Teatro Massimo" loading="lazy" decoding="async" style="object-position:center 30%"></div>
           <div class="press-body"><em>Relazioni istituzionali</em><b>Palermo, Teatro Massimo</b><p>Il lavoro di rete passa anche dagli incontri: istituzioni, atenei e imprese attorno allo stesso tavolo, in citt&agrave;.</p></div>
         </article>
 
@@ -2624,22 +2680,22 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
     <!-- griglia interventi -->
     <div class="press" style="margin-top:34px">
       <article class="press-i rv-s" data-modal="voce1">
-        <div class="press-thumb"><img src="assets/eccellenze.webp" alt="Prefazione di Calogero Di Carlo su Eccellenze Italiane" loading="lazy" decoding="async" style="object-position:center center"></div>
+        <div class="press-thumb"><img width="1400" height="693" src="assets/eccellenze.webp" alt="Prefazione di Calogero Di Carlo su Eccellenze Italiane" loading="lazy" decoding="async" style="object-position:center center"></div>
         <div class="press-body"><em>Eccellenze Italiane &middot; Prefazione</em><b>&laquo;I giovani mi emozionano&raquo;</b><p>Il racconto in prima persona: trent'anni in divisa, l'incontro che cambia tutto, le cento sedi d'esame e un messaggio diretto ai ragazzi.</p></div>
       </article>
 
       <article class="press-i rv-s" style="transition-delay:.08s" data-modal="voce2">
-        <div class="press-thumb" style="background:#0f2a4a"><img src="assets/premiazione.webp" alt="Calogero Di Carlo durante la consegna di un riconoscimento" loading="lazy" decoding="async" style="object-position:center 22%"></div>
+        <div class="press-thumb" style="background:#0f2a4a"><img width="760" height="1351" src="assets/premiazione.webp" alt="Calogero Di Carlo durante la consegna di un riconoscimento" loading="lazy" decoding="async" style="object-position:center 22%"></div>
         <div class="press-body"><em>Sport &amp; Formazione &middot; luglio 2026</em><b>La vision di Calogero Di Carlo</b><p>Sport e formazione come opportunit&agrave; e palestra di vita: dall'e-learning al liceo sportivo, dal Memorial Salvo D'Acquisto alla dirigenza calcistica.</p></div>
       </article>
 
       <article class="press-i rv-s" style="transition-delay:.16s" data-modal="voce3">
-        <div class="press-thumb" style="background:#7b1f45"><img src="assets/effettotre.webp" alt="Copertina di Effettotre, giugno 2022" loading="lazy" decoding="async" style="object-position:center top"></div>
+        <div class="press-thumb" style="background:#7b1f45"><img width="620" height="802" src="assets/effettotre.webp" alt="Copertina di Effettotre, giugno 2022" loading="lazy" decoding="async" style="object-position:center top"></div>
         <div class="press-body"><em>Effettotre &middot; dal 2009</em><b>Il giornale che deve ripartire</b><p>Periodico mensile d'informazione fondato e diretto da Calogero Di Carlo: formazione, politica, economia e turismo. Sedici anni di archivio, e una ripartenza da scrivere.</p></div>
       </article>
 
       <article class="press-i rv-s" style="transition-delay:.24s" data-modal="voce4">
-        <div class="press-thumb" style="background:#7b1f45"><img src="assets/libro-sedi.webp" alt="Le sedi dell'Universit&agrave; Telematica Pegaso, percorsi d'Arte e di Stile" loading="lazy" decoding="async" style="object-position:center center"></div>
+        <div class="press-thumb" style="background:#7b1f45"><img width="900" height="562" src="assets/libro-sedi.webp" alt="Le sedi dell'Universit&agrave; Telematica Pegaso, percorsi d'Arte e di Stile" loading="lazy" decoding="async" style="object-position:center center"></div>
         <div class="press-body"><em>Giapeto editore &middot; 2018</em><b>Le sedi, raccontate come un viaggio</b><p>Duecento pagine dedicate alle sedi dell'Universit&agrave; Telematica Pegaso: la rete che Calogero Di Carlo ha coordinato, letta attraverso l'arte delle citt&agrave; che la ospitano.</p></div>
       </article>
     </div>
@@ -2658,7 +2714,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           </div>
         </div>
         <div>
-          <div class="proto" style="margin-bottom:20px"><img src="assets/monografia-cover.webp" alt="Calogero Di Carlo &mdash; Tante vite in una, monografia ItaliaVale" loading="lazy" decoding="async"></div>
+          <div class="proto" style="margin-bottom:20px"><img width="620" height="559" src="assets/monografia-cover.webp" alt="Calogero Di Carlo &mdash; Tante vite in una, monografia ItaliaVale" loading="lazy" decoding="async"></div>
           <div class="feat-box">
             <div class="fb-row"><span>Collana</span><b>Le monografie di ItaliaVale</b></div>
             <div class="fb-row"><span>Ideatore</span><b>Piero Muscari, Storytailor</b></div>
@@ -2685,23 +2741,23 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
     </div>
     <div class="press">
       <article class="press-i rv-s" data-modal="press4">
-        <div class="press-thumb"><img src="assets/eventi/convention-18set2026.webp" alt="Il Corriere di Firenze: la convention UNICESD Olympo del 18 settembre a Roma" loading="lazy" decoding="async"></div>
+        <div class="press-thumb"><img width="680" height="1020" src="assets/eventi/convention-18set2026.webp" alt="Il Corriere di Firenze: la convention UNICESD Olympo del 18 settembre a Roma" loading="lazy" decoding="async"></div>
         <div class="press-body"><em>Il Corriere di Firenze &middot; 16 settembre 2026</em><b>Formazione, tra tecnologie emergenti e presidi locali</b><p>La convention promossa da Calogero Di Carlo al TH Roma Carpegna Palace letta come lo snodo fra didattica digitale e presenza sul territorio.</p></div>
       </article>
       <article class="press-i rv-s" style="transition-delay:.08s" data-modal="press5">
-        <div class="press-thumb"><img src="assets/ai/bg-informatica.webp" alt="Adnkronos: convention del comparto formazione su tecnologie emergenti e scenari futuri" loading="lazy" decoding="async"></div>
+        <div class="press-thumb"><img width="1000" height="667" src="assets/ai/bg-informatica.webp" alt="Adnkronos: convention del comparto formazione su tecnologie emergenti e scenari futuri" loading="lazy" decoding="async"></div>
         <div class="press-body"><em>Adnkronos &middot; 16 settembre 2026</em><b>A Roma la convention del comparto formazione</b><p>L'agenzia nazionale d&agrave; conto dell'appuntamento organizzato da UNICESD Olympo: universit&agrave;, orientamento, aggiornamento professionale e fondi interprofessionali.</p></div>
       </article>
       <article class="press-i rv-s" style="transition-delay:.16s" data-modal="press1">
-        <div class="press-thumb"><img src="assets/press-cover.jpg" alt="Copertina Hashtag Magazine: UNICESD Olympo riparte" loading="lazy" decoding="async"></div>
+        <div class="press-thumb"><img width="940" height="751" src="assets/press-cover.jpg" alt="Copertina Hashtag Magazine: UNICESD Olympo riparte" loading="lazy" decoding="async"></div>
         <div class="press-body"><em>Hashtag Magazine</em><b>&laquo;UNICESD Olympo riparte&raquo;</b><p>La rete che ha fatto la storia della formazione torna a guardare al futuro: fondi interprofessionali, e-learning, formazione continua e catalogo corsi.</p></div>
       </article>
       <article class="press-i rv-s" style="transition-delay:.24s" data-modal="press2">
-        <div class="press-thumb"><img src="assets/master-protocollo.jpg" alt="Comunicato stampa: nasce il Master Made in Italy Global Leadership" loading="lazy" decoding="async"></div>
+        <div class="press-thumb"><img width="760" height="1138" src="assets/master-protocollo.jpg" alt="Comunicato stampa: nasce il Master Made in Italy Global Leadership" loading="lazy" decoding="async"></div>
         <div class="press-body"><em>Comunicato stampa &middot; 8 agosto 2026</em><b>Nasce il Master Made in Italy Global Leadership</b><p>Firmato a Villa Niscemi, Palermo, il protocollo d'intesa tra Forum Italiano dell'Export, Orienta Campus, Universit&agrave; eCampus e UNICESD Olympo.</p></div>
       </article>
       <article class="press-i rv-s" style="transition-delay:.32s" data-modal="press3">
-        <div class="press-thumb"><img src="assets/pegaso-evento.jpg" alt="Incontro nella rete della formazione universitaria telematica" loading="lazy" decoding="async" style="object-position:center 34%"></div>
+        <div class="press-thumb"><img width="620" height="928" src="assets/pegaso-evento.jpg" alt="Incontro nella rete della formazione universitaria telematica" loading="lazy" decoding="async" style="object-position:center 34%"></div>
         <div class="press-body"><em>Rete universitaria</em><b>Una vita dentro la formazione telematica</b><p>Dal coordinamento delle sedi nazionali Pegaso alla nascita del Centro Studi di Palermo: l'esperienza che sta dietro a UNICESD Olympo.</p></div>
       </article>
     </div>
@@ -2807,7 +2863,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           </div>
         </div>
         <div>
-          <div class="proto" style="margin-bottom:20px"><img src="assets/swa-medicina.webp" alt="Studia Medicina all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
+          <div class="proto" style="margin-bottom:20px"><img width="560" height="790" src="assets/swa-medicina.webp" alt="Studia Medicina all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
           <div class="feat-box">
             <div class="fb-row"><span>Ammissione</span><b>Senza test o programmata</b></div>
             <div class="fb-row"><span>Lingue</span><b>Inglese, spagnolo, italiano</b></div>
@@ -2841,8 +2897,8 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
     </div>
 
     <div class="rv" style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;align-items:start">
-      <div class="proto"><img src="assets/swa-odontoiatria.webp" alt="Studia Odontoiatria all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
-      <div class="proto"><img src="assets/swa-infermieristica.webp" alt="Studia Infermieristica all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
+      <div class="proto"><img width="560" height="790" src="assets/swa-odontoiatria.webp" alt="Studia Odontoiatria all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
+      <div class="proto"><img width="560" height="790" src="assets/swa-infermieristica.webp" alt="Studia Infermieristica all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
       <div class="feat-box" style="align-self:stretch">
         <div class="fb-row"><span>Odontoiatria</span><b>Macedonia, Spagna, Romania</b></div>
         <div class="fb-row"><span>Infermieristica</span><b>Romania, Spagna</b></div>
@@ -2866,7 +2922,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         </div>
       </div>
       <div>
-        <div class="proto" style="margin-bottom:20px"><img src="assets/swa-igiene.webp" alt="Corso di formazione professionale in Igiene Dentale &mdash; Study with Athena" loading="lazy" decoding="async"></div>
+        <div class="proto" style="margin-bottom:20px"><img width="560" height="790" src="assets/swa-igiene.webp" alt="Corso di formazione professionale in Igiene Dentale &mdash; Study with Athena" loading="lazy" decoding="async"></div>
         <div class="feat-box">
           <div class="fb-row"><span>Agenzia &middot; Romania</span><b>5.000 &euro; + IVA</b></div>
           <div class="fb-row"><span>Agenzia &middot; altri corsi RO</span><b>3.500 &euro; al 1&deg; anno</b></div>
@@ -2955,7 +3011,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           </div>
         </div>
         <div>
-          <div class="proto" style="margin-bottom:20px"><img src="assets/eremita-cover.webp" alt="Brochure Studio Eremita, AI &amp; Business Intelligence" loading="lazy" decoding="async"></div>
+          <div class="proto" style="margin-bottom:20px"><img width="760" height="1075" src="assets/eremita-cover.webp" alt="Brochure Studio Eremita, AI &amp; Business Intelligence" loading="lazy" decoding="async"></div>
           <div class="feat-box">
             <div class="fb-row"><span>Partner tecnico</span><b>Studio Eremita</b></div>
             <div class="fb-row"><span>Aree di servizio</span><b>12, in tre ambiti</b></div>
@@ -3034,7 +3090,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         </div>
       </div>
       <div>
-        <div class="proto" style="margin-bottom:20px"><img src="assets/fnc-cover.webp" alt="Fondo Nuove Competenze 2026 &mdash; Competenze per l'Innovazione" loading="lazy" decoding="async"></div>
+        <div class="proto" style="margin-bottom:20px"><img width="1000" height="564" src="assets/fnc-cover.webp" alt="Fondo Nuove Competenze 2026 &mdash; Competenze per l'Innovazione" loading="lazy" decoding="async"></div>
         <div class="feat-box">
           <div class="fb-row"><span>Chi lo usa</span><b>Imprese di ogni dimensione</b></div>
           <div class="fb-row"><span>Cosa copre</span><b>Costo del personale in formazione</b></div>
@@ -3131,7 +3187,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="form">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/uniscuole.webp" alt="Uniscuole" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="460" height="120" src="assets/partner/uniscuole.webp" alt="Uniscuole" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Network dell'istruzione</span></div>
         </div>
         <h3>Uniscuole</h3>
@@ -3141,7 +3197,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="repr" style="transition-delay:.06s">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/siulp.webp" alt="SIULP Torino" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="200" height="235" src="assets/partner/siulp.webp" alt="SIULP Torino" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Convenzione sindacale</span></div>
         </div>
         <h3>SIULP Torino</h3>
@@ -3151,7 +3207,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="inno" style="transition-delay:.12s">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/eremita.webp" alt="Studio Eremita" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="300" height="300" src="assets/partner/eremita.webp" alt="Studio Eremita" loading="lazy" decoding="async"></div>
           <div><span class="pc-role intl">Intelligenza artificiale</span></div>
         </div>
         <h3>Studio Eremita &mdash; AI &amp; Business Intelligence</h3>
@@ -3191,7 +3247,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="inno">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/iset.webp" alt="I.S.E.T. &ndash; Industria Sistemi Elettronici" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="405" height="155" src="assets/partner/iset.webp" alt="I.S.E.T. &ndash; Industria Sistemi Elettronici" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Societ&agrave; del gruppo</span></div>
         </div>
         <h3>I.S.E.T. &mdash; Industria Sistemi Elettronici</h3>
@@ -3202,7 +3258,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="form">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/giurecoform.webp" alt="Giurecoform &ndash; Centro di Formazione Giuridica ed Economica" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="480" height="201" src="assets/partner/giurecoform.webp" alt="Giurecoform &ndash; Centro di Formazione Giuridica ed Economica" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Formazione professionale</span></div>
         </div>
         <h3>Giurecoform &mdash; Centro di Formazione Giuridica ed Economica</h3>
@@ -3212,7 +3268,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="repr">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/luxium.webp" alt="Luxium Solutions" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="660" height="210" src="assets/partner/luxium.webp" alt="Luxium Solutions" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Societ&agrave; del gruppo</span></div>
         </div>
         <h3>Luxium Solutions</h3>
@@ -3222,7 +3278,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="form">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/euroform.webp" alt="Euroform &ndash; Scuola dei Mestieri" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="220" height="42" src="assets/partner/euroform.webp" alt="Euroform &ndash; Scuola dei Mestieri" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Formazione professionale</span></div>
         </div>
         <h3>Euroform &mdash; Scuola dei Mestieri</h3>
@@ -3233,7 +3289,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="repr">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/biokalos.webp" alt="Bio Kalos Madonie" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="460" height="462" src="assets/partner/biokalos.webp" alt="Bio Kalos Madonie" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Impresa agricola</span></div>
         </div>
         <h3>Bio Kalos &mdash; Madonie</h3>
@@ -3355,7 +3411,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="form">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/janus.webp" alt="Janus &ndash; Istituto Superiore per la Formazione" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="480" height="220" src="assets/partner/janus.webp" alt="Janus &ndash; Istituto Superiore per la Formazione" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Rete dei poli remoti</span></div>
         </div>
         <h3>Janus &mdash; Istituto Superiore per la Formazione</h3>
@@ -3375,7 +3431,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="sport" style="transition-delay:.12s">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/pegaso-athletic.webp" alt="A.S.D.P. Pegaso Athletic" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="480" height="220" src="assets/partner/pegaso-athletic.webp" alt="A.S.D.P. Pegaso Athletic" loading="lazy" decoding="async"></div>
           <div><span class="pc-role sport">Fondatore e Presidente</span></div>
         </div>
         <h3>A.S.D.P. Pegaso Athletic</h3>
@@ -3395,7 +3451,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="form" style="transition-delay:.24s">
         <div class="pc-top">
-          <div class="pc-logo"><img src="assets/partner/mauriziana.webp" alt="Universit&agrave; Popolare Mauriziana" loading="lazy" decoding="async"></div>
+          <div class="pc-logo"><img width="480" height="220" src="assets/partner/mauriziana.webp" alt="Universit&agrave; Popolare Mauriziana" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Segretario Generale</span></div>
         </div>
         <h3>Universit&agrave; Popolare Mauriziana</h3>
@@ -3425,7 +3481,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="press" style="transition-delay:.12s">
         <div class="pc-top">
-          <div class="pc-logo" style="background:#0b1430"><img src="assets/partner/hashtag.webp" alt="Hashtag Magazine" loading="lazy" decoding="async"></div>
+          <div class="pc-logo" style="background:#0b1430"><img width="360" height="113" src="assets/partner/hashtag.webp" alt="Hashtag Magazine" loading="lazy" decoding="async"></div>
           <div><span class="pc-role press">Copertina 2026</span></div>
         </div>
         <h3>Hashtag Magazine</h3>
@@ -3475,7 +3531,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="form">
         <div class="pc-top">
-          <div class="pc-logo" style="background:#0d1a3f"><img src="assets/partner/polaris.webp" alt="Polaris Campus" loading="lazy" decoding="async"></div>
+          <div class="pc-logo" style="background:#0d1a3f"><img width="260" height="271" src="assets/partner/polaris.webp" alt="Polaris Campus" loading="lazy" decoding="async"></div>
           <div><span class="pc-role">Campus formativo</span></div>
         </div>
         <h3>Polaris Campus</h3>
@@ -3485,7 +3541,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 
       <article class="pcard rv-s" data-cat="intl" style="transition-delay:.06s">
         <div class="pc-top">
-          <div class="pc-logo" style="background:#0f2340"><img src="assets/partner/athena.webp" alt="Study with Athena" loading="lazy" decoding="async"></div>
+          <div class="pc-logo" style="background:#0f2340"><img width="300" height="96" src="assets/partner/athena.webp" alt="Study with Athena" loading="lazy" decoding="async"></div>
           <div><span class="pc-role intl">Studiare all'estero</span></div>
         </div>
         <h3>Study with Athena</h3>
@@ -3551,7 +3607,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           </div>
         </div>
         <div>
-          <div class="proto"><img src="assets/siulp-locandina.webp" alt="Locandina SIULP Torino: Investi sul tuo futuro e su quello della tua famiglia" loading="lazy" decoding="async"></div>
+          <div class="proto"><img width="700" height="1050" src="assets/siulp-locandina.webp" alt="Locandina SIULP Torino: Investi sul tuo futuro e su quello della tua famiglia" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </div>
@@ -3619,7 +3675,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           </div>
         </div>
         <div>
-          <div class="proto"><img src="assets/lisboa-sede.webp" alt="UNICESD Olympo Lisboa, sede portoghese in Rua Castilho 13" loading="lazy" decoding="async" style="height:auto"></div>
+          <div class="proto"><img width="1000" height="789" src="assets/lisboa-sede.webp" alt="UNICESD Olympo Lisboa, sede portoghese in Rua Castilho 13" loading="lazy" decoding="async" style="height:auto"></div>
           <div class="feat-box" style="margin-top:18px">
             <div class="fb-row"><span>Indirizzo</span><b>Rua Castilho 13, 3.&ordm;-B</b></div>
             <div class="fb-row"><span>CAP</span><b>1250-066 Lisboa</b></div>
@@ -3655,7 +3711,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           </div>
         </div>
         <div>
-          <div class="proto"><img src="assets/ecp-sedi.webp" alt="Le nuove sedi ECP Olympo &ndash; UNICESD" loading="lazy" decoding="async" style="height:auto"></div>
+          <div class="proto"><img width="760" height="914" src="assets/ecp-sedi.webp" alt="Le nuove sedi ECP Olympo &ndash; UNICESD" loading="lazy" decoding="async" style="height:auto"></div>
         </div>
       </div>
     </div>
@@ -3908,7 +3964,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
   <div class="wrap">
     <div class="f-grid">
       <div class="f-col f-about">
-        <img class="brand-logo" src="assets/logo-light.png" alt="UNICESD Olympo" style="width:190px">
+        <img width="480" height="187" class="brand-logo" src="assets/logo-light-480.webp" alt="UNICESD Olympo" style="width:190px">
         <p>Universitas Centro Studi Olympo. Servizi di supporto all'istruzione, orientamento universitario, alta formazione e qualificazione professionale dal 2015.</p>
         <div class="socials">
           <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.4 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.57-2.33 3.2V21h-4z"/></svg></a>
@@ -3917,10 +3973,11 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
           <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.3-.42-4.88a2.54 2.54 0 00-1.79-1.8C18.2 4.9 12 4.9 12 4.9s-6.2 0-7.79.42a2.54 2.54 0 00-1.79 1.8C2 8.7 2 12 2 12s0 3.3.42 4.88c.23.87.92 1.56 1.79 1.8C5.8 19.1 12 19.1 12 19.1s6.2 0 7.79-.42a2.54 2.54 0 001.79-1.8C22 15.3 22 12 22 12zM10 15.2V8.8l5.2 3.2z"/></svg></a>
         </div>
       </div>
-      <div class="f-col"><h5>Offerta</h5><ul><li><a href="#offerta">Corsi di Laurea</a></li><li><a href="#offerta">Master I livello</a></li><li><a href="#offerta">Master II livello</a></li><li><a href="#offerta">Certificazioni</a></li><li><a href="#offerta">Corsi singoli</a></li><li><a href="#athena">Studia all'estero</a></li><li><a href="#master">Made in Italy</a></li></ul></div>
-      <div class="f-col"><h5>Ateneo</h5><ul><li><a href="#ateneo">Chi siamo</a></li><li><a href="#fondatore">Il fondatore</a></li><li><a href="#storia">La nostra storia</a></li><li><a href="#gruppo">Il Gruppo</a></li><li><a href="#eventi">Eventi</a></li><li><a href="#icameback">I came back &mdash; Convention 2026</a></li><li><a href="#stampa">Rassegna stampa</a></li><li><a href="#voce">Interventi e interviste</a></li><li><a href="#ai">Progetto AI</a></li><li><a href="#fnc">Fondo Nuove Competenze</a></li><li><a href="#partner">Partnership</a></li><li><a href="#sedi">Sedi</a></li><li><a href="#apri-sede">Apri una sede</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-      <div class="f-col"><h5>Studenti</h5><ul><li><a href="#servizi">Servizi</a></li><li><a href="#servizi">Riconoscimento CFU</a></li><li><a href="#servizi">Placement</a></li><li><a href="#" data-modal="area">Area riservata</a></li><li><a href="#iscrizione">Iscrizione</a></li><li><a href="#contatti">Contatti</a></li></ul></div>
+      <div class="f-col"><h5>Offerta</h5><ul><li><a href="/corsi-di-laurea/">Corsi di Laurea</a></li><li><a href="/master-universitari/">Master I livello</a></li><li><a href="/master-universitari/">Master II livello</a></li><li><a href="/certificazioni/">Certificazioni</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/medicina-senza-test-ingresso/">Studia all'estero</a></li><li><a href="/master-made-in-italy-global-leadership/">Made in Italy</a></li></ul></div>
+      <div class="f-col"><h5>Ateneo</h5><ul><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Il fondatore</a></li><li><a href="/chi-siamo/#storia">La nostra storia</a></li><li><a href="/chi-siamo/#gruppo">Il Gruppo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a></li><li><a href="/chi-siamo/#stampa">Rassegna stampa</a></li><li><a href="/calogero-di-carlo/#voce">Interventi e interviste</a></li><li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></li><li><a href="/rete-e-partner/">Partnership</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
+      <div class="f-col"><h5>Studenti</h5><ul><li><a href="/servizi-studenti/">Servizi</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/servizi-studenti/">Placement</a></li><li><a href="#" data-modal="area">Area riservata</a></li><li><a href="#iscrizione">Iscrizione</a></li><li><a href="/contatti/">Contatti</a></li></ul></div>
     </div>
+    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
     <div class="f-legal" style="padding-bottom:22px">
       UNICESD OLYMPO SRL &mdash; Universitas Centro Studi Olympo &middot; Sede legale Via Trabia 1, 90133 Palermo (PA) &middot; Sede operativa Largo Lituania 11 (ex Via Danimarca), 90141 Palermo (PA) &middot; P.IVA e C.F. 06398000825 &middot; REA PA-318277 &middot; Capitale sociale &euro; 10.000 i.v. &middot; ATECO 85.60.09<br>
       UNICESD Olympo &egrave; un centro di servizi di supporto all'istruzione. I titoli di studio sono rilasciati dagli atenei con cui vengono attivati i percorsi.
@@ -3969,7 +4026,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 <div id="evbg" role="dialog" aria-modal="true" aria-labelledby="evpop-title">
   <div class="evpop">
     <button class="evpop-x" id="evx" aria-label="Chiudi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div class="evpop-img"><img src="assets/eventi/convention-18set2026.webp" alt="Convention UNICESD Olympo, 18 settembre 2026" loading="lazy" decoding="async"></div>
+    <div class="evpop-img"><img width="680" height="1020" src="assets/eventi/convention-18set2026.webp" alt="Convention UNICESD Olympo, 18 settembre 2026" loading="lazy" decoding="async"></div>
     <div class="evpop-main" id="evpop-main">
       <span class="ev-badge">Prossimo evento <i></i></span>
       <h3 id="evpop-title">Convention UNICESD Olympo</h3>
@@ -3995,6 +4052,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
   </div>
 </div>
 
+<script>window.UO_PAGES={"c1": "/corsi-di-laurea/giurisprudenza/", "c2": "/corsi-di-laurea/economia-aziendale/", "c3": "/corsi-di-laurea/scienze-psicologiche/", "c4": "/corsi-di-laurea/scienze-educazione/", "c5": "/corsi-di-laurea/ingegneria-informatica/", "c6": "/corsi-di-laurea/scienze-motorie/", "m1": "/master-made-in-italy-global-leadership/", "m2": "/master-universitari/management-imprese-turistiche/", "m3": "/master-universitari/didattica-innovazione-digitale/", "m4": "/master-universitari/diritto-impresa-internazionale/", "m5": "/master-universitari/data-analytics-business/", "m6": "/master-universitari/management-sanitario/", "k1": "/certificazioni/informatiche/", "k2": "/certificazioni/linguistiche/", "k3": "/certificazioni/graduatorie-scuola/", "s1": "/corsi-singoli-cfu/", "s2": "/riconoscimento-cfu/", "s3": "/formazione-aziendale/"};</script>
 <script>
 (function(){
 'use strict';
@@ -4003,6 +4061,7 @@ var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelect
 
 /* ---------- PRELOADER ---------- */
 var pl=$('#preloader'),ring=$('.pl-bar i'),pct=$('.pl-pct'),p=0;
+if(pl){
 var plTimer=setInterval(function(){
   p+=Math.random()*13+5; if(p>100)p=100;
   ring.style.width=p+'%';
@@ -4010,6 +4069,7 @@ var plTimer=setInterval(function(){
   if(p>=100){clearInterval(plTimer);setTimeout(function(){pl.classList.add('done');document.body.style.overflow='';setTimeout(function(){showCookie()},1600)},420)}
 },130);
 document.body.style.overflow='hidden';
+}else{ setTimeout(function(){showCookie()},2200); }
 
 /* ---------- CANVAS PARTICLES ---------- */
 var cv=$('#fx-canvas'),ctx=cv.getContext('2d'),parts=[],W,H,mouse={x:-999,y:-999};
@@ -4171,7 +4231,7 @@ $$('.faq-i').forEach(function(it){
 });
 
 /* ---------- MARQUEE CLONE ---------- */
-var mqt=$('#mqt'); mqt.innerHTML+=mqt.innerHTML;
+var mqt=$('#mqt'); if(mqt)mqt.innerHTML+=mqt.innerHTML;
 
 /* ---------- TOAST ---------- */
 var toast=$('#toast'),toastTxt=$('#toast-txt'),tTo;
@@ -4225,17 +4285,21 @@ var DATA={
  privacy:{e:'Note legali',t:'Privacy e Note Legali',b:'<p>I dati personali raccolti tramite il modulo di contatto sono trattati da UNICESD OLYMPO SRL, con sede in Via Trabia 1, 90133 Palermo, in qualit&agrave; di titolare del trattamento, ai sensi del Regolamento UE 2016/679.</p><h5>Finalit&agrave; del trattamento</h5><ul class="m-list">'+li('Rispondere alla richiesta di informazioni e orientamento')+li('Gestire l\'eventuale iscrizione ai percorsi formativi')+li('Previo consenso, inviare comunicazioni su corsi e iniziative')+'</ul><h5>I tuoi diritti</h5><ul class="m-list">'+li('Accesso, rettifica, cancellazione e portabilit&agrave; dei dati')+li('Opposizione al trattamento e revoca del consenso')+li('Reclamo al Garante per la protezione dei dati personali')+'</ul><p style="font-size:13px;color:var(--txt-mute)">Testo dimostrativo. L\'informativa definitiva deve essere redatta e validata prima della pubblicazione del sito.</p>'}
 };
 
+/* schede dedicate (versione online): la costante viene valorizzata dal build del sito */
+var PAGE_URL=(typeof window.UO_PAGES==='object'&&window.UO_PAGES)||{};
 var mbg=$('#mbg');
 function openModal(k){
   var d=DATA[k]; if(!d)return;
   $('#m-eye').innerHTML='<em></em> <span>'+d.e+'</span>';
   $('#m-title').innerHTML=d.t;
-  $('#m-body').innerHTML=d.b+'<div style="display:flex;gap:11px;flex-wrap:wrap;margin-top:26px"><a href="#iscrizione" class="btn btn-p" data-close><span>Richiedi informazioni</span></a><button class="btn btn-g" data-close>Chiudi</button></div>';
+  var pg=PAGE_URL[k];
+  $('#m-body').innerHTML=d.b+'<div style="display:flex;gap:11px;flex-wrap:wrap;margin-top:26px">'+(pg?'<a href="'+pg+'" class="btn btn-g" data-page>Scheda completa</a>':'')+'<a href="#iscrizione" class="btn btn-p" data-close><span>Richiedi informazioni</span></a><button class="btn btn-g" data-close>Chiudi</button></div>';
   mob.classList.remove('on'); bg.classList.remove('on');
   mbg.classList.add('on'); document.body.style.overflow='hidden';
 }
 function closeModal(){mbg.classList.remove('on');document.body.style.overflow=''}
 document.addEventListener('click',function(e){
+  if(e.target.closest('a[data-page]'))return;
   var t=e.target.closest('[data-modal]');
   if(t){e.preventDefault();openModal(t.getAttribute('data-modal'));return}
   if(e.target.closest('[data-close]')){closeModal();return}
