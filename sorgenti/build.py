@@ -112,6 +112,21 @@ IMAGES = {
     "__IMG_STRINO__": "img/tony-strino.webp",
     # logo 600px per i dati strutturati (Google Knowledge Panel)
     "__IMG_LOGO_SCHEMA__": "img/logo-schema.png",
+    # CESD - Centro Studi Salvo D'Acquisto: logo, galleria e fotogrammi dei video
+    "__IMG_CESD_LOGO__": "img/cesd/cesd-logo.webp",
+    "__CESD_01__": "img/cesd/cesd-01.webp",
+    "__CESD_02__": "img/cesd/cesd-02.webp",
+    "__CESD_03__": "img/cesd/cesd-03.webp",
+    "__CESD_04__": "img/cesd/cesd-04.webp",
+    "__CESD_05__": "img/cesd/cesd-05.webp",
+    "__CESD_06__": "img/cesd/cesd-06.webp",
+    "__CESD_07__": "img/cesd/cesd-07.webp",
+    "__CESD_08__": "img/cesd/cesd-08.webp",
+    "__CESD_09__": "img/cesd/cesd-09.webp",
+    "__CESD_10__": "img/cesd/cesd-10.webp",
+    "__CESD_11__": "img/cesd/cesd-11.webp",   # targa del circolo CESD di Comiso (2008)
+    "__CESD_VP1__": "img/cesd/cesd-video-1.webp",
+    "__CESD_VP2__": "img/cesd/cesd-video-2.webp",
 }
 
 # Sfondi generati con Higgsfield + globo animato: finiscono nel CSS e nel markup.
@@ -135,6 +150,8 @@ AI_ASSETS = {
     "__PLAT_POSTER__": "img/ai/plat.webp",      # fotogramma fermo del video nello schermo del laptop
     "__PREMIO_POSTER__": "img/premio-poster.webp",   # fotogramma della premiazione
     "__PREMIO_VIDEO__": "img/premio-video.mp4",      # ripresa integrale 2:47 della premiazione
+    "__CESD_VIDEO_1__": "img/cesd/cesd-video-1.mp4",   # incontro nella sala museo, 0:50
+    "__CESD_VIDEO_2__": "img/cesd/cesd-video-2.mp4",   # proiezione e conferenza, 1:21
     "__PLAT_VIDEO__": "img/ai/plat.mp4",        # b-roll studentessa al laptop, loop di 4s
 }
 

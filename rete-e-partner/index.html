@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=0827f812">
+<link rel="stylesheet" href="/assets/css/site.css?v=4744e7bf">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNICESD Olympo">
 <meta property="og:locale" content="it_IT">
@@ -56,7 +56,7 @@
     "@type": "ImageObject",
     "url": "https://unicesd-olympo.com/assets/og-cover.jpg"
    },
-   "dateModified": "2026-09-24",
+   "dateModified": "2026-09-27",
    "publisher": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    }
@@ -561,14 +561,15 @@
         <div class="pc-foot"><span>Via Trabia 2, Palermo</span><span>dal 2018</span></div>
       </article>
 
-      <article class="pcard rv-s" data-cat="sport" style="transition-delay:.18s">
+      <article class="pcard rv-s cesd-card" data-cat="sport" style="transition-delay:.18s">
         <div class="pc-top">
-          <div class="pc-mark">CESD</div>
+          <div class="pc-logo"><img width="600" height="285" src="/assets/cesd/cesd-logo.webp" alt="Logo del Centro Studi Salvo D'Acquisto" loading="lazy" decoding="async"></div>
           <div><span class="pc-role sport">Fondatore</span></div>
         </div>
         <h3>CESD &mdash; Centro Studi Salvo D'Acquisto</h3>
-        <p>Associazione senza fini di lucro nata nel 2008 per tenere viva la memoria del Beato Salvo D'Acquisto e sostenerne la causa di santificazione. Custodisce un museo di cimeli e oggetti storici dell'Arma dei Carabinieri in una sede del centro di Palermo confiscata alla mafia e promuove attivit&agrave; sociali, sportive e di beneficenza.</p>
-        <div class="pc-foot"><span>Palermo</span><span>dal 2008</span></div>
+        <p>Associazione senza fini di lucro nata nel 2008 per tenere viva la memoria del Beato Salvo D'Acquisto e sostenerne la causa di santificazione. Custodisce un museo di cimeli e oggetti storici dell'Arma dei Carabinieri in una sede del centro di Palermo confiscata alla mafia e promuove attivit&agrave; sociali, sportive e di beneficenza. Gi&agrave; nel 2008 nasce a <b>Comiso</b> (Ragusa) il primo circolo del CESD dopo Palermo.</p>
+        <button type="button" class="cesd-strip" data-cesd-open aria-label="Apri la galleria foto e video del Centro Studi Salvo D'Acquisto"><span class="cs-th"><img width="1280" height="720" src="/assets/cesd/cesd-01.webp" alt="" loading="lazy" decoding="async"></span><span class="cs-th"><img width="1280" height="960" src="/assets/cesd/cesd-02.webp" alt="" loading="lazy" decoding="async"></span><span class="cs-th"><img width="1280" height="960" src="/assets/cesd/cesd-03.webp" alt="" loading="lazy" decoding="async"></span><span class="cs-th cs-more"><img width="1280" height="960" src="/assets/cesd/cesd-04.webp" alt="" loading="lazy" decoding="async"><b>+9</b></span></button>
+        <div class="pc-foot"><span>Via Principe di Granatelli 35, Palermo</span><button type="button" class="pc-link" data-cesd-open>Foto e video <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
       </article>
 
       <article class="pcard rv-s" data-cat="form" style="transition-delay:.24s">
@@ -735,6 +736,47 @@
     </div>
 
     <p class="pnote rv"><b>Nota.</b> Le realt&agrave; elencate sono enti, associazioni e societ&agrave; distinte da UNICESD OLYMPO SRL. La loro presenza in questa pagina indica i ruoli ricoperti dal fondatore o i rapporti di collaborazione in essere, non una partecipazione societaria n&eacute; una responsabilit&agrave; reciproca. I titoli di studio universitari sono rilasciati esclusivamente dagli atenei accreditati.</p>
+    <!-- ===== CESD: galleria foto e video (si apre dalla scheda) ===== -->
+    <div class="cesd-md" id="cesdMd" role="dialog" aria-modal="true" aria-labelledby="cesdMdT">
+      <div class="cesd-box">
+        <button type="button" class="cesd-x" aria-label="Chiudi">&#10005;</button>
+        <div class="cesd-hd">
+          <div class="cesd-logo"><img width="600" height="285" src="/assets/cesd/cesd-logo.webp" alt="Logo del Centro Studi Salvo D'Acquisto" loading="lazy" decoding="async"></div>
+          <div>
+            <span class="pc-role sport">Sport e memoria &middot; dal 2008</span>
+            <h3 id="cesdMdT">Centro Studi Salvo D'Acquisto</h3>
+            <p class="cesd-addr">Via Principe di Granatelli 35 &middot; 90139 Palermo</p>
+          </div>
+        </div>
+        <p class="cesd-intro">Le attivit&agrave; del Centro Studi in immagini: gli incontri e le conferenze nella sala museo, fra uniformi storiche e cimeli dell'Arma dei Carabinieri; la consegna del dipinto dedicato al sacrificio di Salvo D'Acquisto; gli stand della memoria e le iniziative sportive e sociali accanto all'Arma e alle associazioni del territorio. Nel 2008, lo stesso anno della fondazione, nasce a Comiso (Ragusa) il primo circolo del CESD fuori da Palermo.</p>
+        <h4 class="cesd-h">I video</h4>
+        <div class="cesd-vids">
+          <figure><video class="cesd-v" controls preload="none" playsinline poster="/assets/cesd/cesd-video-1.webp"><source src="/assets/cesd/cesd-video-1.mp4" type="video/mp4"></video><figcaption>Un incontro nella sala museo del Centro Studi <span>0:50</span></figcaption></figure>
+          <figure><video class="cesd-v" controls preload="none" playsinline poster="/assets/cesd/cesd-video-2.webp"><source src="/assets/cesd/cesd-video-2.mp4" type="video/mp4"></video><figcaption>Proiezione di immagini storiche e conferenza davanti al pubblico <span>1:21</span></figcaption></figure>
+        </div>
+        <h4 class="cesd-h">Le foto</h4>
+        <div class="cesd-grid">
+        <button type="button" class="cesd-it" data-cesd data-cap="La targa del Circolo del CESD di Comiso (provincia di Ragusa): nato nel 2008, &egrave; il primo circolo del Centro Studi dopo Palermo"><img width="960" height="1280" src="/assets/cesd/cesd-11.webp" alt="La targa del Circolo del CESD di Comiso, primo circolo del Centro Studi dopo Palermo" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="Un incontro con l'AVO nella sala museo del Centro Studi, fra uniformi storiche, vetrine di cimeli e biblioteca"><img width="1280" height="720" src="/assets/cesd/cesd-01.webp" alt="Un incontro con l'AVO nella sala museo del Centro Studi, fra uniformi storiche, vetrine di cimeli e biblioteca" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="Il tavolo dei relatori: Lucia Ievolella, Giuseppe Governale, Salvatore Sansone e Salvatore Messineo"><img width="1280" height="960" src="/assets/cesd/cesd-02.webp" alt="Il tavolo dei relatori: Lucia Ievolella, Giuseppe Governale, Salvatore Sansone e Salvatore Messineo" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="Un momento di confronto fra i relatori, davanti alle uniformi storiche dell'Arma"><img width="1280" height="960" src="/assets/cesd/cesd-03.webp" alt="Un momento di confronto fra i relatori, davanti alle uniformi storiche dell'Arma" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="Lo stand dedicato a Salvo D'Acquisto: ritratti, opere e fotografie d'epoca, con il saluto di Palermo &laquo;la citt&agrave; dove sei stato concepito&raquo;"><img width="1280" height="960" src="/assets/cesd/cesd-04.webp" alt="Lo stand dedicato a Salvo D'Acquisto: ritratti, opere e fotografie d'epoca, con il saluto di Palermo la citt&agrave; dove sei stato concepito" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="Una grande uniforme storica da ufficiale dei Carabinieri, con il pennacchio rosso e blu"><img width="960" height="1280" src="/assets/cesd/cesd-05.webp" alt="Una grande uniforme storica da ufficiale dei Carabinieri, con il pennacchio rosso e blu" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="La presentazione del dipinto dedicato al sacrificio di Salvo D'Acquisto, sotto il manifesto dell'Associazione Italiana Familiari e Vittime della Strada"><img width="1280" height="856" src="/assets/cesd/cesd-06.webp" alt="La presentazione del dipinto dedicato al sacrificio di Salvo D'Acquisto, sotto il manifesto dell'Associazione Italiana Familiari e Vittime della Strada" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="Il dipinto di Salvo D'Acquisto davanti alle autorit&agrave; intervenute"><img width="1280" height="856" src="/assets/cesd/cesd-07.webp" alt="Il dipinto di Salvo D'Acquisto davanti alle autorit&agrave; intervenute" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="La consegna del dipinto"><img width="604" height="404" src="/assets/cesd/cesd-08.webp" alt="La consegna del dipinto" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="Con i Carabinieri e l'unit&agrave; cinofila in un'iniziativa del Centro Studi"><img width="720" height="540" src="/assets/cesd/cesd-09.webp" alt="Con i Carabinieri e l'unit&agrave; cinofila in un'iniziativa del Centro Studi" loading="lazy" decoding="async"></button>
+        <button type="button" class="cesd-it" data-cesd data-cap="Sul campo della A.C.D.S. La Zagara di Pedalino, un'iniziativa sportiva con l'Associazione Italiana Familiari e Vittime della Strada"><img width="604" height="404" src="/assets/cesd/cesd-10.webp" alt="Sul campo della A.C.D.S. La Zagara di Pedalino, un'iniziativa sportiva con l'Associazione Italiana Familiari e Vittime della Strada" loading="lazy" decoding="async"></button>
+        </div>
+      </div>
+    </div>
+    <div class="icb-lb cesd-lb" id="cesdLb" role="dialog" aria-modal="true" aria-label="Foto del Centro Studi Salvo D'Acquisto">
+      <button type="button" class="icb-x" aria-label="Chiudi">&#10005;</button>
+      <button type="button" class="icb-nav icb-prev" aria-label="Foto precedente">&#8249;</button>
+      <img class="icb-big" src="" alt="">
+      <button type="button" class="icb-nav icb-next" aria-label="Foto successiva">&#8250;</button>
+      <div class="icb-info"></div>
+    </div>
   </div>
 </section>
 <section id="iscrizione">
@@ -925,5 +967,5 @@
 </div>
 
 <script>window.UO_PAGES={"c1": "/corsi-di-laurea/giurisprudenza/", "c2": "/corsi-di-laurea/economia-aziendale/", "c3": "/corsi-di-laurea/scienze-psicologiche/", "c4": "/corsi-di-laurea/scienze-educazione/", "c5": "/corsi-di-laurea/ingegneria-informatica/", "c6": "/corsi-di-laurea/scienze-motorie/", "m1": "/master-made-in-italy-global-leadership/", "m2": "/master-universitari/management-imprese-turistiche/", "m3": "/master-universitari/didattica-innovazione-digitale/", "m4": "/master-universitari/diritto-impresa-internazionale/", "m5": "/master-universitari/data-analytics-business/", "m6": "/master-universitari/management-sanitario/", "k1": "/certificazioni/informatiche/", "k2": "/certificazioni/linguistiche/", "k3": "/certificazioni/graduatorie-scuola/", "s1": "/corsi-singoli-cfu/", "s2": "/riconoscimento-cfu/", "s3": "/formazione-aziendale/"};</script>
-<script src="/assets/js/site.js?v=9a99a170" defer></script>
+<script src="/assets/js/site.js?v=a2067ff9" defer></script>
 </body></html>

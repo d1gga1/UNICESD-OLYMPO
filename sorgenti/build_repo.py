@@ -45,7 +45,7 @@ def main() -> None:
            + head + content + schema
            + "</head>\n<body>\n" + body + script + "\n</body></html>\n")
 
-    left = [t for t in ("__IMG_", "__BG_", "__GLOBE_", "__HERO_", "__PLAT_", "__PREMIO_", "__ICB_") if t in out]
+    left = [t for t in ("__IMG_", "__BG_", "__GLOBE_", "__HERO_", "__PLAT_", "__PREMIO_", "__ICB_", "__CESD_") if t in out]
     if left:
         raise SystemExit(f"Segnaposto non sostituiti: {left}")
 

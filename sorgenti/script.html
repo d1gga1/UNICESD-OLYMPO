@@ -74,7 +74,8 @@ document.addEventListener('mouseout',function(e){
 var hdr=$('#hdr'),bar=$('#scrollbar-top'),tt=$('#totop');
 function onScroll(){
   var y=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
-  hdr.classList.toggle('stuck',y>30);
+  // isteresi: niente rimbalzo fra 'stuck' e 'non stuck' vicino alla soglia (causava lo sfarfallio)
+  if(y>80) hdr.classList.add('stuck'); else if(y<8) hdr.classList.remove('stuck');
   bar.style.width=(h>0?(y/h*100):0)+'%';
   tt.classList.toggle('on',y>620);
 }
@@ -136,11 +137,11 @@ $$('.mob-sub a').forEach(function(a){a.addEventListener('click',function(){mob.c
 
 /* ---------- TABS ---------- */
 function setTab(i){
-  $$('.tab').forEach(function(t,k){t.classList.toggle('on',k===i)});
+  $$('#tabs .tab').forEach(function(t,k){t.classList.toggle('on',k===i)});
   $$('.panel').forEach(function(p,k){p.classList.toggle('on',k===i)});
   $$('.panel.on .rv,.panel.on .rv-s').forEach(function(el){el.classList.add('in')});
 }
-$$('.tab').forEach(function(t,i){t.addEventListener('click',function(){setTab(i)})});
+$$('#tabs .tab').forEach(function(t,i){t.addEventListener('click',function(){setTab(i)})});
 $$('[data-tab]').forEach(function(a){a.addEventListener('click',function(){setTimeout(function(){setTab(parseInt(a.getAttribute('data-tab'),10))},260)})});
 
 /* ---------- CARD SPOTLIGHT + TILT ---------- */
@@ -898,6 +899,61 @@ window.addEventListener('scroll',function(){
     var dx=e.changedTouches[0].clientX-sx; sx=null;
     if(Math.abs(dx)>50) show(cur+(dx<0?1:-1));
   },{passive:true});
+})();
+
+
+/* ===== CESD - finestra foto e video + lightbox ===== */
+(function(){
+  var md=document.getElementById('cesdMd'), lb=document.getElementById('cesdLb');
+  if(!md||!lb) return;
+  // fuori dalla sezione: altrimenti header e cookie restano sopra la finestra
+  document.body.appendChild(md); document.body.appendChild(lb);
+  var prevOv='', items=[].slice.call(md.querySelectorAll('[data-cesd]'));
+  var big=lb.querySelector('.icb-big'), info=lb.querySelector('.icb-info'), cur=0;
+  function stopVids(){ [].forEach.call(md.querySelectorAll('video'),function(v){ v.pause(); }); }
+  function openMd(){ prevOv=document.body.style.overflow; md.classList.add('on'); md.scrollTop=0; document.body.style.overflow='hidden'; }
+  function closeMd(){ stopVids(); md.classList.remove('on'); document.body.style.overflow=prevOv; }
+  [].forEach.call(document.querySelectorAll('[data-cesd-open]'),function(b){ b.addEventListener('click',function(e){ e.preventDefault(); openMd(); }); });
+  md.querySelector('.cesd-x').addEventListener('click',closeMd);
+  md.addEventListener('click',function(e){ if(e.target===md) closeMd(); });
+  function show(n){
+    cur=(n+items.length)%items.length;
+    var im=items[cur].querySelector('img');
+    big.src=im.getAttribute('src'); big.alt=im.getAttribute('alt')||'';
+    info.innerHTML=(items[cur].getAttribute('data-cap')||'')+' &nbsp;&middot;&nbsp; '+(cur+1)+' / '+items.length;
+  }
+  function openLb(n){ stopVids(); show(n); lb.classList.add('on'); }
+  function closeLb(){ lb.classList.remove('on'); big.removeAttribute('src'); }
+  items.forEach(function(el,n){ el.addEventListener('click',function(){ openLb(n); }); });
+  lb.addEventListener('click',function(e){ if(e.target===lb||e.target===big) closeLb(); });
+  lb.querySelector('.icb-x').addEventListener('click',function(e){ e.stopPropagation(); closeLb(); });
+  lb.querySelector('.icb-prev').addEventListener('click',function(e){ e.stopPropagation(); show(cur-1); });
+  lb.querySelector('.icb-next').addEventListener('click',function(e){ e.stopPropagation(); show(cur+1); });
+  document.addEventListener('keydown',function(e){
+    if(lb.classList.contains('on')){
+      if(e.key==='Escape') closeLb(); else if(e.key==='ArrowLeft') show(cur-1); else if(e.key==='ArrowRight') show(cur+1);
+    } else if(md.classList.contains('on') && e.key==='Escape'){ closeMd(); }
+  });
+  var sx=null;
+  lb.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; },{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; sx=null;
+    if(Math.abs(dx)>50) show(cur+(dx<0?1:-1));
+  },{passive:true});
+})();
+
+
+/* ===== Catalogo eCampus - filtro per area ===== */
+(function(){
+  var f=document.getElementById('ecFilters'), g=document.getElementById('ecGrid');
+  if(!f||!g) return;
+  var bs=[].slice.call(f.querySelectorAll('[data-ec]')), cs=[].slice.call(g.querySelectorAll('.ec-card'));
+  bs.forEach(function(b){ b.addEventListener('click',function(e){
+    e.stopPropagation();
+    bs.forEach(function(x){ x.classList.toggle('on',x===b); });
+    var k=b.getAttribute('data-ec');
+    cs.forEach(function(c){ c.classList.toggle('off',k!=='all'&&c.getAttribute('data-ec')!==k); });
+  }); });
 })();
 
 </script>
