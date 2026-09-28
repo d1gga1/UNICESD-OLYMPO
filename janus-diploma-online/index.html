@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=4744e7bf">
+<link rel="stylesheet" href="/assets/css/site.css?v=73e7a93b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNICESD Olympo">
 <meta property="og:locale" content="it_IT">
@@ -56,7 +56,7 @@
     "@type": "ImageObject",
     "url": "https://unicesd-olympo.com/assets/og-cover.jpg"
    },
-   "dateModified": "2026-09-27",
+   "dateModified": "2026-09-28",
    "publisher": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    }
@@ -354,18 +354,23 @@
       <p>Licei, istituti tecnici e professionali: il piano di studi completo di ciascun indirizzo &egrave; nella brochure.</p>
     </div>
 
-    <div class="rail">
-      <div class="rail-i rv"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
-      <div class="rail-i rv"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
+    <div class="jn-filt rv" role="group" aria-label="Evidenzia gli indirizzi per tipo di scuola">
+      <button type="button" class="tab" data-tipo="liceo" aria-pressed="false">Liceo</button>
+      <button type="button" class="tab" data-tipo="tecnico" aria-pressed="false">Tecnico</button>
+      <button type="button" class="tab" data-tipo="prof" aria-pressed="false">Professionale</button>
+    </div>
+    <div class="rail" id="jnRail">
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
+      <div class="rail-i rv" data-tipo="prof"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
     </div>
 
     <!-- I RISULTATI -->
@@ -657,5 +662,5 @@
 </div>
 
 <script>window.UO_PAGES={"c1": "/corsi-di-laurea/giurisprudenza/", "c2": "/corsi-di-laurea/economia-aziendale/", "c3": "/corsi-di-laurea/scienze-psicologiche/", "c4": "/corsi-di-laurea/scienze-educazione/", "c5": "/corsi-di-laurea/ingegneria-informatica/", "c6": "/corsi-di-laurea/scienze-motorie/", "m1": "/master-made-in-italy-global-leadership/", "m2": "/master-universitari/management-imprese-turistiche/", "m3": "/master-universitari/didattica-innovazione-digitale/", "m4": "/master-universitari/diritto-impresa-internazionale/", "m5": "/master-universitari/data-analytics-business/", "m6": "/master-universitari/management-sanitario/", "k1": "/certificazioni/informatiche/", "k2": "/certificazioni/linguistiche/", "k3": "/certificazioni/graduatorie-scuola/", "s1": "/corsi-singoli-cfu/", "s2": "/riconoscimento-cfu/", "s3": "/formazione-aziendale/"};</script>
-<script src="/assets/js/site.js?v=a2067ff9" defer></script>
+<script src="/assets/js/site.js?v=75c49496" defer></script>
 </body></html>

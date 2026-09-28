@@ -185,8 +185,10 @@ function showToast(m){toastTxt.textContent=m;toast.classList.add('on');clearTime
 
 /* ---------- COOKIE ---------- */
 var ck=$('#cookie');
-function showCookie(){try{if(sessionStorage.getItem('uo_ck'))return}catch(e){}ck.classList.add('on')}
-function hideCookie(){ck.classList.remove('on');try{sessionStorage.setItem('uo_ck','1')}catch(e){}}
+/* la scelta resta memorizzata per 12 mesi: localStorage + cookie tecnico di riserva */
+function ckSeen(){try{if(localStorage.getItem('uo_ck'))return true}catch(e){}return /(^|;\s*)uo_ck=/.test(document.cookie||'')}
+function showCookie(){if(ckSeen())return;ck.classList.add('on')}
+function hideCookie(){ck.classList.remove('on');try{localStorage.setItem('uo_ck','1')}catch(e){}try{document.cookie='uo_ck=1; max-age=31536000; path=/; SameSite=Lax'}catch(e){}}
 $('#ckOk').addEventListener('click',function(){hideCookie();showToast('Preferenze salvate. Grazie!')});
 $('#ckNo').addEventListener('click',function(){hideCookie();showToast('Attivi solo i cookie tecnici.')});
 
@@ -955,3 +957,15 @@ window.addEventListener('scroll',function(){
   }); });
 })();
 
+
+/* ---------- JANUS: EVIDENZIA LICEO / TECNICO / PROFESSIONALE ---------- */
+(function(){
+  var rail=document.getElementById('jnRail'); if(!rail) return;
+  var btns=[].slice.call(document.querySelectorAll('.jn-filt .tab')), items=[].slice.call(rail.querySelectorAll('.rail-i'));
+  btns.forEach(function(b){ b.addEventListener('click',function(){
+    var t=b.getAttribute('data-tipo'), on=!b.classList.contains('on');
+    btns.forEach(function(x){ var a=on&&x===b; x.classList.toggle('on',a); x.setAttribute('aria-pressed',a?'true':'false'); });
+    rail.classList.toggle('hl',on);
+    items.forEach(function(it){ it.classList.toggle('hit',on&&it.getAttribute('data-tipo')===t); });
+  }); });
+})();

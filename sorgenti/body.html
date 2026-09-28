@@ -552,18 +552,23 @@
       <p>Licei, istituti tecnici e professionali: il piano di studi completo di ciascun indirizzo &egrave; nella brochure.</p>
     </div>
 
-    <div class="rail">
-      <div class="rail-i rv"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
-      <div class="rail-i rv"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
+    <div class="jn-filt rv" role="group" aria-label="Evidenzia gli indirizzi per tipo di scuola">
+      <button type="button" class="tab" data-tipo="liceo" aria-pressed="false">Liceo</button>
+      <button type="button" class="tab" data-tipo="tecnico" aria-pressed="false">Tecnico</button>
+      <button type="button" class="tab" data-tipo="prof" aria-pressed="false">Professionale</button>
+    </div>
+    <div class="rail" id="jnRail">
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
+      <div class="rail-i rv" data-tipo="prof"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
     </div>
 
     <!-- I RISULTATI -->

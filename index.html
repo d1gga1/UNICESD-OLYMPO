@@ -374,7 +374,7 @@ section{position:relative;padding:110px 0;overflow-x:clip}
 .marquee::before,.marquee::after{content:'';position:absolute;top:0;width:160px;height:100%;z-index:2;pointer-events:none}
 .marquee::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
 .marquee::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
-.mq-track{display:flex;gap:56px;width:max-content;animation:mq 34s linear infinite}
+.mq-track{display:flex;gap:56px;width:max-content;animation:mq 95s linear infinite}
 .marquee:hover .mq-track{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
 .mq-item{display:flex;align-items:center;gap:11px;font-family:'Sora';font-size:14.5px;font-weight:600;color:var(--txt-mute);white-space:nowrap;transition:color .3s}
@@ -614,6 +614,12 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 .rail-i em{display:block;font-family:'Sora';font-size:11.5px;font-style:normal;letter-spacing:.14em;color:var(--cy);margin-bottom:9px}
 .rail-i b{display:block;font-family:'Sora';font-size:15.4px;margin-bottom:6px}
 .rail-i span{font-size:13px;color:var(--txt-mute);line-height:1.55}
+/* filtri Liceo / Tecnico / Professionale sopra gli indirizzi Janus */
+.jn-filt{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+.jn-filt .tab{cursor:pointer}
+.rail.hl .rail-i{opacity:.32;filter:grayscale(.7);transform:scale(.97)}
+.rail.hl .rail-i.hit{opacity:1;filter:none;transform:translateY(-4px);border-color:var(--cy);box-shadow:0 14px 34px rgba(79,160,255,.28)}
+.rail.hl .rail-i.hit::before{transform:scaleX(1)}
 
 /* ============ PRESS ============ */
 /* LETTORE VIDEO VERTICALE (premiazione) */
@@ -2050,18 +2056,23 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
       <p>Licei, istituti tecnici e professionali: il piano di studi completo di ciascun indirizzo &egrave; nella brochure.</p>
     </div>
 
-    <div class="rail">
-      <div class="rail-i rv"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
-      <div class="rail-i rv"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
-      <div class="rail-i rv"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
-      <div class="rail-i rv"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
+    <div class="jn-filt rv" role="group" aria-label="Evidenzia gli indirizzi per tipo di scuola">
+      <button type="button" class="tab" data-tipo="liceo" aria-pressed="false">Liceo</button>
+      <button type="button" class="tab" data-tipo="tecnico" aria-pressed="false">Tecnico</button>
+      <button type="button" class="tab" data-tipo="prof" aria-pressed="false">Professionale</button>
+    </div>
+    <div class="rail" id="jnRail">
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
+      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
+      <div class="rail-i rv" data-tipo="prof"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
+      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
     </div>
 
     <!-- I RISULTATI -->
@@ -4398,8 +4409,10 @@ function showToast(m){toastTxt.textContent=m;toast.classList.add('on');clearTime
 
 /* ---------- COOKIE ---------- */
 var ck=$('#cookie');
-function showCookie(){try{if(sessionStorage.getItem('uo_ck'))return}catch(e){}ck.classList.add('on')}
-function hideCookie(){ck.classList.remove('on');try{sessionStorage.setItem('uo_ck','1')}catch(e){}}
+/* la scelta resta memorizzata per 12 mesi: localStorage + cookie tecnico di riserva */
+function ckSeen(){try{if(localStorage.getItem('uo_ck'))return true}catch(e){}return /(^|;\s*)uo_ck=/.test(document.cookie||'')}
+function showCookie(){if(ckSeen())return;ck.classList.add('on')}
+function hideCookie(){ck.classList.remove('on');try{localStorage.setItem('uo_ck','1')}catch(e){}try{document.cookie='uo_ck=1; max-age=31536000; path=/; SameSite=Lax'}catch(e){}}
 $('#ckOk').addEventListener('click',function(){hideCookie();showToast('Preferenze salvate. Grazie!')});
 $('#ckNo').addEventListener('click',function(){hideCookie();showToast('Attivi solo i cookie tecnici.')});
 
@@ -5168,6 +5181,18 @@ window.addEventListener('scroll',function(){
   }); });
 })();
 
+
+/* ---------- JANUS: EVIDENZIA LICEO / TECNICO / PROFESSIONALE ---------- */
+(function(){
+  var rail=document.getElementById('jnRail'); if(!rail) return;
+  var btns=[].slice.call(document.querySelectorAll('.jn-filt .tab')), items=[].slice.call(rail.querySelectorAll('.rail-i'));
+  btns.forEach(function(b){ b.addEventListener('click',function(){
+    var t=b.getAttribute('data-tipo'), on=!b.classList.contains('on');
+    btns.forEach(function(x){ var a=on&&x===b; x.classList.toggle('on',a); x.setAttribute('aria-pressed',a?'true':'false'); });
+    rail.classList.toggle('hl',on);
+    items.forEach(function(it){ it.classList.toggle('hit',on&&it.getAttribute('data-tipo')===t); });
+  }); });
+})();
 </script>
 
 </body></html>

@@ -327,7 +327,7 @@ section{position:relative;padding:110px 0;overflow-x:clip}
 .marquee::before,.marquee::after{content:'';position:absolute;top:0;width:160px;height:100%;z-index:2;pointer-events:none}
 .marquee::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
 .marquee::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
-.mq-track{display:flex;gap:56px;width:max-content;animation:mq 34s linear infinite}
+.mq-track{display:flex;gap:56px;width:max-content;animation:mq 95s linear infinite}
 .marquee:hover .mq-track{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
 .mq-item{display:flex;align-items:center;gap:11px;font-family:'Sora';font-size:14.5px;font-weight:600;color:var(--txt-mute);white-space:nowrap;transition:color .3s}
@@ -567,6 +567,12 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 .rail-i em{display:block;font-family:'Sora';font-size:11.5px;font-style:normal;letter-spacing:.14em;color:var(--cy);margin-bottom:9px}
 .rail-i b{display:block;font-family:'Sora';font-size:15.4px;margin-bottom:6px}
 .rail-i span{font-size:13px;color:var(--txt-mute);line-height:1.55}
+/* filtri Liceo / Tecnico / Professionale sopra gli indirizzi Janus */
+.jn-filt{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+.jn-filt .tab{cursor:pointer}
+.rail.hl .rail-i{opacity:.32;filter:grayscale(.7);transform:scale(.97)}
+.rail.hl .rail-i.hit{opacity:1;filter:none;transform:translateY(-4px);border-color:var(--cy);box-shadow:0 14px 34px rgba(79,160,255,.28)}
+.rail.hl .rail-i.hit::before{transform:scaleX(1)}
 
 /* ============ PRESS ============ */
 /* LETTORE VIDEO VERTICALE (premiazione) */
