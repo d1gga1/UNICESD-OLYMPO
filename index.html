@@ -1282,8 +1282,8 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 .vo-contact a{font-family:'Sora';font-weight:600;color:#7fbaff;font-size:17px}
 
 /* la sezione non compare in home: solo come pagina a se' (body.sub) o aperta dal menu nel file unico */
-.vo-page:not(.show){display:none}
-body.sub .vo-page{display:block}
+.vo-page:not(.show),.ente-page:not(.show){display:none}
+body.sub .vo-page,body.sub .ente-page{display:block}
 body.sub #voce-olympo .sec-head{display:none}
 body.sub #voce-olympo{padding-top:40px!important}
 /* voce di menu indipendente */
@@ -1311,6 +1311,30 @@ body.sub #voce-olympo{padding-top:40px!important}
 }
 .vo-item{scroll-margin-top:110px}
 .vo-title .grad,.vopop h3 .grad{background:linear-gradient(110deg,#ffffff,#8cc4ff 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ===================== OFFERTA UNICA DEL CESD ===================== */
+.of-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:-22px 0 34px}
+.of-stats>div{padding:16px 12px;border-radius:16px;border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow-md);text-align:center}
+.of-stats b{display:block;font-family:'Sora';font-size:30px;line-height:1;color:var(--brand);margin-bottom:6px}
+.of-stats span{font-size:12.6px;color:var(--txt-dim);line-height:1.3;display:block}
+.of-intro{max-width:820px;margin-bottom:22px}
+.of-intro h3{font-size:clamp(22px,2.6vw,30px);margin-bottom:10px}
+.of-intro p{color:var(--txt-dim);margin-bottom:14px}
+.of-rail{margin-top:6px}
+.of-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+#offerta .panel .bento{margin-top:0}
+@media(max-width:1000px){.of-stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.of-stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}.of-stats b{font-size:24px}#tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}#tabs .tab{flex-shrink:0}}
+
+/* rete: in home le schede mostrano solo nome e ruolo */
+body:not(.sub) #pgrid .pcard:not(.open)>:not(.pc-top):not(h3):not(.pc-more){display:none}
+.pc-more{margin-top:14px;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:100px;border:1px solid var(--line-strong);background:var(--surface-2);color:var(--brand);font-family:'Sora';font-size:12.4px;font-weight:600;cursor:pointer;transition:.3s var(--ease)}
+.pc-more:hover{border-color:var(--cy);background:rgba(31,95,208,.08)}
+.pc-more svg{transition:transform .3s var(--ease)}
+.pcard.open .pc-more svg{transform:rotate(180deg)}
+body:not(.sub) #pgrid .pcard{display:flex;flex-direction:column}
+body:not(.sub) #pgrid{align-items:start}
+body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
 
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
@@ -1637,7 +1661,7 @@ body.sub #voce-olympo{padding-top:40px!important}
             <div class="mega-col">
               <h5>Terza missione</h5>
               <a href="#" data-modal="territorio" class="mega-item"><div class="mega-ic">&#127965;</div><div><b>Territorio</b><span>Progetti in tutta Italia</span></div></a>
-              <a href="/janus-diploma-online/" class="mega-item"><div class="mega-ic">&#127979;</div><div><b>Janus</b><span>La scuola del diploma, in primo piano</span></div></a>
+              <a href="/offerta-formativa/?tab=3#offerta" class="mega-item"><div class="mega-ic">&#127979;</div><div><b>Diploma online</b><span>11 indirizzi, recupero anni</span></div></a>
               <a href="/eventi/" class="mega-item"><div class="mega-ic">&#127914;</div><div><b>Eventi</b><span>Convention, open day e incontri</span></div></a>
               <a href="/eventi/#icameback" class="mega-item"><div class="mega-ic">&#128247;</div><div><b>I came back</b><span>Le foto della Convention 2026</span></div></a>
               <a href="/master-made-in-italy-global-leadership/" class="mega-item"><div class="mega-ic">&#127758;</div><div><b>Internazionalizzazione</b><span>Export e Made in Italy</span></div></a>
@@ -1674,7 +1698,7 @@ body.sub #voce-olympo{padding-top:40px!important}
               <a href="/certificazioni/" class="mega-item"><div class="mega-ic">&#128187;</div><div><b>Informatiche</b><span>EIPASS, ECDL, coding</span></div></a>
               <a href="/certificazioni/" class="mega-item"><div class="mega-ic">&#127760;</div><div><b>Linguistiche</b><span>Livelli B1 &ndash; C2 CEFR</span></div></a>
               <a href="/certificazioni/" class="mega-item"><div class="mega-ic">&#128203;</div><div><b>Concorsi e graduatorie</b><span>Punteggio ATA e docenti</span></div></a>
-              <a href="/medicina-senza-test-ingresso/" class="mega-item"><div class="mega-ic">&#9992;</div><div><b>Studia all'estero</b><span>Medicina e area sanitaria in UE</span></div></a>
+              <a href="/offerta-formativa/?tab=4#offerta" class="mega-item"><div class="mega-ic">&#9992;</div><div><b>Studia all'estero</b><span>Medicina e area sanitaria in UE</span></div></a>
             </div>
           </div>
           <div class="mega-cta">
@@ -1712,7 +1736,6 @@ body.sub #voce-olympo{padding-top:40px!important}
       </li>
 
       <li class="nav-keep"><a href="/la-voce-dell-olympo/" class="nav-voce">La Voce dell'Olympo</a></li>
-      <li><a href="/janus-diploma-online/">Janus</a></li>
       <li><a href="/master-made-in-italy-global-leadership/">Made in Italy</a></li>
       <li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li>
       <li class="opt"><a href="/fondo-nuove-competenze-2026/">Imprese</a></li>
@@ -1739,9 +1762,9 @@ body.sub #voce-olympo{padding-top:40px!important}
 <!-- ===== MOBILE MENU ===== -->
 <div class="mob dark" id="mob">
   <div class="mob-group"><button>Ateneo <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="/janus-diploma-online/">Janus</a><a href="/chi-siamo/">Il Centro Studi</a><a href="/calogero-di-carlo/">Il fondatore</a><a href="/chi-siamo/#storia">La nostra storia</a><a href="/eventi/">Eventi</a><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a><a href="/chi-siamo/#stampa">Rassegna stampa</a><a href="/calogero-di-carlo/#voce">Interventi e interviste</a><a href="/rete-e-partner/">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
+    <div class="mob-sub"><div><a href="/chi-siamo/">Il Centro Studi</a><a href="/calogero-di-carlo/">Il fondatore</a><a href="/chi-siamo/#storia">La nostra storia</a><a href="/eventi/">Eventi</a><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a><a href="/chi-siamo/#stampa">Rassegna stampa</a><a href="/calogero-di-carlo/#voce">Interventi e interviste</a><a href="/rete-e-partner/">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
   <div class="mob-group"><button>Offerta Formativa <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="/corsi-di-laurea/">Corsi di Laurea</a><a href="/master-universitari/">Master I e II livello</a><a href="/certificazioni/">Certificazioni</a><a href="/corsi-singoli-cfu/">Corsi singoli</a><a href="/medicina-senza-test-ingresso/">Studia all'estero</a><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></div></div></div>
+    <div class="mob-sub"><div><a href="/corsi-di-laurea/">Corsi di Laurea</a><a href="/master-universitari/">Master I e II livello</a><a href="/certificazioni/">Certificazioni</a><a href="/corsi-singoli-cfu/">Corsi singoli</a><a href="/offerta-formativa/?tab=3#offerta">Diploma online</a><a href="/offerta-formativa/?tab=4#offerta">Studia all'estero</a><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="/servizi-studenti/#piattaforma">La piattaforma</a><a href="/servizi-studenti/">Tutor personale</a><a href="/servizi-studenti/#piattaforma">Piattaforma e-learning</a><a href="/riconoscimento-cfu/">Riconoscimento CFU</a><a href="/servizi-studenti/">Placement</a></div></div></div>
   <div class="mob-group"><button onclick="location.href='/la-voce-dell-olympo/'">La Voce dell'Olympo</button></div>
@@ -1791,7 +1814,7 @@ body.sub #voce-olympo{padding-top:40px!important}
       <div class="globe-cap"><i></i> Palermo &middot; rete nazionale &amp; internazionale</div>
       <div class="hero-badge">Novit&agrave; A.A. 2026/27</div>
       <div class="fcard fc1"><b data-count="10" data-suffix="+">0</b><span>anni di attivit&agrave;</span></div>
-      <div class="fcard fc2"><b data-count="52" data-suffix="">0</b><span>percorsi attivabili</span></div>
+      <div class="fcard fc2"><b data-count="60" data-suffix="+">0</b><span>percorsi attivabili</span></div>
       <div class="fcard fc3"><b data-count="100" data-suffix="%">0</b><span>didattica online</span></div>
       <div class="fcard fc4"><b data-count="24" data-suffix="/7">0</b><span>piattaforma attiva</span></div>
     </div>
@@ -2139,7 +2162,7 @@ body.sub #voce-olympo{padding-top:40px!important}
 
 <!-- ===== OFFERTA FORMATIVA ===== -->
 <!-- ===== JANUS IN PRIMO PIANO ===== -->
-<section id="janus" style="padding-top:78px">
+<section id="janus" class="ente-page" style="padding-top:78px">
   <div class="wrap">
     <div class="sec-head center rv">
       <div class="eyebrow"><em></em> In primo piano</div>
@@ -2445,16 +2468,28 @@ body.sub #voce-olympo{padding-top:40px!important}
 <section id="offerta">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><em></em> Offerta Formativa</div>
-      <h2>Un percorso per <span class="grad">ogni obiettivo</span> professionale</h2>
-      <p>Corsi di laurea, master universitari e certificazioni erogati in collaborazione con atenei e reti formative accreditate. Modalit&agrave; telematica, esami in sede, tutor sempre disponibile.</p>
+      <div class="eyebrow"><em></em> L'offerta formativa di UNICESD Olympo</div>
+      <h2>Tutta la formazione, <span class="grad">in un solo Centro Studi</span></h2>
+      <p>Dal diploma alla laurea, dal master alle certificazioni, fino agli studi all'estero e ai corsi sull'intelligenza artificiale: &egrave; UNICESD Olympo a offrirti il percorso, a orientarti nella scelta, a seguirti nell'iscrizione e ad accompagnarti con un tutor fino al traguardo.</p>
+    </div>
+
+    <div class="of-stats rv">
+      <div><b>60+</b><span>percorsi di formazione</span></div>
+      <div><b>27</b><span>corsi di laurea</span></div>
+      <div><b>79</b><span>indirizzi di laurea</span></div>
+      <div><b>11</b><span>diplomi di scuola superiore</span></div>
+      <div><b>6</b><span>master e alta formazione</span></div>
+      <div><b>6</b><span>percorsi di studio all'estero</span></div>
     </div>
 
     <div class="tabs rv" id="tabs">
       <button class="tab on" data-p="0">Corsi di Laurea</button>
       <button class="tab" data-p="1">Master &amp; Post Laurea</button>
       <button class="tab" data-p="2">Certificazioni</button>
-      <button class="tab" data-p="3">Corsi Singoli</button>
+      <button class="tab" data-p="3">Diploma</button>
+      <button class="tab" data-p="4">Studiare all'estero</button>
+      <button class="tab" data-p="5">Intelligenza Artificiale</button>
+      <button class="tab" data-p="6">Corsi Singoli e Aziende</button>
     </div>
 
     <div class="panel on" data-panel="0">
@@ -2466,13 +2501,13 @@ body.sub #voce-olympo{padding-top:40px!important}
         <article class="card rv tilt bg-informatica" style="transition-delay:.08s" data-modal="c5"><div class="card-ic">&#128187;</div><h3>Ingegneria Informatica</h3><p>Programmazione, reti, basi di dati, intelligenza artificiale e sviluppo software.</p><div class="card-meta"><span class="chip cy">L-8</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><a class="card-more" data-page href="/corsi-di-laurea/ingegneria-informatica/">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
         <article class="card rv tilt bg-motorie" style="transition-delay:.16s" data-modal="c6"><div class="card-ic">&#127939;</div><h3>Scienze Motorie</h3><p>Attivit&agrave; motoria preventiva, sportiva e adattata, con approfondimenti di fisiologia e management dello sport.</p><div class="card-meta"><span class="chip cy">L-22</span><span class="chip">3 anni</span><span class="chip">180 CFU</span></div><a class="card-more" data-page href="/corsi-di-laurea/scienze-motorie/">Scopri il corso <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
       </div>
-      <!-- ===== CATALOGO COMPLETO eCAMPUS ===== -->
+      <!-- ===== CATALOGO COMPLETO DELLE LAUREE ===== -->
       <div class="ec-wrap" id="ecampus">
         <div class="ec-head">
           <div>
-            <div class="eyebrow"><em></em> Universit&agrave; Telematica eCampus</div>
-            <h3>Tutti i corsi di laurea <span class="grad">eCampus</span></h3>
-            <p>Il catalogo completo delle lauree triennali, magistrali e a ciclo unico dell'Universit&agrave; eCampus, con tutti gli indirizzi. UNICESD Olympo ti orienta nella scelta, ti segue nell'iscrizione e ti accompagna durante gli studi.</p>
+            <div class="eyebrow"><em></em> Il catalogo completo</div>
+            <h3>Tutti i corsi di laurea <span class="grad">di UNICESD Olympo</span></h3>
+            <p>Lauree triennali, magistrali e a ciclo unico, con tutti gli indirizzi, da scegliere insieme a noi. UNICESD Olympo ti orienta nella scelta, ti segue nell'iscrizione e ti accompagna durante gli studi.</p>
           </div>
           <div class="ec-stats"><div><b>26</b><span>corsi di laurea</span></div><div><b>15</b><span>triennali</span></div><div><b>10</b><span>magistrali</span></div><div><b>79</b><span>indirizzi</span></div></div>
         </div>
@@ -2506,8 +2541,8 @@ body.sub #voce-olympo{padding-top:40px!important}
         <article class="ec-card" data-ec="mot"><div class="ec-top"><span class="ec-cls">LM-67</span><span class="ec-type m">Magistrale</span></div><h4>Scienze dell&#x27;esercizio fisico per il benessere e la salute</h4><span class="ec-area">Scienze motorie &middot; 2 anni &middot; 120 CFU</span><ul class="ec-ind"><li>Attivit&#224; motoria nella scuola secondaria</li><li>Biomeccanica</li><li>Palestra del benessere</li></ul></article>
         </div>
         <div class="ec-foot">
-          <p>Elenco dal sito ufficiale dell'Universit&agrave; eCampus. Il titolo di studio &egrave; rilasciato dall'ateneo; piani di studio, durate e indirizzi attivi possono variare per anno accademico.</p>
-          <a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni su un corso eCampus</span><span class="shine"></span></a>
+          <p>Il titolo di studio &egrave; rilasciato dall'universit&agrave; telematica convenzionata; piani di studio, durate e indirizzi attivi possono variare per anno accademico.</p>
+          <a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni su un corso</span><span class="shine"></span></a>
         </div>
       </div>
     </div>
@@ -2532,6 +2567,63 @@ body.sub #voce-olympo{padding-top:40px!important}
     </div>
 
     <div class="panel" data-panel="3">
+      <div class="of-intro">
+        <h3>Il diploma di scuola superiore, <span class="grad">online</span></h3>
+        <p>Undici indirizzi fra licei, istituti tecnici e professionali, per chi lavora, pratica sport, vive lontano o vuole recuperare gli anni persi. Lezioni sempre disponibili in piattaforma, un <b>tutor personale</b> dall'iscrizione all'esame, un assistente virtuale attivo 24 ore su 24 e, per il quinto anno, <b>lezioni live serali</b> di preparazione alla maturit&agrave;.</p>
+        <div class="card-meta"><span class="chip cy">11 indirizzi</span><span class="chip">Recupero anni</span><span class="chip">Idoneit&agrave; e maturit&agrave;</span><span class="chip">Tutor personale</span></div>
+      </div>
+      <div class="rail of-rail">
+      <div class="rail-i" data-tipo="liceo"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
+      <div class="rail-i" data-tipo="liceo"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
+      <div class="rail-i" data-tipo="liceo"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
+      <div class="rail-i" data-tipo="liceo"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
+      <div class="rail-i" data-tipo="liceo"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
+      <div class="rail-i" data-tipo="liceo"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
+      <div class="rail-i" data-tipo="liceo"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
+      <div class="rail-i" data-tipo="tecnico"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
+      <div class="rail-i" data-tipo="tecnico"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
+      <div class="rail-i" data-tipo="prof"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
+      <div class="rail-i" data-tipo="tecnico"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
+    </div>
+      <div class="of-cta"><a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni sul diploma</span><span class="shine"></span></a></div>
+    </div>
+
+    <div class="panel" data-panel="4">
+      <div class="of-intro">
+        <h3>Le facolt&agrave; a numero chiuso, <span class="grad">all'estero</span></h3>
+        <p>Medicina, odontoiatria, infermieristica, fisioterapia e altri percorsi in atenei europei, spesso senza test d'ingresso e con la possibilit&agrave; di rientrare in Italia. Ti seguiamo dalla scelta dell'ateneo alla documentazione, fino al riconoscimento del titolo. Rette annuali indicate dagli atenei per l'anno accademico 2026/27.</p>
+      </div>
+      <div class="bento">
+      <div class="card bg-psico"><div class="card-ic">&#129658;</div><h3>Medicina</h3><p><b>Romania.</b> Bucarest, Universit&agrave; T. Maiorescu: test di ammissione a settembre, in inglese e in presenza, retta <b>11.000 &euro;/anno</b> divisibile in tre rate. Craiova, universit&agrave; statale: <b>senza test</b>, retta <b>8.500 &euro;/anno</b>. <b>Spagna.</b> Madrid, Valencia, Malaga, Alicante e Gran Canaria: senza test, retta da <b>15.000 a 20.000 &euro;/anno</b> in base alla sede.</p><div class="card-meta"><span class="chip cy">6 anni</span><span class="chip">Inglese &middot; spagnolo</span><span class="chip">Rientro dal 2&deg; anno</span></div></div>
+
+      <div class="card bg-certif"><div class="card-ic">&#129463;</div><h3>Odontoiatria</h3><p><b>Macedonia:</b> 5 anni, frequenza programmata, nessun test d'ingresso, lingua inglese, tirocinio in Italia e agevolazioni per chi ha il diploma di odontotecnico. <b>Spagna:</b> 5 anni nelle migliori universit&agrave; private, senza test, in inglese. <b>Romania:</b> 6 anni in lingua inglese, con rette che nelle private vanno dagli <b>8.000 agli 11.000 &euro;/anno</b>.</p><div class="card-meta"><span class="chip go">5&ndash;6 anni</span><span class="chip">Senza test</span><span class="chip">Tirocinio in Italia</span></div></div>
+
+      <div class="card bg-master"><div class="card-ic">&#129701;</div><h3>Igiene Dentale</h3><p>Corso di formazione professionale presso l'<b>Universit&agrave; Europea di Madrid</b>: <b>2 anni, 2000 ore, completamente online</b>, senza costi aggiuntivi, con tutor per tutto il percorso e corso opzionale di spagnolo incluso. Tirocinio facoltativo in strutture italiane. <b>Titolo ufficiale rilasciato dal Ministero della Salute spagnolo</b>, valido in tutta Europa e in Italia, con possibilit&agrave; di conseguire la <b>Certificazione RX</b> per le ortopantomografie. Agevolazioni per diploma di odontotecnico e per gli assistenti alla poltrona (ASO).</p><div class="card-meta"><span class="chip cy">2 anni &middot; 2000 ore</span><span class="chip">100% online</span><span class="chip">Titolo ministeriale</span></div></div>
+
+      <div class="card bg-educazione"><div class="card-ic">&#127973;</div><h3>Infermieristica</h3><p><b>4 anni, 240 CFU</b>, in inglese e spagnolo, con trasferimento sul posto: <b>7.000 &euro;/anno</b> in Spagna (inglese, spagnolo o francese), <b>6.500 &euro;/anno</b> in Romania (inglese), rateizzabili. Per chi lavora esiste la formula in <b>3 anni in Romania</b> a <b>5.700 &euro;/anno</b>: tirocinio in Italia presso strutture convenzionate per due mesi l'anno, due o tre viaggi brevi in Romania per la parte teorica e burocratica, e riconoscimento di alcuni esami a chi proviene dal corso OSS.</p><div class="card-meta"><span class="chip go">3&ndash;4 anni</span><span class="chip">Formula lavoratori</span><span class="chip">Crediti da OSS</span></div></div>
+
+      <div class="card bg-motorie"><div class="card-ic">&#129485;</div><h3>Fisioterapia</h3><p><b>Spagna &mdash; Universit&agrave; Europea di Madrid, sede di Valencia:</b> 4 anni, <b>9.980 &euro;/anno</b>, lezioni il venerd&igrave; pomeriggio e il sabato, teoria online in modalit&agrave; HyFlex e pratica in presenza anche in Italia, tirocini clinici in ospedali italiani o spagnoli, simulazione in realt&agrave; virtuale; chi viene da Scienze Motorie pu&ograve; iscriversi direttamente al 2&deg; anno. <b>Romania &mdash; Universit&agrave; di Medicina e Farmacia di Craiova:</b> 3 anni, <b>6.500 &euro;/anno</b>, frequenza concordabile con il lavoro. <b>Svizzera &mdash; Campus Ludes, Lugano:</b> 4 anni, <b>13.000 &euro;/anno</b> in due semestri, interamente in italiano, titolo dell'Universit&agrave; Semmelweis.</p><div class="card-meta"><span class="chip cy">3&ndash;4 anni</span><span class="chip">Compatibile col lavoro</span></div></div>
+
+      <div class="card bg-economia"><div class="card-ic">&#127891;</div><h3>Gli altri percorsi</h3><p><b>Economia, ingegneria, architettura e marketing</b> in Romania: <b>3.000&ndash;5.000 &euro;/anno</b>, in inglese. <b>Ucraina</b>, percorsi abbreviati e specializzazioni mediche: area medica completa (5 anni e 8 mesi) o quadriennale e specializzazioni a <b>10.000 &euro;/anno</b>; lauree triennali di area economica e tecnica <b>30.000 &euro;</b>; master abilitanti e lauree magistrali <b>20.000 &euro;</b>; titoli con registrazione NARIC e apostille, tutti in inglese, attesa massima tre mesi. E il percorso abilitante per <b>agente immobiliare</b>, con esame finale e possibilit&agrave; di riconoscimento in Italia: <b>3.500 &euro;</b> complessivi.</p><div class="card-meta"><span class="chip">Ucraina &middot; Romania</span><span class="chip">Anche magistrali</span></div></div>
+    </div>
+      <div class="of-cta"><a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni</span><span class="shine"></span></a><a href="#athena" class="btn btn-g">Come funziona, passo per passo</a></div>
+    </div>
+
+    <div class="panel" data-panel="5">
+      <div class="of-intro">
+        <h3>Intelligenza artificiale e <span class="grad">AI Act</span></h3>
+        <p>Quattro percorsi per usare l'intelligenza artificiale in modo consapevole e mettere in regola imprese, enti e professionisti con il regolamento europeo.</p>
+      </div>
+      <div class="bento four">
+      <div class="card bg-informatica"><div class="card-ic">&#127891;</div><h3>AI Act Literacy</h3><p>Primo livello di adeguamento e di uso consapevole dell'IA: struttura del regolamento, classificazione del rischio, pratiche vietate, trasparenza e controllo umano, IA generativa, protezione dei dati e sicurezza delle informazioni. Al termine si riconoscono i rischi e si definiscono le prime regole organizzative interne.</p><div class="card-meta"><span class="chip cy">10 lezioni</span><span class="chip">70 minuti</span><span class="chip">Aziende, enti e PA</span></div></div>
+      <div class="card bg-giuris"><div class="card-ic">&#9878;</div><h3>Masterclass AI Act</h3><p>Percorso operativo per consulenti: quadro normativo, ruoli di provider e deployer, pratiche vietate, sistemi ad alto rischio e modelli per finalit&agrave; generali, registro e governance, contratti, sanzioni e ispezioni. Restituisce un metodo di audit e una roadmap commerciale immediatamente applicabile.</p><div class="card-meta"><span class="chip go">6 lezioni</span><span class="chip">42 minuti</span><span class="chip">Consulenti</span></div></div>
+      <div class="card bg-master"><div class="card-ic">&#128737;</div><h3>AI Act Governance &amp; Compliance</h3><p>Secondo livello di adeguamento: mappatura e classificazione dei sistemi, ruoli e responsabilit&agrave;, alto rischio, supervisione umana, dati e tracciabilit&agrave;, incidenti, fornitori, registri e procedure. Per imprenditori, dirigenti, HR, compliance, DPO, cybersecurity, qualit&agrave; e risk management.</p><div class="card-meta"><span class="chip">In arrivo</span><span class="chip">2&deg; livello</span></div></div>
+      <div class="card bg-psico"><div class="card-ic">&#9774;</div><h3>Diritti Umani</h3><p>Principi, fonti e strumenti internazionali di tutela: Dichiarazione Universale, diritti civili, politici, economici e sociali, ONU e CEDU, uguaglianza, privacy, migrazioni, conflitti, nuove tecnologie e intelligenza artificiale. Un percorso completo sui sistemi universali e regionali di tutela.</p><div class="card-meta"><span class="chip cy">21 lezioni</span><span class="chip">125 minuti</span><span class="chip">Aperto a tutti</span></div></div>
+    </div>
+      <div class="of-cta"><a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni</span><span class="shine"></span></a><a href="#ai" class="btn btn-g">Il progetto IA</a></div>
+    </div>
+
+    <div class="panel" data-panel="6">
       <div class="cards">
         <article class="card rv tilt bg-singoli" data-modal="s1"><div class="card-ic">&#10133;</div><h3>Corsi Singoli</h3><p>Acquisisci i CFU mancanti per accedere a concorsi, magistrali o classi di concorso, senza immatricolarti a un intero corso di laurea.</p><div class="card-meta"><span class="chip cy">CFU</span><span class="chip">Flessibile</span></div><a class="card-more" data-page href="/corsi-singoli-cfu/">Come funziona <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
         <article class="card rv tilt bg-certif" style="transition-delay:.08s" data-modal="s2"><div class="card-ic">&#9855;</div><h3>Riconoscimento Carriera</h3><p>Valutazione gratuita dei crediti gi&agrave; maturati in precedenti percorsi universitari o professionali.</p><div class="card-meta"><span class="chip cy">Gratuito</span><span class="chip">48h</span></div><a class="card-more" data-page href="/riconoscimento-cfu/">Richiedi valutazione <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
@@ -3108,7 +3200,7 @@ body.sub #voce-olympo{padding-top:40px!important}
 </section>
 
 <!-- ===== STUDIARE ALL'ESTERO / STUDY WITH ATHENA ===== -->
-<section id="athena" style="padding-top:0">
+<section id="athena" class="ente-page" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head center rv">
       <div class="eyebrow"><em></em> Studiare all'estero</div>
@@ -3447,7 +3539,7 @@ body.sub #voce-olympo{padding-top:40px!important}
     <div class="sec-head center rv">
       <div class="eyebrow"><em></em> Rete e partnership</div>
       <h2>Una rete che tiene insieme <span class="grad">formazione, sport e impresa</span></h2>
-      <p>Attorno a UNICESD Olympo ruota un sistema di atenei, istituti, associazioni di categoria, testate di settore e realt&agrave; sportive. Sono le organizzazioni in cui il fondatore Calogero Di Carlo ricopre un ruolo o con cui esistono rapporti di collaborazione.</p>
+      <p>Gli enti con cui UNICESD Olympo collabora: atenei, istituti, associazioni di categoria, testate di settore e realt&agrave; sportive. Sono le organizzazioni in cui il fondatore Calogero Di Carlo ricopre un ruolo o con cui esistono rapporti di collaborazione.</p>
     </div>
 
     <div id="pfilters" class="rv">
@@ -3694,7 +3786,7 @@ body.sub #voce-olympo{padding-top:40px!important}
         </div>
         <h3>Janus &mdash; Istituto Superiore per la Formazione</h3>
         <p>Scuola online per il diploma di maturit&agrave;: dieci indirizzi tra licei e istituti tecnici, piattaforma e&#8209;learning, tutor personale e nessun obbligo di frequenza. La rete dei poli remoti Janus &egrave; stata lanciata sul territorio con l'Open Day nazionale del 31 luglio. Sede di Roma: <b>Via Castense 8, 00182 Roma</b>.</p>
-        <div class="pc-foot"><span>Roma &middot; Via Castense 8</span><a class="pc-link" href="https://istitutojanus.it/" target="_blank" rel="noopener">istitutojanus.it <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="pc-foot"><span>Roma &middot; Via Castense 8</span><a class="pc-link" href="#janus">La scheda dell'Istituto</a><a class="pc-link" href="https://istitutojanus.it/" target="_blank" rel="noopener">istitutojanus.it <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
       <article class="pcard rv-s" data-cat="sport" style="transition-delay:.06s">
@@ -4527,6 +4619,7 @@ function setTab(i){
 }
 $$('#tabs .tab').forEach(function(t,i){t.addEventListener('click',function(){setTab(i)})});
 $$('[data-tab]').forEach(function(a){a.addEventListener('click',function(){setTimeout(function(){setTab(parseInt(a.getAttribute('data-tab'),10))},260)})});
+(function(){ var m=/[?&]tab=(\d)/.exec(location.search); if(m&&$('#tabs'))setTab(parseInt(m[1],10)) })();
 
 /* ---------- CARD SPOTLIGHT + TILT ---------- */
 $$('.card').forEach(function(c){
@@ -4734,18 +4827,37 @@ window.addEventListener('scroll',function(){
     });
   });
 
-  /* file unico: la voce di menu apre la sezione (prima del gestore delle ancore) */
-  function showVoce(){
-    if(!sec)return;
-    sec.classList.add('show');
-    $$('.rv',sec).forEach(function(e){e.classList.add('in')});
-    setTimeout(function(){ window.scrollTo({top:sec.getBoundingClientRect().top+window.scrollY-76,behavior:'smooth'}) },60);
+  /* sezioni che non stanno in home (La Voce, schede degli enti): online sono pagine a se',
+     nel file unico si aprono al clic sul link che le richiama */
+  var PAGINE={'voce-olympo':'/la-voce-dell-olympo/','janus':'/janus-diploma-online/','athena':'/medicina-senza-test-ingresso/'};
+  var online=/^https?:/.test(location.protocol) && !!window.UO_PAGES;
+  function showSec(el){
+    el.classList.add('show');
+    $$('.rv,.rv-l,.rv-r,.rv-s',el).forEach(function(e){e.classList.add('in')});
+    setTimeout(function(){ window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-76,behavior:'smooth'}) },60);
   }
+  function showVoce(){ if(sec)showSec(sec) }
   document.addEventListener('click',function(e){
-    var a=e.target.closest && e.target.closest('a[href="#voce-olympo"]'); if(a && sec) sec.classList.add('show');
+    var a=e.target.closest && e.target.closest('a[href^="#"]'); if(!a)return;
+    var id=a.getAttribute('href').slice(1), el=id&&document.getElementById(id); if(!el)return;
+    var box=el.classList.contains('vo-page')||el.classList.contains('ente-page') ? el : el.closest('.vo-page,.ente-page');
+    if(!box || document.body.classList.contains('sub'))return;
+    if(online && PAGINE[box.id]){ e.preventDefault(); e.stopPropagation(); location.href=PAGINE[box.id]+(box===el?'':'#'+id); return }
+    box.classList.add('show');
+    if(box!==el) $$('.rv,.rv-l,.rv-r,.rv-s',box).forEach(function(x){x.classList.add('in')});
   },true);
-  window.addEventListener('hashchange',function(){ if(location.hash==='#voce-olympo')showVoce() });
-  if(location.hash==='#voce-olympo')showVoce();
+  window.addEventListener('hashchange',function(){ var el=document.getElementById(location.hash.slice(1)); if(el&&(el.classList.contains('vo-page')||el.classList.contains('ente-page')))showSec(el) });
+  (function(){ var el=location.hash&&document.getElementById(location.hash.slice(1)); if(el&&(el.classList.contains('vo-page')||el.classList.contains('ente-page')))showSec(el) })();
+
+  /* rete: "Vuoi saperne di piu'?" sulle schede della home */
+  if(!document.body.classList.contains('sub')){
+    $$('#pgrid .pcard').forEach(function(card){
+      var b=document.createElement('button'); b.type='button'; b.className='pc-more';
+      b.innerHTML='<span>Vuoi saperne di pi&ugrave;?</span><svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg>';
+      b.addEventListener('click',function(){ var on=card.classList.toggle('open'); b.querySelector('span').innerHTML=on?'Mostra meno':'Vuoi saperne di pi&ugrave;?' });
+      card.appendChild(b);
+    });
+  }
 
   /* popup */
   var bg=$('#vobg'); if(!bg)return;

@@ -320,7 +320,8 @@ ANCHOR_MAP = {
     "iscrizione": "/contatti/",
 }
 # voci del mega-menu con data-tab: vanno all'hub giusto
-TAB_MAP = {"0": "/corsi-di-laurea/", "1": "/master-universitari/", "2": "/certificazioni/"}
+TAB_MAP = {"0": "/corsi-di-laurea/", "1": "/master-universitari/", "2": "/certificazioni/",
+           "3": "/offerta-formativa/?tab=3#offerta", "4": "/offerta-formativa/?tab=4#offerta", "5": "/offerta-formativa/?tab=5#offerta", "6": "/offerta-formativa/?tab=6#offerta"}
 # link che puntano a #offerta / #servizi ma parlano di una voce precisa: si sceglie dal testo
 TEXT_MAP = [
     ("corsi singoli", "/corsi-singoli-cfu/"),
