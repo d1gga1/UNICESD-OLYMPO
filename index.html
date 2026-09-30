@@ -1336,6 +1336,44 @@ body:not(.sub) #pgrid .pcard{display:flex;flex-direction:column}
 body:not(.sub) #pgrid{align-items:start}
 body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
 
+/* ===================== HOME LEGGERA: "Scopri UNICESD Olympo" ===================== */
+.sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sc-card{display:flex;flex-direction:column;gap:6px;padding:20px 18px 18px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(165deg,var(--card-a),var(--card-b));box-shadow:var(--shadow-md);text-decoration:none;color:var(--txt);transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
+.sc-card:hover{transform:translateY(-4px);border-color:var(--cy);box-shadow:var(--shadow-lg)}
+.sc-ic{font-size:24px;line-height:1;margin-bottom:6px}
+.sc-card b{font-family:'Sora';font-size:15.5px;color:var(--txt-strong);line-height:1.25}
+.sc-card span:not(.sc-ic){font-size:13.2px;color:var(--txt-dim);line-height:1.45;flex:1}
+.sc-card em{font-style:normal;font-family:'Sora';font-size:12px;font-weight:600;color:var(--cy);margin-top:8px}
+.sc-card em::after{content:' \2192'}
+@media(max-width:1000px){.sc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.sc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.sc-grid{grid-template-columns:1fr}}
+/* rete in home: tessere piu' piccole */
+body:not(.sub) #pgrid{grid-template-columns:repeat(4,1fr);gap:12px}
+body:not(.sub) #pgrid .pcard:not(.open){padding:16px}
+body:not(.sub) #pgrid .pcard:not(.open) h3{font-size:14.6px;margin:8px 0 0}
+body:not(.sub) #pgrid .pcard:not(.open) .pc-logo{width:92px;height:48px;padding:4px}
+body:not(.sub) #pgrid .pcard.open{grid-column:span 2}
+body:not(.sub) #pgrid .pc-more{margin-top:12px;padding:7px 13px;font-size:11.6px}
+@media(max-width:1000px){body:not(.sub) #pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){body:not(.sub) #pgrid{grid-template-columns:repeat(2,1fr)}body:not(.sub) #pgrid .pcard.open{grid-column:1/-1}}
+@media(max-width:440px){body:not(.sub) #pgrid{grid-template-columns:1fr}}
+/* catalogo lauree chiuso finche' non si apre */
+.ec-wrap:not(.all) .ec-filters,.ec-wrap:not(.all) .ec-grid{display:none}
+.ec-open{margin-top:22px}
+.ec-wrap.all .ec-open{display:none}
+/* rete in home: solo logo e nome */
+body:not(.sub) #pgrid{grid-template-columns:repeat(5,1fr)}
+body:not(.sub) #pgrid .pcard:not(.open) .pc-top{display:block}
+body:not(.sub) #pgrid .pcard:not(.open) .pc-top>div:not(.pc-logo){display:none}
+@media(max-width:1100px){body:not(.sub) #pgrid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:1000px){body:not(.sub) #pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){body:not(.sub) #pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){body:not(.sub) #pgrid{grid-template-columns:1fr 1fr}}
+/* rete in home: i due riquadri grandi (sede di Roma, convenzioni) e la nota restano nella pagina dedicata */
+body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{display:none}
+@media(max-width:440px){.sc-grid{grid-template-columns:1fr 1fr;gap:10px}.sc-card{padding:14px 12px}.sc-card span:not(.sc-ic){font-size:12px}.sc-card b{font-size:14px}}
+
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
 .phero h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:16px 0 18px;max-width:980px}
@@ -1865,79 +1903,6 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
      mettilo IN CIMA alla lista e cambia id, data-pub (data e ora di pubblicazione), immagine e testi.
      La sezione NON compare in home: online e' la pagina /la-voce-dell-olympo/, nel file unico si apre
      dalla voce di menu "La Voce dell'Olympo". Il popup con la sola locandina e' #vobg (in fondo alla pagina). -->
-<section id="voce-olympo" class="vo-page" style="padding-top:78px">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> Notizie e comunicati</div>
-      <h2>La Voce <span class="grad">dell'Olympo</span></h2>
-      <p>Le ultime notizie dalla rete UNICESD Olympo: nomine, progetti, iniziative e appuntamenti, raccontati dal nostro ufficio stampa.</p>
-    </div>
-
-    <div class="vo-list">
-
-      <article class="vo-item feature dark rv" id="vo-addetto-stampa" data-pub="2026-09-30T12:00:00+02:00" data-giorni="3">
-        <div class="vo-grid">
-          <a class="vo-media" href="assets/voce/niccoli-addetto-stampa.webp" target="_blank" rel="noopener" aria-label="Apri a schermo intero la locandina di Massimiliano Niccoli, Addetto Stampa UNICESD Olympo">
-            <img width="1290" height="861" src="assets/voce/niccoli-addetto-stampa.webp" alt="Locandina UNICESD Olympo: Massimiliano Niccoli, Addetto Stampa, ritratto durante una stretta di mano con microfono. Informazione, formazione, opportunit&agrave;." loading="lazy" decoding="async">
-          </a>
-          <div class="vo-body">
-            <div class="vo-top">
-              <span class="vo-new">Nuovo <i></i></span>
-              <span class="vo-date">30 settembre 2026 &middot; Comunicazione</span>
-            </div>
-            <h3 class="vo-title">Massimiliano Niccoli &egrave; l'Addetto Stampa di <span class="grad">UNICESD Olympo</span></h3>
-            <p class="vo-lead">Dal <b>1&deg; ottobre 2026</b> la rete UNICESD Olympo ha un ufficio stampa dedicato. A guidarlo &egrave; <b>Massimiliano Niccoli</b>, con un obiettivo chiaro: una comunicazione autorevole per valorizzare le persone, le iniziative e le opportunit&agrave; di formazione in tutta Italia. <i>Raccontiamo il presente per costruire il futuro della formazione.</i></p>
-
-            <div class="vo-kpi">
-              <div><b>12</b><span>Comunicati stampa</span><small>2 al mese, ottobre&ndash;marzo</small></div>
-              <div><b>60+</b><span>Uscite sui media</span><small>almeno 5 per comunicato</small></div>
-              <div><b>1</b><span>Presenza TV nazionale</span><small>entro il 30 marzo 2027</small></div>
-            </div>
-
-            <div class="vo-actions">
-              <button type="button" class="btn btn-p btn-sm vo-more" aria-expanded="false"><span>Leggi il piano completo</span><span class="shine"></span></button>
-              <a href="tel:+393492762619" class="btn btn-g btn-sm">&#9742; 349 276 2619</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="vo-detail" hidden>
-          <div class="vo-cols">
-            <div>
-              <h4>Il piano dell'ufficio stampa</h4>
-              <p class="vo-sub">Semestre 1&deg; ottobre 2026 &ndash; 30 marzo 2027</p>
-              <ol class="vo-steps">
-                <li><b>Redazione e distribuzione dei comunicati.</b> Due comunicati al mese, dedicati ai progetti della rete, all'e&#8209;learning, all'intelligenza artificiale applicata all'istruzione e agli eventi della rete Olympo.</li>
-                <li><b>Media pitching e rassegna stampa.</b> Un lavoro continuo con le redazioni per ottenere almeno cinque pubblicazioni per ogni comunicato, su testate online, cartacee e agenzie, con un resoconto mensile dei risultati.</li>
-                <li><b>Presenza televisiva nazionale.</b> Entro il 30 marzo, un'apparizione o un'intervista su un'emittente nazionale (RAI, Mediaset, La7 o Sky TG24).</li>
-              </ol>
-            </div>
-            <div>
-              <h4>Perch&eacute; conta</h4>
-              <ul class="vo-why">
-                <li><b>Autorevolezza.</b> Il semestre ottobre&ndash;marzo &egrave; il periodo chiave per l'orientamento e le iscrizioni: una voce costante sui media rende UNICESD Olympo un punto di riferimento.</li>
-                <li><b>Visibilit&agrave; online.</b> Pi&ugrave; di sessanta articoli in sei mesi lasciano un'impronta digitale forte, utile a studenti, partner e motori di ricerca.</li>
-                <li><b>Un palco nazionale.</b> Il passaggio televisivo porta il progetto davanti al grande pubblico.</li>
-              </ul>
-              <div class="vo-areas">
-                <span class="chip">&#128240; Comunicati stampa</span>
-                <span class="chip">&#127897; Rassegna media</span>
-                <span class="chip">&#127963; Eventi e istituzioni</span>
-                <span class="chip">&#128247; Divulgazione progetti</span>
-                <span class="chip">&#128205; Relazioni con il territorio</span>
-              </div>
-            </div>
-          </div>
-          <div class="vo-contact">
-            <div><b>Massimiliano Niccoli</b><span>Addetto Stampa UNICESD Olympo</span></div>
-            <a href="tel:+393492762619">&#9742; +39 349 276 2619</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
 
 <!-- ===== STATS ===== -->
 <section style="padding-top:88px;padding-bottom:60px">
@@ -1952,204 +1917,6 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
 </section>
 
 <!-- ===== I CAME BACK - CONVENTION 18 SETTEMBRE 2026 ===== -->
-<section id="icameback" style="padding-top:34px">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> 18 settembre 2026 &middot; TH Roma Carpegna Palace</div>
-      <h2>&laquo;I came back!&raquo; <span class="grad">Sono tornato per stupirvi ancora</span></h2>
-      <p>Le immagini della Convention UNICESD Olympo di Roma: la sala piena, gli interventi dei partner della rete e la copertina di <i>Mondo Universitario</i> dedicata al rilancio del Centro Studi.</p>
-    </div>
-
-    <div class="feature rv-s dark">
-      <div class="feat-grid g-prg">
-        <div>
-          <div class="eyebrow"><em></em> Mondo Universitario &middot; settembre 2026</div>
-          <h2>La copertina del <span class="grad">ritorno</span></h2>
-          <p>&laquo;Le sfide di oggi costruiscono il mondo di domani&raquo;. Il numero di settembre 2026 di <b>Mondo Universitario</b> si apre con Calogero Di Carlo e con la frase che ha dato il titolo alla giornata romana: <b>I came back! Sono tornato per stupirvi ancora</b>.</p>
-          <p>Dentro, <b>la forza della comunit&agrave; universitaria</b>: persone, idee e territori che diventano opportunit&agrave;, e le reti che uniscono universit&agrave;, imprese e societ&agrave;.</p>
-          <div class="icb-chips">
-            <span class="icb-chip">&#127914; Convention UNICESD Olympo</span>
-            <span class="icb-chip">&#128197; Venerd&igrave; 18 settembre 2026</span>
-            <span class="icb-chip">&#128205; TH Roma Carpegna Palace, Roma</span>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none;margin-top:26px">
-            <a href="#eventi" class="btn btn-g">Vai agli eventi</a>
-            <a href="#programma" class="btn btn-g">Programma del giorno</a>
-          </div>
-        </div>
-        <div>
-          <div class="icb-covers">
-            <button type="button" class="icb-cov" data-icb data-cap="&laquo;I came back!&raquo; &mdash; la copertina di Mondo Universitario, settembre 2026">
-              <img src="assets/eventi/icb/icb-01.webp" alt="Copertina di Mondo Universitario di settembre 2026 con Calogero Di Carlo e il titolo I came back! Sono tornato per stupirvi ancora" loading="lazy" decoding="async">
-              <span class="prg-zoom">Ingrandisci</span>
-            </button>
-            <button type="button" class="icb-cov" data-icb data-cap="&laquo;La forza della comunit&agrave; universitaria&raquo; &mdash; la copertina con il taglio della torta">
-              <img src="assets/eventi/icb/icb-02.webp" alt="Copertina di Mondo Universitario dedicata alla forza della comunita universitaria, con il taglio della torta UNICESD Olympo" loading="lazy" decoding="async">
-              <span class="prg-zoom">Ingrandisci</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="icb-grid">
-      <button type="button" class="icb-it rv-s" data-icb data-cap="La locandina della Convention nella sala del TH Roma Carpegna Palace">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-03.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la locandina della Convention nella sala del TH Roma Carpegna Palace" loading="lazy" decoding="async">
-        <span class="icb-cap">La locandina della Convention nella sala del TH Roma Carpegna Palace</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="La sala durante i lavori della giornata">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-04.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la sala durante i lavori della giornata" loading="lazy" decoding="async">
-        <span class="icb-cap">La sala durante i lavori della giornata</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Il pubblico della Convention">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-05.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il pubblico della Convention" loading="lazy" decoding="async">
-        <span class="icb-cap">Il pubblico della Convention</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Le prime file, durante gli interventi">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-06.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: le prime file, durante gli interventi" loading="lazy" decoding="async">
-        <span class="icb-cap">Le prime file, durante gli interventi</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo al microfono">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-07.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo al microfono" loading="lazy" decoding="async">
-        <span class="icb-cap">Calogero Di Carlo al microfono</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo davanti allo schermo della Convention">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-08.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo davanti allo schermo della Convention" loading="lazy" decoding="async">
-        <span class="icb-cap">Calogero Di Carlo davanti allo schermo della Convention</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Il tavolo dei relatori e lo schermo UNICESD Olympo">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-09.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori e lo schermo UNICESD Olympo" loading="lazy" decoding="async">
-        <span class="icb-cap">Il tavolo dei relatori e lo schermo UNICESD Olympo</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Il confronto al tavolo dei relatori">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-10.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il confronto al tavolo dei relatori" loading="lazy" decoding="async">
-        <span class="icb-cap">Il confronto al tavolo dei relatori</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un passaggio dell&#39;intervento dal tavolo">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-11.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un passaggio dell'intervento dal tavolo" loading="lazy" decoding="async">
-        <span class="icb-cap">Un passaggio dell&#39;intervento dal tavolo</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dalla sala">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-12.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento dalla sala</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un contributo dei partecipanti">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-13.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un contributo dei partecipanti" loading="lazy" decoding="async">
-        <span class="icb-cap">Un contributo dei partecipanti</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partner della rete">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-14.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento dei partner della rete</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partner della rete">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-15.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento dei partner della rete</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partecipanti">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-16.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento dei partecipanti</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partecipanti">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-17.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partecipanti" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento dei partecipanti</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Il microfono passa fra i partecipanti">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-18.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il microfono passa fra i partecipanti" loading="lazy" decoding="async">
-        <span class="icb-cap">Il microfono passa fra i partecipanti</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Domande e risposte con il fondatore">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-19.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: domande e risposte con il fondatore" loading="lazy" decoding="async">
-        <span class="icb-cap">Domande e risposte con il fondatore</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Il tavolo dei relatori sotto lo schermo &laquo;Il futuro della formazione parte da qui&raquo;">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-25.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il tavolo dei relatori sotto lo schermo Il futuro della formazione parte da qui" loading="lazy" decoding="async">
-        <span class="icb-cap">Il tavolo dei relatori sotto lo schermo &laquo;Il futuro della formazione parte da qui&raquo;</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Gli interventi in piedi, davanti alla sala">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-26.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: gli interventi in piedi, davanti alla sala" loading="lazy" decoding="async">
-        <span class="icb-cap">Gli interventi in piedi, davanti alla sala</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="La presentazione di Luxium Education">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-27.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la presentazione di Luxium Education" loading="lazy" decoding="async">
-        <span class="icb-cap">La presentazione di Luxium Education</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo durante il suo intervento">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-28.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo durante il suo intervento" loading="lazy" decoding="async">
-        <span class="icb-cap">Calogero Di Carlo durante il suo intervento</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dalla sala">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-29.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dalla sala" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento dalla sala</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un momento di confronto con Calogero Di Carlo">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-30.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un momento di confronto con Calogero Di Carlo" loading="lazy" decoding="async">
-        <span class="icb-cap">Un momento di confronto con Calogero Di Carlo</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dei partner della rete">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-31.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dei partner della rete" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento dei partner della rete</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo in ascolto al tavolo dei relatori">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-32.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo in ascolto al tavolo dei relatori" loading="lazy" decoding="async">
-        <span class="icb-cap">Calogero Di Carlo in ascolto al tavolo dei relatori</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento davanti allo schermo della Convention">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-33.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento davanti allo schermo della Convention" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento davanti allo schermo della Convention</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un intervento dal pubblico, con Calogero Di Carlo">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-34.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un intervento dal pubblico, con Calogero Di Carlo" loading="lazy" decoding="async">
-        <span class="icb-cap">Un intervento dal pubblico, con Calogero Di Carlo</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Calogero Di Carlo fra i partecipanti">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-35.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: calogero Di Carlo fra i partecipanti" loading="lazy" decoding="async">
-        <span class="icb-cap">Calogero Di Carlo fra i partecipanti</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un abbraccio in sala con Calogero Di Carlo">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-36.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un abbraccio in sala con Calogero Di Carlo" loading="lazy" decoding="async">
-        <span class="icb-cap">Un abbraccio in sala con Calogero Di Carlo</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Sul palco con Calogero Di Carlo">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-37.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: sul palco con Calogero Di Carlo" loading="lazy" decoding="async">
-        <span class="icb-cap">Sul palco con Calogero Di Carlo</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="La sala del TH Roma Carpegna Palace, vista dal fondo">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-38.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: la sala del TH Roma Carpegna Palace, vista dal fondo" loading="lazy" decoding="async">
-        <span class="icb-cap">La sala del TH Roma Carpegna Palace, vista dal fondo</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="&laquo;Innovare oggi, guidare il domani&raquo;: una delle presentazioni">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-20.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: innovare oggi, guidare il domani: una delle presentazioni" loading="lazy" decoding="async">
-        <span class="icb-cap">&laquo;Innovare oggi, guidare il domani&raquo;: una delle presentazioni</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Gli applausi della sala">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-21.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: gli applausi della sala" loading="lazy" decoding="async">
-        <span class="icb-cap">Gli applausi della sala</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Sul palco, a fine intervento">
-        <img width="853" height="1280" src="assets/eventi/icb/icb-22.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: sul palco, a fine intervento" loading="lazy" decoding="async">
-        <span class="icb-cap">Sul palco, a fine intervento</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Un saluto al microfono">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-23.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: un saluto al microfono" loading="lazy" decoding="async">
-        <span class="icb-cap">Un saluto al microfono</span>
-      </button>
-      <button type="button" class="icb-it rv-s" data-icb data-cap="Il saluto finale ai partecipanti">
-        <img width="1280" height="853" src="assets/eventi/icb/icb-24.webp" alt="Convention UNICESD Olympo del 18 settembre 2026: il saluto finale ai partecipanti" loading="lazy" decoding="async">
-        <span class="icb-cap">Il saluto finale ai partecipanti</span>
-      </button>
-    </div>
-
-    <div class="icb-credit rv">
-      <div class="icb-credit-logo"><img width="700" height="339" src="assets/tony-strino.webp" alt="Tony Strino Studio Fotografico" loading="lazy" decoding="async"></div>
-      <div class="icb-credit-txt">
-        <span class="icb-credit-eye">Fotografo ufficiale</span>
-        <b>Tony Strino Studio Fotografico</b>
-        <span>Fotografo ufficiale di UNICESD Olympo. Gli scatti della Convention del 18 settembre 2026 sono suoi.</span>
-      </div>
-    </div>
-    <p class="pnote rv" style="margin-top:26px"><b>Nota.</b> Le fotografie sono state scattate durante la Convention UNICESD Olympo di venerd&igrave; 18 settembre 2026 al TH Roma Carpegna Palace di Roma. Clicca su una foto per ingrandirla; con le frecce scorri l&#39;intera galleria.</p>
-  </div>
-</section>
 
 <!-- lightbox della galleria I came back -->
 <div class="icb-lb" id="icbLb" role="dialog" aria-modal="true" aria-label="Galleria fotografica della Convention">
@@ -2162,231 +1929,8 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
 
 <!-- ===== OFFERTA FORMATIVA ===== -->
 <!-- ===== JANUS IN PRIMO PIANO ===== -->
-<section id="janus" class="ente-page" style="padding-top:78px">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> In primo piano</div>
-      <h2>Janus &mdash; <span class="grad">Istituto Superiore per la Formazione</span></h2>
-      <p>La scuola online del diploma dentro la rete UNICESD Olympo: undici indirizzi fra licei, istituti tecnici e professionali, piattaforma e&#8209;learning attiva ventiquattr'ore su ventiquattro, un tutor personale per ogni studente e una sede vera a Roma.</p>
-    </div>
-
-    <!-- FRONTESPIZIO DELLA BROCHURE -->
-    <div class="feature rv-s dark">
-      <div class="feat-grid g-book">
-        <div>
-          <a class="prg-poster" href="assets/janus/janus-brochure.webp" target="_blank" rel="noopener" aria-label="Apri a schermo intero la copertina della brochure Istituto Janus 2026">
-            <img src="assets/janus/janus-brochure.webp" alt="Copertina della brochure 2026 dell'Istituto Janus per la Formazione Superiore: il marchio Janus su fondo blu notte e un tablet con la scritta E-learning appoggiato su una pila di libri" loading="lazy" decoding="async">
-            <span class="prg-zoom">Ingrandisci</span>
-          </a>
-        </div>
-        <div>
-          <div class="eyebrow"><em></em> Brochure 2026</div>
-          <h2>Una scuola online <span class="grad">con una struttura vera</span></h2>
-          <p>L'<b>Istituto Janus</b> nasce dall'esperienza trentennale dei suoi fondatori nella formazione a distanza, con l'obiettivo di offrire un'istruzione orientata alle reali esigenze del mercato del lavoro. &Egrave; una scuola pensata per diventare un punto di riferimento nella formazione superiore a distanza, capace di rispondere alle necessit&agrave; degli studenti in Italia e all'estero.</p>
-          <p>Studiare con Janus significa entrare in una comunit&agrave; che accompagna lo studente in ogni fase del percorso: niente perdite di tempo, niente ostacoli burocratici, un percorso chiaro ed efficace costruito sulla singola persona.</p>
-          <div class="feat-box">
-            <div class="fb-row"><span>Che cos'&egrave;</span><b>Scuola online per il diploma</b></div>
-            <div class="fb-row"><span>Indirizzi</span><b>11 corsi di studio</b></div>
-            <div class="fb-row"><span>Piattaforma</span><b>E&#8209;learning attiva 24/7</b></div>
-            <div class="fb-row"><span>Lezioni</span><b>Oltre 15.000 ore</b></div>
-            <div class="fb-row"><span>Affiancamento</span><b>Tutor personale dedicato</b></div>
-            <div class="fb-row"><span>Struttura</span><b>15 persone e oltre 20 docenti</b></div>
-            <div class="fb-row"><span>Sede</span><b>Roma</b></div>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none;margin-top:24px">
-            <a href="#janus-corsi" class="btn btn-p" data-cursor><span>Gli undici indirizzi</span><span class="shine"></span></a>
-            <a href="https://istitutojanus.it/" target="_blank" rel="noopener" class="btn btn-g" data-cursor>istitutojanus.it</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NUMERI JANUS -->
-    <div class="stats" style="margin-top:30px">
-      <div class="stat rv"><b data-count="2000" data-suffix="+">0</b><span>Studenti</span><small>Negli ultimi anni scolastici</small></div>
-      <div class="stat rv" style="transition-delay:.1s"><b data-count="11">0</b><span>Corsi di studio</span><small>Licei, tecnici e professionali</small></div>
-      <div class="stat rv" style="transition-delay:.2s"><b data-count="15000" data-suffix="+">0</b><span>Ore di lezione</span><small>In piattaforma, sempre disponibili</small></div>
-      <div class="stat rv" style="transition-delay:.3s"><b data-count="100" data-suffix="%">0</b><span>Promossi con l'Academy</span><small>Alla maturit&agrave;, tra chi l'ha frequentata</small></div>
-    </div>
-
-    <!-- IL MODELLO -->
-    <div class="sec-head center rv" style="margin-top:66px;margin-bottom:34px">
-      <div class="eyebrow"><em></em> Il modello educativo</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Tecnologia e relazione umana, <span class="grad">il binomio</span></h2>
-      <p>La tecnologia toglie gli ostacoli, le persone restano al centro: l'intelligenza artificiale &egrave; al servizio dell'apprendimento, mai in sostituzione del rapporto umano.</p>
-    </div>
-
-    <div class="bento four">
-      <div class="card rv bg-online"><div class="card-ic">&#128187;</div><h3>La piattaforma e le lezioni</h3><p>Con <b>LMS Innova</b> lo studio si organizza come serve allo studente: oltre <b>15.000 ore</b> di lezioni disponibili quando e dove si vuole, ogni lezione arricchita da <b>mappe concettuali</b> e <b>pdf</b>. Il sistema include traduzioni in pi&ugrave; lingue e una voce artificiale che legge i testi, utile per la pronuncia e la comprensione orale delle lingue straniere.</p><div class="card-meta"><span class="chip cy">24/7</span><span class="chip">Mappe e pdf</span><span class="chip">Multilingua</span></div></div>
-      <div class="card rv bg-tutor" style="transition-delay:.08s"><div class="card-ic">&#129309;</div><h3>Il servizio di tutoraggio</h3><p>Ogni iscritto ha un <b>tutor personale</b>, un professionista qualificato che lo affianca fin dall'iscrizione: orientamento sulla piattaforma, <b>piano di studio su misura</b>, controllo del ritmo anche per chi ha poco tempo o deve recuperare uno o pi&ugrave; anni scolastici. Nessuna tecnologia sostituisce chi ascolta, motiva e aiuta nei momenti di difficolt&agrave;.</p><div class="card-meta"><span class="chip go">Tutor dedicato</span><span class="chip">Recupero anni</span></div></div>
-      <div class="card rv bg-informatica" style="transition-delay:.16s"><div class="card-ic">&#129302;</div><h3>Assistente virtuale H24</h3><p>Il <b>tutor virtuale</b> risponde in tempo reale, spiega e guida passo dopo passo dentro la lezione. Accanto c'&egrave; un sistema di <b>interrogazioni simulate</b> con self&#8209;assessment e feedback personalizzati: il risultato viene condiviso con il tutor umano, che interviene dove serve. E poi <b>laboratori live</b> e <b>speaking areas</b> per esercitarsi con docenti e compagni.</p><div class="card-meta"><span class="chip cy">Attivo 24 ore</span><span class="chip">Self-assessment</span></div></div>
-      <div class="card rv bg-master" style="transition-delay:.24s"><div class="card-ic">&#127891;</div><h3>La Janus Academy</h3><p>Percorso esclusivo per gli studenti del <b>V anno</b>: <b>9 ore di lezioni live a settimana</b>, in diretta con docenti specializzati, di sera <b>dopo le 18:00</b> e sempre registrate per chi non pu&ograve; esserci. Si affrontano le materie e i temi pi&ugrave; complessi dell'ultimo anno: come essere in classe, ma con la flessibilit&agrave; dello studio online.</p><div class="card-meta"><span class="chip go">100% promossi</span><span class="chip">9 ore live</span><span class="chip">Serale</span></div></div>
-    </div>
-
-    <!-- GLI INDIRIZZI -->
-    <div class="sec-head center rv" id="janus-corsi" style="margin-top:66px;margin-bottom:30px;scroll-margin-top:120px">
-      <div class="eyebrow"><em></em> I corsi di studio</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Undici indirizzi, <span class="grad">un diploma</span></h2>
-      <p>Licei, istituti tecnici e professionali: il piano di studi completo di ciascun indirizzo &egrave; nella brochure.</p>
-    </div>
-
-    <div class="jn-filt rv" role="group" aria-label="Evidenzia gli indirizzi per tipo di scuola">
-      <button type="button" class="tab" data-tipo="liceo" aria-pressed="false">Liceo</button>
-      <button type="button" class="tab" data-tipo="tecnico" aria-pressed="false">Tecnico</button>
-      <button type="button" class="tab" data-tipo="prof" aria-pressed="false">Professionale</button>
-    </div>
-    <div class="rail" id="jnRail">
-      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scientifico</b><span>Metodo di studio autonomo e critico, metodo scientifico e applicazioni matematiche, teorie filosofiche e storiche del progresso tecnologico.</span></div>
-      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scientifico Sportivo</b><span>Metodi sportivi applicati a diversi ambiti, analisi critica dei fenomeni sportivi e competenze socio&#8209;economiche del settore.</span></div>
-      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scienze Applicate</b><span>Preparazione scientifica costruita sul laboratorio, pensiero critico, ricerca sperimentale e strumenti informatici per l'analisi dei dati.</span></div>
-      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Classico</b><span>Cultura greco&#8209;latina, capacit&agrave; linguistiche e analitiche, argomentazione e approccio interdisciplinare fra materie umanistiche e scientifiche.</span></div>
-      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Linguistico</b><span>Livello B2 in due lingue europee e B1 in una terza, cultura e letteratura dei paesi studiati, confronto interculturale.</span></div>
-      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Scienze Umane</b><span>Pedagogia, psicologia, antropologia e sociologia per leggere i fenomeni educativi, familiari, interculturali e lavorativi.</span></div>
-      <div class="rail-i rv" data-tipo="liceo"><em>LICEO</em><b>Economico Sociale</b><span>Mercati, diritto ed economia, sociologia e antropologia per descrivere la societ&agrave; globale, due lingue straniere.</span></div>
-      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>Ist. Tecnico Tecnologico Informatico</b><span>Sistemi informatici, tecnologie web, reti e comunicazioni: analisi, progettazione, installazione e gestione di sistemi e basi di dati.</span></div>
-      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>AFM &mdash; Amministrazione, Finanza e Marketing</b><span>Documenti finanziari e amministrativi, mercati, marketing e comunicazione, relazioni aziendali internazionali. L'indirizzo pi&ugrave; scelto: 22,89%.</span></div>
-      <div class="rail-i rv" data-tipo="prof"><em>PROFESSIONALE</em><b>Socio Sanitario</b><span>Bisogni socio&#8209;sanitari e inclusione, piani di intervento, gestione di imprese e reti di servizio, assistenza e animazione sociale.</span></div>
-      <div class="rail-i rv" data-tipo="tecnico"><em>TECNICO</em><b>Turismo</b><span>Progettazione e gestione di servizi turistici, competenze linguistiche, patrimonio culturale del territorio e strumenti digitali di promozione.</span></div>
-    </div>
-
-    <!-- I RISULTATI -->
-    <div class="feature rv-s dark" style="margin-top:58px">
-      <div class="feat-grid g-conv">
-        <div>
-          <div class="eyebrow"><em></em> I risultati parlano per noi</div>
-          <h2>I traguardi <span class="grad">degli studenti</span></h2>
-          <p>Pi&ugrave; di <b>2.000 studenti</b> negli ultimi anni: chi lavora e incastra lo studio fra turni e scadenze, chi pratica sport a livello agonistico, chi vive fuori sede o all'estero, chi aveva interrotto gli studi e vuole recuperare gli anni. Oltre la met&agrave; degli iscritti sta affrontando l'esame di idoneit&agrave;, pi&ugrave; del 42% si prepara alla maturit&agrave;.</p>
-          <div class="feat-box">
-            <div class="fb-row"><span>Maturit&agrave; presso scuole paritarie</span><b>100% promossi</b></div>
-            <div class="fb-row"><span>Studenti della Janus Academy</span><b>100% promossi</b></div>
-            <div class="fb-row"><span>Esami di idoneit&agrave;</span><b>98% promossi</b></div>
-            <div class="fb-row"><span>Maturit&agrave; presso scuole statali</span><b>70% promossi</b></div>
-            <div class="fb-row"><span>Votazione fra 75 e 90 (Academy)</span><b>80% degli studenti</b></div>
-          </div>
-          <div class="feat-box" style="margin-top:18px">
-            <div class="fb-row"><span>Recensioni Google</span><b>4,9 su 5</b></div>
-            <div class="fb-row"><span>Trustpilot</span><b>4,8 su 5 &middot; 112 recensioni</b></div>
-          </div>
-          <p style="color:var(--txt-mute);font-size:13.4px;margin-top:18px">Dati e percentuali dichiarati nella brochure 2026 dell'Istituto Janus.</p>
-        </div>
-        <div>
-          <a class="prg-poster" href="assets/janus/janus-pg-risultati.webp" target="_blank" rel="noopener" aria-label="Apri la pagina dei risultati della brochure Janus">
-            <img src="assets/janus/janus-pg-risultati.webp" alt="Pagina della brochure Janus con le percentuali di successo degli studenti" loading="lazy" decoding="async">
-            <span class="prg-zoom">Ingrandisci</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- SFOGLIA LA BROCHURE -->
-    <div class="sec-head center rv" style="margin-top:66px;margin-bottom:30px">
-      <div class="eyebrow"><em></em> Dentro la brochure</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Qualche pagina, <span class="grad">a schermo intero</span></h2>
-      <p>Clicca una pagina per aprirla ingrandita.</p>
-    </div>
-
-    <div class="jn-pages rv-s">
-      <a class="jn-page" href="assets/janus/janus-brochure.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-brochure.webp" alt="Copertina della brochure Istituto Janus 2026" loading="lazy" decoding="async"><b>La copertina</b></a>
-      <a class="jn-page" href="assets/janus/janus-pg-nascita.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-pg-nascita.webp" alt="Pagina della brochure Janus sulla nascita dell'Istituto" loading="lazy" decoding="async"><b>La nascita dell'Istituto</b></a>
-      <a class="jn-page" href="assets/janus/janus-pg-modello.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-pg-modello.webp" alt="Pagina della brochure Janus sul modello educativo" loading="lazy" decoding="async"><b>Il modello educativo</b></a>
-      <a class="jn-page" href="assets/janus/janus-pg-corsi.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-pg-corsi.webp" alt="Pagina della brochure Janus con i corsi di studio" loading="lazy" decoding="async"><b>I corsi di studio</b></a>
-      <a class="jn-page" href="assets/janus/janus-pg-staff.webp" target="_blank" rel="noopener"><img src="assets/janus/janus-pg-staff.webp" alt="Pagina della brochure Janus con gli uffici e lo staff di Roma" loading="lazy" decoding="async"><b>Uffici e staff a Roma</b></a>
-    </div>
-
-    <!-- LA RETE DEI POLI REMOTI -->
-    <div class="feature rv-s dark" style="margin-top:58px">
-      <div class="feat-grid g-prg">
-        <div>
-          <div class="eyebrow"><em></em> La rete dei poli remoti</div>
-          <h2>Dal contratto <span class="grad">all'Open Day nazionale</span></h2>
-          <p>Il percorso che ogni polo remoto ha seguito per entrare nella rete Janus, completare la formazione e arrivare pronto al grande Open Day nazionale del <b>12 settembre</b>.</p>
-          <div class="prg-list">
-            <div class="prg-i"><span class="prg-t">1<em>10 lug</em></span><div class="prg-b"><b>Firma dell'accordo contrattuale</b><span>Il primo passo per entrare ufficialmente nella rete dei poli remoti</span></div></div>
-            <div class="prg-i"><span class="prg-t">2<em>24 lug</em></span><div class="prg-b"><b>Onboarding e formazione iniziale</b><span>Formazione online con il team Janus: modello, procedure, percorsi e attivit&agrave;</span></div></div>
-            <div class="prg-i"><span class="prg-t">3<em>31 lug</em></span><div class="prg-b"><b>Formazione strutturata in sede</b><span>Giornata di formazione e coordinamento presso la sede Janus di Roma</span></div></div>
-            <div class="prg-i"><span class="prg-t">4<em>31 lug</em></span><div class="prg-b"><b>Ritiro del kit pubblicitario</b><span>Consegna dei materiali ufficiali durante la giornata formativa</span></div></div>
-            <div class="prg-i"><span class="prg-t">5<em>4 set</em></span><div class="prg-b"><b>Pagine social ufficiali</b><span>Facebook e Instagram di ogni polo, nel rispetto delle linee guida di comunicazione</span></div></div>
-            <div class="prg-i"><span class="prg-t">6<em>12 set</em></span><div class="prg-b"><b>Ricerca e mappatura delle scuole paritarie</b><span>Per offrire agli studenti del territorio un servizio serio e organizzato</span></div></div>
-            <div class="prg-i"><span class="prg-t">7<em>12 set</em></span><div class="prg-b"><b>Open Day Nazionale</b><span>Tutte le sedi accolgono studenti e famiglie, da Roma la diretta streaming. Borse di studio al 100% e al 50%</span></div></div>
-          </div>
-        </div>
-        <div>
-          <a class="prg-poster" href="assets/janus/janus-roadmap.webp" target="_blank" rel="noopener" aria-label="Apri la roadmap dei poli remoti Janus">
-            <img src="assets/janus/janus-roadmap.webp" alt="Roadmap dei poli remoti Janus: le sette tappe dal contratto all'Open Day nazionale del 12 settembre" loading="lazy" decoding="async">
-            <span class="prg-zoom">Ingrandisci</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- PARTNER DAY -->
-    <div class="feature rv-s dark" style="margin-top:26px">
-      <div class="feat-grid g-conv">
-        <div>
-          <div class="eyebrow"><em></em> 31 luglio 2026</div>
-          <h2>Janus <span class="grad">Partner Day</span></h2>
-          <p>Una giornata di formazione, allineamento operativo e confronto strategico dedicata ai poli che si preparano al lancio dell'anno scolastico <b>2026/27</b>: linee guida operative della rete, confronto diretto con il team e lo staff, promozioni e strategie, consegna dei kit pubblicitari ufficiali e preparazione all'Open Day.</p>
-          <p>La giornata &egrave; proseguita in serata con la <b>Janus Partner Night</b> a Villa Veientana: cena e dj set per rafforzare la collaborazione fra Janus, i poli e lo staff.</p>
-          <div class="feat-box">
-            <div class="fb-row"><span>Quando</span><b>Venerd&igrave; 31 luglio 2026, 11:30 &ndash; 15:00</b></div>
-            <div class="fb-row"><span>Dove</span><b>Sede Janus &middot; Via Castense 8, 00182 Roma</b></div>
-            <div class="fb-row"><span>Partner Night</span><b>Ore 20:00 &middot; Villa Veientana, Roma</b></div>
-            <div class="fb-row"><span>Accesso</span><b>Poli contrattualizzati e formati</b></div>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none;margin-top:22px">
-            <a href="#eventi" class="btn btn-g btn-sm" data-cursor>Tutti gli eventi</a>
-            <a href="#iscrizione" class="btn btn-g btn-sm" data-cursor>Diventa polo della rete</a>
-          </div>
-        </div>
-        <div>
-          <a class="prg-poster" href="assets/janus/janus-partnerday.webp" target="_blank" rel="noopener" aria-label="Apri la locandina del Janus Partner Day">
-            <img src="assets/janus/janus-partnerday.webp" alt="Locandina del Janus Partner Day del 31 luglio 2026 e della Janus Partner Night a Villa Veientana" loading="lazy" decoding="async">
-            <span class="prg-zoom">Ingrandisci</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <p class="pnote rv" style="margin-top:30px"><b>Nota.</b> Janus &mdash; Istituto Superiore per la Formazione &egrave; un soggetto distinto da UNICESD OLYMPO SRL. Dati, percentuali e contenuti di questa sezione sono ripresi dalla brochure ufficiale 2026 dell'Istituto e dai materiali della rete dei poli remoti.</p>
-  </div>
-</section>
 
 <!-- ===== PROGRAMMA DEL GIORNO ===== -->
-<section id="programma-sec" style="padding-top:8px">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> Venerd&igrave; 18 settembre 2026</div>
-      <h2>La locandina con il <span class="grad">programma del giorno</span></h2>
-      <p>La giornata UNICESD Olympo al TH Roma Carpegna Palace, ora per ora: registrazione, lavori, interventi e cena.</p>
-    </div>
-    <div class="feature rv-s dark prg" id="programma">
-      <div class="feat-grid g-prg">
-        <div>
-          <div class="eyebrow"><em></em> Programma ufficiale</div>
-          <h2>Programma del <span class="grad">giorno</span></h2>
-          <p>Idee &middot; Persone &middot; Territori &middot; Opportunit&agrave;. La scaletta di <b>venerd&igrave; 18 settembre 2026</b> al <b>TH Roma Carpegna Palace</b>, Via Aurelia 481, Roma.</p>
-          <div class="prg-list">
-            <div class="prg-i"><span class="prg-t">15:00</span><div class="prg-b"><b>Registrazione dei partecipanti</b><span>Aperitivo di accoglienza presso il TH Roma Carpegna Palace</span></div></div>
-            <div class="prg-i"><span class="prg-t">16:00</span><div class="prg-b"><b>Inizio dei lavori</b></div></div>
-            <div class="prg-i"><span class="prg-t">16:30</span><div class="prg-b"><b>Intervento di Calogero Di Carlo</b></div></div>
-            <div class="prg-i"><span class="prg-t">17:00<em>20:00</em></span><div class="prg-b"><b>Interventi dei partecipanti</b><span>Sui nuovi temi della formazione partecipata</span></div></div>
-            <div class="prg-i"><span class="prg-t">20:00</span><div class="prg-b"><b>Cena e taglio della torta</b></div></div>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none;margin-top:26px">
-            <button class="btn btn-p" data-evopen><span>Conferma la presenza</span><span class="shine"></span></button>
-            <a href="assets/eventi/programma-18set2026.webp" target="_blank" rel="noopener" class="btn btn-g">Apri la locandina</a>
-          </div>
-        </div>
-        <div>
-          <a class="prg-poster" href="assets/eventi/programma-18set2026.webp" target="_blank" rel="noopener" aria-label="Apri la locandina del programma del giorno">
-            <img src="assets/eventi/programma-18set2026.webp" alt="Programma del giorno della Convention UNICESD Olympo del 18 settembre 2026: registrazione alle 15:00, inizio dei lavori alle 16:00, intervento di Calogero Di Carlo alle 16:30, interventi dei partecipanti dalle 17:00 alle 20:00, cena e taglio della torta alle 20:00" loading="lazy" decoding="async">
-            <span class="prg-zoom">Ingrandisci</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== EVENTI ===== -->
 <section id="eventi">
@@ -2411,7 +1955,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
         </div>
         <div class="hero-cta" style="opacity:1;animation:none">
           <button class="btn btn-p" data-evopen><span>Richiedi informazioni</span><span class="shine"></span></button>
-          <a href="#programma" class="btn btn-g">Programma del giorno</a>
+          <a href="/eventi/#programma" class="btn btn-g">Programma del giorno</a>
           <a href="#contatti" class="btn btn-g">Contatta la segreteria</a>
         </div>
       </div>
@@ -2511,6 +2055,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
           </div>
           <div class="ec-stats"><div><b>26</b><span>corsi di laurea</span></div><div><b>15</b><span>triennali</span></div><div><b>10</b><span>magistrali</span></div><div><b>79</b><span>indirizzi</span></div></div>
         </div>
+        <button type="button" class="btn btn-g ec-open" id="ecOpen" aria-expanded="false">Vedi tutti i 26 corsi di laurea e i 79 indirizzi</button>
         <div class="ec-filters" id="ecFilters"><button type="button" class="tab on" data-ec="all">Tutte le aree</button><button type="button" class="tab" data-ec="eco">Economia e turismo</button><button type="button" class="tab" data-ec="giu">Giuridico e sociale</button><button type="button" class="tab" data-ec="ing">Ingegneria</button><button type="button" class="tab" data-ec="let">Lettere, arti e lingue</button><button type="button" class="tab" data-ec="ped">Pedagogia</button><button type="button" class="tab" data-ec="psi">Psicologia</button><button type="button" class="tab" data-ec="bio">Biologia e nutrizione</button><button type="button" class="tab" data-ec="mot">Scienze motorie</button></div>
         <div class="ec-grid" id="ecGrid">
         <article class="ec-card" data-ec="eco"><div class="ec-top"><span class="ec-cls">L-33</span><span class="ec-type t">Triennale</span></div><h4>Economia</h4><span class="ec-area">Economia e turismo &middot; 3 anni &middot; 180 CFU</span><ul class="ec-ind"><li>Aziende sanitarie ed economia della salute</li><li>Economia e commercio</li><li>Psicoeconomia</li><li>Scienze bancarie e consulenti finanziari</li><li>Start-up d&#x27;impresa e modelli di business</li><li>Economics and business</li></ul></article>
@@ -2606,7 +2151,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
 
       <div class="card bg-economia"><div class="card-ic">&#127891;</div><h3>Gli altri percorsi</h3><p><b>Economia, ingegneria, architettura e marketing</b> in Romania: <b>3.000&ndash;5.000 &euro;/anno</b>, in inglese. <b>Ucraina</b>, percorsi abbreviati e specializzazioni mediche: area medica completa (5 anni e 8 mesi) o quadriennale e specializzazioni a <b>10.000 &euro;/anno</b>; lauree triennali di area economica e tecnica <b>30.000 &euro;</b>; master abilitanti e lauree magistrali <b>20.000 &euro;</b>; titoli con registrazione NARIC e apostille, tutti in inglese, attesa massima tre mesi. E il percorso abilitante per <b>agente immobiliare</b>, con esame finale e possibilit&agrave; di riconoscimento in Italia: <b>3.500 &euro;</b> complessivi.</p><div class="card-meta"><span class="chip">Ucraina &middot; Romania</span><span class="chip">Anche magistrali</span></div></div>
     </div>
-      <div class="of-cta"><a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni</span><span class="shine"></span></a><a href="#athena" class="btn btn-g">Come funziona, passo per passo</a></div>
+      <div class="of-cta"><a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni</span><span class="shine"></span></a><a href="/medicina-senza-test-ingresso/" class="btn btn-g">Come funziona, passo per passo</a></div>
     </div>
 
     <div class="panel" data-panel="5">
@@ -2620,7 +2165,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
       <div class="card bg-master"><div class="card-ic">&#128737;</div><h3>AI Act Governance &amp; Compliance</h3><p>Secondo livello di adeguamento: mappatura e classificazione dei sistemi, ruoli e responsabilit&agrave;, alto rischio, supervisione umana, dati e tracciabilit&agrave;, incidenti, fornitori, registri e procedure. Per imprenditori, dirigenti, HR, compliance, DPO, cybersecurity, qualit&agrave; e risk management.</p><div class="card-meta"><span class="chip">In arrivo</span><span class="chip">2&deg; livello</span></div></div>
       <div class="card bg-psico"><div class="card-ic">&#9774;</div><h3>Diritti Umani</h3><p>Principi, fonti e strumenti internazionali di tutela: Dichiarazione Universale, diritti civili, politici, economici e sociali, ONU e CEDU, uguaglianza, privacy, migrazioni, conflitti, nuove tecnologie e intelligenza artificiale. Un percorso completo sui sistemi universali e regionali di tutela.</p><div class="card-meta"><span class="chip cy">21 lezioni</span><span class="chip">125 minuti</span><span class="chip">Aperto a tutti</span></div></div>
     </div>
-      <div class="of-cta"><a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni</span><span class="shine"></span></a><a href="#ai" class="btn btn-g">Il progetto IA</a></div>
+      <div class="of-cta"><a href="#iscrizione" class="btn btn-p" data-cursor><span>Chiedi informazioni</span><span class="shine"></span></a><a href="/intelligenza-artificiale-ai-act/" class="btn btn-g">Il progetto IA</a></div>
     </div>
 
     <div class="panel" data-panel="6">
@@ -2634,40 +2179,6 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
 </section>
 
 <!-- ===== MASTER FEATURE ===== -->
-<section id="master" style="padding-top:40px">
-  <div class="wrap">
-    <div class="feature rv-s dark">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> Novit&agrave; 2026</div>
-          <h2><span class="tric">Made in Italy</span> Global Leadership</h2>
-          <p>Executive Master universitario di I livello in <b>Export, Geopolitics &amp; International Business</b>. Un percorso nato per formare i manager che porteranno l'eccellenza italiana sui mercati internazionali, firmato con protocollo d'intesa a Villa Niscemi, Palermo.</p>
-          <div class="partners">
-            <span class="partner">Universit&agrave; online</span>
-            <span class="partner">Orienta Campus</span>
-            <span class="partner">Forum Italiano dell'Export</span>
-            <span class="partner">UNICESD Olympo</span>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none">
-            <a href="#iscrizione" class="btn btn-p" data-cursor><span>Candidati al master</span><span class="shine"></span></a>
-            <button class="btn btn-g" data-modal="m1" data-cursor>Programma completo</button>
-          </div>
-        </div>
-        <div>
-        <div class="proto" style="margin-bottom:20px"><img width="760" height="1138" src="assets/master-protocollo.jpg" alt="Comunicato stampa della firma del protocollo d'intesa a Villa Niscemi, Palermo" loading="lazy" decoding="async"></div>
-        <div class="feat-box">
-          <div class="fb-row"><span>Livello</span><b>Master universitario I livello</b></div>
-          <div class="fb-row"><span>Crediti</span><b>60 CFU &middot; 1500 ore</b></div>
-          <div class="fb-row"><span>Modalit&agrave;</span><b>Executive &middot; blended</b></div>
-          <div class="fb-row"><span>Aree</span><b>Export &middot; Geopolitica &middot; Business</b></div>
-          <div class="fb-row"><span>Sede di firma</span><b>Villa Niscemi, Palermo</b></div>
-          <div class="fb-row"><span>Avvio</span><b>A.A. 2026/2027</b></div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== PERCHE / BENTO ===== -->
 <section id="perche">
@@ -2689,851 +2200,55 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
 </section>
 
 <!-- ===== ATENEO / SPLIT ===== -->
-<section id="ateneo">
-  <div class="wrap split">
-    <div class="rv-l">
-      <div class="eyebrow"><em></em> Il Centro Studi</div>
-      <h2 style="font-size:clamp(28px,4vw,44px);margin-bottom:18px">Universitas Centro Studi <span class="grad">Olympo</span></h2>
-      <p style="color:var(--txt-dim);font-size:16.5px;margin-bottom:18px">UNICESD OLYMPO SRL nasce nel 2015 a Palermo come struttura specializzata nei servizi di supporto all'istruzione, <b>in continuazione di Helios e Icarus, nate nel 2008</b>: diciassette anni di lavoro ininterrotto sulla stessa idea. Il nostro compito &egrave; costruire il ponte tra chi vuole studiare e le istituzioni universitarie che rilasciano il titolo.</p>
-      <p style="color:var(--txt-dim);font-size:16.5px;margin-bottom:28px">Coordiniamo centri accreditati, organizziamo attivit&agrave; didattiche universitarie sul territorio, offriamo consulenza e tutoraggio didattico, alta formazione e qualificazione professionale: <b>formazione su tutti i campi</b>, dall'area giuridica ed economica a quella sanitaria, tecnica, umanistica e delle scienze motorie.</p>
-      <div class="srv" style="grid-template-columns:1fr 1fr">
-        <div class="srv-i"><div class="ic">&#127970;</div><div><b>Dal 2008</b><span>17 anni di attivit&agrave;</span></div></div>
-        <div class="srv-i"><div class="ic">&#128205;</div><div><b>Palermo</b><span>Via Trabia 1, 90133</span></div></div>
-        <div class="srv-i"><div class="ic">&#128196;</div><div><b>Formazione su tutti i campi</b><span>Giuridico, economico, sanitario, tecnico, umanistico</span></div></div>
-        <div class="srv-i"><div class="ic">&#127891;</div><div><b>Rete universitaria</b><span>Centri accreditati da atenei</span></div></div>
-        <div class="srv-i"><div class="ic">&#127477;&#127481;</div><div><b>Lisbona</b><span>Sucursal em Portugal</span></div></div>
-        <div class="srv-i"><div class="ic">&#127981;</div><div><b>Campofelice di Roccella</b><span>Via G. Matteotti 23 &middot; SS113 km 190+900</span></div></div>
-      </div>
-    </div>
-    <div class="rv-r">
-      <div class="feat-box" style="padding:36px">
-        <h3 style="font-size:21px;margin-bottom:20px">Dati istituzionali</h3>
-        <div class="fb-row"><span>Ragione sociale</span><b>UNICESD OLYMPO SRL</b></div>
-        <div class="fb-row"><span>Denominazione estesa</span><b>Universitas Centro Studi Olympo</b></div>
-        <div class="fb-row"><span>Forma giuridica</span><b>Societ&agrave; a responsabilit&agrave; limitata</b></div>
-        <div class="fb-row"><span>P. IVA / C.F.</span><b>06398000825</b></div>
-        <div class="fb-row"><span>REA</span><b>PA-318277</b></div>
-        <div class="fb-row"><span>Sede legale</span><b>Via Trabia 1, Palermo</b></div>
-        <div class="fb-row"><span>Iscrizione</span><b>1 settembre 2015</b></div>
-        <div class="fb-row"><span>Capitale sociale</span><b>&euro; 10.000</b></div>
-        <div class="fb-row"><span>Filiale estera</span><b>Lisbona, Portogallo</b></div>
-        <div class="fb-row"><span>NIF portoghese</span><b>980647819</b></div>
-        <p style="font-size:12.6px;color:var(--txt-mute);line-height:1.55;margin-top:14px">Universitas Centro Studi Olympo, S.R.L. &mdash; Sucursal em Portugal, rappresentanza permanente con sede in Rua Castilho 13, 3.&ordm;-B, 1250-066 Lisbona. Attivit&agrave; dichiarata: istituzione e gestione di scuole di ogni ordine e grado.</p>
-        <button class="btn btn-g btn-sm" style="width:100%;margin-top:20px" data-modal="qualita">Trasparenza e qualit&agrave;</button>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== TIMELINE ===== -->
 <!-- ===== IL GRUPPO ===== -->
-<section id="gruppo" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> Assetto societario</div>
-      <h2>UNICESD Olympo dentro il <span class="grad">Gruppo Olympo CDC</span></h2>
-      <p>UNICESD Olympo SRL &egrave; partecipata al 100% da <b>Olympo CDC Group SRL</b>, capogruppo interamente riconducibile a Calogero Di Carlo. Attorno ad essa ruotano societ&agrave; attive nella formazione universitaria e professionale, nell'editoria, nei servizi digitali, nell'immobiliare, nella ricerca medica e nell'agroalimentare, insieme alle associazioni sportive della rete.</p>
-    </div>
 
-    <div class="grpx rv" id="grpx" data-view="graph">
-
-      <div class="grpx-bar">
-        <div class="grpx-hint"><em></em> Passa sopra un nodo per i dettagli, trascinalo per muovere la rete</div>
-        <div class="grpx-seg">
-          <button type="button" class="on" data-gview="graph">Mappa</button>
-          <button type="button" data-gview="list">Elenco</button>
-        </div>
-      </div>
-
-      <div class="grpx-view">
-        <div class="grpx-stage" id="grpxStage">
-          <canvas class="grpx-cv" id="grpxCv"></canvas>
-          <div class="grpx-layer" id="grpxLayer"></div>
-          <div class="gx-tip" id="grpxTip"></div>
-        </div>
-        <div class="grpx-key">
-          <span><i style="--kc:#23387e"></i> Capogruppo</span>
-          <span><i style="--kc:#1f5fd0"></i> Aree di attivit&agrave;</span>
-          <span><i style="--kc:#2f9e63"></i> Societ&agrave; e partecipate</span>
-          <span><em></em> Partecipazioni dirette</span>
-          <span><em class="x"></em> Legami di rete</span>
-        </div>
-      </div>
-
-      <div class="grpx-list">
-      <div class="grp">
-
-      <div class="grp-hub" data-ic="&#127963;" data-pct="100%">
-        <div class="gh-ic">&#127963;</div>
-        <h3>Olympo CDC Group SRL</h3>
-        <span>Capogruppo &middot; 100% Calogero Di Carlo</span>
-      </div>
-      <div class="grp-stem"></div>
-
-      <div class="grp-sect" data-ac="#23387e" data-ic="&#127891;">
-        <div class="grp-lab"><b>Formazione universitaria</b><i></i></div>
-        <div class="grp-row">
-          <div class="grp-c core" style="--ac:#23387e">
-            <div class="gc-top"><span class="gc-ic">&#127963;</span><span class="gc-pct">100%</span></div>
-            <h4>UNICESD Olympo SRL</h4><p>Centro studi &middot; formazione e imprese</p>
-          </div>
-          <div class="grp-c" style="--ac:#d5262f">
-            <div class="gc-top"><span class="gc-ic">&#128052;</span><span class="gc-pct">100%</span></div>
-            <h4>Pegaso Promo Genius SRLS</h4><p>Universit&agrave; Telematica Pegaso</p>
-          </div>
-          <div class="grp-c" style="--ac:#c79a2e">
-            <div class="gc-top"><span class="gc-ic">&#128052;</span><span class="gc-pct">100%</span></div>
-            <h4>Icarus Form07 SRL</h4><p>Universit&agrave; Telematica Pegaso</p>
-          </div>
-          <div class="grp-c" style="--ac:#c79a2e">
-            <div class="gc-top"><span class="gc-ic">&#128218;</span><span class="gc-pct">100%</span></div>
-            <h4>Accademia delle Buone Pratiche SRL</h4><p>Formazione professionale</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grp-sect" data-ac="#d2691e" data-ic="&#128214;">
-        <div class="grp-lab"><b>Editoria, servizi e tecnologia</b><i></i></div>
-        <div class="grp-row">
-          <div class="grp-c" style="--ac:#d2691e">
-            <div class="gc-top"><span class="gc-ic">&#128214;</span><span class="gc-pct">100%</span></div>
-            <h4>Helios SRL</h4><p>Editoria</p>
-          </div>
-          <div class="grp-c" style="--ac:#2f9e63">
-            <div class="gc-top"><span class="gc-ic">&#128722;</span><span class="gc-pct">50%</span></div>
-            <h4>Pegaso Servizi SRL</h4><p>E&#8209;commerce</p>
-          </div>
-          <div class="grp-c" style="--ac:#37618f">
-            <div class="gc-top"><span class="gc-ic">&#128187;</span><span class="gc-pct">50%</span></div>
-            <h4>I.S.E.T. SRL</h4><p>Elettronica &middot; schede elettroniche</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grp-sect" data-ac="#8a7a4e" data-ic="&#127976;">
-        <div class="grp-lab"><b>Immobiliare e ricettivo</b><i></i></div>
-        <div class="grp-row">
-          <div class="grp-c" style="--ac:#8a7a4e">
-            <div class="gc-top"><span class="gc-ic">&#127970;</span><span class="gc-pct">50%</span></div>
-            <h4>Giurecoform SRL</h4><p>Immobiliare</p>
-          </div>
-          <div class="grp-c" style="--ac:#2f7a54">
-            <div class="gc-top"><span class="gc-ic">&#127794;</span><span class="gc-pct">60%</span></div>
-            <h4>HTSM SRL</h4><p>Hotel dei Pini</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grp-sect" data-ac="#1f8fc0" data-ic="&#129516;">
-        <div class="grp-lab"><b>Salute e agroalimentare &mdash; partecipazioni al 50%</b><i></i></div>
-        <div class="grp-row">
-          <div class="grp-c" style="--ac:#1f8fc0">
-            <div class="gc-top"><span class="gc-ic">&#129516;</span><span class="gc-pct">50%</span></div>
-            <h4>Biosketch SRL</h4><p>Estrazione microbiota</p>
-          </div>
-          <div class="grp-c" style="--ac:#1f8fc0">
-            <div class="gc-top"><span class="gc-ic">&#129501;</span><span class="gc-pct">50%</span></div>
-            <h4>Human Sketch SRL</h4><p>Medicina di precisione</p>
-          </div>
-          <div class="grp-c" style="--ac:#1f8fc0">
-            <div class="gc-top"><span class="gc-ic">&#128138;</span><span class="gc-pct">50%</span></div>
-            <h4>Nutracur SRL</h4><p>Produzione probiotico</p>
-          </div>
-          <div class="grp-c" style="--ac:#1f8fc0">
-            <div class="gc-top"><span class="gc-ic">&#127860;</span><span class="gc-pct">50%</span></div>
-            <h4>Nice Food SRL</h4><p>Produzione alimentare</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grp-sect" data-ac="#e07b39" data-ic="&#127939;">
-        <div class="grp-lab"><b>Sport e rappresentanza &mdash; controllo e partecipazioni incrociate</b><i></i></div>
-        <div class="grp-row">
-          <div class="grp-c" style="--ac:#5a6890">
-            <div class="gc-top"><span class="gc-ic">&#127939;</span><span class="gc-pct">Rete</span></div>
-            <h4>A.S.D. Pegaso Athletics</h4><p>Atletica e triathlon</p>
-          </div>
-          <div class="grp-c" style="--ac:#1f5fd0">
-            <div class="gc-top"><span class="gc-ic">&#9917;</span><span class="gc-pct">Rete</span></div>
-            <h4>A.S.D. Real Cefal&ugrave;</h4><p>Calcio a cinque</p>
-          </div>
-          <div class="grp-c" style="--ac:#e07b39">
-            <div class="gc-top"><span class="gc-ic">&#128101;</span><span class="gc-pct">Rete</span></div>
-            <h4>Assolympo &middot; Assoimpresa</h4><p>Rappresentanza e impresa</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grp-legend">
-        <span><em></em> Partecipazioni dirette</span>
-        <span><em class="x"></em> Controllo e partecipazioni incrociate</span>
-      </div>
-
-      </div>
-      </div>
-
-      <div class="sec-head rv" style="margin-top:66px">
-        <div class="eyebrow"><em></em> Le imprese, sul campo</div>
-        <h2>Non solo aule: <span class="grad">impianti, terreni, cantieri</span></h2>
-        <p>Dietro l'organigramma ci sono linee che producono, terreni che danno frutto e progetti che cambiano un pezzo di lungomare. Qualche immagine delle attivit&agrave; che affiancano la formazione.</p>
-      </div>
-
-      <div class="press" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
-
-        <article class="press-i rv-s">
-          <div class="press-thumb"><img width="820" height="598" src="assets/iset-produzione.webp" alt="Linea di montaggio automatico di schede elettroniche I.S.E.T." loading="lazy" decoding="async" style="object-position:center center"></div>
-          <div class="press-body"><em>I.S.E.T. &middot; produzione</em><b>La linea di montaggio</b><p>Assemblaggio automatico a montaggio superficiale: le schede elettroniche prendono forma componente dopo componente, con collaudo in linea.</p></div>
-        </article>
-
-        <article class="press-i rv-s" style="transition-delay:.08s">
-          <div class="press-thumb"><img width="800" height="800" src="assets/iset-controllo.webp" alt="Sala di controllo e impianti per il trasporto su ferro realizzati da I.S.E.T." loading="lazy" decoding="async" style="object-position:center center"></div>
-          <div class="press-body"><em>I.S.E.T. &middot; sistemi</em><b>Sale operative e impianti di linea</b><p>Supervisione e controllo del trasporto pubblico su ferro: videowall di esercizio, postazioni operatore e lavori sugli impianti di stazione.</p></div>
-        </article>
-
-        <article class="press-i rv-s" style="transition-delay:.16s">
-          <div class="press-thumb"><img width="1000" height="750" src="assets/cefalu-render.webp" alt="Render del progetto di riqualificazione sul lungomare di Cefal&ugrave;" loading="lazy" decoding="async" style="object-position:center 60%"></div>
-          <div class="press-body"><em>Immobiliare &middot; Cefal&ugrave;</em><b>Il progetto sul lungomare</b><p>Render della riqualificazione: residenze, ricettivo e uno spazio pubblico coperto affacciato sul mare, a pochi passi dalla spiaggia.</p></div>
-        </article>
-
-        <article class="press-i rv-s" style="transition-delay:.24s">
-          <div class="press-thumb"><img width="800" height="482" src="assets/cefalu-aerea.webp" alt="Veduta aerea di Cefal&ugrave; con l'area di intervento evidenziata" loading="lazy" decoding="async" style="object-position:center center"></div>
-          <div class="press-body"><em>Immobiliare &middot; l'area</em><b>Dove si interviene</b><p>La veduta dall'alto con il perimetro dell'area e i percorsi di collegamento fra il fronte mare, la spiaggia e il centro storico.</p></div>
-        </article>
-
-        <article class="press-i rv-s" style="transition-delay:.32s">
-          <div class="press-thumb"><img width="480" height="844" src="assets/villa-ricettivo.webp" alt="Struttura ricettiva in pietra con piscina" loading="lazy" decoding="async" style="object-position:center 40%"></div>
-          <div class="press-body"><em>Ricettivo</em><b>Ospitalit&agrave; fuori citt&agrave;</b><p>Il ramo ricettivo del gruppo: casali in pietra recuperati e messi a reddito, con la formula del soggiorno breve.</p></div>
-        </article>
-
-        <article class="press-i rv-s" style="transition-delay:.4s">
-          <div class="press-thumb"><img width="1000" height="450" src="assets/madonie-terreni.webp" alt="Terreni e oliveti delle Madonie affacciati sul mare" loading="lazy" decoding="async" style="object-position:center center"></div>
-          <div class="press-body"><em>Agroalimentare &middot; Madonie</em><b>I terreni sul mare</b><p>Gli oliveti che guardano la costa tirrenica: da qui nasce l'olio extravergine biologico della rete agricola del gruppo.</p></div>
-        </article>
-
-        <article class="press-i rv-s" style="transition-delay:.48s">
-          <div class="press-thumb"><img width="600" height="800" src="assets/kalos-magazzino.webp" alt="Deposito aziendale dell'azienda agricola nelle Madonie" loading="lazy" decoding="async" style="object-position:center 55%"></div>
-          <div class="press-body"><em>Agroalimentare &middot; struttura</em><b>Il deposito aziendale</b><p>Il fabbricato di servizio a supporto della raccolta e dello stoccaggio, in mezzo ai terreni di Campofelice di Roccella.</p></div>
-        </article>
-
-        <article class="press-i rv-s" style="transition-delay:.56s">
-          <div class="press-thumb"><img width="800" height="533" src="assets/kalos-etichetta.webp" alt="Etichetta dell'olio extravergine di oliva biologico Bio Kalos Madonie" loading="lazy" decoding="async" style="object-position:center center"></div>
-          <div class="press-body"><em>Agroalimentare &middot; prodotto</em><b>Bio Kalos Madonie</b><p>Olio extravergine di oliva biologico, categoria superiore, ottenuto dalle olive unicamente mediante procedimenti naturali. 100% italiano.</p></div>
-        </article>
-
-        <article class="press-i rv-s" style="transition-delay:.64s">
-          <div class="press-thumb"><img width="880" height="660" src="assets/teatro-massimo.webp" alt="Incontro istituzionale a Palermo davanti al Teatro Massimo" loading="lazy" decoding="async" style="object-position:center 30%"></div>
-          <div class="press-body"><em>Relazioni istituzionali</em><b>Palermo, Teatro Massimo</b><p>Il lavoro di rete passa anche dagli incontri: istituzioni, atenei e imprese attorno allo stesso tavolo, in citt&agrave;.</p></div>
-        </article>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="storia" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> La nostra storia</div>
-      <h2>Pi&ugrave; di 15 anni di <span class="grad">crescita</span></h2>
-    </div>
-    <div class="tl" style="max-width:820px;margin:0 auto">
-      <div class="tl-item rv-l"><div class="tl-dot"></div><div class="tl-year">2008</div><h4>Helios e Icarus, il primo nucleo</h4><p>Nascono <b>Helios</b> e <b>Icarus Form07</b>: da qui parte l'attivit&agrave; nei servizi di supporto all'istruzione che UNICESD Olympo porta avanti senza interruzioni da diciassette anni.</p></div>
-      <div class="tl-item rv-l"><div class="tl-dot"></div><div class="tl-year">2015</div><h4>Nasce UNICESD Olympo</h4><p>Il 1&deg; settembre 2015 la societ&agrave; viene iscritta al Registro delle Imprese di Palermo con un oggetto sociale ampio: attivit&agrave; scolastiche e formative, alta formazione, formazione a distanza, consulenza e tutoraggio didattico.</p></div>
-      <div class="tl-item rv-l" style="transition-delay:.1s"><div class="tl-dot"></div><div class="tl-year">2019</div><h4>Espansione e rete universitaria</h4><p>Anni di forte crescita: il Centro Studi consolida l'attivit&agrave; nella formazione universitaria in collaborazione con atenei telematici e sviluppa la rete di centri accreditati in Sicilia e nel resto d'Italia.</p></div>
-      <div class="tl-item rv-l" style="transition-delay:.2s"><div class="tl-dot"></div><div class="tl-year">2019</div><h4>Le imprese accanto alla formazione</h4><p>Il gruppo affianca alla formazione tre attivit&agrave; che lavorano sul reale: <b>I.S.E.T.</b> nell'elettronica industriale e nei sistemi ferroviari, <b>Giurecoform</b> nella formazione giuridico&#8209;economica e nell'immobiliare, <b>Agro Bio Kalos</b> nell'olivicoltura biologica delle Madonie. Tre mestieri diversi, la stessa idea: competenze che restano sul territorio.</p></div>
-      <div class="tl-item rv-l" style="transition-delay:.3s"><div class="tl-dot"></div><div class="tl-year">2023</div><h4>Riorganizzazione</h4><p>Fase di ristrutturazione e riposizionamento dell'attivit&agrave;, con focus sul core business della formazione e dei servizi universitari.</p></div>
-      <div class="tl-item rv-l" style="transition-delay:.4s"><div class="tl-dot"></div><div class="tl-year">2026</div><h4>Il rilancio istituzionale</h4><p>Agosto 2026: sottoscrizione a Villa Niscemi del protocollo d'intesa con Forum Italiano dell'Export, Orienta Campus e Universit&agrave; eCampus per il Master &laquo;Made in Italy Global Leadership&raquo;. Un nuovo capitolo nell'alta formazione internazionale.</p></div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== FONDATORE ===== -->
-<section id="fondatore" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> Il fondatore</div>
-      <h2>L'uomo dietro <span class="grad">UNICESD Olympo</span></h2>
-    </div>
-
-    <div class="founder">
-      <div class="fnd-media rv-l">
-        <div class="fnd-ring"></div>
-        <div class="fnd-photo">
-          <img src="assets/founder-cers.webp" alt="Calogero Di Carlo, fondatore di UNICESD Olympo" loading="lazy" decoding="async">
-          <div class="fnd-name"><b>Calogero Di Carlo</b><span>Fondatore</span></div>
-        </div>
-        <div class="fnd-chip k1"><b>100</b><span>sedi d'esame in Italia</span></div>
-        <div class="fnd-chip k2"><b>20.000</b><span>marescialli laureati</span></div>
-      </div>
-
-      <div class="rv-r">
-        <div class="fnd-role">&#9733; Fondatore &amp; anima del progetto</div>
-        <h2>Calogero Di Carlo</h2>
-        <div class="fnd-sub">Dirigente della formazione universitaria telematica &middot; Cefal&ugrave;, Palermo</div>
-        <p class="bio">Una biografia che non somiglia a nessun'altra. Prima ufficiale di PG, poi &mdash; quasi per caso &mdash; l'incontro con la formazione a distanza: a Siena coordina un progetto che porta alla laurea <b>circa ventimila marescialli dell'Arma</b>, persone che senza la didattica telematica non avrebbero mai potuto rimettersi sui libri.</p>
-        <p class="bio">Da quell'esperienza nasce una convinzione che non lo ha pi&ugrave; lasciato: il titolo di studio non deve dipendere da dove sei nato n&eacute; da quanto puoi spendere. Diventa direttore delle sedi nazionali dell'Universit&agrave; Telematica Pegaso, arrivando a <b>coordinare 100 sedi d'esame in Italia, di cui 15 in Sicilia</b>, e una rete di <b>450 E&#8209;Learning Center Point</b>, con una squadra di circa sessanta persone, e seguendo anche il coordinamento di Universitas Mercatorum.</p>
-        <p class="bio">Nel 2015 fonda a Palermo <b>UNICESD Olympo &mdash; Universitas Centro Studi Olympo</b>, portando quel modello nella sua terra: una rete di orientamento, tutoraggio e coordinamento didattico pensata per gli studenti del Sud, un'offerta cresciuta negli anni fino a coinvolgere anche gli studenti del Nord.</p>
-
-        <div class="fnd-facts">
-          <div class="fnd-fact"><b data-count="100">0</b><span>Sedi d'esame coordinate</span></div>
-          <div class="fnd-fact"><b data-count="450">0</b><span>E&#8209;Learning Center Point</span></div>
-          <div class="fnd-fact"><b data-count="15">0</b><span>Sedi d'esame in Sicilia</span></div>
-          <div class="fnd-fact"><b data-count="2015" data-raw>0</b><span>Fonda UNICESD Olympo</span></div>
-        </div>
-
-        <div class="fnd-quote">
-          <p>La formazione telematica permette ai ragazzi di prendere un titolo di studio a costi sostenibili, senza dover lasciare la propria terra. Non conta da dove parti: conta dove vuoi arrivare.</p>
-          <cite>&mdash; Calogero Di Carlo, sul valore della didattica a distanza</cite>
-        </div>
-
-        <div class="fnd-tags">
-          <span class="fnd-tag">Ex ufficiale di PG</span>
-          <span class="fnd-tag">Reti universitarie nazionali</span>
-          <span class="fnd-tag">Dirigenza sportiva</span>
-        </div>
-
-        <div class="hero-cta" style="opacity:1;animation:none;margin-top:22px">
-          <a href="monografia-calogero-di-carlo.pdf" download class="btn btn-p" data-cursor><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg> Scarica la monografia</span><span class="shine"></span></a>
-          <a href="#voce" class="btn btn-g" data-cursor>Le parole e i palchi</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- career rail -->
-    <div class="rail rv" style="margin-top:44px">
-      <div class="rail-i"><em>PRIMA</em><b>Ufficiale di PG</b><span>Disciplina, rapporti istituzionali e gestione di strutture complesse.</span></div>
-      <div class="rail-i"><em>SIENA</em><b>Ventimila lauree</b><span>Coordina il progetto di formazione a distanza che porta alla laurea circa 20.000 marescialli dell'Arma.</span></div>
-      <div class="rail-i"><em>PEGASO</em><b>Le sedi nazionali</b><span>Direzione della rete di 100 sedi d'esame dell'Universit&agrave; Telematica Pegaso in Italia, di cui 15 in Sicilia, di 450 E&#8209;Learning Center Point e coordinamento Mercatorum.</span></div>
-      <div class="rail-i"><em>2015</em><b>Nasce UNICESD Olympo</b><span>Fonda a Palermo il Centro Studi che porta il modello della formazione telematica in Sicilia e poi in tutta Italia.</span></div>
-      <div class="rail-i"><em>SPORT</em><b>Dal futsal alla Serie A</b><span>Guida il Real Cefal&ugrave; dalla Serie C alla Serie A di calcio a cinque.</span></div>
-      <div class="rail-i"><em>2025/2026</em><b>Direttore Generale Vibonese</b><span>Assume la direzione generale della U.S. Vibonese Calcio per la stagione 2025/2026.</span></div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== LA VOCE DEL FONDATORE ===== -->
-<section id="voce" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> Interventi e interviste</div>
-      <h2>Calogero Di Carlo, <span class="grad">le parole e i palchi</span></h2>
-      <p>Prefazioni, articoli, riconoscimenti e una testata giornalistica: quello che il fondatore ha detto e scritto negli anni, raccolto in un posto solo.</p>
-    </div>
-
-    <!-- video della premiazione -->
-    <div class="feature rv-s dark">
-      <div class="feat-grid g-vid">
-        <div>
-          <video class="vplayer" controls preload="none" playsinline poster="assets/premio-poster.webp">
-            <source src="assets/premio-video.mp4" type="video/mp4">
-            Il tuo browser non supporta la riproduzione video.
-          </video>
-          <p style="color:var(--txt-mute);font-size:12.8px;text-align:center;margin:12px 0 0">Ripresa integrale &middot; 2 minuti e 47 secondi</p>
-        </div>
-        <div>
-          <div class="eyebrow"><em></em> Sul palco</div>
-          <h2>La consegna dei <span class="grad">riconoscimenti</span></h2>
-          <p>Un teatro, le bandiere italiana ed europea accanto a quelle di altri Paesi, un pubblico in sala e una pergamena che passa di mano. &Egrave; l'immagine che ricorre pi&ugrave; spesso quando si racconta il lavoro di Calogero Di Carlo: non l'aula, ma il momento in cui un percorso viene riconosciuto pubblicamente.</p>
-          <p>Nel video, la cerimonia integrale: la lettura della motivazione, la consegna dell'attestato e il saluto alla platea. &Egrave; un pezzo di storia recente della rete, e vale la pena vederlo per intero &mdash; perch&eacute; racconta meglio di qualunque descrizione il registro con cui questa formazione si muove: istituzionale, internazionale, e allo stesso tempo molto personale.</p>
-          <div class="partners">
-            <span class="partner">Cerimonia pubblica</span>
-            <span class="partner">Contesto internazionale</span>
-            <span class="partner">Consegna dell'attestato</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- griglia interventi -->
-    <div class="press" style="margin-top:34px">
-      <article class="press-i rv-s" data-modal="voce1">
-        <div class="press-thumb"><img width="1400" height="693" src="assets/eccellenze.webp" alt="Prefazione di Calogero Di Carlo su Eccellenze Italiane" loading="lazy" decoding="async" style="object-position:center center"></div>
-        <div class="press-body"><em>Eccellenze Italiane &middot; Prefazione</em><b>&laquo;I giovani mi emozionano&raquo;</b><p>Il racconto in prima persona: trent'anni in divisa, l'incontro che cambia tutto, le cento sedi d'esame e un messaggio diretto ai ragazzi.</p></div>
-      </article>
-
-      <article class="press-i rv-s" style="transition-delay:.08s" data-modal="voce2">
-        <div class="press-thumb" style="background:#0f2a4a"><img width="760" height="1351" src="assets/premiazione.webp" alt="Calogero Di Carlo durante la consegna di un riconoscimento" loading="lazy" decoding="async" style="object-position:center 22%"></div>
-        <div class="press-body"><em>Sport &amp; Formazione &middot; luglio 2026</em><b>La vision di Calogero Di Carlo</b><p>Sport e formazione come opportunit&agrave; e palestra di vita: dall'e-learning al liceo sportivo, dal Memorial Salvo D'Acquisto alla dirigenza calcistica.</p></div>
-      </article>
-
-      <article class="press-i rv-s" style="transition-delay:.16s" data-modal="voce3">
-        <div class="press-thumb" style="background:#7b1f45"><img width="620" height="802" src="assets/effettotre.webp" alt="Copertina di Effettotre, giugno 2022" loading="lazy" decoding="async" style="object-position:center top"></div>
-        <div class="press-body"><em>Effettotre &middot; dal 2009</em><b>Il giornale che deve ripartire</b><p>Periodico mensile d'informazione fondato e diretto da Calogero Di Carlo: formazione, politica, economia e turismo. Sedici anni di archivio, e una ripartenza da scrivere.</p></div>
-      </article>
-
-      <article class="press-i rv-s" style="transition-delay:.24s" data-modal="voce4">
-        <div class="press-thumb" style="background:#7b1f45"><img width="900" height="562" src="assets/libro-sedi.webp" alt="Le sedi dell'Universit&agrave; Telematica Pegaso, percorsi d'Arte e di Stile" loading="lazy" decoding="async" style="object-position:center center"></div>
-        <div class="press-body"><em>Giapeto editore &middot; 2018</em><b>Le sedi, raccontate come un viaggio</b><p>Duecento pagine dedicate alle sedi dell'Universit&agrave; Telematica Pegaso: la rete che Calogero Di Carlo ha coordinato, letta attraverso l'arte delle citt&agrave; che la ospitano.</p></div>
-      </article>
-    </div>
-
-    <div class="feature rv-s dark" style="margin-top:52px">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> ItaliaVale &middot; Le monografie</div>
-          <h2>&laquo;Tante vite in una&raquo;, <span class="grad">il volume</span></h2>
-          <p>La collana <b>ItaliaVale</b>, ideata da <b>Piero Muscari</b>, dedica un volume alle storie di chi ha trasformato il proprio cammino in valore condiviso. La monografia su Calogero Di Carlo si intitola <b>&laquo;Tante vite in una&raquo;</b> ed &egrave; un'autobiografia narrata: nasce da un'intervista e attraversa cinquant'anni di impegno, dalla bottega del padre a Cefal&ugrave; fino alla rete della formazione telematica.</p>
-          <p>Il libro &egrave; diviso in sette parti &mdash; la vita come servizio, l'impegno civico e politico, l'uomo della formazione, impresa e valori, metodo e cultura, l'impegno sportivo, riconoscimenti e prospettive &mdash; con la prefazione di <b>Michelangelo Tagliaferri</b>, presidente del comitato scientifico di ItaliaVale e fondatore dell'Accademia di Comunicazione. Testi di Raffaella Turano, fotografie dall'archivio Di Carlo.</p>
-          <p style="color:var(--txt-mute);font-size:14.5px">&laquo;Ogni sapere che non si fa dono &egrave; sterile, e ogni vita che non accende altra vita &egrave; solo cronologia, non storia.&raquo;</p>
-          <div class="hero-cta" style="opacity:1;animation:none">
-            <a href="monografia-calogero-di-carlo.pdf" download class="btn btn-p" data-cursor><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg> Scarica il PDF</span><span class="shine"></span></a>
-            <a href="https://www.italiavale.it" target="_blank" rel="noopener" class="btn btn-g" data-cursor>La collana ItaliaVale</a>
-          </div>
-        </div>
-        <div>
-          <div class="proto" style="margin-bottom:20px"><img width="620" height="559" src="assets/monografia-cover.webp" alt="Calogero Di Carlo &mdash; Tante vite in una, monografia ItaliaVale" loading="lazy" decoding="async"></div>
-          <div class="feat-box">
-            <div class="fb-row"><span>Collana</span><b>Le monografie di ItaliaVale</b></div>
-            <div class="fb-row"><span>Ideatore</span><b>Piero Muscari, Storytailor</b></div>
-            <div class="fb-row"><span>Prefazione</span><b>Michelangelo Tagliaferri</b></div>
-            <div class="fb-row"><span>Testi</span><b>Raffaella Turano</b></div>
-            <div class="fb-row"><span>Fotografie</span><b>Archivio Di Carlo</b></div>
-            <div class="fb-row"><span>Formato</span><b>PDF sfogliabile</b></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="pnote rv" style="margin-top:26px"><b>Nota.</b> Gli articoli e i volumi citati sono opere di terzi: sono riportati qui perch&eacute; raccontano il percorso del fondatore, con l'indicazione della testata o dell'editore. I diritti restano ai rispettivi titolari.</p>
-  </div>
-</section>
 
 <!-- ===== RASSEGNA STAMPA ===== -->
-<section id="stampa" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow"><em></em> Rassegna stampa</div>
-      <h2>Se ne parla <span class="grad">fuori da qui</span></h2>
-      <p>Il progetto UNICESD Olympo e il suo fondatore nelle pagine della stampa specializzata e locale.</p>
-    </div>
-    <div class="press">
-      <article class="press-i rv-s" data-modal="press4">
-        <div class="press-thumb"><img width="680" height="1020" src="assets/eventi/convention-18set2026.webp" alt="Il Corriere di Firenze: la convention UNICESD Olympo del 18 settembre a Roma" loading="lazy" decoding="async"></div>
-        <div class="press-body"><em>Il Corriere di Firenze &middot; 16 settembre 2026</em><b>Formazione, tra tecnologie emergenti e presidi locali</b><p>La convention promossa da Calogero Di Carlo al TH Roma Carpegna Palace letta come lo snodo fra didattica digitale e presenza sul territorio.</p></div>
-      </article>
-      <article class="press-i rv-s" style="transition-delay:.08s" data-modal="press5">
-        <div class="press-thumb"><img width="1000" height="667" src="assets/ai/bg-informatica.webp" alt="Adnkronos: convention del comparto formazione su tecnologie emergenti e scenari futuri" loading="lazy" decoding="async"></div>
-        <div class="press-body"><em>Adnkronos &middot; 16 settembre 2026</em><b>A Roma la convention del comparto formazione</b><p>L'agenzia nazionale d&agrave; conto dell'appuntamento organizzato da UNICESD Olympo: universit&agrave;, orientamento, aggiornamento professionale e fondi interprofessionali.</p></div>
-      </article>
-      <article class="press-i rv-s" style="transition-delay:.16s" data-modal="press1">
-        <div class="press-thumb"><img width="940" height="751" src="assets/press-cover.jpg" alt="Copertina Hashtag Magazine: UNICESD Olympo riparte" loading="lazy" decoding="async"></div>
-        <div class="press-body"><em>Hashtag Magazine</em><b>&laquo;UNICESD Olympo riparte&raquo;</b><p>La rete che ha fatto la storia della formazione torna a guardare al futuro: fondi interprofessionali, e-learning, formazione continua e catalogo corsi.</p></div>
-      </article>
-      <article class="press-i rv-s" style="transition-delay:.24s" data-modal="press2">
-        <div class="press-thumb"><img width="760" height="1138" src="assets/master-protocollo.jpg" alt="Comunicato stampa: nasce il Master Made in Italy Global Leadership" loading="lazy" decoding="async"></div>
-        <div class="press-body"><em>Comunicato stampa &middot; 8 agosto 2026</em><b>Nasce il Master Made in Italy Global Leadership</b><p>Firmato a Villa Niscemi, Palermo, il protocollo d'intesa tra Forum Italiano dell'Export, Orienta Campus, Universit&agrave; eCampus e UNICESD Olympo.</p></div>
-      </article>
-      <article class="press-i rv-s" style="transition-delay:.32s" data-modal="press3">
-        <div class="press-thumb"><img width="620" height="928" src="assets/pegaso-evento.jpg" alt="Incontro nella rete della formazione universitaria telematica" loading="lazy" decoding="async" style="object-position:center 34%"></div>
-        <div class="press-body"><em>Rete universitaria</em><b>Una vita dentro la formazione telematica</b><p>Dal coordinamento delle sedi nazionali Pegaso alla nascita del Centro Studi di Palermo: l'esperienza che sta dietro a UNICESD Olympo.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
 
 <!-- ===== SERVIZI ===== -->
 <!-- ===== LA PIATTAFORMA ===== -->
-<section id="piattaforma">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> La piattaforma</div>
-      <h2>Non un sito: <span class="grad">un'aula sempre aperta</span></h2>
-      <p>Videolezioni registrate e in diretta, materiali scaricabili, test di autovalutazione, calendario esami e un tutor che risponde. Tutto dentro un'unica piattaforma, accessibile da computer, tablet e telefono, 24 ore su 24.</p>
-    </div>
 
-    <div class="plat">
-      <div class="rv-l">
-        <div class="plat-list">
-          <div class="plat-i"><div class="ic">&#127916;</div><div><b>Videolezioni on demand e in diretta</b><span>Segui quando puoi, rivedi quante volte vuoi. Le dirette restano registrate e disponibili in piattaforma.</span></div></div>
-          <div class="plat-i"><div class="ic">&#128218;</div><div><b>Materiali e dispense scaricabili</b><span>Slide, dispense, esercitazioni e bibliografia di ogni insegnamento, sempre aggiornate.</span></div></div>
-          <div class="plat-i"><div class="ic">&#128221;</div><div><b>Test di autovalutazione</b><span>Verifichi la preparazione prima dell'esame, con quiz per modulo e simulazioni d'esame.</span></div></div>
-          <div class="plat-i"><div class="ic">&#128101;</div><div><b>Tutor dedicato e segreteria h24</b><span>Un referente unico per tutto il percorso e un'assistenza attiva sette giorni su sette.</span></div></div>
-          <div class="plat-i"><div class="ic">&#128197;</div><div><b>Calendario esami e carriera</b><span>Prenoti gli appelli, segui i crediti maturati e lo stato della carriera dalla tua area riservata.</span></div></div>
-        </div>
-        <div class="hero-cta" style="opacity:1;animation:none">
-          <a href="#iscrizione" class="btn btn-p"><span>Prova la piattaforma</span><span class="shine"></span></a>
-          <a href="#" class="btn btn-g" data-modal="area">Come si accede</a>
-        </div>
-      </div>
-
-      <div class="rv-r">
-        <div class="laptop">
-          <div class="laptop-screen">
-            <span class="laptop-cam"></span>
-            <div class="laptop-view">
-              <span class="live-dot"><i></i> Lezione in corso</span>
-              <video class="plat-vid" autoplay muted loop playsinline preload="metadata" disablepictureinpicture aria-hidden="true" poster="assets/ai/plat.webp"><source src="assets/ai/plat.mp4" type="video/mp4"></video>
-            </div>
-          </div>
-          <div class="laptop-base"></div>
-          <div class="laptop-foot"></div>
-        </div>
-        <div class="plat-badges">
-          <span class="plat-badge">&#128241; Desktop, tablet e telefono</span>
-          <span class="plat-badge">&#9201; Attiva 24/7</span>
-          <span class="plat-badge">&#128274; Area riservata personale</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="servizi">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow"><em></em> Servizi agli studenti</div>
-      <h2>Tutto quello che ti serve, <span class="grad">in un unico posto</span></h2>
-      <p>Dalla prima informazione alla proclamazione, ogni fase della tua carriera &egrave; seguita da persone reali.</p>
-    </div>
-    <div class="srv">
-      <div class="srv-i rv"><div class="ic">&#128172;</div><div><b>Orientamento gratuito</b><span>Colloquio conoscitivo per individuare il percorso pi&ugrave; adatto al tuo profilo.</span></div></div>
-      <div class="srv-i rv" style="transition-delay:.06s"><div class="ic">&#9855;</div><div><b>Valutazione CFU</b><span>Analisi gratuita della carriera pregressa entro 48 ore.</span></div></div>
-      <div class="srv-i rv" style="transition-delay:.12s"><div class="ic">&#128187;</div><div><b>Piattaforma e-learning</b><span>Videolezioni, dispense, test di autovalutazione, disponibili 24/7.</span></div></div>
-      <div class="srv-i rv" style="transition-delay:.18s"><div class="ic">&#128221;</div><div><b>Segreteria didattica</b><span>Gestione pratiche, iscrizioni agli esami, certificati e carriera.</span></div></div>
-      <div class="srv-i rv" style="transition-delay:.24s"><div class="ic">&#129309;</div><div><b>Tutor dedicato</b><span>Un referente unico che ti segue per tutta la durata del percorso.</span></div></div>
-      <div class="srv-i rv" style="transition-delay:.3s"><div class="ic">&#129504;</div><div><b>DSA, BES e disabilit&agrave;</b><span>Strumenti compensativi e percorsi personalizzati su richiesta.</span></div></div>
-      <div class="srv-i rv" style="transition-delay:.36s"><div class="ic">&#128188;</div><div><b>Tirocini e placement</b><span>Convenzioni con enti e imprese per stage curriculari ed extracurriculari.</span></div></div>
-      <div class="srv-i rv" style="transition-delay:.42s"><div class="ic">&#128179;</div><div><b>Agevolazioni</b><span>Rateizzazioni, convenzioni aziendali e riduzioni per categorie dedicate.</span></div></div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== STUDIARE ALL'ESTERO / STUDY WITH ATHENA ===== -->
-<section id="athena" class="ente-page" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> Studiare all'estero</div>
-      <h2>Le facolt&agrave; a numero chiuso, <span class="grad">senza test d'ingresso</span></h2>
-      <p>Medicina, Odontoiatria, Igiene Dentale, Infermieristica e Fisioterapia in universit&agrave; europee riconosciute. Con <b>Study with Athena</b> seguiamo lo studente dall'iscrizione al riconoscimento del titolo, burocrazia compresa.</p>
-    </div>
-
-    <div class="feature rv-s dark">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> In collaborazione con Study with Athena</div>
-          <h2>Il numero chiuso non &egrave; <span class="grad">l'ultima parola</span></h2>
-          <p>Ogni anno migliaia di ragazzi con la vocazione per l'area sanitaria si fermano davanti a un test. In Europa esistono atenei pubblici e privati che ammettono <b>senza test d'ingresso</b> o con una selezione programmata, rilasciano titoli validi in tutta l'Unione e insegnano in inglese, in spagnolo o in italiano. Non &egrave; una scorciatoia: &egrave; un altro percorso, con gli stessi anni di studio e gli stessi esami.</p>
-          <p>La parte che scoraggia non &egrave; lo studio, &egrave; la burocrazia: apostille, dichiarazione di valore, pagelle, traduzioni, visti, riconoscimento del titolo al rientro. Di quella si occupa <b>Study with Athena</b>, agenzia specializzata nell'accesso alle universit&agrave; europee, che segue lo studente dalla scelta dell'ateneo fino all'iscrizione all'ordine professionale in Italia.</p>
-          <div class="partners">
-            <span class="partner">Romania</span>
-            <span class="partner">Spagna</span>
-            <span class="partner">Macedonia</span>
-            <span class="partner">Svizzera</span>
-            <span class="partner">Ucraina</span>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none">
-            <a href="#iscrizione" class="btn btn-p" data-cursor><span>Parlane con un orientatore</span><span class="shine"></span></a>
-            <a href="tel:+393509651711" class="btn btn-g" data-cursor>350 965 1711</a>
-            <a href="tel:+393881133550" class="btn btn-g" data-cursor>388 113 3550</a>
-            <a href="tel:+393281376792" class="btn btn-g" data-cursor>328 137 6792</a>
-            <a href="tel:+393356959796" class="btn btn-g" data-cursor>335 695 9796</a>
-          </div>
-        </div>
-        <div>
-          <div class="proto" style="margin-bottom:20px"><img width="560" height="790" src="assets/swa-medicina.webp" alt="Studia Medicina all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
-          <div class="feat-box">
-            <div class="fb-row"><span>Ammissione</span><b>Senza test o programmata</b></div>
-            <div class="fb-row"><span>Lingue</span><b>Inglese, spagnolo, italiano</b></div>
-            <div class="fb-row"><span>Titolo</span><b>Valido in tutta l'UE</b></div>
-            <div class="fb-row"><span>Rientro in Italia</span><b>Dal 2&deg; anno</b></div>
-            <div class="fb-row"><span>Tirocini</span><b>Anche in strutture italiane</b></div>
-            <div class="fb-row"><span>Orientamento e iscrizioni</span><b>UNICESD Olympo &middot; Palermo</b></div>
-            <div class="fb-row"><span>Telefono</span><b><a href="tel:+393509651711">350 965 1711</a> &middot; <a href="tel:+393881133550">388 113 3550</a></b></div>
-            <div class="fb-row"><span>Email</span><b><a href="mailto:Calogero60@yahoo.it">Calogero60@yahoo.it</a></b></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sec-head center rv" style="margin-top:64px;margin-bottom:34px">
-      <div class="eyebrow"><em></em> I percorsi</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Sei strade, <span class="grad">tre Paesi principali</span></h2>
-      <p>Rette annuali indicate dagli atenei per l'anno accademico 2026/27. Alloggio, viaggi e costi di agenzia sono voci separate: le trovi pi&ugrave; sotto.</p>
-    </div>
-
-    <div class="bento">
-      <div class="card rv bg-psico"><div class="card-ic">&#129658;</div><h3>Medicina</h3><p><b>Romania.</b> Bucarest, Universit&agrave; T. Maiorescu: test di ammissione a settembre, in inglese e in presenza, retta <b>11.000 &euro;/anno</b> divisibile in tre rate. Craiova, universit&agrave; statale: <b>senza test</b>, retta <b>8.500 &euro;/anno</b>. <b>Spagna.</b> Madrid, Valencia, Malaga, Alicante e Gran Canaria: senza test, retta da <b>15.000 a 20.000 &euro;/anno</b> in base alla sede.</p><div class="card-meta"><span class="chip cy">6 anni</span><span class="chip">Inglese &middot; spagnolo</span><span class="chip">Rientro dal 2&deg; anno</span></div></div>
-
-      <div class="card rv bg-certif" style="transition-delay:.08s"><div class="card-ic">&#129463;</div><h3>Odontoiatria</h3><p><b>Macedonia:</b> 5 anni, frequenza programmata, nessun test d'ingresso, lingua inglese, tirocinio in Italia e agevolazioni per chi ha il diploma di odontotecnico. <b>Spagna:</b> 5 anni nelle migliori universit&agrave; private, senza test, in inglese. <b>Romania:</b> 6 anni in lingua inglese, con rette che nelle private vanno dagli <b>8.000 agli 11.000 &euro;/anno</b>.</p><div class="card-meta"><span class="chip go">5&ndash;6 anni</span><span class="chip">Senza test</span><span class="chip">Tirocinio in Italia</span></div></div>
-
-      <div class="card rv bg-master" style="transition-delay:.16s"><div class="card-ic">&#129701;</div><h3>Igiene Dentale</h3><p>Corso di formazione professionale presso l'<b>Universit&agrave; Europea di Madrid</b>: <b>2 anni, 2000 ore, completamente online</b>, senza costi aggiuntivi, con tutor per tutto il percorso e corso opzionale di spagnolo incluso. Tirocinio facoltativo in strutture italiane. <b>Titolo ufficiale rilasciato dal Ministero della Salute spagnolo</b>, valido in tutta Europa e in Italia, con possibilit&agrave; di conseguire la <b>Certificazione RX</b> per le ortopantomografie. Agevolazioni per diploma di odontotecnico e per gli assistenti alla poltrona (ASO).</p><div class="card-meta"><span class="chip cy">2 anni &middot; 2000 ore</span><span class="chip">100% online</span><span class="chip">Titolo ministeriale</span></div></div>
-
-      <div class="card rv bg-educazione" style="transition-delay:.24s"><div class="card-ic">&#127973;</div><h3>Infermieristica</h3><p><b>4 anni, 240 CFU</b>, in inglese e spagnolo, con trasferimento sul posto: <b>7.000 &euro;/anno</b> in Spagna (inglese, spagnolo o francese), <b>6.500 &euro;/anno</b> in Romania (inglese), rateizzabili. Per chi lavora esiste la formula in <b>3 anni in Romania</b> a <b>5.700 &euro;/anno</b>: tirocinio in Italia presso strutture convenzionate per due mesi l'anno, due o tre viaggi brevi in Romania per la parte teorica e burocratica, e riconoscimento di alcuni esami a chi proviene dal corso OSS.</p><div class="card-meta"><span class="chip go">3&ndash;4 anni</span><span class="chip">Formula lavoratori</span><span class="chip">Crediti da OSS</span></div></div>
-
-      <div class="card rv bg-motorie" style="transition-delay:.32s"><div class="card-ic">&#129485;</div><h3>Fisioterapia</h3><p><b>Spagna &mdash; Universit&agrave; Europea di Madrid, sede di Valencia:</b> 4 anni, <b>9.980 &euro;/anno</b>, lezioni il venerd&igrave; pomeriggio e il sabato, teoria online in modalit&agrave; HyFlex e pratica in presenza anche in Italia, tirocini clinici in ospedali italiani o spagnoli, simulazione in realt&agrave; virtuale; chi viene da Scienze Motorie pu&ograve; iscriversi direttamente al 2&deg; anno. <b>Romania &mdash; Universit&agrave; di Medicina e Farmacia di Craiova:</b> 3 anni, <b>6.500 &euro;/anno</b>, frequenza concordabile con il lavoro. <b>Svizzera &mdash; Campus Ludes, Lugano:</b> 4 anni, <b>13.000 &euro;/anno</b> in due semestri, interamente in italiano, titolo dell'Universit&agrave; Semmelweis.</p><div class="card-meta"><span class="chip cy">3&ndash;4 anni</span><span class="chip">Compatibile col lavoro</span></div></div>
-
-      <div class="card rv bg-economia" style="transition-delay:.4s"><div class="card-ic">&#127891;</div><h3>Gli altri percorsi</h3><p><b>Economia, ingegneria, architettura e marketing</b> in Romania: <b>3.000&ndash;5.000 &euro;/anno</b>, in inglese. <b>Ucraina</b>, percorsi abbreviati e specializzazioni mediche: area medica completa (5 anni e 8 mesi) o quadriennale e specializzazioni a <b>10.000 &euro;/anno</b>; lauree triennali di area economica e tecnica <b>30.000 &euro;</b>; master abilitanti e lauree magistrali <b>20.000 &euro;</b>; titoli con registrazione NARIC e apostille, tutti in inglese, attesa massima tre mesi. E il percorso abilitante per <b>agente immobiliare</b>, con esame finale e possibilit&agrave; di riconoscimento in Italia: <b>3.500 &euro;</b> complessivi.</p><div class="card-meta"><span class="chip">Ucraina &middot; Romania</span><span class="chip">Anche magistrali</span></div></div>
-    </div>
-
-    <div class="rv" style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;align-items:start">
-      <div class="proto"><img width="560" height="790" src="assets/swa-odontoiatria.webp" alt="Studia Odontoiatria all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
-      <div class="proto"><img width="560" height="790" src="assets/swa-infermieristica.webp" alt="Studia Infermieristica all'estero &mdash; Study with Athena" loading="lazy" decoding="async"></div>
-      <div class="feat-box" style="align-self:stretch">
-        <div class="fb-row"><span>Odontoiatria</span><b>Macedonia, Spagna, Romania</b></div>
-        <div class="fb-row"><span>Infermieristica</span><b>Romania, Spagna</b></div>
-        <div class="fb-row"><span>Agevolazioni</span><b>Odontotecnici, ASO, OSS</b></div>
-        <div class="fb-row"><span>Tirocinio</span><b>In strutture italiane</b></div>
-        <div class="fb-row"><span>Docenti</span><b>Anche italiani</b></div>
-      </div>
-    </div>
-
-    <div class="split rv" style="margin-top:64px">
-      <div>
-        <div class="eyebrow"><em></em> Come si parte</div>
-        <h2 style="font-size:clamp(26px,3.6vw,38px);margin-bottom:18px">I documenti sono <span class="grad">sempre gli stessi</span></h2>
-        <p style="color:var(--txt-dim);font-size:16.5px;margin-bottom:26px">Cambiano i Paesi, non la lista. Per Italia e Spagna serve il diploma quinquennale con apostille e dichiarazione di valore; la Romania accetta anche il diploma quadriennale americano, canadese o di altri Stati. Ai cittadini europei l'apostille &egrave; richiesta solo per la Romania.</p>
-        <div class="srv" style="grid-template-columns:1fr">
-          <div class="srv-i"><div class="ic">&#128209;</div><div><b>Titoli di studio</b><span>Diploma delle superiori con apostille dell'Aja e dichiarazione di valore, pagelle di tutti gli anni con apostille.</span></div></div>
-          <div class="srv-i"><div class="ic">&#128100;</div><div><b>Documenti personali</b><span>Estratto di nascita europeo con i nomi dei genitori, carta d'identit&agrave; o passaporto, codice fiscale, certificato di sana e robusta costituzione, fototessere.</span></div></div>
-          <div class="srv-i"><div class="ic">&#128739;</div><div><b>Solo per chi ha bisogno del visto</b><span>Casellario giudiziario, capienza economica di 3.000 &euro;, biglietto di andata dopo l'approvazione dell'ateneo, tasse universitarie pagate per un anno.</span></div></div>
-          <div class="srv-i"><div class="ic">&#127968;</div><div><b>Alloggio in Romania</b><span>Convitto universitario 200 &euro; al mese, sistemazione privata dai 250 ai 350 &euro; al mese. Citt&agrave; consigliate: Bucarest, Timisoara e Craiova.</span></div></div>
-          <div class="srv-i"><div class="ic">&#128197;</div><div><b>Quando iscriversi</b><span>Le iscrizioni si chiudono entro giugno. Chi si trasferisce per lavoro e deve imparare il rumeno trova corsi di lingua da 2.500 a 5.000 &euro;.</span></div></div>
-        </div>
-      </div>
-      <div>
-        <div class="proto" style="margin-bottom:20px"><img width="560" height="790" src="assets/swa-igiene.webp" alt="Corso di formazione professionale in Igiene Dentale &mdash; Study with Athena" loading="lazy" decoding="async"></div>
-        <div class="feat-box">
-          <div class="fb-row"><span>Agenzia &middot; Romania</span><b>5.000 &euro; + IVA</b></div>
-          <div class="fb-row"><span>Agenzia &middot; altri corsi RO</span><b>3.500 &euro; al 1&deg; anno</b></div>
-          <div class="fb-row"><span>Agenzia &middot; Spagna</span><b>1.500 &euro; all'anno</b></div>
-          <div class="fb-row"><span>Pratica visto</span><b>2.000 &euro;</b></div>
-          <div class="fb-row"><span>Agente immobiliare</span><b>3.500 &euro; in due rate</b></div>
-          <div class="fb-row"><span>Rientro in Italia</span><b>Senza costi aggiuntivi</b></div>
-        </div>
-        <p style="color:var(--txt-mute);font-size:13px;margin-top:14px">Il costo di agenzia copre registrazione dello studente, presentazione dei documenti al Ministero del Paese ospitante e assistenza per il riconoscimento del titolo.</p>
-      </div>
-    </div>
-
-    <div class="sec-head center rv" style="margin-top:66px;margin-bottom:24px">
-      <div class="eyebrow"><em></em> Il percorso, passo per passo</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Dalla scelta dell'ateneo <span class="grad">all'albo professionale</span></h2>
-    </div>
-    <div class="rail rv">
-      <div class="rail-i"><em>01</em><b>Orientamento</b><span>Colloquio, valutazione del percorso scolastico e scelta del Paese, dell'ateneo e della lingua del corso.</span></div>
-      <div class="rail-i"><em>02</em><b>Documenti</b><span>Raccolta, apostille, traduzioni e dichiarazione di valore. Presentazione della domanda entro le scadenze dell'ateneo.</span></div>
-      <div class="rail-i"><em>03</em><b>Ammissione</b><span>Iscrizione o test d'ingresso dove previsto. Study with Athena dichiara un <b>98% di successo</b> ai test di ammissione esteri.</span></div>
-      <div class="rail-i"><em>04</em><b>Trasferimento</b><span>Visto dove necessario, alloggio, inserimento sul posto e assistenza durante gli anni di corso.</span></div>
-      <div class="rail-i"><em>05</em><b>Rientro e titolo</b><span>Dal secondo anno, per chi lo desidera, il rientro in Italia. Al termine, traduzione dei documenti e domanda di riconoscimento al Ministero competente.</span></div>
-    </div>
-
-    <div class="feature rv-s dark" style="margin-top:56px">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> Perch&eacute; ce ne occupiamo</div>
-          <h2>Lo stesso principio, <span class="grad">applicato ai confini</span></h2>
-          <p>UNICESD Olympo nasce da una convinzione precisa: il titolo di studio non deve dipendere da dove sei nato n&eacute; da quanto puoi spendere. La formazione telematica ha abbattuto le distanze dentro l'Italia; le universit&agrave; europee fanno lo stesso con le facolt&agrave; a numero chiuso, dove ogni anno migliaia di vocazioni si fermano per un punteggio.</p>
-          <p>Per questo affianchiamo ai percorsi italiani quelli esteri, con un partner che di questo si occupa da anni. L'orientamento resta il nostro: capire se quella strada &egrave; davvero la strada giusta, prima che qualcuno spenda un euro.</p>
-          <div class="hero-cta" style="opacity:1;animation:none">
-            <a href="#iscrizione" class="btn btn-p" data-cursor><span>Richiedi una valutazione</span><span class="shine"></span></a>
-            <a href="tel:+393509651711" class="btn btn-g" data-cursor>350 965 1711</a>
-            <a href="tel:+393881133550" class="btn btn-g" data-cursor>388 113 3550</a>
-            <a href="tel:+393281376792" class="btn btn-g" data-cursor>328 137 6792</a>
-            <a href="tel:+393356959796" class="btn btn-g" data-cursor>335 695 9796</a>
-          </div>
-        </div>
-        <div>
-          <div class="feat-box">
-            <div class="fb-row"><span>Sede operativa</span><b>Largo Lituania 11, Palermo</b></div>
-            <div class="fb-row"><span>Calogero Di Carlo</span><b>+39 350 965 1711</b></div>
-            <div class="fb-row"><span>Jose Palazzolo</span><b>+39 388 113 3550</b></div>
-            <div class="fb-row"><span>Segreteria UNICESD</span><b>+39 328 137 6792</b></div>
-            <div class="fb-row"><span>Segreteria</span><b>+39 335 695 9796</b></div>
-            <div class="fb-row"><span>Email</span><b>Calogero60@yahoo.it</b></div>
-            <div class="fb-row"><span>Ammissioni</span><b>Chiusura entro giugno</b></div>
-            <div class="fb-row"><span>Attesa titoli Ucraina</span><b>Massimo 3 mesi</b></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="pnote rv" style="margin-top:26px"><b>Nota.</b> Study with Athena s.r.l. &egrave; un <b>partner diretto</b> di UNICESD OLYMPO SRL. Rette, durate e costi di agenzia sono quelli comunicati dall'agenzia per l'anno accademico 2026/27 e possono variare per ateneo e per anno: fanno fede le condizioni dell'universit&agrave; scelta e il contratto sottoscritto. Il riconoscimento in Italia dei titoli conseguiti all'estero segue le procedure del Ministero competente e degli ordini professionali.</p>
-  </div>
-</section>
 
 <!-- ===== PROGETTO INTELLIGENZA ARTIFICIALE ===== -->
-<section id="ai" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> Progetto Intelligenza Artificiale</div>
-      <h2>L'intelligenza artificiale entra <span class="grad">dentro la formazione</span></h2>
-      <p>Non come argomento di moda, ma come competenza che cambia il modo di lavorare di imprese, professionisti e pubbliche amministrazioni &mdash; e che oggi ha anche una legge europea da rispettare.</p>
-    </div>
-
-    <div class="feature rv-s dark">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> In collaborazione con Studio Eremita</div>
-          <h2>Dall'uso consapevole alla <span class="grad">conformit&agrave; all'AI Act</span></h2>
-          <p>Il regolamento europeo sull'intelligenza artificiale non riguarda solo chi sviluppa modelli: riguarda chiunque li utilizzi in azienda, in studio o in un ufficio pubblico. Da qui nasce il progetto AI di UNICESD Olympo, costruito insieme a <b>Studio Eremita &mdash; AI &amp; Business Intelligence</b>: matematiche applicate e intelligenza artificiale integrata come motore del business, con rigore formale e attenzione costante alla tutela dei diritti fondamentali e della dignit&agrave; della persona.</p>
-          <p>Il percorso &egrave; a gradini. Si parte dall'alfabetizzazione &mdash; capire cosa fa un sistema di IA, quali pratiche sono vietate, come si classifica il rischio &mdash; per arrivare alla governance interna: mappatura dei sistemi, ruoli e responsabilit&agrave;, supervisione umana, tracciabilit&agrave; dei dati, gestione degli incidenti, registri e procedure. Chi guida le imprese in questo adeguamento trova invece un percorso da consulente, con metodo di audit e roadmap operativa.</p>
-          <div class="partners">
-            <span class="partner">AI Act</span>
-            <span class="partner">GDPR</span>
-            <span class="partner">Agenti AI &amp; automazione</span>
-            <span class="partner">Data intelligence</span>
-            <span class="partner">Europrogettazione</span>
-            <span class="partner">Diritti umani</span>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none">
-            <a href="#iscrizione" class="btn btn-p" data-cursor><span>Informazioni sui percorsi AI</span><span class="shine"></span></a>
-            <a href="https://www.studioeremita.com/corsi.php" target="_blank" rel="noopener" class="btn btn-g" data-cursor>I programmi completi</a>
-          </div>
-        </div>
-        <div>
-          <div class="proto" style="margin-bottom:20px"><img width="760" height="1075" src="assets/eremita-cover.webp" alt="Brochure Studio Eremita, AI &amp; Business Intelligence" loading="lazy" decoding="async"></div>
-          <div class="feat-box">
-            <div class="fb-row"><span>Partner tecnico</span><b>Studio Eremita</b></div>
-            <div class="fb-row"><span>Aree di servizio</span><b>12, in tre ambiti</b></div>
-            <div class="fb-row"><span>Percorsi attivi</span><b>3 + 1 in arrivo</b></div>
-            <div class="fb-row"><span>Frequenza minima</span><b>90% delle lezioni</b></div>
-            <div class="fb-row"><span>Riferimento normativo</span><b>Regolamento UE sull'IA</b></div>
-            <div class="fb-row"><span>Destinatari</span><b>Imprese, PA, professionisti</b></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sec-head center rv" style="margin-top:64px;margin-bottom:34px">
-      <div class="eyebrow"><em></em> I percorsi</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Quattro livelli, <span class="grad">un unico impianto</span></h2>
-    </div>
-
-    <div class="bento four">
-      <div class="card rv bg-informatica"><div class="card-ic">&#127891;</div><h3>AI Act Literacy</h3><p>Primo livello di adeguamento e di uso consapevole dell'IA: struttura del regolamento, classificazione del rischio, pratiche vietate, trasparenza e controllo umano, IA generativa, protezione dei dati e sicurezza delle informazioni. Al termine si riconoscono i rischi e si definiscono le prime regole organizzative interne.</p><div class="card-meta"><span class="chip cy">10 lezioni</span><span class="chip">70 minuti</span><span class="chip">Aziende, enti e PA</span></div></div>
-      <div class="card rv bg-giuris" style="transition-delay:.08s"><div class="card-ic">&#9878;</div><h3>Masterclass AI Act</h3><p>Percorso operativo per consulenti: quadro normativo, ruoli di provider e deployer, pratiche vietate, sistemi ad alto rischio e modelli per finalit&agrave; generali, registro e governance, contratti, sanzioni e ispezioni. Restituisce un metodo di audit e una roadmap commerciale immediatamente applicabile.</p><div class="card-meta"><span class="chip go">6 lezioni</span><span class="chip">42 minuti</span><span class="chip">Consulenti</span></div></div>
-      <div class="card rv bg-master" style="transition-delay:.16s"><div class="card-ic">&#128737;</div><h3>AI Act Governance &amp; Compliance</h3><p>Secondo livello di adeguamento: mappatura e classificazione dei sistemi, ruoli e responsabilit&agrave;, alto rischio, supervisione umana, dati e tracciabilit&agrave;, incidenti, fornitori, registri e procedure. Per imprenditori, dirigenti, HR, compliance, DPO, cybersecurity, qualit&agrave; e risk management.</p><div class="card-meta"><span class="chip">In arrivo</span><span class="chip">2&deg; livello</span></div></div>
-      <div class="card rv bg-psico" style="transition-delay:.24s"><div class="card-ic">&#9774;</div><h3>Diritti Umani</h3><p>Principi, fonti e strumenti internazionali di tutela: Dichiarazione Universale, diritti civili, politici, economici e sociali, ONU e CEDU, uguaglianza, privacy, migrazioni, conflitti, nuove tecnologie e intelligenza artificiale. Un percorso completo sui sistemi universali e regionali di tutela.</p><div class="card-meta"><span class="chip cy">21 lezioni</span><span class="chip">125 minuti</span><span class="chip">Aperto a tutti</span></div></div>
-    </div>
-
-    <!-- STEM + SCALE -->
-    <div class="feature rv-s dark" style="margin-top:56px">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> Il nostro punto di vista</div>
-          <h2>Non c'&egrave; solo lo STEM: <span class="grad">ci sono anche le SCALE</span></h2>
-          <p>Da anni si ripete che il futuro &egrave; nelle discipline STEM &mdash; scienza, tecnologia, ingegneria e matematica. &Egrave; vero, e la nostra offerta lo dice chiaramente. Ma c'&egrave; una parte della storia che manca, e riguarda esattamente il perch&eacute; un progetto sull'intelligenza artificiale non pu&ograve; essere solo tecnico.</p>
-          <p>L'acronimo <b>SCALE</b> tiene insieme <b>scienze sociali, studi della comunicazione, arti, diritto ed economia</b>: le discipline che non studiano i sistemi in astratto, ma il modo in cui le persone vivono dentro quei sistemi e attribuiscono senso alle scelte collettive. Dove lo STEM procede per riduzione e astrazione, le SCALE partono dal presupposto opposto &mdash; che il contesto sia una componente essenziale del fenomeno, non un disturbo da eliminare.</p>
-          <p>La formula che riassume la questione &egrave; secca: <b>lo STEM spiega che cosa &egrave; possibile fare, le SCALE aiutano a capire se ha senso farlo, come, quando e con quali conseguenze.</b> Il cambiamento climatico ha un limite che non &egrave; scientifico ma politico e sociale; la trasformazione digitale si ferma non per mancanza di tecnologia, ma per resistenze culturali e mancanza di fiducia. Vale identico per l'IA: l'AI Act &egrave; un problema tecnico solo in apparenza, e infatti nei nostri percorsi convive con il diritto, l'organizzazione e i diritti fondamentali.</p>
-          <p style="color:var(--txt-mute);font-size:13.6px">Il tema &egrave; ripreso dall'articolo &laquo;Oltre STEM: perch&eacute; senza SCALE non capiamo pi&ugrave; il mondo&raquo; di Carlo Maria Medaglia, Agenzia DIRE, 3 marzo 2026.</p>
-        </div>
-        <div>
-          <div class="feat-box">
-            <div class="fb-row"><span>S</span><b>Social sciences &mdash; scienze sociali</b></div>
-            <div class="fb-row"><span>C</span><b>Communication &mdash; comunicazione</b></div>
-            <div class="fb-row"><span>A</span><b>Arts &mdash; arti e discipline umanistiche</b></div>
-            <div class="fb-row"><span>L</span><b>Law &mdash; diritto</b></div>
-            <div class="fb-row"><span>E</span><b>Economics &mdash; economia</b></div>
-          </div>
-          <div class="feat-box" style="margin-top:20px">
-            <p style="font-size:15px;color:var(--txt-dim);line-height:1.7;margin:0">&laquo;Sappiamo sempre di pi&ugrave;, ma comprendiamo sempre meno.&raquo; I grandi problemi di oggi sono tecnici, sociali, economici e culturali <b>nello stesso momento</b>: nessuna delle due famiglie di discipline, da sola, basta a leggerli.</p>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none;margin-top:20px">
-            <a href="#offerta" class="btn btn-g btn-sm" data-cursor>Vedi l'offerta formativa</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== FONDO NUOVE COMPETENZE ===== -->
-<section id="fnc" style="padding-top:0">
+
+<!-- ===== PARTNER / RETE ===== -->
+<!-- ===== SCOPRI UNICESD OLYMPO: le sezioni che non stanno piu' in home =====
+     Ogni scheda porta alla pagina dedicata (online) o apre la sezione (nel file unico). -->
+<section id="scopri" style="padding-top:20px">
   <div class="wrap">
     <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> Per le imprese</div>
-      <h2>Fondo Nuove Competenze <span class="grad">2026</span></h2>
-      <p>La misura nazionale che rimborsa alle aziende il costo del personale per le ore passate in formazione. Formare le persone smette di essere un costo e diventa una voce finanziata.</p>
+      <div class="eyebrow"><em></em> Scopri UNICESD Olympo</div>
+      <h2>Tutto il Centro Studi, <span class="grad">a portata di clic</span></h2>
+      <p>Chi siamo, gli eventi, i servizi, i progetti e le sedi: ogni tema ha la sua pagina.</p>
     </div>
-
-    <div class="split rv">
-      <div>
-        <div class="eyebrow"><em></em> Cos'&egrave;</div>
-        <h2 style="font-size:clamp(26px,3.6vw,38px);margin-bottom:18px">La formazione che aiuta a <span class="grad">contenere i costi</span></h2>
-        <p style="color:var(--txt-dim);font-size:16.5px;margin-bottom:16px">Il Fondo Nuove Competenze 2026 sostiene le imprese che devono adeguarsi a nuovi modelli organizzativi e produttivi, in risposta alle transizioni ecologica e digitale, o che affrontano progetti di investimento strategico e di transizione industriale.</p>
-        <p style="color:var(--txt-dim);font-size:16.5px;margin-bottom:16px">Il meccanismo &egrave; semplice: l'azienda rimodula l'orario di lavoro, le ore liberate diventano ore di formazione e lo Stato rimborsa la retribuzione di quelle ore. I lavoratori acquisiscono competenze nuove, l'impresa pianifica il cambiamento senza fermarsi.</p>
-        <p style="color:var(--txt-dim);font-size:16.5px;margin-bottom:26px">Gli <b>ambiti formativi</b> ammessi sono quelli che stanno gi&agrave; ridisegnando il lavoro: sistemi digitali e intelligenza artificiale, sostenibilit&agrave; ed economia circolare, transizione ecologica, efficientamento energetico e welfare aziendale. I <b>destinatari</b> sono i lavoratori dipendenti, con misure di sostegno anche per le nuove assunzioni.</p>
-        <div class="srv" style="grid-template-columns:1fr">
-          <div class="srv-i"><div class="ic">&#9201;</div><div><b>Durata dei percorsi</b><span>Minimo 30 ore, massimo 150 (o 100 ore pro capite). Durata complessiva non superiore a 12 mesi.</span></div></div>
-          <div class="srv-i"><div class="ic">&#127891;</div><div><b>Ateneo di riferimento</b><span>Universit&agrave; Telematica degli Studi IUL, ente titolato alla certificazione delle competenze e al rilascio di CFU.</span></div></div>
-          <div class="srv-i"><div class="ic">&#128290;</div><div><b>Attestazione finale</b><span>Obbligatoria per il saldo del Fondo. Rilasciata secondo gli standard nazionali ed europei (D.Lgs. 13/2013).</span></div></div>
-        </div>
-      </div>
-      <div>
-        <div class="proto" style="margin-bottom:20px"><img width="1000" height="564" src="assets/fnc-cover.webp" alt="Fondo Nuove Competenze 2026 &mdash; Competenze per l'Innovazione" loading="lazy" decoding="async"></div>
-        <div class="feat-box">
-          <div class="fb-row"><span>Chi lo usa</span><b>Imprese di ogni dimensione</b></div>
-          <div class="fb-row"><span>Cosa copre</span><b>Costo del personale in formazione</b></div>
-          <div class="fb-row"><span>Ore minime</span><b>30 per lavoratore</b></div>
-          <div class="fb-row"><span>Ore massime</span><b>150 (o 100 pro capite)</b></div>
-          <div class="fb-row"><span>Arco temporale</span><b>Entro 12 mesi</b></div>
-          <div class="fb-row"><span>Certificazione</span><b>Open badge e CFU</b></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sec-head center rv" style="margin-top:66px;margin-bottom:30px">
-      <div class="eyebrow"><em></em> Classi di finanziamento</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Tre linee, <span class="grad">tre dotazioni</span></h2>
-    </div>
-    <div class="stats three rv">
-      <div class="stat"><b>12 mln &euro;</b><span>Sistemi formativi</span><small>Grandi imprese di riferimento e relativa catena di fornitura, collegando l'investimento formativo dell'azienda capofila al sistema di fornitura.</small></div>
-      <div class="stat"><b>8 mln &euro;</b><span>Filiere formative</span><small>Sistemi organizzati di PMI che operano nell'ambito di distretti territoriali, specializzazioni produttive, reti o filiere.</small></div>
-      <div class="stat"><b>2 mln &euro;</b><span>Singole imprese</span><small>Aziende che si trovino in altre condizioni e che soddisfino i requisiti richiesti per accedere al fondo.</small></div>
-    </div>
-
-    <div class="sec-head center rv" style="margin-top:60px;margin-bottom:30px">
-      <div class="eyebrow"><em></em> Rimborso dei costi</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Quanto torna <span class="grad">in azienda</span></h2>
-      <p>Viene rimborsato il costo del personale dipendente per le ore di formazione effettivamente frequentate.</p>
-    </div>
-    <div class="stats three rv">
-      <div class="stat"><b>100%</b><span>Oneri sociali</span><small>Contributi previdenziali e assistenziali relativi al costo orario dei dipendenti per le ore di formazione.</small></div>
-      <div class="stat"><b>80%</b><span>Retribuzione netta</span><small>Per i dipendenti coinvolti in progetti afferenti a sistemi o filiere formative.</small></div>
-      <div class="stat"><b>60%</b><span>Retribuzione netta</span><small>Per i dipendenti coinvolti in progetti afferenti a singole imprese.</small></div>
-    </div>
-
-    <div class="sec-head center rv" style="margin-top:60px;margin-bottom:24px">
-      <div class="eyebrow"><em></em> Come vi accompagniamo</div>
-      <h2 style="font-size:clamp(26px,3.4vw,38px)">Dalla domanda <span class="grad">alla rendicontazione</span></h2>
-      <p>Nessuna azienda deve affrontare da sola la parte burocratica: il percorso &egrave; seguito passo per passo, dalla strategia al saldo.</p>
-    </div>
-    <div class="rail rv">
-      <div class="rail-i"><em>01</em><b>Pianificazione</b><span>Verifica dei requisiti, definizione delle esigenze e della popolazione coinvolta, tempistiche e stima del risparmio sul costo del lavoro.</span></div>
-      <div class="rail-i"><em>02</em><b>Inoltro della domanda</b><span>Affiancamento nella negoziazione degli accordi collettivi con le rappresentanze sindacali e raccolta dei documenti necessari.</span></div>
-      <div class="rail-i"><em>03</em><b>Erogazione</b><span>Coordinamento didattico su piattaforma e-learning sincrona e asincrona, verifica multimodale delle competenze, certificazione tramite open badge.</span></div>
-      <div class="rail-i"><em>04</em><b>Rendicontazione</b><span>Monitoraggio continuo, raccolta della documentazione, test di valutazione e gradimento, preparazione della rendicontazione finale.</span></div>
-    </div>
-
-    <div class="feature rv-s dark" style="margin-top:52px">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> Perch&eacute; conviene muoversi ora</div>
-          <h2>Le competenze sono una <span class="grad">priorit&agrave; di mercato</span></h2>
-          <p>Il mismatch fra domanda e offerta di lavoro non si colma con annunci: si colma formando le persone che gi&agrave; sono in azienda. Il Fondo rende quell'investimento sostenibile, e l'attestazione finale rilasciata da un ateneo accreditato garantisce la piena trasferibilit&agrave; delle competenze maturate, in aree come digitale, lingue e management.</p>
-          <p>Le attivit&agrave; sono modulari: si pu&ograve; scegliere il pacchetto completo &mdash; progettazione, strumenti di adesione, formazione, tutoraggio e monitoraggio, certificazione, rendicontazione &mdash; oppure soltanto le parti che servono.</p>
-          <div class="hero-cta" style="opacity:1;animation:none">
-            <a href="#iscrizione" class="btn btn-p" data-cursor><span>Valutiamo insieme il progetto</span><span class="shine"></span></a>
-            <a href="tel:+393509651711" class="btn btn-g" data-cursor>Parla con noi</a>
-          </div>
-        </div>
-        <div>
-          <div class="feat-box">
-            <div class="fb-row"><span>Formazione</span><b>35%</b></div>
-            <div class="fb-row"><span>Rendicontazione</span><b>15%</b></div>
-            <div class="fb-row"><span>Certificazione</span><b>15%</b></div>
-            <div class="fb-row"><span>Strumenti di adesione</span><b>15%</b></div>
-            <div class="fb-row"><span>Tutoraggio e monitoraggio</span><b>10%</b></div>
-            <div class="fb-row"><span>Progettazione</span><b>10%</b></div>
-          </div>
-          <p style="color:var(--txt-mute);font-size:13px;margin-top:14px">Distribuzione delle attivit&agrave; previste in un progetto FNC tipo.</p>
-        </div>
-      </div>
+    <div class="sc-grid">
+      <a class="sc-card rv" href="/calogero-di-carlo/"><span class="sc-ic">&#11088;</span><b>Il fondatore</b><span>Calogero Di Carlo: biografia, numeri e percorso</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/chi-siamo/"><span class="sc-ic">&#127963;</span><b>Chi siamo</b><span>Il Centro Studi, la storia dal 2015 e i dati istituzionali</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/chi-siamo/#gruppo"><span class="sc-ic">&#127970;</span><b>Il Gruppo Olympo CDC</b><span>Le societ&agrave; del gruppo e le imprese sul campo</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/eventi/#icameback"><span class="sc-ic">&#128247;</span><b>Convention 2026</b><span>&laquo;I came back!&raquo;: le foto e il programma della giornata</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/master-made-in-italy-global-leadership/"><span class="sc-ic">&#127758;</span><b>Master Made in Italy</b><span>Export, geopolitica e international business</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/servizi-studenti/#piattaforma"><span class="sc-ic">&#127891;</span><b>Servizi agli studenti</b><span>Tutor dedicato, piattaforma e-learning 24/7 e segreteria didattica</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/intelligenza-artificiale-ai-act/"><span class="sc-ic">&#129504;</span><b>Progetto Intelligenza Artificiale</b><span>AI Act, competenze digitali e formazione</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/fondo-nuove-competenze-2026/"><span class="sc-ic">&#127981;</span><b>Per le imprese</b><span>Fondo Nuove Competenze 2026 e formazione finanziata</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/chi-siamo/#stampa"><span class="sc-ic">&#128240;</span><b>Rassegna stampa</b><span>Il progetto raccontato dai giornali</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/calogero-di-carlo/#voce"><span class="sc-ic">&#127897;</span><b>Interventi e interviste</b><span>Calogero Di Carlo, le parole e i palchi</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/sedi/"><span class="sc-ic">&#128205;</span><b>Le sedi</b><span>Dove trovarci in Italia e all'estero</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/apri-una-sede/"><span class="sc-ic">&#128273;</span><b>Apri una sede</b><span>Diventa E-Learning Center Point: requisiti e candidatura</span><em>Vuoi saperne di pi&ugrave;?</em></a>
+      <a class="sc-card rv" href="/la-voce-dell-olympo/"><span class="sc-ic">&#128227;</span><b>La Voce dell'Olympo</b><span>Le ultime notizie e i comunicati</span><em>Vuoi saperne di pi&ugrave;?</em></a>
     </div>
   </div>
 </section>
 
-<!-- ===== PARTNER / RETE ===== -->
 <section id="partner" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head center rv">
@@ -3582,7 +2297,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
         </div>
         <h3>Studio Eremita &mdash; AI &amp; Business Intelligence</h3>
         <p>Il partner tecnico del <b>progetto AI</b> di UNICESD Olympo: matematiche applicate e intelligenza artificiale integrata come motore del business, con dodici aree di servizio che vanno dagli agenti AI e l'automazione alla data intelligence, dal GDPR all'<b>AI Act</b>, dall'europrogettazione ai diritti umani. Da qui nascono i percorsi formativi sull'IA che trovi nella sezione dedicata.</p>
-        <div class="pc-foot"><span>AI Act &middot; Formazione &middot; Compliance</span><a class="pc-link" href="#ai">Il progetto AI <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="pc-foot"><span>AI Act &middot; Formazione &middot; Compliance</span><a class="pc-link" href="/intelligenza-artificiale-ai-act/">Il progetto AI <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
       <article class="pcard rv-s" data-cat="inno" style="transition-delay:.18s">
@@ -3602,7 +2317,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
         </div>
         <h3>Fondo Nuove Competenze 2026</h3>
         <p>La misura nazionale che rimborsa alle imprese il costo del personale per le ore passate in formazione, quando l'azienda deve adeguarsi alle transizioni digitale ed ecologica. Con l'<b>Universit&agrave; Telematica degli Studi IUL</b> seguiamo le imprese dalla rilevazione del fabbisogno alla rendicontazione finale.</p>
-        <div class="pc-foot"><span>Imprese &middot; fino a 12 mln &euro;</span><a class="pc-link" href="#fnc">Come funziona <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="pc-foot"><span>Imprese &middot; fino a 12 mln &euro;</span><a class="pc-link" href="/fondo-nuove-competenze-2026/">Come funziona <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
       <article class="pcard rv-s" data-cat="press">
@@ -3675,7 +2390,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
         </div>
         <h3>100 Vetrine in Rete</h3>
         <p>Progetto di sviluppo di una rete di <b>centri multiservizi in franchising</b> dedicati a orientamento, formazione universitaria, tutoraggio e ricerca del lavoro. Si rivolge in particolare a <b>giovani under 35 e imprenditoria femminile</b> che vogliono aprire un presidio formativo nel proprio territorio, con formazione iniziale, affiancamento nella fase di avvio e accesso alla rete di convenzioni e accreditamenti.</p>
-        <div class="pc-foot"><span>Rete nazionale</span><a class="pc-link" href="#apri-sede">Scopri come aderire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="pc-foot"><span>Rete nazionale</span><a class="pc-link" href="/apri-una-sede/">Scopri come aderire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
       <article class="pcard rv-s" data-cat="form">
@@ -3786,7 +2501,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
         </div>
         <h3>Janus &mdash; Istituto Superiore per la Formazione</h3>
         <p>Scuola online per il diploma di maturit&agrave;: dieci indirizzi tra licei e istituti tecnici, piattaforma e&#8209;learning, tutor personale e nessun obbligo di frequenza. La rete dei poli remoti Janus &egrave; stata lanciata sul territorio con l'Open Day nazionale del 31 luglio. Sede di Roma: <b>Via Castense 8, 00182 Roma</b>.</p>
-        <div class="pc-foot"><span>Roma &middot; Via Castense 8</span><a class="pc-link" href="#janus">La scheda dell'Istituto</a><a class="pc-link" href="https://istitutojanus.it/" target="_blank" rel="noopener">istitutojanus.it <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="pc-foot"><span>Roma &middot; Via Castense 8</span><a class="pc-link" href="/janus-diploma-online/">La scheda dell'Istituto</a><a class="pc-link" href="https://istitutojanus.it/" target="_blank" rel="noopener">istitutojanus.it <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
       <article class="pcard rv-s" data-cat="sport" style="transition-delay:.06s">
@@ -3867,7 +2582,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
         </div>
         <h3>Effettotre</h3>
         <p>Periodico mensile autonomo d'informazione che segue formazione, politica, economia e turismo. Calogero Di Carlo ne &egrave; fondatore e <b>direttore responsabile dal 2009</b>; redazione a Roma, in via Panisperna 207, <b>Palazzo Falletti</b>. Sedici annate e 164 numeri di archivio, e una ripartenza gi&agrave; in programma.</p>
-        <div class="pc-foot"><span>Roma &middot; dal 2009</span><a class="pc-link" href="#voce">La ripartenza <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="pc-foot"><span>Roma &middot; dal 2009</span><a class="pc-link" href="/calogero-di-carlo/#voce">La ripartenza <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
       <article class="pcard rv-s" data-cat="form" style="transition-delay:.24s">
@@ -3917,7 +2632,7 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
         </div>
         <h3>Study with Athena</h3>
         <p>Agenzia specializzata nell'accesso alle <b>universit&agrave; europee</b>. Accompagna gli studenti verso <b>Medicina, Odontoiatria, Igiene Dentale, Infermieristica e Fisioterapia</b> in Romania, Spagna e Macedonia, oltre ai percorsi economici, ingegneristici e ai master. Segue per intero la parte burocratica: documenti, apostille, dichiarazione di valore, iscrizione, visto e riconoscimento del titolo.</p>
-        <div class="pc-foot"><span>Romania &middot; Spagna &middot; Macedonia</span><a class="pc-link" href="#athena">I percorsi <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="pc-foot"><span>Romania &middot; Spagna &middot; Macedonia</span><a class="pc-link" href="/medicina-senza-test-ingresso/">I percorsi <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
       <article class="pcard rv-s" data-cat="press" style="transition-delay:.12s">
@@ -4029,231 +2744,8 @@ body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
 </section>
 
 <!-- ===== SEDI ===== -->
-<section id="sedi">
-  <div class="wrap split">
-    <div class="rv-l">
-      <div class="eyebrow"><em></em> Dove siamo</div>
-      <h2 style="font-size:clamp(28px,4vw,42px);margin-bottom:18px">Una rete <span class="grad">vicina a te</span></h2>
-      <p style="color:var(--txt-dim);font-size:16.5px;margin-bottom:26px">La sede legale e direzionale &egrave; a <b>Palermo</b>, con un presidio a <b>Cefal&ugrave;</b> e la sede portoghese di <b>Lisbona</b>. Da qui coordiniamo i poli didattici e le sedi d'esame convenzionate in tutta Italia, per garantire assistenza di prossimit&agrave; a ogni studente.</p>
-      <div class="srv" style="grid-template-columns:1fr">
-        <div class="srv-i"><div class="ic">&#127963;</div><div><b>Sede legale e direzionale</b><span>Via Trabia 1, 90133 Palermo (PA)</span></div></div>
-        <div class="srv-i"><div class="ic">&#128205;</div><div><b>Sede operativa</b><span>Largo Lituania 11 (ex Via Danimarca), 90141 Palermo (PA)</span></div></div>
-        <div class="srv-i"><div class="ic">&#127958;</div><div><b>Cefal&ugrave; (PA)</b><span>Presidio territoriale sulla costa tirrenica</span></div></div>
-        <div class="srv-i"><div class="ic">&#127477;&#127481;</div><div><b>Lisbona</b><span>Rua Castilho 13, 3.&ordm;-B &middot; 1250-066 Lisboa &middot; +351 210 523 770</span></div></div>
-        <div class="srv-i"><div class="ic">&#128222;</div><div><b>Calogero Di Carlo</b><span><a href="tel:+393509651711" style="color:inherit">+39 350 965 1711</a> &middot; <a href="mailto:Calogero60@yahoo.it" style="color:inherit">Calogero60@yahoo.it</a></span></div></div>
-        <div class="srv-i"><div class="ic">&#128222;</div><div><b>Jose Palazzolo</b><span><a href="tel:+393881133550" style="color:inherit">+39 388 113 3550</a> &middot; <a href="mailto:Palazzolo.jose@gmail.com" style="color:inherit">Palazzolo.jose@gmail.com</a></span></div></div>
-        <div class="srv-i"><div class="ic">&#128222;</div><div><b>Segreteria UNICESD</b><span><a href="tel:+393281376792" style="color:inherit">+39 328 137 6792</a></span></div></div>
-        <div class="srv-i"><div class="ic">&#128222;</div><div><b>Segreteria</b><span><a href="tel:+393356959796" style="color:inherit">+39 335 695 9796</a></span></div></div>
-        <div class="srv-i"><div class="ic">&#128337;</div><div><b>Sempre disponibili</b><span>Assistenza h24, 7 giorni su 7 &middot; piattaforma e supporto attivi senza interruzioni</span></div></div>
-      </div>
-    </div>
-    <div class="rv-r">
-      <div class="feat-box" style="padding:0;overflow:hidden;position:relative;min-height:380px;display:grid;place-items:center">
-        <div style="position:absolute;inset:0;background-image:linear-gradient(var(--grid-c) 1px,transparent 1px),linear-gradient(90deg,var(--grid-c) 1px,transparent 1px);background-size:38px 38px"></div>
-        <div style="position:relative;text-align:center;padding:40px">
-          <div style="width:76px;height:76px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(40,226,245,.28),transparent 70%);border:1px solid var(--line-strong);position:relative">
-            <span style="font-size:30px">&#128205;</span>
-            <span style="position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(40,226,245,.4);animation:ripple 2.6s infinite"></span>
-            <span style="position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(40,226,245,.3);animation:ripple 2.6s infinite 1.3s"></span>
-          </div>
-          <h3 style="font-size:22px;margin-bottom:8px">Palermo &middot; Cefal&ugrave;</h3>
-          <p style="color:var(--txt-dim);font-size:14.5px;margin-bottom:6px"><b>Sede legale</b> &middot; Via Trabia 1, 90133</p>
-          <p style="color:var(--txt-dim);font-size:14.5px;margin-bottom:20px"><b>Sede operativa</b> &middot; Largo Lituania 11, 90141</p>
-          <button class="btn btn-g btn-sm" data-modal="sedi">Vedi tutte le sedi d'esame</button>
-        </div>
-      </div>
-    </div>
-  
-  </div>
-
-  <div class="wrap" style="padding-top:0">
-    <!-- LISBONA -->
-    <div class="feature rv-s dark" style="margin-top:52px">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> Oltre i confini</div>
-          <h2>Lisbona, <span class="grad">la sede portoghese</span></h2>
-          <p>La rete non si ferma all'Italia. A <b>Lisbona</b>, in Rua Castilho 13, opera <b>Universitas Centro Studi Olympo, S.R.L. &mdash; Sucursal em Portugal</b>: una rappresentanza permanente iscritta con NIF <b>980647819</b>, con oggetto l'istituzione e la gestione di scuole di ogni ordine e grado.</p>
-          <p>&Egrave; il presidio da cui passano i rapporti con gli atenei e gli enti dell'area iberica, le pratiche degli studenti che studiano fuori dall'Italia e i progetti di mobilit&agrave; internazionale.</p>
-          <div class="partners">
-            <span class="partner">Universit&agrave; e alta formazione</span>
-            <span class="partner">Formazione innovativa</span>
-            <span class="partner">Prospettiva internazionale</span>
-            <span class="partner">Valori e futuro</span>
-          </div>
-          <div class="hero-cta" style="opacity:1;animation:none">
-            <a href="tel:+351210523770" class="btn btn-g" data-cursor>+351 210 523 770</a>
-            <a href="#contatti" class="btn btn-p" data-cursor><span>Scrivi alla segreteria</span><span class="shine"></span></a>
-          </div>
-        </div>
-        <div>
-          <div class="proto"><img width="1000" height="789" src="assets/lisboa-sede.webp" alt="UNICESD Olympo Lisboa, sede portoghese in Rua Castilho 13" loading="lazy" decoding="async" style="height:auto"></div>
-          <div class="feat-box" style="margin-top:18px">
-            <div class="fb-row"><span>Indirizzo</span><b>Rua Castilho 13, 3.&ordm;-B</b></div>
-            <div class="fb-row"><span>CAP</span><b>1250-066 Lisboa</b></div>
-            <div class="fb-row"><span>NIF</span><b>980647819</b></div>
-            <div class="fb-row"><span>Forma</span><b>Rappresentanza permanente</b></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- ===== E-LEARNING CENTER POINT / APRI UNA SEDE ===== -->
-<section id="apri-sede" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center rv">
-      <div class="eyebrow"><em></em> E&#8209;Learning Center Point</div>
-      <h2>Apri una sede <span class="grad">UNICESD Olympo</span></h2>
-      <p>La rete degli <b>E&#8209;Learning Center Point</b> &egrave; nata nel Mezzogiorno, per dare agli studenti del Sud un presidio vicino a casa. Negli anni si &egrave; estesa in tutta Italia &mdash; Centro e Nord compresi &mdash; e oltre i confini: oggi chi ha una struttura idonea e vuole diventare punto di riferimento formativo del proprio territorio pu&ograve; farne richiesta.</p>
-    </div>
-
-    <div class="feature rv-s dark" style="margin-bottom:52px">
-      <div class="feat-grid">
-        <div>
-          <div class="eyebrow"><em></em> Le nuove sedi</div>
-          <h2>ECP Olympo &mdash; <span class="grad">UNICESD</span></h2>
-          <p>Un nuovo spazio per l'Universit&agrave;, la Formazione e il Futuro. Gli E&#8209;Learning Center Point di nuova generazione sono uffici aperti al pubblico, con postazioni assistite, <b>remote teller</b> per il collegamento diretto con la segreteria e la piattaforma sempre a portata di mano.</p>
-          <div class="bento" style="grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px">
-            <div class="feat-box" style="padding:18px"><b style="font-family:'Sora';font-size:15px">Universit&agrave;</b><p style="font-size:13.4px;color:var(--txt-mute);margin-top:6px">Percorsi accademici e crescita continua.</p></div>
-            <div class="feat-box" style="padding:18px"><b style="font-family:'Sora';font-size:15px">Formazione</b><p style="font-size:13.4px;color:var(--txt-mute);margin-top:6px">Competenze, innovazione e sviluppo professionale.</p></div>
-            <div class="feat-box" style="padding:18px"><b style="font-family:'Sora';font-size:15px">Futuro</b><p style="font-size:13.4px;color:var(--txt-mute);margin-top:6px">Tecnologia, persone e nuove opportunit&agrave;.</p></div>
-          </div>
-        </div>
-        <div>
-          <div class="proto"><img width="760" height="914" src="assets/ecp-sedi.webp" alt="Le nuove sedi ECP Olympo &ndash; UNICESD" loading="lazy" decoding="async" style="height:auto"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ecp-kpi rv">
-      <span><b>450</b> Center Point in rete</span>
-      <span><b>Formazione</b> &middot; orientamento &middot; sedi d'esame</span>
-      <span>Nata al <b>Sud</b>, oggi in tutta Italia</span>
-      <span>Piattaforma e materiali <b>gi&agrave; pronti</b></span>
-      <span>Affiancamento nell'<b>accreditamento</b></span>
-    </div>
-
-    <div class="ecp-grid">
-
-      <div class="req-b rv-s">
-        <h4><span class="ic">&#127979;</span> Sede formativa</h4>
-        <span class="sub">Requisiti minimi dei locali</span>
-        <ul class="req-l">
-          <li><span class="req-n">a</span><div><b>Aula informatica</b> &mdash; almeno 1 PC ogni 2 allievi, per un minimo di 12 allievi. Per gli indirizzi di settore serve un'aula tecnica o un laboratorio professionale specialistico, con attrezzatura di base nella stessa proporzione. Superficie minima <b>26 mq</b>.</div></li>
-          <li><span class="req-n">b</span><div><b>Aula didattica</b> &mdash; rapporto minimo di <b>2 mq per allievo</b>, per un minimo di 12 allievi, docente compreso.</div></li>
-          <li><span class="req-n">c</span><div><b>Ufficio di direzione</b> e/o coordinamento.</div></li>
-          <li><span class="req-n">d</span><div><b>Locale di accoglienza</b> e disimpegno.</div></li>
-          <li><span class="req-n">e</span><div><b>Servizi igienici</b> per portatori di handicap, come da normativa vigente.</div></li>
-        </ul>
-      </div>
-
-      <div class="req-b rv-s" style="transition-delay:.08s">
-        <h4><span class="ic">&#129517;</span> Sede di orientamento</h4>
-        <span class="sub">Requisiti aggiuntivi</span>
-        <ul class="req-l">
-          <li><span class="req-n">f</span><div><b>Aula di almeno 22 mq</b> per incontri e seminari.</div></li>
-          <li><span class="req-n">g</span><div><b>Ufficio per colloqui individuali</b>, di almeno 10 mq.</div></li>
-          <li><span class="req-n">h</span><div><b>Locale di almeno 10 mq</b> per la consultazione di banche dati, con almeno due personal computer collegati a internet.</div></li>
-        </ul>
-        <div style="margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-size:12.8px;color:var(--txt-mute);line-height:1.6">Le sedi di orientamento accreditate <b>anche</b> come sedi formative non devono soddisfare il punto <b>f</b>.</div>
-      </div>
-
-      <div class="req-b rv-s" style="transition-delay:.16s">
-        <h4><span class="ic">&#128225;</span> Dotazione minima</h4>
-        <span class="sub">Infrastruttura della sede operativa</span>
-        <ul class="req-l">
-          <li><span class="req-n">&#9679;</span><div><b>Targa e segnaletica</b> in spazio visibile dall'utenza, con denominazione dell'organismo, loghi istituzionali, recapito telefonico, orario di apertura al pubblico e dati del provvedimento di accreditamento.</div></li>
-          <li><span class="req-n">&#9679;</span><div>Una <b>linea telefonica</b> di rete fissa.</div></li>
-          <li><span class="req-n">&#9679;</span><div>Una <b>connessione a internet</b>.</div></li>
-          <li><span class="req-n">&#9679;</span><div>Un <b>indirizzo e&#8209;mail</b> e un sito o una pagina web.</div></li>
-          <li><span class="req-n">&#9679;</span><div>Un <b>PC e uno scanner</b> per le attivit&agrave; amministrative e contabili.</div></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="req-note rv">
-      <b>Condizioni generali.</b> Il numero massimo dei partecipanti in aula e nei laboratori si determina garantendo <b>2 mq di superficie utile per allievo</b>. L'altezza minima dal pavimento al soffitto &egrave; di <b>2,70 metri</b>.
-      <ul>
-        <li>I requisiti infrastrutturali e la dotazione logistica devono essere a <b>uso esclusivo</b> del soggetto che richiede l'accreditamento e certificati da idonea documentazione.</li>
-        <li>La dotazione deve essere <b>posseduta e disponibile al momento della domanda</b>, in un'unica unit&agrave; immobiliare oppure in pi&ugrave; unit&agrave; funzionalmente congiunte dall'unitariet&agrave; dell'edificio o della superficie di edificazione.</li>
-        <li>Non sono utilizzabili locali inseriti in <b>struttura alberghiera</b>, se non per attivit&agrave; formativa del settore turistico&#8209;alberghiero.</li>
-        <li>Gli interventi formativi rivolti a <b>detenuti</b> o ad altri soggetti sottoposti a provvedimenti dell'autorit&agrave; giudiziaria possono svolgersi anche presso il luogo di restrizione.</li>
-        <li>I requisiti qui riportati sono quelli richiesti in sede di <b>accreditamento regionale</b>: i parametri possono variare da regione a regione. Ti affianchiamo noi nella verifica per il tuo territorio.</li>
-      </ul>
-    </div>
-
-    <div class="form-wrap rv-s">
-      <div class="form-grid">
-        <div class="form-side">
-          <div class="eyebrow" style="position:relative;z-index:2"><em></em> Come si diventa sede</div>
-          <h3>Quattro passi</h3>
-          <p>Dalla prima richiesta all'apertura, seguiti da chi questa rete l'ha gi&agrave; costruita.</p>
-          <ul class="fs-list">
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>1. Invii la richiesta</b><br><span style="color:var(--txt-mute);font-size:13px">Compili il modulo qui accanto con i dati della struttura.</span></div></li>
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>2. Verifichiamo i locali</b><br><span style="color:var(--txt-mute);font-size:13px">Controlliamo insieme metrature, dotazione e requisiti della tua regione.</span></div></li>
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>3. Formalizziamo l'accordo</b><br><span style="color:var(--txt-mute);font-size:13px">Convenzione, formazione dello staff e accesso alla piattaforma.</span></div></li>
-            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><div><b>4. Apri al pubblico</b><br><span style="color:var(--txt-mute);font-size:13px">Materiali, targa, orientamento e supporto continuo.</span></div></li>
-          </ul>
-          <div style="position:relative;z-index:2;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)">
-            <div style="font-size:12.6px;color:var(--txt-mute);margin-bottom:8px">Vuoi parlarne prima?</div>
-            <a href="tel:+393509651711" style="font-family:'Sora';font-size:17.5px;font-weight:700;color:var(--cy);display:block">+39 350 965 1711</a>
-            <div style="font-size:12.2px;color:var(--txt-mute);margin:2px 0 12px">Calogero Di Carlo &middot; <a href="mailto:Calogero60@yahoo.it" style="color:var(--txt-dim)">Calogero60@yahoo.it</a></div>
-            <a href="tel:+393881133550" style="font-family:'Sora';font-size:17.5px;font-weight:700;color:var(--cy);display:block">+39 388 113 3550</a>
-            <div style="font-size:12.2px;color:var(--txt-mute);margin:2px 0 12px">Jose Palazzolo &middot; <a href="mailto:Palazzolo.jose@gmail.com" style="color:var(--txt-dim)">Palazzolo.jose@gmail.com</a></div>
-            <a href="tel:+393281376792" style="font-family:'Sora';font-size:17.5px;font-weight:700;color:var(--cy);display:block">+39 328 137 6792</a>
-            <div style="font-size:12.2px;color:var(--txt-mute);margin:2px 0 12px">Segreteria UNICESD Olympo</div>
-            <a href="tel:+393356959796" style="font-family:'Sora';font-size:17.5px;font-weight:700;color:var(--cy);display:block">+39 335 695 9796</a>
-            <div style="font-size:12.2px;color:var(--txt-mute);margin-top:2px">Segreteria</div>
-          </div>
-        </div>
-
-        <div class="form-main">
-          <form id="sedeform" novalidate>
-            <div class="f-row">
-              <div class="field"><label>Nome *</label><input type="text" id="s-nome" placeholder="Il tuo nome"><div class="err-msg">Inserisci il tuo nome</div></div>
-              <div class="field"><label>Cognome *</label><input type="text" id="s-cognome" placeholder="Il tuo cognome"><div class="err-msg">Inserisci il tuo cognome</div></div>
-            </div>
-            <div class="f-row">
-              <div class="field"><label>Email *</label><input type="email" id="s-mail" placeholder="nome@email.it"><div class="err-msg">Inserisci un indirizzo email valido</div></div>
-              <div class="field"><label>Telefono *</label><input type="tel" id="s-tel" placeholder="+39 333 000 0000"><div class="err-msg">Inserisci un numero valido (min. 8 cifre)</div></div>
-            </div>
-            <div class="f-row">
-              <div class="field"><label>Citt&agrave; e provincia *</label><input type="text" id="s-citta" placeholder="Es. Palermo (PA)"><div class="err-msg">Indica dove vorresti aprire la sede</div></div>
-              <div class="field"><label>Ente o societ&agrave; (facoltativo)</label><input type="text" id="s-ente" placeholder="Ragione sociale, se gi&agrave; esistente"></div>
-            </div>
-            <div class="f-row">
-              <div class="field"><label>Tipo di sede *</label>
-                <select id="s-tipo">
-                  <option value="">Seleziona&hellip;</option>
-                  <option>Sede formativa</option>
-                  <option>Sede di orientamento</option>
-                  <option>Sede formativa e di orientamento</option>
-                  <option>Non lo so ancora, vorrei capirlo insieme</option>
-                </select><div class="err-msg">Seleziona il tipo di sede</div></div>
-              <div class="field"><label>Immobile *</label>
-                <select id="s-imm">
-                  <option value="">Seleziona&hellip;</option>
-                  <option>Gi&agrave; disponibile e conforme</option>
-                  <option>Gi&agrave; disponibile, da adeguare</option>
-                  <option>In corso di individuazione</option>
-                  <option>Non ancora individuato</option>
-                </select><div class="err-msg">Indica lo stato dell'immobile</div></div>
-            </div>
-            <div class="field"><label>Descrivi la struttura (facoltativo)</label><textarea id="s-msg" placeholder="Metratura, numero di aule, dotazione informatica, esperienza nel settore della formazione&hellip;"></textarea></div>
-            <label class="check"><input type="checkbox" id="s-priv"><span>Ho letto e accetto l'<a href="#" data-modal="privacy">informativa privacy</a> e acconsento al trattamento dei dati per essere ricontattato. *</span></label>
-            <button type="submit" class="btn btn-p" style="width:100%;margin-top:6px" data-cursor><span>Compila e aderisci</span><span class="shine"></span></button>
-            <p style="font-size:11.6px;color:var(--txt-mute);text-align:center;margin-top:14px">* Campi obbligatori &middot; I dati sono trattati ai sensi del Reg. UE 2016/679</p>
-          </form>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- ===== FAQ ===== -->
 <section id="faq" style="padding-top:0">
@@ -5511,7 +4003,9 @@ window.addEventListener('scroll',function(){
 })();
 
 
-/* ===== Catalogo eCampus - filtro per area ===== */
+/* ===== Catalogo lauree: apertura ===== */
+(function(){ var o=document.getElementById('ecOpen'); if(!o)return; o.addEventListener('click',function(e){ e.stopPropagation(); var w=o.closest('.ec-wrap'); w.classList.add('all'); o.setAttribute('aria-expanded','true') }) })();
+/* ===== Catalogo lauree - filtro per area ===== */
 (function(){
   var f=document.getElementById('ecFilters'), g=document.getElementById('ecGrid');
   if(!f||!g) return;

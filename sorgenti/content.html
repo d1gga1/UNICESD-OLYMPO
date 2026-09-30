@@ -1290,4 +1290,42 @@ body:not(.sub) #pgrid .pcard:not(.open)>:not(.pc-top):not(h3):not(.pc-more){disp
 body:not(.sub) #pgrid .pcard{display:flex;flex-direction:column}
 body:not(.sub) #pgrid{align-items:start}
 body:not(.sub) #pgrid .pcard.open>.pc-more{order:99}
+
+/* ===================== HOME LEGGERA: "Scopri UNICESD Olympo" ===================== */
+.sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sc-card{display:flex;flex-direction:column;gap:6px;padding:20px 18px 18px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(165deg,var(--card-a),var(--card-b));box-shadow:var(--shadow-md);text-decoration:none;color:var(--txt);transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
+.sc-card:hover{transform:translateY(-4px);border-color:var(--cy);box-shadow:var(--shadow-lg)}
+.sc-ic{font-size:24px;line-height:1;margin-bottom:6px}
+.sc-card b{font-family:'Sora';font-size:15.5px;color:var(--txt-strong);line-height:1.25}
+.sc-card span:not(.sc-ic){font-size:13.2px;color:var(--txt-dim);line-height:1.45;flex:1}
+.sc-card em{font-style:normal;font-family:'Sora';font-size:12px;font-weight:600;color:var(--cy);margin-top:8px}
+.sc-card em::after{content:' \2192'}
+@media(max-width:1000px){.sc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.sc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.sc-grid{grid-template-columns:1fr}}
+/* rete in home: tessere piu' piccole */
+body:not(.sub) #pgrid{grid-template-columns:repeat(4,1fr);gap:12px}
+body:not(.sub) #pgrid .pcard:not(.open){padding:16px}
+body:not(.sub) #pgrid .pcard:not(.open) h3{font-size:14.6px;margin:8px 0 0}
+body:not(.sub) #pgrid .pcard:not(.open) .pc-logo{width:92px;height:48px;padding:4px}
+body:not(.sub) #pgrid .pcard.open{grid-column:span 2}
+body:not(.sub) #pgrid .pc-more{margin-top:12px;padding:7px 13px;font-size:11.6px}
+@media(max-width:1000px){body:not(.sub) #pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){body:not(.sub) #pgrid{grid-template-columns:repeat(2,1fr)}body:not(.sub) #pgrid .pcard.open{grid-column:1/-1}}
+@media(max-width:440px){body:not(.sub) #pgrid{grid-template-columns:1fr}}
+/* catalogo lauree chiuso finche' non si apre */
+.ec-wrap:not(.all) .ec-filters,.ec-wrap:not(.all) .ec-grid{display:none}
+.ec-open{margin-top:22px}
+.ec-wrap.all .ec-open{display:none}
+/* rete in home: solo logo e nome */
+body:not(.sub) #pgrid{grid-template-columns:repeat(5,1fr)}
+body:not(.sub) #pgrid .pcard:not(.open) .pc-top{display:block}
+body:not(.sub) #pgrid .pcard:not(.open) .pc-top>div:not(.pc-logo){display:none}
+@media(max-width:1100px){body:not(.sub) #pgrid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:1000px){body:not(.sub) #pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){body:not(.sub) #pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){body:not(.sub) #pgrid{grid-template-columns:1fr 1fr}}
+/* rete in home: i due riquadri grandi (sede di Roma, convenzioni) e la nota restano nella pagina dedicata */
+body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{display:none}
+@media(max-width:440px){.sc-grid{grid-template-columns:1fr 1fr;gap:10px}.sc-card{padding:14px 12px}.sc-card span:not(.sc-ic){font-size:12px}.sc-card b{font-size:14px}}
 </style>

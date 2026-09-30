@@ -1035,7 +1035,9 @@ window.addEventListener('scroll',function(){
 })();
 
 
-/* ===== Catalogo eCampus - filtro per area ===== */
+/* ===== Catalogo lauree: apertura ===== */
+(function(){ var o=document.getElementById('ecOpen'); if(!o)return; o.addEventListener('click',function(e){ e.stopPropagation(); var w=o.closest('.ec-wrap'); w.classList.add('all'); o.setAttribute('aria-expanded','true') }) })();
+/* ===== Catalogo lauree - filtro per area ===== */
 (function(){
   var f=document.getElementById('ecFilters'), g=document.getElementById('ecGrid');
   if(!f||!g) return;

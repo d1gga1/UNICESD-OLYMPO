@@ -629,6 +629,11 @@ def patch_home():
     home_ids = set(re.findall(r'\sid="([\w-]+)"', h))
     # nel menu della home le voci portano alle pagine dedicate; il resto della pagina resta con le ancore
     h = chrome_links(h, keep={"iscrizione", "top"})
+    # home leggera: le sezioni "ente-page"/"vo-page" vivono solo nelle pagine dedicate
+    h = re.sub(r'\n<section id="[\w-]+" class="(?:ente|vo)-page"[^>]*>.*?\n</section>', "", h, flags=re.S)
+    visible = set(re.findall(r'\sid="([\w-]+)"', h))
+    i = h.index('<main id="top">'); j = h.index("</main>")
+    h = h[:i] + rewrite_links(h[i:j], visible) + h[j:]
     h = add_footer_nav(h)
     # "Scopri il corso" nelle card: diventa un link vero alla scheda (il resto della card apre il popup)
     def card_more(m):
