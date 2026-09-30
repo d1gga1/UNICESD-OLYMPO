@@ -50,7 +50,6 @@
               <a href="#gruppo" class="mega-item"><div class="mega-ic">&#127970;</div><div><b>Il Gruppo</b><span>Assetto societario Olympo CDC</span></div></a>
               <a href="#storia" class="mega-item"><div class="mega-ic">&#128220;</div><div><b>Dati istituzionali</b><span>P.IVA, REA, sede legale</span></div></a>
               <a href="#storia" class="mega-item"><div class="mega-ic">&#9201;</div><div><b>La nostra storia</b><span>Timeline 2015 &ndash; 2026</span></div></a>
-              <a href="#voce-olympo" class="mega-item"><div class="mega-ic">&#128227;</div><div><b>La Voce dell'Olympo</b><span>Notizie e comunicati</span></div></a>
               <a href="#stampa" class="mega-item"><div class="mega-ic">&#128240;</div><div><b>Rassegna stampa</b><span>Il progetto sui media</span></div></a>
               <a href="#voce" class="mega-item"><div class="mega-ic">&#127897;</div><div><b>Interventi e interviste</b><span>La voce del fondatore</span></div></a>
             </div>
@@ -138,7 +137,7 @@
         </div>
       </li>
 
-      <li><a href="#voce-olympo">La Voce</a></li>
+      <li class="nav-keep"><a href="#voce-olympo" class="nav-voce">La Voce dell'Olympo</a></li>
       <li><a href="#janus">Janus</a></li>
       <li><a href="#master">Made in Italy</a></li>
       <li><a href="#ai">Progetto AI</a></li>
@@ -166,11 +165,12 @@
 <!-- ===== MOBILE MENU ===== -->
 <div class="mob dark" id="mob">
   <div class="mob-group"><button>Ateneo <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="#voce-olympo">La Voce dell'Olympo</a><a href="#janus">Janus</a><a href="#ateneo">Il Centro Studi</a><a href="#fondatore">Il fondatore</a><a href="#storia">La nostra storia</a><a href="#eventi">Eventi</a><a href="#icameback">I came back &mdash; Convention 2026</a><a href="#stampa">Rassegna stampa</a><a href="#voce">Interventi e interviste</a><a href="#partner">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
+    <div class="mob-sub"><div><a href="#janus">Janus</a><a href="#ateneo">Il Centro Studi</a><a href="#fondatore">Il fondatore</a><a href="#storia">La nostra storia</a><a href="#eventi">Eventi</a><a href="#icameback">I came back &mdash; Convention 2026</a><a href="#stampa">Rassegna stampa</a><a href="#voce">Interventi e interviste</a><a href="#partner">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
   <div class="mob-group"><button>Offerta Formativa <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="#offerta">Corsi di Laurea</a><a href="#offerta">Master I e II livello</a><a href="#offerta">Certificazioni</a><a href="#offerta">Corsi singoli</a><a href="#athena">Studia all'estero</a><a href="#ai">Progetto AI</a><a href="#fnc">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="#piattaforma">La piattaforma</a><a href="#servizi">Tutor personale</a><a href="#servizi">Piattaforma e-learning</a><a href="#servizi">Riconoscimento CFU</a><a href="#servizi">Placement</a></div></div></div>
+  <div class="mob-group"><button onclick="location.hash='#voce-olympo'">La Voce dell'Olympo</button></div>
   <div class="mob-group"><button onclick="location.hash='#master'">Master Made in Italy</button></div>
   <div class="mob-group"><button onclick="location.hash='#ai'">Progetto AI</button></div>
   <div class="mob-group"><button onclick="location.hash='#sedi'">Sedi</button></div>
@@ -266,9 +266,9 @@
 <!-- ===== LA VOCE DELL'OLYMPO - notizie e comunicati =====
      Ogni notizia e' un <article class="vo-item">. Per pubblicarne una nuova copia un articolo,
      mettilo IN CIMA alla lista e cambia id, data-pub (data e ora di pubblicazione), immagine e testi.
-     Per i primi GIORNI (vedi data-giorni, default 3) la notizia piu' recente si apre anche come popup
-     a chi entra nel sito; scaduto il periodo il popup sparisce e la notizia resta qui. -->
-<section id="voce-olympo" style="padding-top:78px">
+     La sezione NON compare in home: online e' la pagina /la-voce-dell-olympo/, nel file unico si apre
+     dalla voce di menu "La Voce dell'Olympo". Il popup con la sola locandina e' #vobg (in fondo alla pagina). -->
+<section id="voce-olympo" class="vo-page" style="padding-top:78px">
   <div class="wrap">
     <div class="sec-head center rv">
       <div class="eyebrow"><em></em> Notizie e comunicati</div>
@@ -2768,23 +2768,13 @@
 </div>
 
 <!-- ===== POPUP EVENTO IN EVIDENZA ===== -->
-<!-- ===== POPUP "LA VOCE DELL'OLYMPO": riempito dallo script con la notizia piu' recente ===== -->
-<div id="vobg" role="dialog" aria-modal="true" aria-labelledby="vopop-title">
+<!-- ===== POPUP "LA VOCE DELL'OLYMPO": solo la locandina, si chiude con la X =====
+     data-pub = inizio, data-giorni = per quanti giorni compare (poi non compare piu').
+     Compare una volta per visita. Per una notizia nuova cambia immagine, data-pub e data-id. -->
+<div id="vobg" role="dialog" aria-modal="true" aria-label="La Voce dell'Olympo: ultime notizie" data-id="addetto-stampa" data-pub="2026-09-30T18:00:00+02:00" data-giorni="3">
   <div class="vopop">
-    <button class="evpop-x" id="vox" aria-label="Chiudi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div class="vopop-in">
-    <div class="vopop-img" id="vopop-img"></div>
-    <div class="vopop-main">
-      <div class="vopop-eye">La Voce dell'Olympo &middot; ultime notizie</div>
-      <h3 id="vopop-title"></h3>
-      <p id="vopop-lead"></p>
-      <div class="vo-kpi" id="vopop-kpi"></div>
-      <div class="vopop-actions">
-        <a href="#voce-olympo" class="btn btn-p" id="vogo"><span>Leggi la notizia</span><span class="shine"></span></a>
-        <a href="#" class="evpop-later" id="volater">Chiudi e continua a navigare</a>
-      </div>
-    </div>
-    </div>
+    <button class="vopop-x" id="vox" aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <a href="#voce-olympo" class="vopop-link" id="vogo"><img width="1290" height="861" src="__IMG_VO_NICCOLI__" alt="Massimiliano Niccoli, Addetto Stampa UNICESD Olympo" decoding="async"></a>
   </div>
 </div>
 

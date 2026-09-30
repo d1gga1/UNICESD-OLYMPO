@@ -328,79 +328,73 @@ window.addEventListener('scroll',function(){
 })();
 
 
-/* ---------- LA VOCE DELL'OLYMPO: notizie + popup delle ultime news ----------
-   La notizia piu' recente (la prima .vo-item con data-pub gia' passata) si apre come popup
-   per data-giorni giorni (default 3) dalla pubblicazione; poi resta solo nella sezione #voce-olympo.
-   Il popup compare una volta per visita (sessionStorage). Prove: ?voce=1 in fondo all'indirizzo. */
+/* ---------- LA VOCE DELL'OLYMPO: pagina notizie + popup con la locandina ----------
+   Popup (#vobg): compare da data-pub per data-giorni giorni, una volta per visita, e si chiude con la X
+   (o Esc / clic fuori). Scaduto il periodo non compare piu'. Prove: ?voce=1 in fondo all'indirizzo.
+   La sezione #voce-olympo non sta in home: online e' la pagina /la-voce-dell-olympo/,
+   nel file unico si apre dalla voce di menu. */
 (function(){
-  var items=$$('.vo-item'); if(!items.length)return;
-  var GIORNI_DEFAULT=3, now=Date.now();
+  var sec=$('#voce-olympo'), now=Date.now();
 
-  /* "Leggi il piano completo": apre/chiude il dettaglio */
-  items.forEach(function(it){
-    var b=it.querySelector('.vo-more'), d=it.querySelector('.vo-detail');
-    if(!b||!d)return;
+  /* notizie: badge "Nuovo" nei primi giorni e "Leggi il piano completo" */
+  $$('.vo-item').forEach(function(it){
+    var t=Date.parse(it.getAttribute('data-pub')||''), g=parseFloat(it.getAttribute('data-giorni')); if(isNaN(g))g=3;
+    if(!isNaN(t) && now>=t && now<t+g*86400000) it.classList.add('is-new');
+    var b=it.querySelector('.vo-more'), d=it.querySelector('.vo-detail'); if(!b||!d)return;
     b.addEventListener('click',function(){
       var on=d.hasAttribute('hidden');
       if(on)d.removeAttribute('hidden'); else d.setAttribute('hidden','');
       b.setAttribute('aria-expanded',on?'true':'false');
       b.querySelector('span').textContent=on?'Chiudi il piano':'Leggi il piano completo';
-      if(!on)it.scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
 
-  /* notizie nel periodo "nuovo" */
-  function win(it){
-    var t=Date.parse(it.getAttribute('data-pub')||''); if(isNaN(t))return null;
-    var g=parseFloat(it.getAttribute('data-giorni')); if(isNaN(g))g=GIORNI_DEFAULT;
-    return {from:t,to:t+g*86400000};
+  /* file unico: la voce di menu apre la sezione (prima del gestore delle ancore) */
+  function showVoce(){
+    if(!sec)return;
+    sec.classList.add('show');
+    $$('.rv',sec).forEach(function(e){e.classList.add('in')});
+    setTimeout(function(){ window.scrollTo({top:sec.getBoundingClientRect().top+window.scrollY-76,behavior:'smooth'}) },60);
   }
-  var live=items.filter(function(it){ var w=win(it); return w && now>=w.from && now<w.to });
-  live.forEach(function(it){ it.classList.add('is-new') });
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href="#voce-olympo"]'); if(a && sec) sec.classList.add('show');
+  },true);
+  window.addEventListener('hashchange',function(){ if(location.hash==='#voce-olympo')showVoce() });
+  if(location.hash==='#voce-olympo')showVoce();
 
+  /* popup */
+  var bg=$('#vobg'); if(!bg)return;
+  if(document.body.classList.contains('sub') && sec) return;   // sulla pagina della Voce non serve
+  var from=Date.parse(bg.getAttribute('data-pub')||''), gg=parseFloat(bg.getAttribute('data-giorni')); if(isNaN(gg))gg=3;
   var forza=/[?&]voce=1/.test(location.search);
-  var news=live[0]||(forza?items[0]:null);
-  var bg=$('#vobg'); if(!news||!bg)return;
-
-  var KEY='uo-voce-'+(news.id||'news');
+  if(!forza && (isNaN(from) || now<from || now>=from+gg*86400000)) return;
+  var KEY='uo-voce-'+(bg.getAttribute('data-id')||'news');
   try{ if(!forza && sessionStorage.getItem(KEY))return }catch(e){}
-
-  /* riempie il popup con i contenuti della notizia (una sola fonte: l'articolo nella sezione) */
-  var img=news.querySelector('.vo-media img'), t=news.querySelector('.vo-title'),
-      l=news.querySelector('.vo-lead'), k=news.querySelector('.vo-kpi');
-  if(img){ var c=img.cloneNode(); c.removeAttribute('loading'); $('#vopop-img').appendChild(c) }
-  if(t)$('#vopop-title').innerHTML=t.innerHTML;
-  if(l)$('#vopop-lead').innerHTML=l.innerHTML; else $('#vopop-lead').remove();
-  if(k)$('#vopop-kpi').innerHTML=k.innerHTML; else $('#vopop-kpi').remove();
 
   var ck=$('#cookie'), ckWas=false;
   function open(){
     if(ck && ck.classList.contains('on')){ ckWas=true; ck.classList.remove('on') }
-    bg.classList.add('on'); document.body.classList.add('vo-open');
-    document.body.style.overflow='hidden';
+    bg.classList.add('on'); document.body.classList.add('vo-open'); document.body.style.overflow='hidden';
     try{ sessionStorage.setItem(KEY,'1') }catch(e){}
   }
   function close(){
-    bg.classList.remove('on'); document.body.classList.remove('vo-open');
-    document.body.style.overflow='';
+    bg.classList.remove('on'); document.body.classList.remove('vo-open'); document.body.style.overflow='';
     if(ckWas && ck){ ckWas=false; setTimeout(function(){ck.classList.add('on')},400) }
   }
   $('#vox').addEventListener('click',close);
-  $('#volater').addEventListener('click',function(e){e.preventDefault();close()});
   bg.addEventListener('click',function(e){ if(e.target===bg)close() });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&bg.classList.contains('on'))close() });
+  /* clic sulla locandina: online va alla pagina della Voce, nel file unico apre la sezione */
   $('#vogo').addEventListener('click',function(e){
-    e.preventDefault(); close();
-    var d=news.querySelector('.vo-detail'), b=news.querySelector('.vo-more');
-    if(d && d.hasAttribute('hidden') && b)b.click();
-    setTimeout(function(){ news.scrollIntoView({behavior:'smooth',block:'start'}) },250);
+    e.preventDefault(); e.stopPropagation(); close();
+    var h=$('header a.nav-voce'), url=h && h.getAttribute('href');
+    if(url && url.charAt(0)!=='#') location.href=url; else showVoce();
   });
 
-  /* si apre dopo il preloader (se c'e') */
   var pl=$('#preloader'), tries=0;
   (function wait(){
     if(pl && !pl.classList.contains('done') && tries++<60){ setTimeout(wait,250); return }
-    setTimeout(open,900);
+    setTimeout(open,800);
   })();
 })();
 
@@ -522,7 +516,7 @@ window.addEventListener('scroll',function(){
   if(!nav||!menu||!acts||!moreLi||!moreDrop) return;
 
   var ordered=$$('#menu > li').filter(function(li){
-    return !li.hasAttribute('data-drop') && li!==moreLi && li.querySelector('a');
+    return !li.hasAttribute('data-drop') && li!==moreLi && !li.classList.contains('nav-keep') && li.querySelector('a');
   });
 
   var brand=$('.brand',hdr);

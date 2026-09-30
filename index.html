@@ -1281,23 +1281,23 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 .vo-contact span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8d9cbe}
 .vo-contact a{font-family:'Sora';font-weight:600;color:#7fbaff;font-size:17px}
 
-/* popup */
-#vobg{position:fixed;inset:0;z-index:8600;background:rgba(6,11,30,.72);backdrop-filter:blur(9px) saturate(120%);-webkit-backdrop-filter:blur(9px) saturate(120%);display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;transition:.5s var(--ease)}
+/* la sezione non compare in home: solo come pagina a se' (body.sub) o aperta dal menu nel file unico */
+.vo-page:not(.show){display:none}
+body.sub .vo-page{display:block}
+body.sub #voce-olympo .sec-head{display:none}
+body.sub #voce-olympo{padding-top:40px!important}
+/* voce di menu indipendente */
+.menu .nav-voce{color:var(--it-r,#d5262f);font-weight:600}
+/* popup: solo la locandina */
+#vobg{position:fixed;inset:0;z-index:8600;background:rgba(6,11,30,.74);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:.45s var(--ease)}
 #vobg.on{opacity:1;visibility:visible}
-.vopop{position:relative;width:100%;max-width:700px;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;border-radius:26px;border:1px solid rgba(130,180,255,.32);box-shadow:0 50px 120px rgba(4,10,32,.7);background:linear-gradient(135deg,#0a1436,#152668 52%,#1d2f7c);color:#e9eefc;transform:translateY(46px) scale(.94);opacity:0;transition:.6s var(--ease)}
+.vopop{position:relative;max-width:min(1000px,100%);transform:translateY(40px) scale(.95);opacity:0;transition:.55s var(--ease)}
 #vobg.on .vopop{transform:none;opacity:1}
-.vopop-in{overflow-y:auto;-webkit-overflow-scrolling:touch}
-.vopop::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;z-index:6;background:linear-gradient(90deg,#00b056 0 33%,#f2f5ff 33% 66%,#de2d3a 66% 100%)}
-.vopop .evpop-x{z-index:7}
-.vopop-img img{width:100%;height:auto;display:block}
-.vopop-main{padding:24px 30px 26px}
-.vopop-eye{font-family:'Sora';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7fbaff;margin-bottom:8px}
-.vopop h3{font-size:clamp(21px,2.6vw,27px);line-height:1.15;color:#fff;margin-bottom:10px}
-.vopop p{color:#b9c7e6;font-size:14.6px;margin-bottom:18px}
-.vopop p b{color:#fff}
-.vopop .vo-kpi{margin-bottom:20px}
-.vopop-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
-.vopop-actions .evpop-later{width:auto;margin:0}
+.vopop-link{display:block;border-radius:16px;overflow:hidden;box-shadow:0 40px 110px rgba(0,0,0,.6)}
+.vopop-link img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 60px);height:auto}
+.vopop-x{position:absolute;top:-14px;right:-14px;z-index:3;width:40px;height:40px;border-radius:50%;border:2px solid #fff;background:#0a1436;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:.3s var(--ease)}
+.vopop-x:hover{background:#d5262f;transform:rotate(90deg)}
+@media(max-width:600px){.vopop-x{top:-12px;right:-6px;width:36px;height:36px}#vobg{padding:14px}}
 @media(max-width:900px){
   .vo-grid,.vo-cols{grid-template-columns:1fr;gap:24px}
   .vo-item.feature{padding:22px 18px}
@@ -1308,8 +1308,6 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
   .vo-kpi b{font-size:22px}
   .vo-kpi span{font-size:11px}
   .vo-kpi small{display:none}
-  #vobg{padding:12px}
-  .vopop-main{padding:18px 18px 20px}
 }
 .vo-item{scroll-margin-top:110px}
 .vo-title .grad,.vopop h3 .grad{background:linear-gradient(110deg,#ffffff,#8cc4ff 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -1626,7 +1624,6 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
               <a href="/chi-siamo/#gruppo" class="mega-item"><div class="mega-ic">&#127970;</div><div><b>Il Gruppo</b><span>Assetto societario Olympo CDC</span></div></a>
               <a href="/chi-siamo/#storia" class="mega-item"><div class="mega-ic">&#128220;</div><div><b>Dati istituzionali</b><span>P.IVA, REA, sede legale</span></div></a>
               <a href="/chi-siamo/#storia" class="mega-item"><div class="mega-ic">&#9201;</div><div><b>La nostra storia</b><span>Timeline 2015 &ndash; 2026</span></div></a>
-              <a href="/#voce-olympo" class="mega-item"><div class="mega-ic">&#128227;</div><div><b>La Voce dell'Olympo</b><span>Notizie e comunicati</span></div></a>
               <a href="/chi-siamo/#stampa" class="mega-item"><div class="mega-ic">&#128240;</div><div><b>Rassegna stampa</b><span>Il progetto sui media</span></div></a>
               <a href="/calogero-di-carlo/#voce" class="mega-item"><div class="mega-ic">&#127897;</div><div><b>Interventi e interviste</b><span>La voce del fondatore</span></div></a>
             </div>
@@ -1714,7 +1711,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
         </div>
       </li>
 
-      <li><a href="/#voce-olympo">La Voce</a></li>
+      <li class="nav-keep"><a href="/la-voce-dell-olympo/" class="nav-voce">La Voce dell'Olympo</a></li>
       <li><a href="/janus-diploma-online/">Janus</a></li>
       <li><a href="/master-made-in-italy-global-leadership/">Made in Italy</a></li>
       <li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li>
@@ -1742,11 +1739,12 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 <!-- ===== MOBILE MENU ===== -->
 <div class="mob dark" id="mob">
   <div class="mob-group"><button>Ateneo <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="/#voce-olympo">La Voce dell'Olympo</a><a href="/janus-diploma-online/">Janus</a><a href="/chi-siamo/">Il Centro Studi</a><a href="/calogero-di-carlo/">Il fondatore</a><a href="/chi-siamo/#storia">La nostra storia</a><a href="/eventi/">Eventi</a><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a><a href="/chi-siamo/#stampa">Rassegna stampa</a><a href="/calogero-di-carlo/#voce">Interventi e interviste</a><a href="/rete-e-partner/">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
+    <div class="mob-sub"><div><a href="/janus-diploma-online/">Janus</a><a href="/chi-siamo/">Il Centro Studi</a><a href="/calogero-di-carlo/">Il fondatore</a><a href="/chi-siamo/#storia">La nostra storia</a><a href="/eventi/">Eventi</a><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a><a href="/chi-siamo/#stampa">Rassegna stampa</a><a href="/calogero-di-carlo/#voce">Interventi e interviste</a><a href="/rete-e-partner/">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
   <div class="mob-group"><button>Offerta Formativa <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="/corsi-di-laurea/">Corsi di Laurea</a><a href="/master-universitari/">Master I e II livello</a><a href="/certificazioni/">Certificazioni</a><a href="/corsi-singoli-cfu/">Corsi singoli</a><a href="/medicina-senza-test-ingresso/">Studia all'estero</a><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="/servizi-studenti/#piattaforma">La piattaforma</a><a href="/servizi-studenti/">Tutor personale</a><a href="/servizi-studenti/#piattaforma">Piattaforma e-learning</a><a href="/riconoscimento-cfu/">Riconoscimento CFU</a><a href="/servizi-studenti/">Placement</a></div></div></div>
+  <div class="mob-group"><button onclick="location.href='/la-voce-dell-olympo/'">La Voce dell'Olympo</button></div>
   <div class="mob-group"><button onclick="location.href='/master-made-in-italy-global-leadership/'">Master Made in Italy</button></div>
   <div class="mob-group"><button onclick="location.href='/intelligenza-artificiale-ai-act/'">Progetto AI</button></div>
   <div class="mob-group"><button onclick="location.href='/sedi/'">Sedi</button></div>
@@ -1842,9 +1840,9 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 <!-- ===== LA VOCE DELL'OLYMPO - notizie e comunicati =====
      Ogni notizia e' un <article class="vo-item">. Per pubblicarne una nuova copia un articolo,
      mettilo IN CIMA alla lista e cambia id, data-pub (data e ora di pubblicazione), immagine e testi.
-     Per i primi GIORNI (vedi data-giorni, default 3) la notizia piu' recente si apre anche come popup
-     a chi entra nel sito; scaduto il periodo il popup sparisce e la notizia resta qui. -->
-<section id="voce-olympo" style="padding-top:78px">
+     La sezione NON compare in home: online e' la pagina /la-voce-dell-olympo/, nel file unico si apre
+     dalla voce di menu "La Voce dell'Olympo". Il popup con la sola locandina e' #vobg (in fondo alla pagina). -->
+<section id="voce-olympo" class="vo-page" style="padding-top:78px">
   <div class="wrap">
     <div class="sec-head center rv">
       <div class="eyebrow"><em></em> Notizie e comunicati</div>
@@ -4299,7 +4297,7 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
       <div class="f-col"><h5>Ateneo</h5><ul><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Il fondatore</a></li><li><a href="/chi-siamo/#storia">La nostra storia</a></li><li><a href="/chi-siamo/#gruppo">Il Gruppo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a></li><li><a href="/chi-siamo/#stampa">Rassegna stampa</a></li><li><a href="/calogero-di-carlo/#voce">Interventi e interviste</a></li><li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></li><li><a href="/rete-e-partner/">Partnership</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
       <div class="f-col"><h5>Studenti</h5><ul><li><a href="/servizi-studenti/">Servizi</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/servizi-studenti/">Placement</a></li><li><a href="#" data-modal="area">Area riservata</a></li><li><a href="#iscrizione">Iscrizione</a></li><li><a href="/contatti/">Contatti</a></li></ul></div>
     </div>
-    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
+    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/la-voce-dell-olympo/">La Voce dell'Olympo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
     <div class="f-legal" style="padding-bottom:22px">
       UNICESD OLYMPO SRL &mdash; Universitas Centro Studi Olympo &middot; Sede legale Via Trabia 1, 90133 Palermo (PA) &middot; Sede operativa Largo Lituania 11 (ex Via Danimarca), 90141 Palermo (PA) &middot; P.IVA e C.F. 06398000825 &middot; REA PA-318277 &middot; Capitale sociale &euro; 10.000 i.v. &middot; ATECO 85.60.09<br>
       UNICESD Olympo &egrave; un centro di servizi di supporto all'istruzione. I titoli di studio sono rilasciati dagli atenei con cui vengono attivati i percorsi.
@@ -4345,23 +4343,13 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 </div>
 
 <!-- ===== POPUP EVENTO IN EVIDENZA ===== -->
-<!-- ===== POPUP "LA VOCE DELL'OLYMPO": riempito dallo script con la notizia piu' recente ===== -->
-<div id="vobg" role="dialog" aria-modal="true" aria-labelledby="vopop-title">
+<!-- ===== POPUP "LA VOCE DELL'OLYMPO": solo la locandina, si chiude con la X =====
+     data-pub = inizio, data-giorni = per quanti giorni compare (poi non compare piu').
+     Compare una volta per visita. Per una notizia nuova cambia immagine, data-pub e data-id. -->
+<div id="vobg" role="dialog" aria-modal="true" aria-label="La Voce dell'Olympo: ultime notizie" data-id="addetto-stampa" data-pub="2026-09-30T18:00:00+02:00" data-giorni="3">
   <div class="vopop">
-    <button class="evpop-x" id="vox" aria-label="Chiudi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div class="vopop-in">
-    <div class="vopop-img" id="vopop-img"></div>
-    <div class="vopop-main">
-      <div class="vopop-eye">La Voce dell'Olympo &middot; ultime notizie</div>
-      <h3 id="vopop-title"></h3>
-      <p id="vopop-lead"></p>
-      <div class="vo-kpi" id="vopop-kpi"></div>
-      <div class="vopop-actions">
-        <a href="#voce-olympo" class="btn btn-p" id="vogo"><span>Leggi la notizia</span><span class="shine"></span></a>
-        <a href="#" class="evpop-later" id="volater">Chiudi e continua a navigare</a>
-      </div>
-    </div>
-    </div>
+    <button class="vopop-x" id="vox" aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <a href="#voce-olympo" class="vopop-link" id="vogo"><img width="1290" height="861" src="assets/voce/niccoli-addetto-stampa.webp" alt="Massimiliano Niccoli, Addetto Stampa UNICESD Olympo" decoding="async"></a>
   </div>
 </div>
 
@@ -4725,79 +4713,73 @@ window.addEventListener('scroll',function(){
 })();
 
 
-/* ---------- LA VOCE DELL'OLYMPO: notizie + popup delle ultime news ----------
-   La notizia piu' recente (la prima .vo-item con data-pub gia' passata) si apre come popup
-   per data-giorni giorni (default 3) dalla pubblicazione; poi resta solo nella sezione #voce-olympo.
-   Il popup compare una volta per visita (sessionStorage). Prove: ?voce=1 in fondo all'indirizzo. */
+/* ---------- LA VOCE DELL'OLYMPO: pagina notizie + popup con la locandina ----------
+   Popup (#vobg): compare da data-pub per data-giorni giorni, una volta per visita, e si chiude con la X
+   (o Esc / clic fuori). Scaduto il periodo non compare piu'. Prove: ?voce=1 in fondo all'indirizzo.
+   La sezione #voce-olympo non sta in home: online e' la pagina /la-voce-dell-olympo/,
+   nel file unico si apre dalla voce di menu. */
 (function(){
-  var items=$$('.vo-item'); if(!items.length)return;
-  var GIORNI_DEFAULT=3, now=Date.now();
+  var sec=$('#voce-olympo'), now=Date.now();
 
-  /* "Leggi il piano completo": apre/chiude il dettaglio */
-  items.forEach(function(it){
-    var b=it.querySelector('.vo-more'), d=it.querySelector('.vo-detail');
-    if(!b||!d)return;
+  /* notizie: badge "Nuovo" nei primi giorni e "Leggi il piano completo" */
+  $$('.vo-item').forEach(function(it){
+    var t=Date.parse(it.getAttribute('data-pub')||''), g=parseFloat(it.getAttribute('data-giorni')); if(isNaN(g))g=3;
+    if(!isNaN(t) && now>=t && now<t+g*86400000) it.classList.add('is-new');
+    var b=it.querySelector('.vo-more'), d=it.querySelector('.vo-detail'); if(!b||!d)return;
     b.addEventListener('click',function(){
       var on=d.hasAttribute('hidden');
       if(on)d.removeAttribute('hidden'); else d.setAttribute('hidden','');
       b.setAttribute('aria-expanded',on?'true':'false');
       b.querySelector('span').textContent=on?'Chiudi il piano':'Leggi il piano completo';
-      if(!on)it.scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
 
-  /* notizie nel periodo "nuovo" */
-  function win(it){
-    var t=Date.parse(it.getAttribute('data-pub')||''); if(isNaN(t))return null;
-    var g=parseFloat(it.getAttribute('data-giorni')); if(isNaN(g))g=GIORNI_DEFAULT;
-    return {from:t,to:t+g*86400000};
+  /* file unico: la voce di menu apre la sezione (prima del gestore delle ancore) */
+  function showVoce(){
+    if(!sec)return;
+    sec.classList.add('show');
+    $$('.rv',sec).forEach(function(e){e.classList.add('in')});
+    setTimeout(function(){ window.scrollTo({top:sec.getBoundingClientRect().top+window.scrollY-76,behavior:'smooth'}) },60);
   }
-  var live=items.filter(function(it){ var w=win(it); return w && now>=w.from && now<w.to });
-  live.forEach(function(it){ it.classList.add('is-new') });
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href="#voce-olympo"]'); if(a && sec) sec.classList.add('show');
+  },true);
+  window.addEventListener('hashchange',function(){ if(location.hash==='#voce-olympo')showVoce() });
+  if(location.hash==='#voce-olympo')showVoce();
 
+  /* popup */
+  var bg=$('#vobg'); if(!bg)return;
+  if(document.body.classList.contains('sub') && sec) return;   // sulla pagina della Voce non serve
+  var from=Date.parse(bg.getAttribute('data-pub')||''), gg=parseFloat(bg.getAttribute('data-giorni')); if(isNaN(gg))gg=3;
   var forza=/[?&]voce=1/.test(location.search);
-  var news=live[0]||(forza?items[0]:null);
-  var bg=$('#vobg'); if(!news||!bg)return;
-
-  var KEY='uo-voce-'+(news.id||'news');
+  if(!forza && (isNaN(from) || now<from || now>=from+gg*86400000)) return;
+  var KEY='uo-voce-'+(bg.getAttribute('data-id')||'news');
   try{ if(!forza && sessionStorage.getItem(KEY))return }catch(e){}
-
-  /* riempie il popup con i contenuti della notizia (una sola fonte: l'articolo nella sezione) */
-  var img=news.querySelector('.vo-media img'), t=news.querySelector('.vo-title'),
-      l=news.querySelector('.vo-lead'), k=news.querySelector('.vo-kpi');
-  if(img){ var c=img.cloneNode(); c.removeAttribute('loading'); $('#vopop-img').appendChild(c) }
-  if(t)$('#vopop-title').innerHTML=t.innerHTML;
-  if(l)$('#vopop-lead').innerHTML=l.innerHTML; else $('#vopop-lead').remove();
-  if(k)$('#vopop-kpi').innerHTML=k.innerHTML; else $('#vopop-kpi').remove();
 
   var ck=$('#cookie'), ckWas=false;
   function open(){
     if(ck && ck.classList.contains('on')){ ckWas=true; ck.classList.remove('on') }
-    bg.classList.add('on'); document.body.classList.add('vo-open');
-    document.body.style.overflow='hidden';
+    bg.classList.add('on'); document.body.classList.add('vo-open'); document.body.style.overflow='hidden';
     try{ sessionStorage.setItem(KEY,'1') }catch(e){}
   }
   function close(){
-    bg.classList.remove('on'); document.body.classList.remove('vo-open');
-    document.body.style.overflow='';
+    bg.classList.remove('on'); document.body.classList.remove('vo-open'); document.body.style.overflow='';
     if(ckWas && ck){ ckWas=false; setTimeout(function(){ck.classList.add('on')},400) }
   }
   $('#vox').addEventListener('click',close);
-  $('#volater').addEventListener('click',function(e){e.preventDefault();close()});
   bg.addEventListener('click',function(e){ if(e.target===bg)close() });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&bg.classList.contains('on'))close() });
+  /* clic sulla locandina: online va alla pagina della Voce, nel file unico apre la sezione */
   $('#vogo').addEventListener('click',function(e){
-    e.preventDefault(); close();
-    var d=news.querySelector('.vo-detail'), b=news.querySelector('.vo-more');
-    if(d && d.hasAttribute('hidden') && b)b.click();
-    setTimeout(function(){ news.scrollIntoView({behavior:'smooth',block:'start'}) },250);
+    e.preventDefault(); e.stopPropagation(); close();
+    var h=$('header a.nav-voce'), url=h && h.getAttribute('href');
+    if(url && url.charAt(0)!=='#') location.href=url; else showVoce();
   });
 
-  /* si apre dopo il preloader (se c'e') */
   var pl=$('#preloader'), tries=0;
   (function wait(){
     if(pl && !pl.classList.contains('done') && tries++<60){ setTimeout(wait,250); return }
-    setTimeout(open,900);
+    setTimeout(open,800);
   })();
 })();
 
@@ -4919,7 +4901,7 @@ window.addEventListener('scroll',function(){
   if(!nav||!menu||!acts||!moreLi||!moreDrop) return;
 
   var ordered=$$('#menu > li').filter(function(li){
-    return !li.hasAttribute('data-drop') && li!==moreLi && li.querySelector('a');
+    return !li.hasAttribute('data-drop') && li!==moreLi && !li.classList.contains('nav-keep') && li.querySelector('a');
   });
 
   var brand=$('.brand',hdr);

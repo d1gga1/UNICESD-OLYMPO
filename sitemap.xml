@@ -736,6 +736,16 @@
     </image:image>
   </url>
   <url>
+    <loc>https://unicesd-olympo.com/la-voce-dell-olympo/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/voce/niccoli-addetto-stampa.webp</image:loc>
+      <image:title>Locandina UNICESD Olympo: Massimiliano Niccoli, Addetto Stampa, ritratto durante una stretta di mano con microfono. Informazione, formazione, opportunità.</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://unicesd-olympo.com/eventi/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
