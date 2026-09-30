@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=73e7a93b">
+<link rel="stylesheet" href="/assets/css/site.css?v=af0019e4">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNICESD Olympo">
 <meta property="og:locale" content="it_IT">
@@ -56,7 +56,7 @@
     "@type": "ImageObject",
     "url": "https://unicesd-olympo.com/assets/og-cover.jpg"
    },
-   "dateModified": "2026-09-28",
+   "dateModified": "2026-09-30",
    "publisher": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    }
@@ -293,6 +293,7 @@
               <a href="/chi-siamo/#gruppo" class="mega-item"><div class="mega-ic">&#127970;</div><div><b>Il Gruppo</b><span>Assetto societario Olympo CDC</span></div></a>
               <a href="/chi-siamo/#storia" class="mega-item"><div class="mega-ic">&#128220;</div><div><b>Dati istituzionali</b><span>P.IVA, REA, sede legale</span></div></a>
               <a href="/chi-siamo/#storia" class="mega-item"><div class="mega-ic">&#9201;</div><div><b>La nostra storia</b><span>Timeline 2015 &ndash; 2026</span></div></a>
+              <a href="/#voce-olympo" class="mega-item"><div class="mega-ic">&#128227;</div><div><b>La Voce dell'Olympo</b><span>Notizie e comunicati</span></div></a>
               <a href="/chi-siamo/#stampa" class="mega-item"><div class="mega-ic">&#128240;</div><div><b>Rassegna stampa</b><span>Il progetto sui media</span></div></a>
               <a href="/calogero-di-carlo/#voce" class="mega-item"><div class="mega-ic">&#127897;</div><div><b>Interventi e interviste</b><span>La voce del fondatore</span></div></a>
             </div>
@@ -380,6 +381,7 @@
         </div>
       </li>
 
+      <li><a href="/#voce-olympo">La Voce</a></li>
       <li><a href="/janus-diploma-online/">Janus</a></li>
       <li><a href="/master-made-in-italy-global-leadership/">Made in Italy</a></li>
       <li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li>
@@ -407,7 +409,7 @@
 <!-- ===== MOBILE MENU ===== -->
 <div class="mob dark" id="mob">
   <div class="mob-group"><button>Ateneo <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="/janus-diploma-online/">Janus</a><a href="/chi-siamo/">Il Centro Studi</a><a href="/calogero-di-carlo/">Il fondatore</a><a href="/chi-siamo/#storia">La nostra storia</a><a href="/eventi/">Eventi</a><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a><a href="/chi-siamo/#stampa">Rassegna stampa</a><a href="/calogero-di-carlo/#voce">Interventi e interviste</a><a href="/rete-e-partner/">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
+    <div class="mob-sub"><div><a href="/#voce-olympo">La Voce dell'Olympo</a><a href="/janus-diploma-online/">Janus</a><a href="/chi-siamo/">Il Centro Studi</a><a href="/calogero-di-carlo/">Il fondatore</a><a href="/chi-siamo/#storia">La nostra storia</a><a href="/eventi/">Eventi</a><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a><a href="/chi-siamo/#stampa">Rassegna stampa</a><a href="/calogero-di-carlo/#voce">Interventi e interviste</a><a href="/rete-e-partner/">Partnership</a><a href="#" data-modal="qualita">Qualit&agrave; e trasparenza</a></div></div></div>
   <div class="mob-group"><button>Offerta Formativa <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="/corsi-di-laurea/">Corsi di Laurea</a><a href="/master-universitari/">Master I e II livello</a><a href="/certificazioni/">Certificazioni</a><a href="/corsi-singoli-cfu/">Corsi singoli</a><a href="/medicina-senza-test-ingresso/">Studia all'estero</a><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
@@ -616,6 +618,26 @@
 </div>
 
 <!-- ===== POPUP EVENTO IN EVIDENZA ===== -->
+<!-- ===== POPUP "LA VOCE DELL'OLYMPO": riempito dallo script con la notizia piu' recente ===== -->
+<div id="vobg" role="dialog" aria-modal="true" aria-labelledby="vopop-title">
+  <div class="vopop">
+    <button class="evpop-x" id="vox" aria-label="Chiudi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="vopop-in">
+    <div class="vopop-img" id="vopop-img"></div>
+    <div class="vopop-main">
+      <div class="vopop-eye">La Voce dell'Olympo &middot; ultime notizie</div>
+      <h3 id="vopop-title"></h3>
+      <p id="vopop-lead"></p>
+      <div class="vo-kpi" id="vopop-kpi"></div>
+      <div class="vopop-actions">
+        <a href="/#voce-olympo" class="btn btn-p" id="vogo"><span>Leggi la notizia</span><span class="shine"></span></a>
+        <a href="#" class="evpop-later" id="volater">Chiudi e continua a navigare</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
 <div id="evbg" role="dialog" aria-modal="true" aria-labelledby="evpop-title">
   <div class="evpop">
     <button class="evpop-x" id="evx" aria-label="Chiudi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
@@ -646,5 +668,5 @@
 </div>
 
 <script>window.UO_PAGES={"c1": "/corsi-di-laurea/giurisprudenza/", "c2": "/corsi-di-laurea/economia-aziendale/", "c3": "/corsi-di-laurea/scienze-psicologiche/", "c4": "/corsi-di-laurea/scienze-educazione/", "c5": "/corsi-di-laurea/ingegneria-informatica/", "c6": "/corsi-di-laurea/scienze-motorie/", "m1": "/master-made-in-italy-global-leadership/", "m2": "/master-universitari/management-imprese-turistiche/", "m3": "/master-universitari/didattica-innovazione-digitale/", "m4": "/master-universitari/diritto-impresa-internazionale/", "m5": "/master-universitari/data-analytics-business/", "m6": "/master-universitari/management-sanitario/", "k1": "/certificazioni/informatiche/", "k2": "/certificazioni/linguistiche/", "k3": "/certificazioni/graduatorie-scuola/", "s1": "/corsi-singoli-cfu/", "s2": "/riconoscimento-cfu/", "s3": "/formazione-aziendale/"};</script>
-<script src="/assets/js/site.js?v=75c49496" defer></script>
+<script src="/assets/js/site.js?v=c5af642c" defer></script>
 </body></html>

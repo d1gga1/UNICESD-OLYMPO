@@ -1195,6 +1195,78 @@ footer{position:relative;z-index:5;background:linear-gradient(180deg,#0b1436,#05
 @media(max-width:1000px){.ec-head{grid-template-columns:1fr}.ec-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.ec-wrap{padding:22px 16px}.ec-grid{grid-template-columns:1fr}.ec-stats{grid-template-columns:repeat(2,1fr)}.ec-foot{flex-direction:column;align-items:flex-start}.ec-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}.ec-filters .tab{flex-shrink:0}}
 
+/* ===================== LA VOCE DELL'OLYMPO ===================== */
+.vo-list{display:grid;gap:30px}
+.vo-item.feature{padding:34px}
+.vo-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:36px;align-items:center;position:relative;z-index:2}
+.vo-media{display:block;border-radius:18px;overflow:hidden;border:1px solid rgba(130,180,255,.3);box-shadow:0 24px 60px rgba(0,0,0,.45);transition:transform .6s var(--ease)}
+.vo-media:hover{transform:translateY(-4px) scale(1.01)}
+.vo-media img{width:100%;height:auto}
+.vo-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px}
+.vo-new{display:none;align-items:center;gap:7px;padding:5px 12px 5px 10px;border-radius:100px;background:rgba(255,138,43,.14);border:1px solid rgba(255,138,43,.42);color:#ffb066;font-family:'Sora';font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.vo-new i{width:7px;height:7px;border-radius:50%;background:#ff8a2b;box-shadow:0 0 10px #ff8a2b;animation:blink 2.2s infinite}
+.vo-item.is-new .vo-new{display:inline-flex}
+.vo-date{font-family:'Sora';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7fbaff}
+.vo-title{font-size:clamp(23px,2.7vw,32px);line-height:1.15;color:#fff;margin-bottom:14px}
+.vo-lead{color:#b9c7e6;font-size:15.4px;margin-bottom:20px}
+.vo-lead b{color:#fff}
+.vo-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+.vo-kpi>div{padding:14px 12px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(130,180,255,.24);text-align:center}
+.vo-kpi b{display:block;font-family:'Sora';font-size:28px;line-height:1;color:#fff;margin-bottom:6px}
+.vo-kpi span{display:block;font-size:12.4px;font-weight:600;color:#d6e0f6;line-height:1.25}
+.vo-kpi small{display:block;font-size:11px;color:#8d9cbe;margin-top:4px;line-height:1.3}
+.vo-actions{display:flex;flex-wrap:wrap;gap:10px}
+.vo-detail{position:relative;z-index:2;margin-top:30px;padding-top:28px;border-top:1px solid rgba(130,180,255,.2)}
+.vo-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.vo-detail h4{font-size:19px;color:#fff;margin-bottom:4px}
+.vo-sub{color:#7fbaff;font-size:13px;margin-bottom:16px}
+.vo-steps{list-style:none;counter-reset:vo;display:grid;gap:14px}
+.vo-steps li{counter-increment:vo;position:relative;padding-left:44px;color:#b9c7e6;font-size:14.4px}
+.vo-steps li::before{content:counter(vo);position:absolute;left:0;top:1px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:'Sora';font-size:13px;font-weight:700;color:#04102c;background:linear-gradient(120deg,#4fa0ff,#7fbaff)}
+.vo-steps b,.vo-why b{color:#fff}
+.vo-why{list-style:none;display:grid;gap:12px;margin:16px 0 18px}
+.vo-why li{position:relative;padding-left:20px;color:#b9c7e6;font-size:14.4px}
+.vo-why li::before{content:'';position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:#4fa0ff;box-shadow:0 0 8px #4fa0ff}
+.vo-areas{display:flex;flex-wrap:wrap;gap:8px}
+.vo-areas .chip{background:rgba(255,255,255,.06);border-color:rgba(130,180,255,.24);color:#d6e0f6}
+.vo-contact{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:26px;padding:16px 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(130,180,255,.22)}
+.vo-contact b{display:block;color:#fff;font-size:16px}
+.vo-contact span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8d9cbe}
+.vo-contact a{font-family:'Sora';font-weight:600;color:#7fbaff;font-size:17px}
+
+/* popup */
+#vobg{position:fixed;inset:0;z-index:8600;background:rgba(6,11,30,.72);backdrop-filter:blur(9px) saturate(120%);-webkit-backdrop-filter:blur(9px) saturate(120%);display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;transition:.5s var(--ease)}
+#vobg.on{opacity:1;visibility:visible}
+.vopop{position:relative;width:100%;max-width:700px;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;border-radius:26px;border:1px solid rgba(130,180,255,.32);box-shadow:0 50px 120px rgba(4,10,32,.7);background:linear-gradient(135deg,#0a1436,#152668 52%,#1d2f7c);color:#e9eefc;transform:translateY(46px) scale(.94);opacity:0;transition:.6s var(--ease)}
+#vobg.on .vopop{transform:none;opacity:1}
+.vopop-in{overflow-y:auto;-webkit-overflow-scrolling:touch}
+.vopop::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;z-index:6;background:linear-gradient(90deg,#00b056 0 33%,#f2f5ff 33% 66%,#de2d3a 66% 100%)}
+.vopop .evpop-x{z-index:7}
+.vopop-img img{width:100%;height:auto;display:block}
+.vopop-main{padding:24px 30px 26px}
+.vopop-eye{font-family:'Sora';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7fbaff;margin-bottom:8px}
+.vopop h3{font-size:clamp(21px,2.6vw,27px);line-height:1.15;color:#fff;margin-bottom:10px}
+.vopop p{color:#b9c7e6;font-size:14.6px;margin-bottom:18px}
+.vopop p b{color:#fff}
+.vopop .vo-kpi{margin-bottom:20px}
+.vopop-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.vopop-actions .evpop-later{width:auto;margin:0}
+@media(max-width:900px){
+  .vo-grid,.vo-cols{grid-template-columns:1fr;gap:24px}
+  .vo-item.feature{padding:22px 18px}
+}
+@media(max-width:520px){
+  .vo-kpi{gap:7px}
+  .vo-kpi>div{padding:11px 6px}
+  .vo-kpi b{font-size:22px}
+  .vo-kpi span{font-size:11px}
+  .vo-kpi small{display:none}
+  #vobg{padding:12px}
+  .vopop-main{padding:18px 18px 20px}
+}
+.vo-item{scroll-margin-top:110px}
+.vo-title .grad,.vopop h3 .grad{background:linear-gradient(110deg,#ffffff,#8cc4ff 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
 .phero h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:16px 0 18px;max-width:980px}

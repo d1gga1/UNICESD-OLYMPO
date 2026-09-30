@@ -127,6 +127,8 @@ IMAGES = {
     "__CESD_11__": "img/cesd/cesd-11.webp",   # targa del circolo CESD di Comiso (2008)
     "__CESD_VP1__": "img/cesd/cesd-video-1.webp",
     "__CESD_VP2__": "img/cesd/cesd-video-2.webp",
+    # La Voce dell'Olympo - notizie e popup delle ultime news
+    "__IMG_VO_NICCOLI__": "img/voce/niccoli-addetto-stampa.webp",
 }
 
 # Sfondi generati con Higgsfield + globo animato: finiscono nel CSS e nel markup.
