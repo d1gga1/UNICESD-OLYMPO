@@ -1247,7 +1247,9 @@ body.sub #voce-olympo{padding-top:40px!important}
 .vopop{position:relative;max-width:min(1000px,100%);transform:translateY(40px) scale(.95);opacity:0;transition:.55s var(--ease)}
 #vobg.on .vopop{transform:none;opacity:1}
 .vopop-link{display:block;border-radius:16px;overflow:hidden;box-shadow:0 40px 110px rgba(0,0,0,.6)}
-.vopop-link img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 60px);height:auto}
+.vopop-link img{display:block;width:auto;max-width:100%;max-height:calc(100vh - 130px);height:auto}
+.vopop-dl{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}
+.vopop-dl .btn-g{color:#fff;border-color:rgba(255,255,255,.55)}
 .vopop-x{position:absolute;top:-14px;right:-14px;z-index:3;width:40px;height:40px;border-radius:50%;border:2px solid #fff;background:#0a1436;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:.3s var(--ease)}
 .vopop-x:hover{background:#d5262f;transform:rotate(90deg)}
 @media(max-width:600px){.vopop-x{top:-12px;right:-6px;width:36px;height:36px}#vobg{padding:14px}}

@@ -406,11 +406,11 @@ window.addEventListener('scroll',function(){
   bg.addEventListener('click',function(e){ if(e.target===bg)close() });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&bg.classList.contains('on'))close() });
   /* clic sulla locandina: online va alla pagina della Voce, nel file unico apre la sezione */
-  $('#vogo').addEventListener('click',function(e){
+  $$('#vogo,#vogo2').forEach(function(a){ a.addEventListener('click',function(e){
     e.preventDefault(); e.stopPropagation(); close();
     var h=$('header a.nav-voce'), url=h && h.getAttribute('href');
     if(url && url.charAt(0)!=='#') location.href=url; else showVoce();
-  });
+  }) });
 
   var pl=$('#preloader'), tries=0;
   (function wait(){
