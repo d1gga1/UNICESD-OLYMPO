@@ -1330,4 +1330,28 @@ body:not(.sub) #pgrid .pcard:not(.open) .pc-top>div:not(.pc-logo){display:none}
 /* rete in home: i due riquadri grandi (sede di Roma, convenzioni) e la nota restano nella pagina dedicata */
 body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{display:none}
 @media(max-width:440px){.sc-grid{grid-template-columns:1fr 1fr;gap:10px}.sc-card{padding:14px 12px}.sc-card span:not(.sc-ic){font-size:12px}.sc-card b{font-size:14px}}
+/* ===== POLI APERTI ===== */
+.menu .nav-poli{font-weight:600;color:var(--cy)}
+.polo-tag{display:inline-block;margin-left:6px;padding:2px 8px;border-radius:99px;font:600 10.5px 'Sora',sans-serif;letter-spacing:.06em;color:var(--on-accent);background:linear-gradient(90deg,var(--bl),var(--vi));vertical-align:2px}
+.polo-count{display:flex;align-items:baseline;justify-content:center;gap:10px;margin:-6px 0 28px}
+.polo-count b{font:700 44px/1 'Sora',sans-serif;color:var(--txt-strong)}
+.polo-count span{font-size:15px;color:var(--txt-dim);text-transform:uppercase;letter-spacing:.12em}
+.polo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,370px));justify-content:center;gap:22px}
+.polo-card{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(165deg,var(--card-a),var(--card-b));box-shadow:var(--shadow-md);text-decoration:none;color:var(--txt);transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
+.polo-card:hover{transform:translateY(-5px);border-color:var(--cy);box-shadow:var(--shadow-lg)}
+.polo-ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+.polo-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.polo-card:hover .polo-ph img{transform:scale(1.04)}
+.polo-code{position:absolute;left:14px;top:14px;padding:7px 12px;border-radius:10px;font:500 12px 'Sora',sans-serif;color:#fff;background:rgba(10,18,48,.78);backdrop-filter:blur(6px);letter-spacing:.04em}
+.polo-code b{font-size:15px;letter-spacing:.12em}
+.polo-bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:5px;flex:1}
+.polo-bd h3{font-size:19px;color:var(--txt-strong);margin:2px 0 4px}
+.polo-bd p{font-size:13.8px;color:var(--txt-dim);margin:0}
+.polo-bd em{font-style:normal;font:600 12.5px 'Sora',sans-serif;color:var(--cy);margin-top:auto;padding-top:12px}
+.polo-bd em::after{content:' \2192'}
+.polo-st{align-self:flex-start;font:600 11px 'Sora',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--go);padding:3px 10px;border-radius:99px;border:1px solid currentColor}
+.polo-st::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.polo-next{border-style:dashed;background:transparent;box-shadow:none;justify-content:center}
+.polo-next .polo-bd{justify-content:center}
+.polo-code-n{font:700 34px/1 'Sora',sans-serif;letter-spacing:.14em;color:var(--line-strong);margin-bottom:8px}
 </style>

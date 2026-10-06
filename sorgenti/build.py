@@ -47,6 +47,8 @@ IMAGES = {
     "__IMG_KALOS_ETI__": "img/kalos-etichetta.webp",
     "__IMG_TEATRO__": "img/teatro-massimo.webp",
     "__IMG_LISBOA__": "img/lisboa-sede.webp",
+    "__IMG_LICATA_LOC__": "img/global-campus-licata.webp",
+    "__IMG_LICATA_UFF__": "img/licata-ufficio.webp",
     "__IMG_ECP__": "img/ecp-sedi.webp",
     "__IMG_KALOS__": "img/partner/biokalos.webp",
     "__IMG_HASHTAG__": "img/partner/hashtag.webp",
