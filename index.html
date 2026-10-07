@@ -1399,6 +1399,44 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
 .polo-next{border-style:dashed;background:transparent;box-shadow:none;justify-content:center}
 .polo-next .polo-bd{justify-content:center}
 .polo-code-n{font:700 34px/1 'Sora',sans-serif;letter-spacing:.14em;color:var(--line-strong);margin-bottom:8px}
+/* ===== PIANI DI STUDIO ===== */
+.menu .nav-piani{font-weight:700;color:var(--brand)}
+.pds-stats{max-width:820px;margin:-18px auto 0}
+.pds-filters{justify-content:center}
+.pds-list{display:grid;gap:14px}
+.pds-card{border-radius:18px;border:1px solid var(--line);background:var(--panel-solid);box-shadow:var(--shadow-md);overflow:hidden;transition:border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.pds-card:hover{border-color:var(--line-strong)}
+.pds-card[open]{border-color:var(--cy);box-shadow:var(--shadow-lg)}
+.pds-card summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"top h4 more" "top area more" "top curr more";column-gap:22px;row-gap:3px;align-items:center;padding:20px 24px}
+.pds-card summary::-webkit-details-marker{display:none}
+.pds-card summary .ec-top{grid-area:top;flex-direction:column;align-items:flex-start;gap:6px;min-width:96px}
+.pds-card summary h4{grid-area:h4;font-size:18px;line-height:1.25}
+.pds-card summary .ec-area{grid-area:area}
+.pds-curr{grid-area:curr;font-size:12.5px;color:var(--txt-dim)}
+.pds-more{grid-area:more;font-style:normal;font-family:'Sora';font-size:12.5px;font-weight:600;color:var(--cy);padding:9px 16px;border-radius:99px;border:1px solid var(--line);white-space:nowrap;transition:.3s var(--ease)}
+.pds-card summary:hover .pds-more{border-color:var(--cy)}
+.pds-more .c,.pds-card[open] .pds-more .o{display:none}
+.pds-card[open] .pds-more .c{display:inline}
+.pds-body{padding:4px 24px 24px;border-top:1px solid var(--line)}
+.pds-base{margin:18px 0 0;font-size:14.5px;color:var(--txt-dim);line-height:1.6;max-width:820px}
+.pds-years{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:14px;margin-top:20px}
+.pds-y{padding:16px 16px 10px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.pds-y h5,.pds-opt h5{font-family:'Sora';font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cy);margin:0 0 10px}
+.pds-y ul{list-style:none;margin:0;padding:0}
+.pds-y li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:7px 0;border-top:1px dashed var(--line);font-size:13.4px;line-height:1.38;color:var(--txt)}
+.pds-y li:first-child{border-top:0}
+.pds-y li b{flex-shrink:0;font-family:'Sora';font-size:12px;font-weight:700;color:var(--brand);min-width:44px;text-align:right}
+.pds-y li b::after{content:" CFU";font-weight:500;color:var(--txt-mute);font-size:10.5px}
+.pds-opt{margin-top:18px}
+.pds-note{margin:16px 0 0;font-size:12.8px;color:var(--txt-mute);line-height:1.55}
+.pds-card.off,.pds-ms.off,.pds-mh.off{display:none}
+.pds-mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.pds-mh{grid-column:1/-1;font-size:clamp(22px,2.4vw,30px);margin:0 0 4px}
+.pds-foot{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:40px;padding:26px 28px;border-radius:20px;border:1px solid var(--line);background:var(--panel)}
+.pds-foot p{font-size:15px;color:var(--txt-dim);line-height:1.6;max-width:640px;margin:0}
+.pds-foot .btn{flex-shrink:0}
+@media(max-width:1000px){.pds-years{grid-template-columns:repeat(2,minmax(0,1fr))}.pds-mgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.pds-card summary{grid-template-columns:1fr;grid-template-areas:"top" "h4" "area" "curr" "more";padding:18px 16px}.pds-card summary .ec-top{flex-direction:row;align-items:center;justify-content:space-between;width:100%}.pds-more{justify-self:start;margin-top:10px}.pds-body{padding:4px 16px 18px}.pds-years{grid-template-columns:1fr}.pds-mgrid{grid-template-columns:1fr}.pds-foot{flex-direction:column;align-items:flex-start;padding:22px 18px}.pds-stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}.pds-filters{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}.pds-filters .tab{flex-shrink:0}}
 
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
@@ -1766,7 +1804,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
             </div>
           </div>
           <div class="mega-cta">
-            <p>Non sai quale percorso scegliere? Parla con un orientatore dedicato.</p>
+            <p>Non sai quale percorso scegliere? Guarda i <a href="/piani-di-studio/" style="color:inherit;text-decoration:underline">piani di studio</a> o parla con un orientatore dedicato.</p>
             <a href="#iscrizione" class="btn btn-p btn-sm"><span>Richiedi orientamento</span></a>
           </div>
         </div>
@@ -1799,6 +1837,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
         </div>
       </li>
 
+      <li class="nav-keep"><a href="/piani-di-studio/" class="nav-piani">Piani di studio</a></li>
       <li class="nav-keep"><a href="/la-voce-dell-olympo/" class="nav-voce">La Voce dell'Olympo</a></li>
       <li class="nav-keep"><a href="/poli-aperti/" class="nav-poli">Poli aperti</a></li>
       <li><a href="/master-made-in-italy-global-leadership/">Made in Italy</a></li>
@@ -1832,6 +1871,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
     <div class="mob-sub"><div><a href="/corsi-di-laurea/">Corsi di Laurea</a><a href="/master-universitari/">Master I e II livello</a><a href="/certificazioni/">Certificazioni</a><a href="/corsi-singoli-cfu/">Corsi singoli</a><a href="/offerta-formativa/?tab=3#offerta">Diploma online</a><a href="/offerta-formativa/?tab=4#offerta">Studia all'estero</a><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="/servizi-studenti/#piattaforma">La piattaforma</a><a href="/servizi-studenti/">Tutor personale</a><a href="/servizi-studenti/#piattaforma">Piattaforma e-learning</a><a href="/riconoscimento-cfu/">Riconoscimento CFU</a><a href="/servizi-studenti/">Placement</a></div></div></div>
+  <div class="mob-group"><button onclick="location.href='/piani-di-studio/'">Piani di studio</button></div>
   <div class="mob-group"><button onclick="location.href='/la-voce-dell-olympo/'">La Voce dell'Olympo</button></div>
   <div class="mob-group"><button onclick="location.href='/poli-aperti/'">Poli aperti</button></div>
   <div class="mob-group"><button onclick="location.href='/master-made-in-italy-global-leadership/'">Master Made in Italy</button></div>
@@ -2260,6 +2300,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       <p>Chi siamo, gli eventi, i servizi, i progetti e le sedi: ogni tema ha la sua pagina.</p>
     </div>
     <div class="sc-grid">
+      <a class="sc-card rv" href="/piani-di-studio/"><span class="sc-ic">&#128203;</span><b>Piani di studio</b><span>Esame per esame, con i CFU di ogni insegnamento</span><em>Vuoi saperne di pi&ugrave;?</em></a>
       <a class="sc-card rv" href="/calogero-di-carlo/"><span class="sc-ic">&#11088;</span><b>Il fondatore</b><span>Calogero Di Carlo: biografia, numeri e percorso</span><em>Vuoi saperne di pi&ugrave;?</em></a>
       <a class="sc-card rv" href="/chi-siamo/"><span class="sc-ic">&#127963;</span><b>Chi siamo</b><span>Il Centro Studi, la storia dal 2015 e i dati istituzionali</span><em>Vuoi saperne di pi&ugrave;?</em></a>
       <a class="sc-card rv" href="/chi-siamo/#gruppo"><span class="sc-ic">&#127970;</span><b>Il Gruppo Olympo CDC</b><span>Le societ&agrave; del gruppo e le imprese sul campo</span><em>Vuoi saperne di pi&ugrave;?</em></a>
@@ -2774,6 +2815,10 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
 
 <!-- ===== SEDI ===== -->
 
+<!-- ===== PIANI DI STUDIO ===== -->
+<!-- Generata da _tmpimg/piani/gen_piani.py: per cambiare esami o CFU modifica i dati li' e rilancia lo script,
+     oppure edita direttamente qui sotto. Ogni piano e' un <details class="pds-card">. -->
+
 <!-- ===== POLI APERTI ===== -->
 <!-- Per aggiungere un polo: copia un <a class="polo-card"> dentro .polo-grid, con il codice successivo
      (00002, 00003...), e aggiorna il numero in .polo-count. Il riquadro di dettaglio (#licata) e' facoltativo. -->
@@ -2914,7 +2959,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       <div class="f-col"><h5>Ateneo</h5><ul><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Il fondatore</a></li><li><a href="/chi-siamo/#storia">La nostra storia</a></li><li><a href="/chi-siamo/#gruppo">Il Gruppo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a></li><li><a href="/chi-siamo/#stampa">Rassegna stampa</a></li><li><a href="/calogero-di-carlo/#voce">Interventi e interviste</a></li><li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></li><li><a href="/rete-e-partner/">Partnership</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
       <div class="f-col"><h5>Studenti</h5><ul><li><a href="/servizi-studenti/">Servizi</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/servizi-studenti/">Placement</a></li><li><a href="#" data-modal="area">Area riservata</a></li><li><a href="#iscrizione">Iscrizione</a></li><li><a href="/contatti/">Contatti</a></li></ul></div>
     </div>
-    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/la-voce-dell-olympo/">La Voce dell'Olympo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/poli-aperti/">Poli aperti</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
+    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/la-voce-dell-olympo/">La Voce dell'Olympo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/piani-di-studio/">Piani di studio</a></li><li><a href="/poli-aperti/">Poli aperti</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
     <div class="f-legal" style="padding-bottom:22px">
       UNICESD OLYMPO SRL &mdash; Universitas Centro Studi Olympo &middot; Sede legale Via Trabia 1, 90133 Palermo (PA) &middot; Sede operativa Largo Lituania 11 (ex Via Danimarca), 90141 Palermo (PA) &middot; P.IVA e C.F. 06398000825 &middot; REA PA-318277 &middot; Capitale sociale &euro; 10.000 i.v. &middot; ATECO 85.60.09<br>
       UNICESD Olympo &egrave; un centro di servizi di supporto all'istruzione. I titoli di studio sono rilasciati dagli atenei con cui vengono attivati i percorsi.
@@ -4042,6 +4087,21 @@ window.addEventListener('scroll',function(){
 
 /* ===== Catalogo lauree: apertura ===== */
 (function(){ var o=document.getElementById('ecOpen'); if(!o)return; o.addEventListener('click',function(e){ e.stopPropagation(); var w=o.closest('.ec-wrap'); w.classList.add('all'); o.setAttribute('aria-expanded','true') }) })();
+/* ===== Piani di studio - filtro ===== */
+(function(){
+  var f=document.getElementById('pdsFilters'); if(!f) return;
+  var sec=document.getElementById('piani');
+  var bs=[].slice.call(f.querySelectorAll('[data-pds]')), cs=[].slice.call(sec.querySelectorAll('.pds-card,.pds-ms,.pds-mh'));
+  bs.forEach(function(b){ b.addEventListener('click',function(e){
+    e.stopPropagation();
+    bs.forEach(function(x){ x.classList.toggle('on',x===b); });
+    var k=b.getAttribute('data-pds');
+    cs.forEach(function(c){ c.classList.toggle('off',k!=='all'&&c.getAttribute('data-pds')!==k); });
+  }); });
+  // link diretto a un piano (#pds-giur ecc.): apre la sezione e il piano
+  function openPlan(){ var h=location.hash.slice(1); if(h.indexOf('pds-')!==0) return; var d=document.getElementById(h); if(!d) return; if(sec.classList.contains('ente-page')&&!sec.classList.contains('show')){ location.hash='#piani'; setTimeout(function(){ d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'}); },350); } else { d.open=true; } }
+  window.addEventListener('hashchange',openPlan); openPlan();
+})();
 /* ===== Catalogo lauree - filtro per area ===== */
 (function(){
   var f=document.getElementById('ecFilters'), g=document.getElementById('ecGrid');

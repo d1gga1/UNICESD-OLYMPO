@@ -1036,6 +1036,21 @@ window.addEventListener('scroll',function(){
 
 /* ===== Catalogo lauree: apertura ===== */
 (function(){ var o=document.getElementById('ecOpen'); if(!o)return; o.addEventListener('click',function(e){ e.stopPropagation(); var w=o.closest('.ec-wrap'); w.classList.add('all'); o.setAttribute('aria-expanded','true') }) })();
+/* ===== Piani di studio - filtro ===== */
+(function(){
+  var f=document.getElementById('pdsFilters'); if(!f) return;
+  var sec=document.getElementById('piani');
+  var bs=[].slice.call(f.querySelectorAll('[data-pds]')), cs=[].slice.call(sec.querySelectorAll('.pds-card,.pds-ms,.pds-mh'));
+  bs.forEach(function(b){ b.addEventListener('click',function(e){
+    e.stopPropagation();
+    bs.forEach(function(x){ x.classList.toggle('on',x===b); });
+    var k=b.getAttribute('data-pds');
+    cs.forEach(function(c){ c.classList.toggle('off',k!=='all'&&c.getAttribute('data-pds')!==k); });
+  }); });
+  // link diretto a un piano (#pds-giur ecc.): apre la sezione e il piano
+  function openPlan(){ var h=location.hash.slice(1); if(h.indexOf('pds-')!==0) return; var d=document.getElementById(h); if(!d) return; if(sec.classList.contains('ente-page')&&!sec.classList.contains('show')){ location.hash='#piani'; setTimeout(function(){ d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'}); },350); } else { d.open=true; } }
+  window.addEventListener('hashchange',openPlan); openPlan();
+})();
 /* ===== Catalogo lauree - filtro per area ===== */
 (function(){
   var f=document.getElementById('ecFilters'), g=document.getElementById('ecGrid');

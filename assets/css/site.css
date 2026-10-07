@@ -1352,6 +1352,44 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
 .polo-next{border-style:dashed;background:transparent;box-shadow:none;justify-content:center}
 .polo-next .polo-bd{justify-content:center}
 .polo-code-n{font:700 34px/1 'Sora',sans-serif;letter-spacing:.14em;color:var(--line-strong);margin-bottom:8px}
+/* ===== PIANI DI STUDIO ===== */
+.menu .nav-piani{font-weight:700;color:var(--brand)}
+.pds-stats{max-width:820px;margin:-18px auto 0}
+.pds-filters{justify-content:center}
+.pds-list{display:grid;gap:14px}
+.pds-card{border-radius:18px;border:1px solid var(--line);background:var(--panel-solid);box-shadow:var(--shadow-md);overflow:hidden;transition:border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.pds-card:hover{border-color:var(--line-strong)}
+.pds-card[open]{border-color:var(--cy);box-shadow:var(--shadow-lg)}
+.pds-card summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"top h4 more" "top area more" "top curr more";column-gap:22px;row-gap:3px;align-items:center;padding:20px 24px}
+.pds-card summary::-webkit-details-marker{display:none}
+.pds-card summary .ec-top{grid-area:top;flex-direction:column;align-items:flex-start;gap:6px;min-width:96px}
+.pds-card summary h4{grid-area:h4;font-size:18px;line-height:1.25}
+.pds-card summary .ec-area{grid-area:area}
+.pds-curr{grid-area:curr;font-size:12.5px;color:var(--txt-dim)}
+.pds-more{grid-area:more;font-style:normal;font-family:'Sora';font-size:12.5px;font-weight:600;color:var(--cy);padding:9px 16px;border-radius:99px;border:1px solid var(--line);white-space:nowrap;transition:.3s var(--ease)}
+.pds-card summary:hover .pds-more{border-color:var(--cy)}
+.pds-more .c,.pds-card[open] .pds-more .o{display:none}
+.pds-card[open] .pds-more .c{display:inline}
+.pds-body{padding:4px 24px 24px;border-top:1px solid var(--line)}
+.pds-base{margin:18px 0 0;font-size:14.5px;color:var(--txt-dim);line-height:1.6;max-width:820px}
+.pds-years{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:14px;margin-top:20px}
+.pds-y{padding:16px 16px 10px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.pds-y h5,.pds-opt h5{font-family:'Sora';font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cy);margin:0 0 10px}
+.pds-y ul{list-style:none;margin:0;padding:0}
+.pds-y li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:7px 0;border-top:1px dashed var(--line);font-size:13.4px;line-height:1.38;color:var(--txt)}
+.pds-y li:first-child{border-top:0}
+.pds-y li b{flex-shrink:0;font-family:'Sora';font-size:12px;font-weight:700;color:var(--brand);min-width:44px;text-align:right}
+.pds-y li b::after{content:" CFU";font-weight:500;color:var(--txt-mute);font-size:10.5px}
+.pds-opt{margin-top:18px}
+.pds-note{margin:16px 0 0;font-size:12.8px;color:var(--txt-mute);line-height:1.55}
+.pds-card.off,.pds-ms.off,.pds-mh.off{display:none}
+.pds-mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.pds-mh{grid-column:1/-1;font-size:clamp(22px,2.4vw,30px);margin:0 0 4px}
+.pds-foot{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:40px;padding:26px 28px;border-radius:20px;border:1px solid var(--line);background:var(--panel)}
+.pds-foot p{font-size:15px;color:var(--txt-dim);line-height:1.6;max-width:640px;margin:0}
+.pds-foot .btn{flex-shrink:0}
+@media(max-width:1000px){.pds-years{grid-template-columns:repeat(2,minmax(0,1fr))}.pds-mgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.pds-card summary{grid-template-columns:1fr;grid-template-areas:"top" "h4" "area" "curr" "more";padding:18px 16px}.pds-card summary .ec-top{flex-direction:row;align-items:center;justify-content:space-between;width:100%}.pds-more{justify-self:start;margin-top:10px}.pds-body{padding:4px 16px 18px}.pds-years{grid-template-columns:1fr}.pds-mgrid{grid-template-columns:1fr}.pds-foot{flex-direction:column;align-items:flex-start;padding:22px 18px}.pds-stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}.pds-filters{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}.pds-filters .tab{flex-shrink:0}}
 
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
