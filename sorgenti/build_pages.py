@@ -83,6 +83,11 @@ def load_modal_data():
 
 
 DATA = load_modal_data()
+# piani di studio dentro le schede dei corsi (generati da _tmpimg/piani/gen_piani3.py)
+try:
+    PIANI = json.loads((HERE / "piani.json").read_text(encoding="utf-8"))
+except FileNotFoundError:
+    PIANI = {}
 
 # card dell'offerta (icona, sfondo, chip) prese dalla home
 CARDS = {}
@@ -270,7 +275,7 @@ def page_hero(trail, eyebrow, h1, lead, cta=True):
 def card_link(key):
     c, meta = COURSES[key], CARDS[key]
     return (f'<article class="card rv tilt {meta["bg"]}"><div class="card-ic">{meta["ic"]}</div>'
-            f'<h3><a href="{c["url"]}" class="card-link">{meta["h3"]}</a></h3><p>{meta["p"]}</p>'
+            f'<h3 class="ch-link"><a href="{c["url"]}" class="card-link">{meta["h3"]}</a></h3><p>{meta["p"]}</p>'
             f'<div class="card-meta">{meta["meta"]}</div><span class="card-more">Scheda del corso {ARROW}</span></article>')
 
 
@@ -318,13 +323,15 @@ def course_body(key):
     <article class="c-main rv">
       <div class="card-meta">{meta}</div>
       {body}
+      {PIANI.get(key, "")}
       {HOW}
     </article>
     <aside class="c-side">
       <div class="c-box dark">
         <h2>In sintesi</h2>
         <div class="feat-box">{rows}</div>
-        <a href="#iscrizione" class="btn btn-p" style="width:100%;margin-top:18px"><span>Richiedi informazioni</span><span class="shine"></span></a>
+        {('<a href="#piano-di-studi" class="btn btn-g" data-pds-open style="width:100%;margin-top:18px">Vedi il piano di studi</a>') if key in PIANI else ''}
+        <a href="#iscrizione" class="btn btn-p" style="width:100%;margin-top:{'10' if key in PIANI else '18'}px"><span>Richiedi informazioni</span><span class="shine"></span></a>
         <a href="tel:+393509651711" class="btn btn-g" style="width:100%;margin-top:10px">+39 350 965 1711</a>
         <p class="c-small">Segreteria: <a href="tel:+393881133550">388 113 3550</a> · <a href="tel:+393281376792">328 137 6792</a> · <a href="tel:+393356959796">335 695 9796</a></p>
       </div>

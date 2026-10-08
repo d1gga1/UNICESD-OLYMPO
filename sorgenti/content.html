@@ -1460,4 +1460,26 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
 @media(max-width:1100px){.pds-rh,.pds-row>summary{grid-template-columns:minmax(0,1fr) 66px 100px 92px 24px}.pr-a,.pds-rh span:nth-child(4){display:none}}
 @media(max-width:900px){.pds-cat{grid-template-columns:1fr;gap:16px}.pds-side{position:static;box-shadow:none}.pds-sbox{display:grid;gap:10px}.pds-sbox select{display:block}.pds-nav{display:none}}
 @media(max-width:700px){.pds-hd{padding:18px 16px}.pds-tabs{grid-template-columns:repeat(3,auto);overflow-x:auto}.pds-tab{font-size:13px;padding:12px 10px;white-space:nowrap}.pds-rh{display:none}.pds-row>summary{grid-template-columns:auto auto 1fr 18px;row-gap:8px;padding:13px 14px}.pr-n{grid-column:1/-1;padding-right:0}.pr-c{border-left:0;padding-left:0}.pr-t{display:none}.pr-l{border-left:0}.pr-x{grid-column:4;grid-row:2}.pr-d{padding:2px 14px 14px}.pr-d a{margin-left:0}.pds-dl{grid-template-columns:1fr}.pds-tr{grid-template-columns:minmax(0,1fr) 44px 56px;padding:10px 12px}.pds-tr span:nth-child(4){display:none}.pds-ins-top{flex-wrap:wrap}.pds-foot{flex-direction:column;align-items:flex-start;padding:22px 18px}.pds-stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}.pds-yrbar{margin-top:22px}}
+
+/* ===== Piano di studi dentro la scheda del corso ===== */
+.cdl-pds{margin:30px 0 34px;scroll-margin-top:110px}
+.cdl-pds-d{border-radius:18px;border:1px solid var(--line);background:var(--panel-solid,var(--panel));box-shadow:var(--shadow-md);overflow:hidden;transition:border-color .4s var(--ease)}
+.cdl-pds-d[open]{border-color:var(--cy)}
+.cdl-pds-d>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 20px}
+.cdl-pds-d>summary::-webkit-details-marker{display:none}
+.cdl-pds-ic{flex-shrink:0;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:rgba(31,95,208,.09);border:1px solid rgba(31,95,208,.2)}
+.cdl-pds-t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.cdl-pds-t b{font-family:'Sora';font-size:16px;color:var(--txt-strong)}
+.cdl-pds-t small{font-size:12.8px;color:var(--txt-mute)}
+.cdl-pds-b{flex-shrink:0;padding:10px 18px;border-radius:99px;font:600 13px 'Sora',sans-serif;color:var(--on-accent,#fff);background:linear-gradient(120deg,var(--bl),var(--cy));box-shadow:0 8px 22px rgba(79,160,255,.28)}
+.cdl-pds-b .c,.cdl-pds-d[open] .cdl-pds-b .o{display:none}
+.cdl-pds-d[open] .cdl-pds-b .c{display:inline}
+.cdl-pds-in{padding:4px 20px 20px;border-top:1px solid var(--line)}
+.cdl-pds-in .pds-yrbar{margin-top:16px}
+#m-body .cdl-pds{margin:24px 0 0}
+#m-body .cdl-pds-in{padding:4px 14px 16px}
+@media(max-width:640px){.cdl-pds-d>summary{flex-wrap:wrap;padding:16px}.cdl-pds-b{width:100%;text-align:center}.cdl-pds-in{padding:4px 12px 16px}}
+/* card con link: tutta la card porta alla scheda */
+.card>h3.ch-link{position:static}
+.card>h3.ch-link .card-link::after{z-index:3}
 </style>
