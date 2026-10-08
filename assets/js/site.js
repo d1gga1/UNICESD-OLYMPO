@@ -1036,19 +1036,42 @@ window.addEventListener('scroll',function(){
 
 /* ===== Catalogo lauree: apertura ===== */
 (function(){ var o=document.getElementById('ecOpen'); if(!o)return; o.addEventListener('click',function(e){ e.stopPropagation(); var w=o.closest('.ec-wrap'); w.classList.add('all'); o.setAttribute('aria-expanded','true') }) })();
-/* ===== Piani di studio - filtro ===== */
+/* ===== Piani di studio - catalogo (scelta corso, tab, ricerca) ===== */
 (function(){
-  var f=document.getElementById('pdsFilters'); if(!f) return;
+  var cat=document.getElementById('pdsCat'); if(!cat) return;
   var sec=document.getElementById('piani');
-  var bs=[].slice.call(f.querySelectorAll('[data-pds]')), cs=[].slice.call(sec.querySelectorAll('.pds-card,.pds-ms,.pds-mh'));
-  bs.forEach(function(b){ b.addEventListener('click',function(e){
-    e.stopPropagation();
-    bs.forEach(function(x){ x.classList.toggle('on',x===b); });
-    var k=b.getAttribute('data-pds');
-    cs.forEach(function(c){ c.classList.toggle('off',k!=='all'&&c.getAttribute('data-pds')!==k); });
-  }); });
-  // link diretto a un piano (#pds-giur ecc.): apre la sezione e il piano
-  function openPlan(){ var h=location.hash.slice(1); if(h.indexOf('pds-')!==0) return; var d=document.getElementById(h); if(!d) return; if(sec.classList.contains('ente-page')&&!sec.classList.contains('show')){ location.hash='#piani'; setTimeout(function(){ d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'}); },350); } else { d.open=true; } }
+  var panels=[].slice.call(cat.querySelectorAll('.pds-panel'));
+  var links=[].slice.call(cat.querySelectorAll('.pds-ni'));
+  var sel=document.getElementById('pdsSel'), find=document.getElementById('pdsFind');
+  function show(id,scroll){
+    var p=document.getElementById(id); if(!p||!p.classList.contains('pds-panel')) return false;
+    panels.forEach(function(x){ x.classList.toggle('on',x===p); });
+    links.forEach(function(a){ a.classList.toggle('on',a.getAttribute('data-id')===id); });
+    if(sel) sel.value=id;
+    if(scroll){ var m=document.getElementById('pdsMain'); var y=m.getBoundingClientRect().top+window.pageYOffset-110; if(Math.abs(window.pageYOffset-y)>200||m.getBoundingClientRect().top<0) window.scrollTo({top:y,behavior:'smooth'}); }
+    return true;
+  }
+  links.forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); var id=a.getAttribute('data-id'); show(id,true); try{ history.replaceState(null,'','#'+id); }catch(_){} }); });
+  if(sel) sel.addEventListener('change',function(){ show(sel.value,true); try{ history.replaceState(null,'','#'+sel.value); }catch(_){} });
+  if(find) find.addEventListener('input',function(){
+    var q=find.value.trim().toLowerCase();
+    links.forEach(function(a){ a.classList.toggle('off',!!q&&a.textContent.toLowerCase().indexOf(q)<0); });
+    [].slice.call(cat.querySelectorAll('.pds-ng')).forEach(function(g){ g.classList.toggle('off',!g.querySelector('.pds-ni:not(.off)')); });
+  });
+  // tab Scheda / Piani di studio / Insegnamenti offerti
+  panels.forEach(function(p){
+    var ts=[].slice.call(p.querySelectorAll('.pds-tab')), ps=[].slice.call(p.querySelectorAll('.pds-tp'));
+    ts.forEach(function(t){ t.addEventListener('click',function(e){ e.stopPropagation(); var k=t.getAttribute('data-tab');
+      ts.forEach(function(x){ x.classList.toggle('on',x===t); x.setAttribute('aria-selected',x===t?'true':'false'); });
+      ps.forEach(function(x){ x.classList.toggle('on',x.getAttribute('data-tp')===k); }); }); });
+    var q=p.querySelector('.pds-q'); if(q){ var rows=[].slice.call(p.querySelectorAll('.pds-tr:not(.th)')), cnt=p.querySelector('.pds-cnt');
+      q.addEventListener('input',function(){ var v=q.value.trim().toLowerCase(), n=0;
+        rows.forEach(function(r){ var h=!!v&&r.firstChild.textContent.toLowerCase().indexOf(v)<0; r.classList.toggle('hide',h); if(!h)n++; });
+        if(cnt) cnt.textContent=n+' insegnamenti'; }); }
+  });
+  // link diretto a un corso (#pds-giur ecc.)
+  function openPlan(){ var h=location.hash.slice(1); if(h.indexOf('pds-')!==0) return; if(!document.getElementById(h)) return;
+    if(sec.classList.contains('ente-page')&&!sec.classList.contains('show')){ location.hash='#piani'; setTimeout(function(){ show(h,true); try{ history.replaceState(null,'','#'+h); }catch(_){} },350); } else { show(h,true); } }
   window.addEventListener('hashchange',openPlan); openPlan();
 })();
 /* ===== Catalogo lauree - filtro per area ===== */
