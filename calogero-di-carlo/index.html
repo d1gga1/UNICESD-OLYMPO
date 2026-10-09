@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=d1ef0585">
+<link rel="stylesheet" href="/assets/css/site.css?v=b86f950a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNICESD Olympo">
 <meta property="og:locale" content="it_IT">
@@ -56,7 +56,7 @@
     "@type": "ImageObject",
     "url": "https://unicesd-olympo.com/assets/founder-cers.webp"
    },
-   "dateModified": "2026-10-08",
+   "dateModified": "2026-10-09",
    "publisher": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    },
@@ -229,6 +229,7 @@
           <div class="mega-grid">
             <div class="mega-col">
               <h5>Servizi</h5>
+              <a href="/iscrizione/" class="mega-item"><div class="mega-ic">&#128203;</div><div><b>Iscrizione e modulistica</b><span>Procedura, moduli, contratto</span></div></a>
               <a href="/servizi-studenti/" class="mega-item"><div class="mega-ic">&#128172;</div><div><b>Tutor personale</b><span>Affiancamento dedicato</span></div></a>
               <a href="/servizi-studenti/#piattaforma" class="mega-item"><div class="mega-ic">&#128187;</div><div><b>Piattaforma e-learning</b><span>Lezioni 24/7 on demand</span></div></a>
               <a href="/servizi-studenti/" class="mega-item"><div class="mega-ic">&#128221;</div><div><b>Segreteria didattica</b><span>Pratiche e carriera</span></div></a>
@@ -266,7 +267,7 @@
 
     <div class="nav-actions">
       <a href="#iscrizione" class="btn btn-p btn-sm" data-cursor><span>Iscriviti ora</span><span class="shine"></span></a>
-      <button class="btn btn-lock btn-sm" data-modal="area" data-cursor>
+      <button class="btn btn-lock btn-sm" data-area="login" data-cursor>
         <svg class="lock" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
         <span>Area Riservata</span>
       </button>
@@ -282,7 +283,7 @@
   <div class="mob-group"><button>Offerta Formativa <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="/corsi-di-laurea/">Corsi di Laurea</a><a href="/master-universitari/">Master I e II livello</a><a href="/certificazioni/">Certificazioni</a><a href="/corsi-singoli-cfu/">Corsi singoli</a><a href="/offerta-formativa/?tab=3#offerta">Diploma online</a><a href="/offerta-formativa/?tab=4#offerta">Studia all'estero</a><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="/servizi-studenti/#piattaforma">La piattaforma</a><a href="/servizi-studenti/">Tutor personale</a><a href="/servizi-studenti/#piattaforma">Piattaforma e-learning</a><a href="/riconoscimento-cfu/">Riconoscimento CFU</a><a href="/servizi-studenti/">Placement</a></div></div></div>
+    <div class="mob-sub"><div><a href="/iscrizione/">Iscrizione e modulistica</a><a href="/iscrizione/#modulistica">Modulistica</a><a href="/servizi-studenti/#piattaforma">La piattaforma</a><a href="/servizi-studenti/">Tutor personale</a><a href="/servizi-studenti/#piattaforma">Piattaforma e-learning</a><a href="/riconoscimento-cfu/">Riconoscimento CFU</a><a href="/servizi-studenti/">Placement</a></div></div></div>
   <div class="mob-group"><button onclick="location.href='/la-voce-dell-olympo/'">La Voce dell'Olympo</button></div>
   <div class="mob-group"><button onclick="location.href='/poli-aperti/'">Poli aperti</button></div>
   <div class="mob-group"><button onclick="location.href='/master-made-in-italy-global-leadership/'">Master Made in Italy</button></div>
@@ -291,7 +292,7 @@
   <div class="mob-group"><button onclick="location.href='/apri-una-sede/'">Apri una sede</button></div>
   <div class="mob-group"><button onclick="location.hash='#contatti'">Contatti</button></div>
   <a href="#iscrizione" class="btn btn-p" style="width:100%;margin-top:26px"><span>Iscriviti ora</span></a>
-  <button class="btn btn-lock" style="width:100%;margin-top:12px" data-modal="area">
+  <button class="btn btn-lock" style="width:100%;margin-top:12px" data-area="login">
     <svg class="lock" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
     <span>Area Riservata</span>
   </button>
@@ -564,9 +565,9 @@
       </div>
       <div class="f-col"><h5>Offerta</h5><ul><li><a href="/corsi-di-laurea/">Corsi di Laurea</a></li><li><a href="/master-universitari/">Master I livello</a></li><li><a href="/master-universitari/">Master II livello</a></li><li><a href="/certificazioni/">Certificazioni</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/medicina-senza-test-ingresso/">Studia all'estero</a></li><li><a href="/master-made-in-italy-global-leadership/">Made in Italy</a></li></ul></div>
       <div class="f-col"><h5>Ateneo</h5><ul><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="#fondatore">Il fondatore</a></li><li><a href="/chi-siamo/#storia">La nostra storia</a></li><li><a href="/chi-siamo/#gruppo">Il Gruppo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a></li><li><a href="/chi-siamo/#stampa">Rassegna stampa</a></li><li><a href="#voce">Interventi e interviste</a></li><li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></li><li><a href="/rete-e-partner/">Partnership</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
-      <div class="f-col"><h5>Studenti</h5><ul><li><a href="/servizi-studenti/">Servizi</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/servizi-studenti/">Placement</a></li><li><a href="#" data-modal="area">Area riservata</a></li><li><a href="#iscrizione">Iscrizione</a></li><li><a href="#contatti">Contatti</a></li></ul></div>
+      <div class="f-col"><h5>Studenti</h5><ul><li><a href="/servizi-studenti/">Servizi</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/servizi-studenti/">Placement</a></li><li><a href="#" data-area="login">Area riservata</a></li><li><a href="/iscrizione/">Iscrizione</a></li><li><a href="/iscrizione/#modulistica">Modulistica</a></li><li><a href="/iscrizione/#contratto-studente">Contratto con lo studente</a></li><li><a href="#contatti">Contatti</a></li></ul></div>
     </div>
-    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/la-voce-dell-olympo/">La Voce dell'Olympo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/poli-aperti/">Poli aperti</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
+    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/la-voce-dell-olympo/">La Voce dell'Olympo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/poli-aperti/">Poli aperti</a></li><li><a href="/iscrizione/">Iscrizione</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
     <div class="f-legal" style="padding-bottom:22px">
       UNICESD OLYMPO SRL &mdash; Universitas Centro Studi Olympo &middot; Sede legale Via Trabia 1, 90133 Palermo (PA) &middot; Sede operativa Largo Lituania 11 (ex Via Danimarca), 90141 Palermo (PA) &middot; P.IVA e C.F. 06398000825 &middot; REA PA-318277 &middot; Capitale sociale &euro; 10.000 i.v. &middot; ATECO 85.60.09<br>
       UNICESD Olympo &egrave; un centro di servizi di supporto all'istruzione. I titoli di studio sono rilasciati dagli atenei con cui vengono attivati i percorsi.
@@ -599,6 +600,301 @@
   </div>
 </div>
 
+<!-- ===== AREA RISERVATA: accesso, iscrizione e scheda personale =====
+     Si apre da ogni elemento con data-area (data-area="register" apre direttamente l'iscrizione),
+     da #area-riservata nell'indirizzo o da ?area=1. Logica in fondo a script.html (blocco AREA RISERVATA).
+     Senza chiavi Supabase (UO_AUTH in script.html) funziona in MODALITA' DIMOSTRATIVA: i dati restano
+     solo nel browser di chi prova. Istruzioni: sorgenti/area-riservata/LEGGIMI-AREA-RISERVATA.md -->
+<div id="arbg" role="dialog" aria-modal="true" aria-labelledby="ar-title" hidden>
+
+  <!-- ACCESSO / ISCRIZIONE -->
+  <div class="ar-auth" id="arAuth">
+    <button class="ar-x" type="button" data-ar-close aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="ar-side dark">
+      <img src="/assets/logo-light-480.webp" alt="UNICESD Olympo" width="480" height="213" class="ar-logo">
+      <div class="eyebrow"><em></em> Area Riservata</div>
+      <h3 id="ar-title">Il tuo spazio <span class="grad">personale</span></h3>
+      <ul class="ar-perks">
+        <li><b>La tua scheda</b><span>Dati anagrafici, recapiti e percorso scelto, sempre aggiornati.</span></li>
+        <li><b>I tuoi documenti</b><span>Carichi documento, titolo di studio e contratto firmato.</span></li>
+        <li><b>Modulistica e contratto</b><span>Tutti i moduli da scaricare, in un posto solo.</span></li>
+        <li><b>Lo stato della pratica</b><span>Vedi a che punto &egrave; la tua iscrizione.</span></li>
+      </ul>
+      <p class="ar-help">Problemi di accesso? <a href="tel:+393281376792">328 137 6792</a> &middot; <a href="mailto:Calogero60@yahoo.it">Calogero60@yahoo.it</a></p>
+    </div>
+
+    <div class="ar-main">
+      <div class="ar-demo" data-ar-demo hidden><b>Modalit&agrave; dimostrativa.</b> Il portale non &egrave; ancora collegato al server: puoi provarlo, ma i dati restano solo in questo browser.</div>
+
+      <!-- login -->
+      <form class="ar-pane" id="arLogin" data-pane="login" novalidate>
+        <h4>Accedi</h4>
+        <p class="ar-sub">Inserisci le credenziali che hai scelto al momento dell'iscrizione.</p>
+        <div class="field"><label for="arl-email">Email</label><input id="arl-email" name="email" type="email" required autocomplete="username" placeholder="nome@email.it"><div class="err-msg">Inserisci un indirizzo email valido</div></div>
+        <div class="field ar-pw"><label for="arl-pw">Password</label><input id="arl-pw" name="password" type="password" required autocomplete="current-password" placeholder="La tua password"><button type="button" class="ar-eye" aria-label="Mostra la password">&#128065;</button><div class="err-msg">Inserisci la password</div></div>
+        <div class="ar-row"><a href="#" data-ar-go="forgot">Password dimenticata?</a></div>
+        <div class="ar-msg" role="alert"></div>
+        <button type="submit" class="btn btn-p ar-wide"><span>Accedi</span><span class="shine"></span></button>
+        <div class="ar-or"><span>Non hai le credenziali?</span></div>
+        <button type="button" class="btn btn-lock ar-wide" data-ar-go="register"><span>Iscriviti</span></button>
+        <p class="ar-note">L'iscrizione crea il tuo account personale. Ti servono un documento d'identit&agrave;, il codice fiscale e i dati del tuo titolo di studio.</p>
+      </form>
+
+      <!-- password dimenticata -->
+      <form class="ar-pane" id="arForgot" data-pane="forgot" novalidate hidden>
+        <h4>Recupera la password</h4>
+        <p class="ar-sub">Scrivi l'email con cui ti sei iscritto: ti mandiamo un link per sceglierne una nuova.</p>
+        <div class="field"><label for="arf-email">Email</label><input id="arf-email" name="email" type="email" required autocomplete="username" placeholder="nome@email.it"><div class="err-msg">Inserisci un indirizzo email valido</div></div>
+        <div class="ar-msg" role="alert"></div>
+        <button type="submit" class="btn btn-p ar-wide"><span>Invia il link</span><span class="shine"></span></button>
+        <p class="ar-note"><a href="#" data-ar-go="login">&larr; Torna all'accesso</a></p>
+      </form>
+
+      <!-- nuova password (dal link ricevuto via email) -->
+      <form class="ar-pane" id="arRecover" data-pane="recover" novalidate hidden>
+        <h4>Scegli una nuova password</h4>
+        <p class="ar-sub">Almeno 8 caratteri, con lettere e numeri.</p>
+        <div class="field ar-pw"><label for="arr-pw">Nuova password</label><input id="arr-pw" name="password" type="password" required autocomplete="new-password"><button type="button" class="ar-eye" aria-label="Mostra la password">&#128065;</button><div class="err-msg">Almeno 8 caratteri, con lettere e numeri</div></div>
+        <div class="ar-msg" role="alert"></div>
+        <button type="submit" class="btn btn-p ar-wide"><span>Salva la password</span><span class="shine"></span></button>
+      </form>
+
+      <!-- iscrizione in 5 passi -->
+      <form class="ar-pane" id="arReg" data-pane="register" novalidate hidden>
+        <h4>Iscriviti</h4>
+        <p class="ar-sub">Cinque passi, circa cinque minuti. I campi con * sono obbligatori.</p>
+        <ol class="ar-steps" aria-label="Passi dell'iscrizione">
+          <li class="on"><i>1</i><span>Account</span></li><li><i>2</i><span>Anagrafica</span></li><li><i>3</i><span>Residenza</span></li><li><i>4</i><span>Percorso</span></li><li><i>5</i><span>Conferma</span></li>
+        </ol>
+
+        <fieldset class="ar-step" data-step="1">
+          <legend>Le tue credenziali</legend>
+          <div class="field"><label for="ar-email">Email *</label><input id="ar-email" name="email" type="email" autocomplete="email" placeholder="nome@email.it" required><div class="err-msg">Inserisci un indirizzo email valido</div></div>
+          <div class="f-row">
+            <div class="field ar-pw"><label for="ar-pw">Password *</label><input id="ar-pw" name="password" type="password" autocomplete="new-password" required><button type="button" class="ar-eye" aria-label="Mostra la password">&#128065;</button><div class="err-msg">Almeno 8 caratteri, con lettere e numeri</div></div>
+            <div class="field"><label for="ar-pw2">Ripeti la password *</label><input id="ar-pw2" name="password2" type="password" autocomplete="new-password" required><div class="err-msg">Le due password non coincidono</div></div>
+          </div>
+          <div class="ar-meter" aria-hidden="true"><i></i></div>
+          <p class="ar-note" style="text-align:left">Email e password saranno le tue credenziali per accedere all'Area Riservata. Conservale con cura.</p>
+        </fieldset>
+
+        <fieldset class="ar-step" data-step="2" hidden>
+          <legend>Dati anagrafici</legend>
+          <div class="f-row">
+            <div class="field"><label for="ar-nome">Nome *</label><input id="ar-nome" name="nome" type="text" autocomplete="given-name" required><div class="err-msg">Inserisci il nome</div></div>
+            <div class="field"><label for="ar-cognome">Cognome *</label><input id="ar-cognome" name="cognome" type="text" autocomplete="family-name" required><div class="err-msg">Inserisci il cognome</div></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-sesso">Sesso *</label><select id="ar-sesso" name="sesso" required><option value="">Seleziona&hellip;</option><option value="F">Femminile</option><option value="M">Maschile</option></select><div class="err-msg">Seleziona</div></div>
+            <div class="field"><label for="ar-nascita">Data di nascita *</label><input id="ar-nascita" name="data_nascita" type="date" autocomplete="bday" required><div class="err-msg">Inserisci la data di nascita</div></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-comn">Comune (o Stato estero) di nascita *</label><input id="ar-comn" name="comune_nascita" type="text" required><div class="err-msg">Inserisci il luogo di nascita</div></div>
+            <div class="field"><label for="ar-provn">Provincia di nascita</label><input id="ar-provn" name="prov_nascita" type="text" maxlength="2" placeholder="PA" class="ar-up"></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-citt">Cittadinanza *</label><input id="ar-citt" name="cittadinanza" type="text" value="Italiana" required><div class="err-msg">Inserisci la cittadinanza</div></div>
+            <div class="field"><label for="ar-cf">Codice fiscale *</label><input id="ar-cf" name="codice_fiscale" type="text" maxlength="16" class="ar-up" autocomplete="off" required><div class="err-msg">Codice fiscale non valido</div></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="ar-step" data-step="3" hidden>
+          <legend>Recapiti e residenza</legend>
+          <div class="f-row">
+            <div class="field"><label for="ar-cell">Cellulare *</label><input id="ar-cell" name="cellulare" type="tel" autocomplete="tel" placeholder="+39 333 000 0000" required><div class="err-msg">Inserisci un numero valido</div></div>
+            <div class="field"><label for="ar-tel">Altro telefono</label><input id="ar-tel" name="telefono" type="tel"></div>
+          </div>
+          <div class="field"><label for="ar-ind">Indirizzo di residenza *</label><input id="ar-ind" name="indirizzo" type="text" autocomplete="street-address" placeholder="Via e numero civico" required><div class="err-msg">Inserisci l'indirizzo</div></div>
+          <div class="f-row ar-3">
+            <div class="field"><label for="ar-cap">CAP *</label><input id="ar-cap" name="cap" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" required><div class="err-msg">CAP di 5 cifre</div></div>
+            <div class="field"><label for="ar-com">Comune *</label><input id="ar-com" name="comune" type="text" autocomplete="address-level2" required><div class="err-msg">Inserisci il comune</div></div>
+            <div class="field"><label for="ar-prov">Prov. *</label><input id="ar-prov" name="provincia" type="text" maxlength="2" class="ar-up" required><div class="err-msg">Sigla</div></div>
+          </div>
+          <div class="field"><label for="ar-dom">Domicilio, se diverso dalla residenza</label><input id="ar-dom" name="domicilio" type="text" placeholder="Facoltativo"></div>
+        </fieldset>
+
+        <fieldset class="ar-step" data-step="4" hidden>
+          <legend>Il tuo percorso</legend>
+          <div class="f-row">
+            <div class="field"><label for="ar-perc">Tipo di percorso *</label>
+              <select id="ar-perc" name="percorso" required>
+                <option value="">Seleziona&hellip;</option>
+                <option>Corso di laurea triennale</option><option>Corso di laurea magistrale</option><option>Laurea a ciclo unico</option>
+                <option>Master di I livello</option><option>Master di II livello</option><option>Diploma di scuola superiore online</option>
+                <option>Studiare all'estero (Medicina e area sanitaria)</option><option>Certificazioni informatiche e linguistiche</option>
+                <option>Corsi singoli e CFU</option><option>Corsi di intelligenza artificiale</option><option>Formazione professionale</option>
+              </select><div class="err-msg">Seleziona il tipo di percorso</div></div>
+            <div class="field"><label for="ar-corso">Corso *</label><input id="ar-corso" name="corso" type="text" list="ar-corsi" placeholder="Es. Giurisprudenza" required><datalist id="ar-corsi"></datalist><div class="err-msg">Indica il corso</div></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-mod">Modalit&agrave; *</label><select id="ar-mod" name="modalita" required><option value="">Seleziona&hellip;</option><option>Online</option><option>Online con supporto in sede</option></select><div class="err-msg">Seleziona</div></div>
+            <div class="field"><label for="ar-polo">Sede o polo di riferimento *</label><select id="ar-polo" name="polo" required><option value="">Seleziona&hellip;</option><option>Palermo &middot; Via Trabia 1</option><option>Campofelice di Roccella</option><option>Polo 00001 &middot; Global Campus Licata</option><option>Gliaca di Piraino &middot; AFEIP</option><option>Nessuna preferenza (tutto online)</option></select><div class="err-msg">Seleziona</div></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-tit">Titolo di studio posseduto *</label><select id="ar-tit" name="titolo_studio" required><option value="">Seleziona&hellip;</option><option>Licenza media</option><option>Diploma di scuola superiore</option><option>Laurea triennale</option><option>Laurea magistrale / vecchio ordinamento</option><option>Master / Dottorato</option><option>Titolo estero</option></select><div class="err-msg">Seleziona il titolo</div></div>
+            <div class="field"><label for="ar-anno">Anno di conseguimento</label><input id="ar-anno" name="anno_titolo" type="text" inputmode="numeric" maxlength="4" placeholder="Es. 2012"></div>
+          </div>
+          <div class="field"><label for="ar-ist">Istituto o ateneo che lo ha rilasciato</label><input id="ar-ist" name="istituto" type="text" placeholder="Nome e citt&agrave;"></div>
+        </fieldset>
+
+        <fieldset class="ar-step" data-step="5" hidden>
+          <legend>Riepilogo e consensi</legend>
+          <dl class="ar-recap" id="arRecap"></dl>
+          <label class="check"><input type="checkbox" name="consenso_contratto" required><span>Ho letto e accetto il <a href="/modulistica/contratto-con-lo-studente.pdf" target="_blank" rel="noopener">Contratto con lo studente</a> di UNICESD Olympo. *</span></label>
+          <label class="check"><input type="checkbox" name="consenso_privacy" required><span>Ho letto l'<a href="#" data-modal="privacy">informativa privacy</a> e acconsento al trattamento dei miei dati per gestire l'iscrizione. *</span></label>
+          <label class="check"><input type="checkbox" name="consenso_marketing"><span>Acconsento a ricevere aggiornamenti su corsi, master e iniziative di UNICESD Olympo.</span></label>
+          <p class="ar-note" style="text-align:left">Dichiaro che i dati inseriti sono veritieri, consapevole delle conseguenze previste dagli artt. 75 e 76 del D.P.R. 445/2000 per le dichiarazioni mendaci.</p>
+        </fieldset>
+
+        <div class="ar-msg" role="alert"></div>
+        <div class="ar-nav">
+          <button type="button" class="btn btn-g" data-ar-prev hidden>&larr; Indietro</button>
+          <button type="button" class="btn btn-p" data-ar-next><span>Avanti &rarr;</span><span class="shine"></span></button>
+          <button type="submit" class="btn btn-p" data-ar-submit hidden><span>Completa l'iscrizione</span><span class="shine"></span></button>
+        </div>
+        <p class="ar-note">Hai gi&agrave; le credenziali? <a href="#" data-ar-go="login">Accedi</a></p>
+      </form>
+
+      <!-- iscrizione ricevuta, in attesa di conferma email -->
+      <div class="ar-pane ar-done" data-pane="check" hidden>
+        <div class="ar-done-ic">&#9993;</div>
+        <h4>Controlla la tua email</h4>
+        <p class="ar-sub">Ti abbiamo scritto all'indirizzo <b data-ar-mail></b>. Apri il messaggio e clicca sul link di conferma: da quel momento puoi accedere con la tua email e la password che hai scelto.</p>
+        <button type="button" class="btn btn-p ar-wide" data-ar-go="login"><span>Vai all'accesso</span><span class="shine"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDA PERSONALE (dopo l'accesso) -->
+  <div class="ar-dash" id="arDash" hidden>
+    <aside class="ar-nav-side dark">
+      <img src="/assets/logo-light-480.webp" alt="UNICESD Olympo" width="480" height="213" class="ar-logo">
+      <div class="ar-me">
+        <div class="ar-av" data-f="iniziali">&middot;</div>
+        <div><b data-f="nome_completo"></b><span>Matricola <em data-f="matricola"></em></span></div>
+      </div>
+      <nav class="ar-tabs" role="tablist">
+        <button type="button" class="on" data-ar-tab="scheda" role="tab">&#128100; La mia scheda</button>
+        <button type="button" data-ar-tab="documenti" role="tab">&#128206; I miei documenti</button>
+        <button type="button" data-ar-tab="moduli" role="tab">&#128196; Modulistica</button>
+        <button type="button" data-ar-tab="contratto" role="tab">&#9998; Contratto</button>
+        <button type="button" data-ar-tab="sicurezza" role="tab">&#128273; Password</button>
+      </nav>
+      <button type="button" class="btn btn-g btn-sm ar-out" data-ar-logout>Esci</button>
+      <button type="button" class="ar-back" data-ar-close>&larr; Torna al sito</button>
+    </aside>
+
+    <div class="ar-body">
+      <button class="ar-x" type="button" data-ar-close aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <div class="ar-demo" data-ar-demo hidden><b>Modalit&agrave; dimostrativa.</b> I dati restano solo in questo browser.</div>
+
+      <!-- La mia scheda -->
+      <section class="ar-tab" data-tab="scheda">
+        <div class="ar-hello"><span>Ciao</span> <b data-f="nome"></b></div>
+        <div class="ar-state">
+          <div class="ar-state-h"><b>Stato della pratica</b><span class="ar-pill" data-f="stato_label"></span></div>
+          <ol class="ar-track" data-f="track"><li>Registrazione</li><li>Documenti</li><li>Verifica della segreteria</li><li>Iscrizione perfezionata</li></ol>
+          <p class="ar-state-t" data-f="stato_testo"></p>
+        </div>
+
+        <div class="ar-card">
+          <div class="ar-card-h"><h5>Dati anagrafici</h5><span class="ar-lockt">&#128274; Non modificabili</span></div>
+          <dl class="ar-dl">
+            <div><dt>Nome</dt><dd data-f="nome"></dd></div><div><dt>Cognome</dt><dd data-f="cognome"></dd></div>
+            <div><dt>Sesso</dt><dd data-f="sesso_label"></dd></div><div><dt>Data di nascita</dt><dd data-f="data_nascita_it"></dd></div>
+            <div><dt>Luogo di nascita</dt><dd data-f="luogo_nascita"></dd></div><div><dt>Cittadinanza</dt><dd data-f="cittadinanza"></dd></div>
+            <div><dt>Codice fiscale</dt><dd data-f="codice_fiscale"></dd></div><div><dt>Email di accesso</dt><dd data-f="email"></dd></div>
+            <div><dt>Matricola</dt><dd data-f="matricola"></dd></div><div><dt>Iscritto dal</dt><dd data-f="creato_it"></dd></div>
+          </dl>
+          <p class="ar-hint">Per correggere un dato bloccato scarica il modulo <a href="/modulistica/variazione-dati-anagrafici.pdf" target="_blank" rel="noopener">Variazione dei dati anagrafici</a> e caricalo fra i tuoi documenti, oppure scrivi alla segreteria.</p>
+        </div>
+
+        <form class="ar-card" id="arEdit" novalidate>
+          <div class="ar-card-h"><h5>Recapiti e residenza</h5><span class="ar-okt">&#9998; Modificabili</span></div>
+          <div class="f-row">
+            <div class="field"><label for="are-cell">Cellulare *</label><input id="are-cell" name="cellulare" type="tel"><div class="err-msg">Inserisci un numero valido</div></div>
+            <div class="field"><label for="are-tel">Altro telefono</label><input id="are-tel" name="telefono" type="tel"></div>
+          </div>
+          <div class="field"><label for="are-ind">Indirizzo di residenza *</label><input id="are-ind" name="indirizzo" type="text"><div class="err-msg">Inserisci l'indirizzo</div></div>
+          <div class="f-row ar-3">
+            <div class="field"><label for="are-cap">CAP *</label><input id="are-cap" name="cap" type="text" inputmode="numeric" maxlength="5"><div class="err-msg">CAP di 5 cifre</div></div>
+            <div class="field"><label for="are-com">Comune *</label><input id="are-com" name="comune" type="text"><div class="err-msg">Inserisci il comune</div></div>
+            <div class="field"><label for="are-prov">Prov. *</label><input id="are-prov" name="provincia" type="text" maxlength="2" class="ar-up"><div class="err-msg">Sigla</div></div>
+          </div>
+          <div class="field"><label for="are-dom">Domicilio, se diverso</label><input id="are-dom" name="domicilio" type="text"></div>
+          <div class="field"><label for="are-polo">Sede o polo di riferimento</label><select id="are-polo" name="polo"></select></div>
+          <label class="check"><input type="checkbox" name="consenso_marketing"><span>Voglio ricevere aggiornamenti su corsi, master e iniziative.</span></label>
+          <div class="ar-msg" role="alert"></div>
+          <button type="submit" class="btn btn-p"><span>Salva le modifiche</span><span class="shine"></span></button>
+        </form>
+
+        <div class="ar-card">
+          <div class="ar-card-h"><h5>Il percorso scelto</h5><span class="ar-lockt">&#128274; Non modificabile</span></div>
+          <dl class="ar-dl">
+            <div><dt>Tipo di percorso</dt><dd data-f="percorso"></dd></div><div><dt>Corso</dt><dd data-f="corso"></dd></div>
+            <div><dt>Modalit&agrave;</dt><dd data-f="modalita"></dd></div><div><dt>Titolo posseduto</dt><dd data-f="titolo_studio"></dd></div>
+            <div><dt>Rilasciato da</dt><dd data-f="istituto"></dd></div><div><dt>Anno</dt><dd data-f="anno_titolo"></dd></div>
+          </dl>
+          <p class="ar-hint">Vuoi cambiare corso? Usa il modulo <a href="/modulistica/passaggio-ad-altro-corso.pdf" target="_blank" rel="noopener">Passaggio ad altro corso</a>.</p>
+        </div>
+      </section>
+
+      <!-- Documenti -->
+      <section class="ar-tab" data-tab="documenti" hidden>
+        <h4 class="ar-h">I miei documenti</h4>
+        <p class="ar-sub">Carica i documenti in PDF o in foto (JPG, PNG), fino a 10 MB ciascuno. La segreteria li controlla e aggiorna lo stato della pratica.</p>
+        <div class="ar-docs" id="arDocs"></div>
+      </section>
+
+      <!-- Modulistica -->
+      <section class="ar-tab" data-tab="moduli" hidden>
+        <h4 class="ar-h">Modulistica</h4>
+        <p class="ar-sub">Scarica il modulo, compilalo, firmalo e caricalo nella sezione <a href="#" data-ar-tab="documenti">I miei documenti</a> come &laquo;Altro documento&raquo;.</p>
+        <div class="ar-mods" id="arMods"></div>
+      </section>
+
+      <!-- Contratto -->
+      <section class="ar-tab" data-tab="contratto" hidden>
+        <h4 class="ar-h">Il contratto con lo studente</h4>
+        <div class="ar-card">
+          <p>Hai accettato il <b>Contratto con lo studente</b> il <b data-f="contratto_it"></b>, al momento dell'iscrizione online.</p>
+          <p>Per perfezionare l'iscrizione scarica il contratto, firmalo in ogni pagina e caricalo fra i tuoi documenti (oppure consegnalo in sede).</p>
+          <div class="ar-actions">
+            <a class="btn btn-p" href="/modulistica/contratto-con-lo-studente.pdf" target="_blank" rel="noopener"><span>Scarica il contratto (PDF)</span><span class="shine"></span></a>
+            <button type="button" class="btn btn-g" data-ar-tab="documenti">Carica il contratto firmato</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Password -->
+      <section class="ar-tab" data-tab="sicurezza" hidden>
+        <h4 class="ar-h">Cambia la password</h4>
+        <form class="ar-card" id="arPw" novalidate>
+          <div class="f-row">
+            <div class="field ar-pw"><label for="arp-1">Nuova password</label><input id="arp-1" name="password" type="password" required autocomplete="new-password"><button type="button" class="ar-eye" aria-label="Mostra la password">&#128065;</button><div class="err-msg">Almeno 8 caratteri, con lettere e numeri</div></div>
+            <div class="field"><label for="arp-2">Ripeti la password</label><input id="arp-2" name="password2" type="password" required autocomplete="new-password"><div class="err-msg">Le due password non coincidono</div></div>
+          </div>
+          <div class="ar-msg" role="alert"></div>
+          <button type="submit" class="btn btn-p"><span>Aggiorna la password</span><span class="shine"></span></button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- ===== JANUS IN EVIDENZA: finestra che segue il mouse per qualche secondo, poi si ferma in basso a destra =====
+     Logica in fondo a script.html (blocco JANUS IN EVIDENZA). Compare su tutte le pagine; segue il mouse solo
+     alla prima pagina della visita. Chiusa con la X non ricompare fino alla visita successiva. Prova: ?janus=1 -->
+<div id="jnfly" hidden>
+  <button type="button" class="jnf-x" aria-label="Chiudi">&times;</button>
+  <button type="button" class="jnf-min" aria-label="Riduci">&ndash;</button>
+  <a href="/janus-diploma-online/" class="jnf-card" aria-label="Janus, diploma online: scopri gli 11 indirizzi">
+    <span class="jnf-tag">In evidenza</span>
+    <img src="/assets/janus/janus-sede-560.webp" width="560" height="866" alt="Janus Istituto Superiore per la Formazione: la sede con le attivit&agrave; della rete" decoding="async">
+    <span class="jnf-cap"><b>Janus</b> &middot; Diploma online<small>11 indirizzi, tutor personale &middot; Scopri &rarr;</small></span>
+  </a>
+  <i class="jnf-bar"></i>
+</div>
+
 <!-- ===== TOAST ===== -->
 <div id="toast"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2ee6a0" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span id="toast-txt">Fatto</span></div>
 
@@ -629,17 +925,17 @@
 <div id="evbg" role="dialog" aria-modal="true" aria-labelledby="evpop-title">
   <div class="evpop">
     <button class="evpop-x" id="evx" aria-label="Chiudi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div class="evpop-img"><img width="680" height="1020" src="/assets/eventi/convention-18set2026.webp" alt="Convention UNICESD Olympo, 18 settembre 2026" loading="lazy" decoding="async"></div>
+    <div class="evpop-img"><img width="1290" height="1373" src="/assets/eventi/programma-24ott2026.webp" alt="Programma del 24 ottobre 2026, AFEIP a Gliaca di Piraino" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></div>
     <div class="evpop-main" id="evpop-main">
       <span class="ev-badge">Prossimo evento <i></i></span>
-      <h3 id="evpop-title">Convention UNICESD Olympo</h3>
-      <div class="ev-kicker">Incontrarsi, confrontarsi, crescere</div>
+      <h3 id="evpop-title">Insieme, per una formazione sempre pi&ugrave; grande</h3>
+      <div class="ev-kicker">AFEIP Formazione Professionale</div>
       <div class="evpop-meta">
-        <span>&#128197; Venerd&igrave; 18 settembre 2026</span>
-        <span>&#128337; Lavori ore 16:00 &middot; reg. dalle 15:00</span>
-        <span>&#128205; TH Roma Carpegna Palace &mdash; Roma</span>
+        <span>&#128197; Sabato 24 ottobre 2026</span>
+        <span>&#128337; Lavori ore 16:00 &middot; accoglienza dalle 15:00</span>
+        <span>&#128205; Centro Sociale &laquo;Don Pino Puglisi&raquo; &mdash; Gliaca di Piraino (ME)</span>
       </div>
-      <p style="color:#b9c7e6;font-size:14.4px;margin-bottom:20px">Una giornata per presentare il rilancio di UNICESD Olympo, creare sinergie tra organizzazioni e partner e costruire insieme il futuro della formazione. <b style="color:#fff">Lascia i tuoi dati e ti inviamo il programma completo e le modalit&agrave; di adesione.</b></p>
+      <p style="color:#b9c7e6;font-size:14.4px;margin-bottom:20px">L'intervento di Rosalba Molica, il confronto sui nuovi temi della formazione partecipata e la cena con il taglio della torta. <b style="color:#fff">Lascia i tuoi dati per partecipare: ti ricontattiamo con tutti i dettagli.</b></p>
       <form class="evpop-form" id="evform" novalidate>
         <div class="f-row">
           <div class="field"><label for="ev-nome">Nome e cognome *</label><input id="ev-nome" name="nome" type="text" placeholder="Il tuo nome"><div class="err-msg">Inserisci nome e cognome</div></div>
@@ -648,7 +944,7 @@
         <div class="field"><label for="ev-mail">Email *</label><input id="ev-mail" name="email" type="email" placeholder="nome@email.it"><div class="err-msg">Inserisci un indirizzo email valido</div></div>
         <div class="field"><label for="ev-org">Ente o azienda</label><input id="ev-org" name="org" type="text" placeholder="Facoltativo"></div>
         <label class="check"><input type="checkbox" id="ev-priv"><span>Ho letto e accetto l'<a href="#" data-modal="privacy">informativa privacy</a> e acconsento a essere ricontattato per informazioni sull'evento. *</span></label>
-        <button type="submit" class="btn btn-p" style="width:100%"><span>Ricevi il programma</span><span class="shine"></span></button>
+        <button type="submit" class="btn btn-p" style="width:100%"><span>Voglio partecipare</span><span class="shine"></span></button>
         <a href="#" class="evpop-later" id="evlater">No grazie, continuo a navigare</a>
       </form>
     </div>
@@ -656,5 +952,5 @@
 </div>
 
 <script>window.UO_PAGES={"c1": "/corsi-di-laurea/giurisprudenza/", "c2": "/corsi-di-laurea/economia-aziendale/", "c3": "/corsi-di-laurea/scienze-psicologiche/", "c4": "/corsi-di-laurea/scienze-educazione/", "c5": "/corsi-di-laurea/ingegneria-informatica/", "c6": "/corsi-di-laurea/scienze-motorie/", "m1": "/master-made-in-italy-global-leadership/", "m2": "/master-universitari/management-imprese-turistiche/", "m3": "/master-universitari/didattica-innovazione-digitale/", "m4": "/master-universitari/diritto-impresa-internazionale/", "m5": "/master-universitari/data-analytics-business/", "m6": "/master-universitari/management-sanitario/", "k1": "/certificazioni/informatiche/", "k2": "/certificazioni/linguistiche/", "k3": "/certificazioni/graduatorie-scuola/", "s1": "/corsi-singoli-cfu/", "s2": "/riconoscimento-cfu/", "s3": "/formazione-aziendale/"};</script>
-<script src="/assets/js/site.js?v=4ce04ae1" defer></script>
+<script src="/assets/js/site.js?v=6e64f47d" defer></script>
 </body></html>

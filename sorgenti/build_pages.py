@@ -53,7 +53,7 @@ def plain(s: str) -> str:
 # ---------------------------------------------------------------------------
 # pezzi della home
 # ---------------------------------------------------------------------------
-BODY = tok(read("body.html")).replace('href="monografia-calogero-di-carlo.pdf"', 'href="/monografia-calogero-di-carlo.pdf"').replace('href="offerta-ufficio-stampa-unicesd-olympo.pdf"', 'href="/offerta-ufficio-stampa-unicesd-olympo.pdf"')
+BODY = tok(read("body.html")).replace('href="monografia-calogero-di-carlo.pdf"', 'href="/monografia-calogero-di-carlo.pdf"').replace('href="offerta-ufficio-stampa-unicesd-olympo.pdf"', 'href="/offerta-ufficio-stampa-unicesd-olympo.pdf"').replace('href="modulistica/', 'href="/modulistica/')
 CONTENT = read("content.html")
 SCRIPT = read("script.html")
 SCHEMA = json.loads(re.search(r"<script[^>]*>(.*)</script>", read("schema.html"), re.S).group(1))

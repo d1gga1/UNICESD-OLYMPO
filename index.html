@@ -1528,6 +1528,260 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
 .card>h3.ch-link{position:static}
 .card>h3.ch-link .card-link::after{z-index:3}
 
+/* ===== evento del 24 ottobre: scaletta dentro la card ===== */
+a.ev-poster{display:block}
+.ev-prog{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:7px;max-width:560px}
+.ev-prog li{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:baseline;font-size:14px;color:#cfdaf5;padding-bottom:7px;border-bottom:1px dashed rgba(130,180,255,.22)}
+.ev-prog b{font-family:'Sora';color:#ffd27a;font-size:14px}
+@media (max-width:560px){.ev-prog li{grid-template-columns:78px 1fr;font-size:13.4px}}
+
+/* ===== ISCRIZIONE (procedura, modulistica, contratto) ===== */
+.isc-layout{display:grid;grid-template-columns:250px 1fr;gap:40px;align-items:start}
+.isc-menu{position:sticky;top:110px;display:flex;flex-direction:column;gap:2px;padding:18px;border-radius:18px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow-md)}
+.isc-menu>b{font-family:'Sora',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--txt-mute);margin:2px 8px 10px}
+.isc-menu a{padding:10px 12px;border-radius:10px;font-size:14.2px;color:var(--txt-dim);border-left:3px solid transparent;transition:.25s var(--ease)}
+.isc-menu a:hover,.isc-menu a.on{color:var(--txt-strong);background:var(--surface-2);border-left-color:var(--cy)}
+.isc-menu .btn{margin-top:14px}
+.isc-main{min-width:0}
+.isc-block{padding:34px 36px;border-radius:22px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow-md);margin-bottom:24px;scroll-margin-top:100px}
+.isc-block h2{font-family:'Sora',sans-serif;font-size:clamp(24px,3vw,32px);line-height:1.15;color:var(--txt-strong);margin:10px 0 14px}
+.isc-block>p{color:var(--txt-dim);font-size:15.2px;line-height:1.65;margin-bottom:16px}
+.isc-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.isc-way{padding:22px;border-radius:16px;border:1px solid var(--line);background:var(--surface-2)}
+.isc-way-on{background:linear-gradient(140deg,rgba(31,95,208,.1),rgba(76,70,200,.06));border-color:rgba(31,95,208,.35)}
+.isc-way h3{font-family:'Sora',sans-serif;font-size:19px;color:var(--txt-strong);margin:10px 0 6px}
+.isc-way p{font-size:14px;color:var(--txt-dim);line-height:1.55;margin-bottom:12px}
+.isc-way-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:var(--panel);border:1px solid var(--line)}
+.isc-link{border:0;background:none;padding:0;cursor:pointer;font:600 14px 'Outfit',sans-serif;color:var(--cy)}
+.isc-steps{list-style:none;padding:0;margin:8px 0 20px;display:grid;gap:14px}
+.isc-steps li{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line)}
+.isc-steps i{flex-shrink:0;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:'Sora',sans-serif;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--bl),var(--cy));box-shadow:0 6px 16px var(--glow-cy)}
+.isc-steps b{font-size:15.5px;color:var(--txt-strong)}
+.isc-steps p{font-size:14px;color:var(--txt-dim);line-height:1.55;margin:3px 0 0}
+.isc-steps a,.isc-table a,.isc-pay a,.isc-art a,.isc-note a{color:var(--cy);font-weight:600}
+.isc-cta{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+.isc-note{font-size:13px !important;color:var(--txt-mute) !important;margin:14px 0 0 !important}
+.isc-table{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 4px}
+.isc-tr{display:grid;grid-template-columns:.8fr 1.4fr;font-size:14px;line-height:1.5}
+.isc-tr span{padding:13px 16px;color:var(--txt-dim);border-top:1px solid var(--line)}
+.isc-tr span:first-child{color:var(--txt-strong);border-right:1px solid var(--line)}
+.isc-th span{border-top:0;background:var(--brand);color:#fff !important;font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em}
+.isc-tr:nth-child(odd):not(.isc-th) span{background:var(--surface-2)}
+.isc-pay{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 4px}
+.isc-pay>div{padding:18px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line)}
+.isc-pay b{display:block;margin:10px 0 4px;color:var(--txt-strong)}
+.isc-pay p{font-size:13.4px;color:var(--txt-dim);line-height:1.5;margin:0}
+.isc-mods{display:grid;gap:7px}
+.isc-mods h4{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--txt-mute);margin:14px 0 2px}
+.isc-mods h4:first-child{margin-top:0}
+.isc-mods a{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);color:var(--txt-strong);font-size:14.4px;transition:.25s var(--ease)}
+.isc-mods a::after{content:'\2193';margin-left:auto;color:var(--cy);font-weight:700}
+.isc-mods a:hover{border-color:var(--cy);transform:translateX(4px);background:var(--panel)}
+.isc-mods i{font-style:normal;font-size:10.5px;font-weight:800;color:#fff;background:var(--rd);padding:4px 7px;border-radius:6px}
+.isc-art{display:grid;gap:8px;margin:6px 0 18px}
+.isc-art details{border:1px solid var(--line);border-radius:12px;background:var(--surface-2);transition:.25s}
+.isc-art details[open]{background:var(--panel);border-color:rgba(31,95,208,.35)}
+.isc-art summary{cursor:pointer;padding:13px 16px;font-size:14.6px;color:var(--txt-strong);list-style:none;display:flex;gap:10px;align-items:center}
+.isc-art summary::-webkit-details-marker{display:none}
+.isc-art summary::after{content:'+';margin-left:auto;font-size:19px;color:var(--cy);transition:transform .3s}
+.isc-art details[open] summary::after{transform:rotate(45deg)}
+.isc-art summary b{color:var(--cy);min-width:52px}
+.isc-art p{padding:0 16px 15px;margin:0;font-size:14px;color:var(--txt-dim);line-height:1.6}
+.isc-eco{display:block;position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--line);max-width:560px;margin:8px auto 0}
+.isc-eco img{display:block;width:100%;height:auto}
+.isc-eco span{position:absolute;left:0;right:0;bottom:0;padding:30px 18px 14px;font-size:13.5px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(5,10,28,.85))}
+@media (max-width:980px){.isc-layout{grid-template-columns:1fr}.isc-menu{position:static;flex-direction:row;flex-wrap:wrap;gap:6px}.isc-menu>b{display:none}.isc-menu a{border:1px solid var(--line);border-radius:30px;padding:7px 13px;font-size:13px}.isc-menu .btn{margin:0}}
+@media (max-width:640px){.isc-block{padding:24px 18px}.isc-two,.isc-pay{grid-template-columns:1fr}.isc-tr{grid-template-columns:1fr}.isc-tr span:first-child{border-right:0;padding-bottom:4px}.isc-tr span+span{border-top:0;padding-top:0}.isc-th span+span{display:none}}
+
+/* ===== AREA RISERVATA ===== */
+#arbg{position:fixed;inset:0;z-index:8800;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(6,11,30,.76);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow-y:auto;opacity:0;transition:opacity .35s var(--ease)}
+#arbg[hidden],#arbg [hidden]{display:none!important}
+#arbg.on{opacity:1}
+html.ar-lock,html.ar-lock body{overflow:hidden}
+#arbg .ar-x{position:absolute;top:14px;right:14px;z-index:5;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:var(--txt-dim);background:var(--surface-2);border:1px solid var(--line);cursor:pointer;transition:.3s var(--ease)}
+#arbg .ar-x:hover{color:var(--rd);border-color:var(--rd);transform:rotate(90deg)}
+.ar-auth{position:relative;width:min(980px,100%);margin:auto;display:grid;grid-template-columns:.9fr 1.25fr;border-radius:24px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow-xl);transform:translateY(18px) scale(.98);transition:transform .45s var(--ease)}
+#arbg.on .ar-auth{transform:none}
+.ar-side{position:relative;padding:38px 34px;background:radial-gradient(120% 80% at 0% 0%,#1d3a8f 0%,#0a1638 55%,#050a1c 100%);color:var(--txt);display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.ar-side::after{content:'';position:absolute;right:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(220,36,64,.35),transparent 70%)}
+.ar-logo{width:150px;height:auto;margin-bottom:22px}
+.ar-side h3{font-family:'Sora',sans-serif;font-size:27px;line-height:1.15;margin:8px 0 22px;color:#fff}
+.ar-perks{list-style:none;display:grid;gap:15px;margin:0 0 auto;padding:0;position:relative;z-index:1}
+.ar-perks li{padding-left:28px;position:relative}
+.ar-perks li::before{content:'';position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:5px;background:linear-gradient(135deg,var(--bl),var(--cy));box-shadow:0 0 12px var(--glow-cy)}
+.ar-perks b{display:block;font-size:14.5px;color:#fff}
+.ar-perks span{font-size:13px;color:var(--txt-dim);line-height:1.45}
+.ar-help{margin-top:28px;font-size:12.5px;color:var(--txt-mute);position:relative;z-index:1}
+.ar-help a{color:var(--cy)}
+.ar-main{padding:40px 38px 34px;min-width:0}
+.ar-pane h4{font-family:'Sora',sans-serif;font-size:24px;color:var(--txt-strong);margin-bottom:6px}
+.ar-sub{font-size:14px;color:var(--txt-dim);margin-bottom:22px;line-height:1.55}
+.ar-sub a,.ar-note a,.ar-row a,.ar-hint a{color:var(--cy);font-weight:600}
+.ar-wide{width:100%}
+.ar-row{display:flex;justify-content:flex-end;margin:-8px 0 16px;font-size:13px}
+.ar-or{display:flex;align-items:center;gap:12px;margin:22px 0 14px;font-size:12.5px;color:var(--txt-mute)}
+.ar-or::before,.ar-or::after{content:'';flex:1;height:1px;background:var(--line)}
+.ar-note{font-size:12.3px;color:var(--txt-mute);text-align:center;margin-top:14px;line-height:1.5}
+.ar-pw{position:relative}
+.ar-pw input{padding-right:46px}
+.ar-eye{position:absolute;right:8px;top:31px;width:34px;height:34px;border:0;background:none;cursor:pointer;opacity:.55;font-size:15px}
+.ar-eye:hover{opacity:1}
+.ar-up{text-transform:uppercase}
+.ar-msg{display:none;margin:4px 0 14px;padding:11px 14px;border-radius:11px;font-size:13.2px;line-height:1.45;background:rgba(198,40,56,.09);color:var(--err);border:1px solid rgba(198,40,56,.25)}
+.ar-msg.on{display:block}
+.ar-msg.ok{background:rgba(10,122,69,.09);color:var(--go);border-color:rgba(10,122,69,.25)}
+.ar-demo{margin:0 0 20px;padding:10px 14px;border-radius:11px;font-size:12.6px;line-height:1.45;color:#7a4b00;background:#fff4d6;border:1px solid #f2d27c}
+.ar-steps{list-style:none;display:flex;gap:6px;padding:0;margin:0 0 22px;counter-reset:s}
+.ar-steps li{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11.2px;color:var(--txt-mute);position:relative}
+.ar-steps li::before{content:'';position:absolute;top:14px;left:-50%;width:100%;height:2px;background:var(--line);z-index:0}
+.ar-steps li:first-child::before{display:none}
+.ar-steps i{position:relative;z-index:1;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:12.5px;background:var(--panel);border:2px solid var(--line-strong);color:var(--txt-mute);transition:.3s var(--ease)}
+.ar-steps li.on i{background:linear-gradient(135deg,var(--bl),var(--cy));border-color:transparent;color:#fff;box-shadow:0 4px 14px var(--glow-cy)}
+.ar-steps li.on{color:var(--txt-strong);font-weight:600}
+.ar-steps li.done i{background:var(--go);border-color:transparent;color:#fff}
+.ar-steps li.done::before,.ar-steps li.on::before{background:var(--cy)}
+.ar-step{border:0;padding:0;margin:0;min-width:0}
+.ar-step legend{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--txt-strong);margin-bottom:14px;padding:0}
+.f-row.ar-3{grid-template-columns:110px 1fr 90px}
+.ar-meter{height:5px;border-radius:5px;background:var(--line);overflow:hidden;margin:-6px 0 12px}
+.ar-meter i{display:block;height:100%;width:0;border-radius:inherit;transition:width .35s var(--ease),background .35s}
+.ar-nav{display:flex;gap:10px;justify-content:space-between;margin-top:6px}
+.ar-nav .btn{flex:1}
+.ar-recap{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:0 0 20px;padding:16px 18px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);font-size:13px}
+.ar-recap div{min-width:0}
+.ar-recap dt{color:var(--txt-mute);font-size:11.4px;text-transform:uppercase;letter-spacing:.05em}
+.ar-recap dd{margin:0;color:var(--txt-strong);font-weight:600;overflow-wrap:anywhere}
+.ar-done{text-align:center;padding-top:30px}
+.ar-done-ic{width:74px;height:74px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;font-size:32px;background:rgba(31,95,208,.1);color:var(--cy)}
+
+/* scheda personale */
+.ar-dash{position:fixed;inset:0;display:grid;grid-template-columns:270px 1fr;background:var(--bg);transform:translateY(14px);transition:transform .45s var(--ease)}
+.ar-dash[hidden]{display:none}
+#arbg.on .ar-dash{transform:none}
+.ar-nav-side{padding:28px 20px;background:linear-gradient(180deg,#0a1638,#050a1c);display:flex;flex-direction:column;gap:18px;overflow-y:auto}
+.ar-nav-side .ar-logo{width:132px;margin:0 0 4px 6px}
+.ar-me{display:flex;gap:12px;align-items:center;padding:14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.ar-me b{display:block;color:#fff;font-size:14.5px;line-height:1.25}
+.ar-me span{font-size:12px;color:var(--txt-mute)}
+.ar-me em{font-style:normal;color:var(--cy);font-weight:600}
+.ar-av{flex-shrink:0;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--rd),var(--bl))}
+.ar-tabs{display:grid;gap:4px}
+.ar-tabs button{text-align:left;padding:12px 14px;border-radius:12px;border:0;background:none;color:var(--txt-dim);font-family:'Outfit',sans-serif;font-size:14.5px;cursor:pointer;transition:.25s var(--ease)}
+.ar-tabs button:hover{background:rgba(255,255,255,.06);color:#fff}
+.ar-tabs button.on{background:linear-gradient(120deg,rgba(46,79,212,.55),rgba(79,160,255,.3));color:#fff;font-weight:600}
+.ar-out{margin-top:auto;color:var(--txt)}
+.ar-back{border:0;background:none;color:var(--txt-mute);font-size:13px;cursor:pointer;text-align:left;padding:4px 6px}
+.ar-back:hover{color:#fff}
+.ar-body{position:relative;overflow-y:auto;padding:40px clamp(18px,4vw,56px) 60px}
+.ar-body>*{max-width:900px}
+.ar-hello{font-family:'Sora',sans-serif;font-size:28px;color:var(--txt-strong);margin-bottom:20px}
+.ar-hello span{font-weight:300}
+.ar-h{font-family:'Sora',sans-serif;font-size:24px;color:var(--txt-strong);margin-bottom:6px}
+.ar-state{padding:22px 24px;border-radius:18px;margin-bottom:22px;background:linear-gradient(135deg,#0d1d4d,#1f3fa0);color:#fff;box-shadow:var(--shadow-md)}
+.ar-state-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.ar-pill{padding:5px 12px;border-radius:30px;font-size:12.5px;font-weight:600;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25)}
+.ar-track{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0;margin:0 0 12px}
+.ar-track li{position:relative;padding-top:16px;font-size:12px;color:rgba(255,255,255,.55);line-height:1.3}
+.ar-track li::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;border-radius:6px;background:rgba(255,255,255,.16)}
+.ar-track li.done{color:#fff}
+.ar-track li.done::before{background:linear-gradient(90deg,#4fa0ff,#7ee0a8)}
+.ar-track li.now{color:#fff;font-weight:600}
+.ar-track li.now::before{background:linear-gradient(90deg,#4fa0ff,rgba(255,255,255,.3));animation:arPulse 1.8s ease-in-out infinite}
+@keyframes arPulse{50%{opacity:.55}}
+.ar-state-t{font-size:13.5px;color:#cfdaf5;margin:0}
+.ar-card{display:block;padding:24px 26px;border-radius:18px;margin-bottom:20px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow-md)}
+.ar-card p{font-size:14.2px;color:var(--txt-dim);line-height:1.6;margin-bottom:10px}
+.ar-card-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.ar-card-h h5{font-family:'Sora',sans-serif;font-size:17px;color:var(--txt-strong);margin:0}
+.ar-lockt,.ar-okt{font-size:12px;padding:4px 10px;border-radius:20px;font-weight:600}
+.ar-lockt{color:var(--txt-mute);background:var(--surface-2);border:1px solid var(--line)}
+.ar-okt{color:var(--go);background:rgba(10,122,69,.08);border:1px solid rgba(10,122,69,.22)}
+.ar-dl{display:grid;grid-template-columns:repeat(2,1fr);gap:0 24px;margin:0}
+.ar-dl div{padding:10px 0;border-bottom:1px dashed var(--line);min-width:0}
+.ar-dl dt{font-size:11.5px;color:var(--txt-mute);text-transform:uppercase;letter-spacing:.05em}
+.ar-dl dd{margin:2px 0 0;font-weight:600;color:var(--txt-strong);overflow-wrap:anywhere}
+.ar-dl dd::before{content:'\1F512';font-size:10px;margin-right:6px;opacity:.45}
+.ar-hint{font-size:12.8px !important;margin:14px 0 0 !important;color:var(--txt-mute) !important}
+.ar-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.ar-docs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.ar-doc{display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:16px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow-md)}
+.ar-doc.ok{border-color:rgba(10,122,69,.4)}
+.ar-doc-h{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.ar-doc-h b{font-size:14.5px;color:var(--txt-strong)}
+.ar-doc-h small{font-size:11px;font-weight:700;padding:3px 8px;border-radius:12px;white-space:nowrap;color:var(--txt-mute);background:var(--surface-2)}
+.ar-doc.ok .ar-doc-h small{color:var(--go);background:rgba(10,122,69,.1)}
+.ar-doc p{font-size:12.8px;color:var(--txt-mute);margin:0;line-height:1.45}
+.ar-doc ul{list-style:none;margin:0;padding:0;font-size:12.8px}
+.ar-doc li{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-top:1px dashed var(--line)}
+.ar-doc li a{color:var(--cy);overflow-wrap:anywhere}
+.ar-doc li span{color:var(--txt-mute);white-space:nowrap}
+.ar-doc label.btn{align-self:flex-start;cursor:pointer;margin-top:auto}
+.ar-doc input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+.ar-mods{display:grid;gap:8px}
+.ar-mod{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:13px;background:var(--panel);border:1px solid var(--line);transition:.25s var(--ease)}
+.ar-mod:hover{border-color:var(--cy);transform:translateX(3px)}
+.ar-mod i{font-style:normal;font-size:11px;font-weight:800;color:#fff;background:var(--rd);padding:5px 7px;border-radius:7px}
+.ar-mod span{flex:1;font-size:14px;color:var(--txt-strong);font-weight:500}
+.ar-mod small{color:var(--txt-mute);font-size:12px}
+.ar-mod-g{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt-mute);margin:12px 0 2px;font-weight:700}
+.btn-lock.ar-in .lock path{transform:translateY(-2.5px) scaleX(.86)}
+@media (max-width:860px){
+  #arbg{padding:0;align-items:stretch}
+  .ar-auth{grid-template-columns:1fr;border-radius:0;min-height:100%}
+  .ar-side{padding:26px 22px 22px}
+  .ar-side h3{font-size:22px;margin-bottom:6px}
+  .ar-perks,.ar-help{display:none}
+  .ar-logo{width:120px;margin-bottom:12px}
+  .ar-main{padding:26px 20px 40px}
+  .ar-dash{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .ar-nav-side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 16px;overflow:visible}
+  .ar-nav-side .ar-logo{display:none}
+  .ar-me{flex:1;padding:8px 10px}
+  .ar-tabs{order:5;flex-basis:100%;display:flex;overflow-x:auto;gap:6px;scrollbar-width:none}
+  .ar-tabs button{white-space:nowrap;padding:9px 12px;font-size:13.5px}
+  .ar-out{margin:0}
+  .ar-back{display:none}
+  .ar-body{padding:22px 16px 60px}
+  .ar-body>.ar-x{display:none}
+  .ar-docs,.ar-dl,.ar-recap{grid-template-columns:1fr}
+  .ar-track li{font-size:10.5px}
+}
+@media (max-width:560px){
+  .f-row.ar-3{grid-template-columns:90px 1fr 70px;gap:10px}
+  .ar-steps span{display:none}
+}
+html.ar-lock .modal-bg{z-index:8900}
+#arbg section.ar-tab{padding:0!important;margin:0}
+#arbg .ar-dash{grid-template-columns:270px minmax(0,1fr)}
+@media (max-width:860px){#arbg .ar-dash{grid-template-columns:minmax(0,1fr)}.ar-nav-side,.ar-tabs,.ar-body{min-width:0;max-width:100vw}}
+
+/* ===== JANUS IN EVIDENZA (finestra mobile) ===== */
+#jnfly{position:fixed;left:0;top:0;z-index:7500;width:220px;will-change:transform;pointer-events:auto;opacity:0;transition:opacity .5s var(--ease)}
+#jnfly[hidden]{display:none}
+#jnfly.on{opacity:1}
+#jnfly.docked{transition:opacity .5s var(--ease),transform .9s cubic-bezier(.2,1.2,.3,1)}
+.jnf-card{display:block;position:relative;border-radius:18px;overflow:hidden;background:#fff;border:3px solid #fff;box-shadow:0 22px 50px rgba(8,16,48,.38),0 0 0 1px rgba(35,56,126,.18);transform-origin:50% 0;transition:transform .35s var(--ease),box-shadow .35s}
+.jnf-card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 28px 60px rgba(8,16,48,.45),0 0 0 2px var(--cy)}
+.jnf-card img{display:block;width:100%;aspect-ratio:3/4;height:auto;object-fit:cover;object-position:50% 0}
+.jnf-tag{position:absolute;top:10px;left:10px;z-index:2;padding:4px 10px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--rd);box-shadow:0 4px 12px rgba(220,36,64,.4)}
+.jnf-cap{display:block;padding:10px 12px 11px;background:linear-gradient(120deg,#23387e,#1f5fd0);color:#fff;font-size:14px;line-height:1.25}
+.jnf-cap small{display:block;font-size:11.5px;opacity:.85;margin-top:3px}
+.jnf-x,.jnf-min{position:absolute;top:-11px;z-index:3;width:28px;height:28px;border-radius:50%;border:2px solid #fff;color:#fff;font-size:17px;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.jnf-x{right:-11px;background:var(--rd)}
+.jnf-min{right:22px;background:#23387e;display:none}
+#jnfly.docked .jnf-min{display:grid}
+.jnf-bar{position:absolute;left:12px;right:12px;bottom:-9px;height:4px;border-radius:4px;background:rgba(35,56,126,.18);overflow:hidden}
+.jnf-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--rd),var(--cy));transform-origin:0 50%;transform:scaleX(var(--p,0))}
+#jnfly.docked .jnf-bar{display:none}
+#jnfly.mini{width:150px}
+#jnfly.mini .jnf-card img,#jnfly.mini .jnf-cap small,#jnfly.mini .jnf-tag{display:none}
+#jnfly.mini .jnf-min{transform:rotate(180deg)}
+#jnfly.float .jnf-card{animation:jnfFloat 4.5s ease-in-out infinite}
+@keyframes jnfFloat{50%{transform:translateY(-7px) rotate(-1deg)}}
+@media (max-width:640px){#jnfly{width:150px}#jnfly .jnf-cap{font-size:12.5px}#jnfly .jnf-cap small{display:none}#jnfly.mini{width:128px}}
+@media print{#jnfly{display:none!important}}
+
+
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
 .phero h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:16px 0 18px;max-width:980px}
@@ -1587,7 +1841,11 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       "@id": "https://unicesd-olympo.com/#organizzazione",
       "name": "UNICESD Olympo",
       "legalName": "Universitas Centro Studi Olympo S.r.l.",
-      "alternateName": ["Universitas Centro Studi Olympo", "UNICESD OLYMPO SRL", "Uni Centro Studi Olympo"],
+      "alternateName": [
+        "Universitas Centro Studi Olympo",
+        "UNICESD OLYMPO SRL",
+        "Uni Centro Studi Olympo"
+      ],
       "url": "https://unicesd-olympo.com/",
       "logo": {
         "@type": "ImageObject",
@@ -1616,7 +1874,10 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
           "name": "Segreteria studenti",
           "telephone": "+39 388 113 3550",
           "areaServed": "IT",
-          "availableLanguage": ["Italian", "English"]
+          "availableLanguage": [
+            "Italian",
+            "English"
+          ]
         },
         {
           "@type": "ContactPoint",
@@ -1624,7 +1885,9 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
           "name": "Segreteria",
           "telephone": "+39 335 695 9796",
           "areaServed": "IT",
-          "availableLanguage": ["Italian"]
+          "availableLanguage": [
+            "Italian"
+          ]
         },
         {
           "@type": "ContactPoint",
@@ -1632,15 +1895,28 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
           "name": "Orientamento e immatricolazioni",
           "telephone": "+39 350 965 1711",
           "areaServed": "IT",
-          "availableLanguage": ["Italian"]
+          "availableLanguage": [
+            "Italian"
+          ]
         }
       ],
       "areaServed": [
-        { "@type": "Country", "name": "Italia" },
-        { "@type": "Country", "name": "Portogallo" }
+        {
+          "@type": "Country",
+          "name": "Italia"
+        },
+        {
+          "@type": "Country",
+          "name": "Portogallo"
+        }
       ],
-      "knowsLanguage": ["it", "en"],
-      "founder": { "@id": "https://unicesd-olympo.com/#calogero-di-carlo" },
+      "knowsLanguage": [
+        "it",
+        "en"
+      ],
+      "founder": {
+        "@id": "https://unicesd-olympo.com/#calogero-di-carlo"
+      },
       "location": [
         {
           "@type": "Place",
@@ -1671,10 +1947,26 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
         "@type": "OfferCatalog",
         "name": "Offerta formativa UNICESD Olympo",
         "itemListElement": [
-          { "@type": "OfferCatalog", "name": "Corsi di laurea", "description": "Percorsi triennali e magistrali in ambito giuridico, economico, psicologico, dell'educazione, informatico e delle scienze motorie." },
-          { "@type": "OfferCatalog", "name": "Master universitari di I e II livello", "description": "Master post laurea in modalità executive, fra cui il Master Made in Italy Global Leadership in Export, Geopolitics & International Business." },
-          { "@type": "OfferCatalog", "name": "Certificazioni informatiche e linguistiche", "description": "Certificazioni riconosciute per i punteggi nelle graduatorie e per i concorsi pubblici." },
-          { "@type": "OfferCatalog", "name": "Corsi singoli", "description": "Esami singoli universitari per integrare crediti e requisiti di accesso." }
+          {
+            "@type": "OfferCatalog",
+            "name": "Corsi di laurea",
+            "description": "Percorsi triennali e magistrali in ambito giuridico, economico, psicologico, dell'educazione, informatico e delle scienze motorie."
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Master universitari di I e II livello",
+            "description": "Master post laurea in modalità executive, fra cui il Master Made in Italy Global Leadership in Export, Geopolitics & International Business."
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Certificazioni informatiche e linguistiche",
+            "description": "Certificazioni riconosciute per i punteggi nelle graduatorie e per i concorsi pubblici."
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Corsi singoli",
+            "description": "Esami singoli universitari per integrare crediti e requisiti di accesso."
+          }
         ]
       },
       "makesOffer": {
@@ -1690,7 +1982,9 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       "@id": "https://unicesd-olympo.com/#calogero-di-carlo",
       "name": "Calogero Di Carlo",
       "jobTitle": "Fondatore e presidente",
-      "worksFor": { "@id": "https://unicesd-olympo.com/#organizzazione" },
+      "worksFor": {
+        "@id": "https://unicesd-olympo.com/#organizzazione"
+      },
       "image": "https://unicesd-olympo.com/assets/founder-cers.webp",
       "description": "Fondatore di UNICESD Olympo e presidente del Gruppo Olympo CDC. Trent'anni in divisa, docente di Diritto Ecclesiastico, promotore della rete dei poli didattici e degli istituti Janus."
     },
@@ -1700,7 +1994,9 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       "url": "https://unicesd-olympo.com/",
       "name": "UNICESD Olympo",
       "inLanguage": "it-IT",
-      "publisher": { "@id": "https://unicesd-olympo.com/#organizzazione" }
+      "publisher": {
+        "@id": "https://unicesd-olympo.com/#organizzazione"
+      }
     },
     {
       "@type": "WebPage",
@@ -1708,80 +2004,117 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       "url": "https://unicesd-olympo.com/",
       "name": "UNICESD Olympo | Centro Studi a Palermo: lauree, master e certificazioni",
       "description": "Centro Studi di Palermo per l'orientamento, il tutoraggio e il coordinamento di percorsi universitari e di alta formazione.",
-      "isPartOf": { "@id": "https://unicesd-olympo.com/#sito" },
-      "about": { "@id": "https://unicesd-olympo.com/#organizzazione" },
+      "isPartOf": {
+        "@id": "https://unicesd-olympo.com/#sito"
+      },
+      "about": {
+        "@id": "https://unicesd-olympo.com/#organizzazione"
+      },
       "primaryImageOfPage": "https://unicesd-olympo.com/assets/og-cover.jpg",
       "inLanguage": "it-IT"
     },
     {
       "@type": "FAQPage",
       "@id": "https://unicesd-olympo.com/#faq",
-      "isPartOf": { "@id": "https://unicesd-olympo.com/#pagina" },
+      "isPartOf": {
+        "@id": "https://unicesd-olympo.com/#pagina"
+      },
       "mainEntity": [
         {
           "@type": "Question",
           "name": "UNICESD Olympo rilascia il titolo di laurea?",
-          "acceptedAnswer": { "@type": "Answer", "text": "UNICESD Olympo è un Centro Studi: si occupa di orientamento, tutoraggio, coordinamento didattico e organizzazione delle attività sul territorio. Il titolo di studio è rilasciato dall'ateneo con cui viene attivato il percorso, secondo le proprie procedure e il proprio ordinamento." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UNICESD Olympo è un Centro Studi: si occupa di orientamento, tutoraggio, coordinamento didattico e organizzazione delle attività sul territorio. Il titolo di studio è rilasciato dall'ateneo con cui viene attivato il percorso, secondo le proprie procedure e il proprio ordinamento."
+          }
         },
         {
           "@type": "Question",
           "name": "Posso studiare mentre lavoro?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sì. La didattica è interamente online e asincrona: puoi seguire le lezioni quando preferisci, dal computer o dallo smartphone. Gli appelli d'esame sono distribuiti durante tutto l'anno accademico." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. La didattica è interamente online e asincrona: puoi seguire le lezioni quando preferisci, dal computer o dallo smartphone. Gli appelli d'esame sono distribuiti durante tutto l'anno accademico."
+          }
         },
         {
           "@type": "Question",
           "name": "Come funziona il riconoscimento dei crediti?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Invii il tuo percorso di studi e professionale, e un tutor effettua una valutazione preliminare gratuita, in genere entro 48 ore. La delibera definitiva dei CFU riconosciuti spetta all'ateneo che eroga il corso." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Invii il tuo percorso di studi e professionale, e un tutor effettua una valutazione preliminare gratuita, in genere entro 48 ore. La delibera definitiva dei CFU riconosciuti spetta all'ateneo che eroga il corso."
+          }
         },
         {
           "@type": "Question",
           "name": "Quali sono i costi e come si pagano?",
-          "acceptedAnswer": { "@type": "Answer", "text": "I costi variano in base al percorso scelto e ai crediti riconosciuti. Sono previsti piani di rateizzazione personalizzati e convenzioni con enti e aziende. Il preventivo dettagliato viene fornito durante il colloquio di orientamento." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I costi variano in base al percorso scelto e ai crediti riconosciuti. Sono previsti piani di rateizzazione personalizzati e convenzioni con enti e aziende. Il preventivo dettagliato viene fornito durante il colloquio di orientamento."
+          }
         },
         {
           "@type": "Question",
           "name": "Dove si svolgono gli esami?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Presso le sedi d'esame convenzionate con l'ateneo di riferimento. La sede di Palermo è il punto di riferimento principale per la Sicilia occidentale; la sede più vicina viene indicata al momento dell'iscrizione." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Presso le sedi d'esame convenzionate con l'ateneo di riferimento. La sede di Palermo è il punto di riferimento principale per la Sicilia occidentale; la sede più vicina viene indicata al momento dell'iscrizione."
+          }
         },
         {
           "@type": "Question",
           "name": "Il Master Made in Italy è aperto a tutti?",
-          "acceptedAnswer": { "@type": "Answer", "text": "È un Master universitario di I livello, quindi richiede il possesso di una laurea triennale o titolo equipollente. È pensato in modalità executive per professionisti, imprenditori e manager che operano o vogliono operare sui mercati internazionali." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "È un Master universitario di I livello, quindi richiede il possesso di una laurea triennale o titolo equipollente. È pensato in modalità executive per professionisti, imprenditori e manager che operano o vogliono operare sui mercati internazionali."
+          }
         }
       ]
     },
     {
       "@type": "Event",
-      "@id": "https://unicesd-olympo.com/#convention-18set2026",
-      "name": "Convention UNICESD Olympo - Incontrarsi, confrontarsi, crescere",
-      "description": "Una giornata per presentare la visione e il rilancio di UNICESD Olympo, condividere progetti e strategie e creare sinergie tra organizzazioni e partner della rete.",
-      "startDate": "2026-09-18T15:00:00+02:00",
-      "endDate": "2026-09-18T23:00:00+02:00",
+      "@id": "https://unicesd-olympo.com/#afeip-24ott2026",
+      "name": "Insieme, per una formazione sempre più grande - AFEIP Formazione Professionale",
+      "description": "Pomeriggio con l'Associazione Formazione e Inserimento Professionale al Centro Sociale Don Pino Puglisi: intervento di Rosalba Molica, interventi dei partecipanti sui nuovi temi della formazione partecipata, cena e taglio della torta.",
+      "startDate": "2026-10-24T15:00:00+02:00",
+      "endDate": "2026-10-24T22:00:00+02:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "image": "https://unicesd-olympo.com/assets/eventi/icb/icb-06.webp",
+      "image": "https://unicesd-olympo.com/assets/eventi/programma-24ott2026.webp",
       "location": {
         "@type": "Place",
-        "name": "TH Roma Carpegna Palace",
+        "name": "Centro Sociale \"Don Pino Puglisi\"",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Via Aurelia 481",
-          "postalCode": "00165",
-          "addressLocality": "Roma",
-          "addressRegion": "RM",
+          "streetAddress": "Via del Sole snc",
+          "postalCode": "98060",
+          "addressLocality": "Gliaca di Piraino",
+          "addressRegion": "ME",
           "addressCountry": "IT"
         }
       },
-      "organizer": { "@id": "https://unicesd-olympo.com/#organizzazione" },
-      "performer": { "@id": "https://unicesd-olympo.com/#calogero-di-carlo" }
+      "organizer": [
+        {
+          "@type": "Organization",
+          "name": "AFEIP - Associazione Formazione e Inserimento Professionale",
+          "email": "afeip@libero.it",
+          "telephone": "+39 0941 060287"
+        },
+        {
+          "@id": "https://unicesd-olympo.com/#organizzazione"
+        }
+      ]
     },
     {
       "@type": "ImageGallery",
       "@id": "https://unicesd-olympo.com/#galleria-i-came-back",
       "name": "I came back! - Le immagini della Convention UNICESD Olympo",
       "description": "Galleria fotografica della Convention UNICESD Olympo del 18 settembre 2026 al TH Roma Carpegna Palace di Roma.",
-      "isPartOf": { "@id": "https://unicesd-olympo.com/#pagina" },
-      "about": { "@id": "https://unicesd-olympo.com/#convention-18set2026" }
+      "isPartOf": {
+        "@id": "https://unicesd-olympo.com/#pagina"
+      },
+      "about": {
+        "@id": "https://unicesd-olympo.com/#convention-18set2026"
+      }
     }
   ]
 }
@@ -1906,6 +2239,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
           <div class="mega-grid">
             <div class="mega-col">
               <h5>Servizi</h5>
+              <a href="/iscrizione/" class="mega-item"><div class="mega-ic">&#128203;</div><div><b>Iscrizione e modulistica</b><span>Procedura, moduli, contratto</span></div></a>
               <a href="/servizi-studenti/" class="mega-item"><div class="mega-ic">&#128172;</div><div><b>Tutor personale</b><span>Affiancamento dedicato</span></div></a>
               <a href="/servizi-studenti/#piattaforma" class="mega-item"><div class="mega-ic">&#128187;</div><div><b>Piattaforma e-learning</b><span>Lezioni 24/7 on demand</span></div></a>
               <a href="/servizi-studenti/" class="mega-item"><div class="mega-ic">&#128221;</div><div><b>Segreteria didattica</b><span>Pratiche e carriera</span></div></a>
@@ -1943,7 +2277,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
 
     <div class="nav-actions">
       <a href="#iscrizione" class="btn btn-p btn-sm" data-cursor><span>Iscriviti ora</span><span class="shine"></span></a>
-      <button class="btn btn-lock btn-sm" data-modal="area" data-cursor>
+      <button class="btn btn-lock btn-sm" data-area="login" data-cursor>
         <svg class="lock" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
         <span>Area Riservata</span>
       </button>
@@ -1959,7 +2293,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
   <div class="mob-group"><button>Offerta Formativa <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
     <div class="mob-sub"><div><a href="/corsi-di-laurea/">Corsi di Laurea</a><a href="/master-universitari/">Master I e II livello</a><a href="/certificazioni/">Certificazioni</a><a href="/corsi-singoli-cfu/">Corsi singoli</a><a href="/offerta-formativa/?tab=3#offerta">Diploma online</a><a href="/offerta-formativa/?tab=4#offerta">Studia all'estero</a><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></div></div></div>
   <div class="mob-group"><button>Studenti <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l5 5 5-5"/></svg></button>
-    <div class="mob-sub"><div><a href="/servizi-studenti/#piattaforma">La piattaforma</a><a href="/servizi-studenti/">Tutor personale</a><a href="/servizi-studenti/#piattaforma">Piattaforma e-learning</a><a href="/riconoscimento-cfu/">Riconoscimento CFU</a><a href="/servizi-studenti/">Placement</a></div></div></div>
+    <div class="mob-sub"><div><a href="/iscrizione/">Iscrizione e modulistica</a><a href="/iscrizione/#modulistica">Modulistica</a><a href="/servizi-studenti/#piattaforma">La piattaforma</a><a href="/servizi-studenti/">Tutor personale</a><a href="/servizi-studenti/#piattaforma">Piattaforma e-learning</a><a href="/riconoscimento-cfu/">Riconoscimento CFU</a><a href="/servizi-studenti/">Placement</a></div></div></div>
   <div class="mob-group"><button onclick="location.href='/la-voce-dell-olympo/'">La Voce dell'Olympo</button></div>
   <div class="mob-group"><button onclick="location.href='/poli-aperti/'">Poli aperti</button></div>
   <div class="mob-group"><button onclick="location.href='/master-made-in-italy-global-leadership/'">Master Made in Italy</button></div>
@@ -1968,7 +2302,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
   <div class="mob-group"><button onclick="location.href='/apri-una-sede/'">Apri una sede</button></div>
   <div class="mob-group"><button onclick="location.href='/contatti/'">Contatti</button></div>
   <a href="#iscrizione" class="btn btn-p" style="width:100%;margin-top:26px"><span>Iscriviti ora</span></a>
-  <button class="btn btn-lock" style="width:100%;margin-top:12px" data-modal="area">
+  <button class="btn btn-lock" style="width:100%;margin-top:12px" data-area="login">
     <svg class="lock" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
     <span>Area Riservata</span>
   </button>
@@ -2097,22 +2431,29 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       <p>Convention, open day, incontri istituzionali e appuntamenti sportivi delle realt&agrave; della rete. Qui trovi il calendario aggiornato, con i prossimi appuntamenti in evidenza.</p>
     </div>
 
-    <div class="ev-feat rv-s">
-      <div class="ev-poster"><img width="680" height="1020" src="assets/eventi/convention-18set2026.webp" alt="Locandina della Convention UNICESD Olympo del 18 settembre 2026 al TH Roma Carpegna Palace" loading="lazy" decoding="async"></div>
+    <div class="ev-feat rv-s" id="evento-24ott">
+      <a class="ev-poster" href="assets/eventi/programma-24ott2026.webp" target="_blank" rel="noopener" aria-label="Apri a schermo intero il programma del 24 ottobre 2026"><img width="1290" height="1373" src="assets/eventi/programma-24ott2026.webp" alt="Programma del giorno, 24 ottobre 2026: AFEIP Formazione professionale al Centro Sociale Don Pino Puglisi di Gliaca di Piraino" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></a>
       <div class="ev-main">
         <span class="ev-badge">Prossimo evento <i></i></span>
-        <h3>Convention UNICESD Olympo</h3>
-        <div class="ev-kicker">Incontrarsi, confrontarsi, crescere &mdash; Ripartiamo insieme</div>
-        <p class="ev-lead">Una giornata per presentare la visione e il rilancio di UNICESD Olympo, condividere progetti e strategie, creare sinergie tra organizzazioni e partner e costruire insieme il futuro della formazione. Al centro: formazione universitaria e professionale, certificazioni linguistiche e informatiche, formazione online e internazionale, training on&#8209;the&#8209;job, innovazione e gamification, fondi professionali e servizi su misura.</p>
+        <h3>Insieme, per una formazione sempre pi&ugrave; grande</h3>
+        <div class="ev-kicker">AFEIP Formazione Professionale &mdash; Idee, persone, territori, opportunit&agrave; per il futuro</div>
+        <p class="ev-lead">Un pomeriggio con l'<b>Associazione Formazione e Inserimento Professionale</b> al Centro Sociale &laquo;Don Pino Puglisi&raquo; di Gliaca di Piraino: l'accoglienza dei partecipanti, l'intervento di <b>Rosalba Molica</b>, il confronto aperto sui nuovi temi della <b>formazione partecipata</b> e, in chiusura, la cena con il taglio della torta.</p>
         <div class="ev-facts">
-          <div class="ev-fact"><div class="ic">&#128197;</div><div><b>Venerd&igrave; 18 settembre 2026</b><span>Inizio dei lavori ore 16:00</span></div></div>
+          <div class="ev-fact"><div class="ic">&#128197;</div><div><b>Sabato 24 ottobre 2026</b><span>Inizio dei lavori ore 16:00</span></div></div>
           <div class="ev-fact"><div class="ic">&#128337;</div><div><b>Registrazione e aperitivo</b><span>dalle ore 15:00</span></div></div>
-          <div class="ev-fact"><div class="ic">&#128205;</div><div><b>TH Roma Carpegna Palace</b><span>Via Aurelia 481, 00165 Roma</span></div></div>
+          <div class="ev-fact"><div class="ic">&#128205;</div><div><b>Centro Sociale &laquo;Don Pino Puglisi&raquo;</b><span>Via del Sole snc, 98060 Gliaca di Piraino (ME)</span></div></div>
         </div>
+        <ol class="ev-prog">
+          <li><b>15:00</b><span>Registrazione dei partecipanti e aperitivo di accoglienza</span></li>
+          <li><b>16:00</b><span>Inizio dei lavori</span></li>
+          <li><b>16:30</b><span>Intervento di Rosalba Molica</span></li>
+          <li><b>17:00&ndash;20:00</b><span>Interventi dei partecipanti sui nuovi temi della formazione partecipata</span></li>
+          <li><b>20:00</b><span>Cena e taglio della torta</span></li>
+        </ol>
         <div class="hero-cta" style="opacity:1;animation:none">
-          <button class="btn btn-p" data-evopen><span>Richiedi informazioni</span><span class="shine"></span></button>
-          <a href="/eventi/#programma" class="btn btn-g">Programma del giorno</a>
-          <a href="#contatti" class="btn btn-g">Contatta la segreteria</a>
+          <button class="btn btn-p" data-evopen><span>Partecipa</span><span class="shine"></span></button>
+          <a href="assets/eventi/programma-24ott2026.webp" target="_blank" rel="noopener" class="btn btn-g">Apri il programma</a>
+          <a href="tel:+390941060287" class="btn btn-g">&#9742; AFEIP 0941 060287</a>
         </div>
       </div>
     </div>
@@ -2120,9 +2461,20 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
     <div class="ev-grid">
 
       <article class="ev-card rv-s">
-        <div class="ev-date"><b>12</b><span>Set</span><small>2026</small></div>
+        <div class="ev-date past"><b>18</b><span>Set</span><small>2026</small></div>
         <div class="ev-body">
-          <em><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="9"/></svg> In programma</em>
+          <em class="done"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Concluso</em>
+          <b>Convention UNICESD Olympo &mdash; &laquo;I came back!&raquo;</b>
+          <p>Al TH Roma Carpegna Palace la giornata del rilancio: visione, progetti e sinergie fra organizzazioni e partner della rete. <a href="/eventi/#icameback" style="color:var(--cy);font-weight:600">Guarda le foto</a> &middot; <a href="/eventi/#programma" style="color:var(--cy);font-weight:600">il programma</a></p>
+          <span class="ev-where">TH Roma Carpegna Palace &middot; Via Aurelia 481, Roma</span>
+        </div>
+      </article>
+
+
+      <article class="ev-card rv-s">
+        <div class="ev-date past"><b>12</b><span>Set</span><small>2026</small></div>
+        <div class="ev-body">
+          <em class="done"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Concluso</em>
           <b>Open Day Nazionale Janus</b>
           <p>Tutte le sedi della rete accolgono studenti e famiglie in presenza, mentre da Roma l'evento viene trasmesso in diretta streaming. Presentazione dei percorsi, delle nuove sedi e delle borse di studio al 100% e al 50%.</p>
           <span class="ev-where">Sedi della rete Janus &middot; streaming da Roma</span>
@@ -2130,9 +2482,9 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       </article>
 
       <article class="ev-card rv-s" style="transition-delay:.08s">
-        <div class="ev-date"><b>20</b><span>Set</span><small>2026</small></div>
+        <div class="ev-date past"><b>20</b><span>Set</span><small>2026</small></div>
         <div class="ev-body">
-          <em><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="9"/></svg> In programma</em>
+          <em class="done"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Concluso</em>
           <b>16&deg; Memorial Podistico Salvo D'Acquisto</b>
           <p>Con il 9&deg; Criterium Europeo Interforze: dieci chilometri su quattro giri di Via della Libert&agrave;, partenza alle 9:30 da Piazza Mordini. Calogero Di Carlo &egrave; presidente della manifestazione, organizzata dall'A.S.D.P. Pegaso Athletic.</p>
           <span class="ev-where">Palermo &middot; Piazza Mordini &ndash; Via della Libert&agrave;</span>
@@ -2909,6 +3261,11 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
 <!-- ===== E-LEARNING CENTER POINT / APRI UNA SEDE ===== -->
 
 <!-- ===== FAQ ===== -->
+<!-- ===== ISCRIZIONE: procedura, documenti, pagamenti, modulistica, contratto =====
+     Pagina /iscrizione/ (classe ente-page: non compare in home). I PDF stanno in modulistica/
+     (accanto a unicesd-olympo.html e nella radice di repo-github), generati da
+     sorgenti/area-riservata/genera_modulistica.py. -->
+
 <section id="faq" style="padding-top:0">
   <div class="wrap" style="max-width:900px">
     <div class="sec-head center rv">
@@ -3040,9 +3397,9 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
       </div>
       <div class="f-col"><h5>Offerta</h5><ul><li><a href="/corsi-di-laurea/">Corsi di Laurea</a></li><li><a href="/master-universitari/">Master I livello</a></li><li><a href="/master-universitari/">Master II livello</a></li><li><a href="/certificazioni/">Certificazioni</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/medicina-senza-test-ingresso/">Studia all'estero</a></li><li><a href="/master-made-in-italy-global-leadership/">Made in Italy</a></li></ul></div>
       <div class="f-col"><h5>Ateneo</h5><ul><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Il fondatore</a></li><li><a href="/chi-siamo/#storia">La nostra storia</a></li><li><a href="/chi-siamo/#gruppo">Il Gruppo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/eventi/#icameback">I came back &mdash; Convention 2026</a></li><li><a href="/chi-siamo/#stampa">Rassegna stampa</a></li><li><a href="/calogero-di-carlo/#voce">Interventi e interviste</a></li><li><a href="/intelligenza-artificiale-ai-act/">Progetto AI</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze</a></li><li><a href="/rete-e-partner/">Partnership</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
-      <div class="f-col"><h5>Studenti</h5><ul><li><a href="/servizi-studenti/">Servizi</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/servizi-studenti/">Placement</a></li><li><a href="#" data-modal="area">Area riservata</a></li><li><a href="#iscrizione">Iscrizione</a></li><li><a href="/contatti/">Contatti</a></li></ul></div>
+      <div class="f-col"><h5>Studenti</h5><ul><li><a href="/servizi-studenti/">Servizi</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/servizi-studenti/">Placement</a></li><li><a href="#" data-area="login">Area riservata</a></li><li><a href="/iscrizione/">Iscrizione</a></li><li><a href="/iscrizione/#modulistica">Modulistica</a></li><li><a href="/iscrizione/#contratto-studente">Contratto con lo studente</a></li><li><a href="/contatti/">Contatti</a></li></ul></div>
     </div>
-    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/la-voce-dell-olympo/">La Voce dell'Olympo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/poli-aperti/">Poli aperti</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
+    <nav class="f-seo" aria-label="Tutte le pagine del sito"><div><h5>Corsi di laurea online</h5><ul><li><a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza LMG-01</a></li><li><a href="/corsi-di-laurea/economia-aziendale/">Economia Aziendale L-18</a></li><li><a href="/corsi-di-laurea/scienze-psicologiche/">Scienze Psicologiche L-24</a></li><li><a href="/corsi-di-laurea/scienze-educazione/">Scienze dell'Educazione L-19</a></li><li><a href="/corsi-di-laurea/ingegneria-informatica/">Ingegneria Informatica L-8</a></li><li><a href="/corsi-di-laurea/scienze-motorie/">Scienze Motorie L-22</a></li></ul></div><div><h5>Master e alta formazione</h5><ul><li><a href="/master-made-in-italy-global-leadership/">Master Made in Italy</a></li><li><a href="/master-universitari/management-imprese-turistiche/">Master Management Turistico</a></li><li><a href="/master-universitari/didattica-innovazione-digitale/">Master Didattica Digitale</a></li><li><a href="/master-universitari/diritto-impresa-internazionale/">Master Diritto Internazionale</a></li><li><a href="/master-universitari/data-analytics-business/">Data Analytics</a></li><li><a href="/master-universitari/management-sanitario/">Master Management Sanitario</a></li></ul></div><div><h5>Certificazioni e CFU</h5><ul><li><a href="/certificazioni/informatiche/">Certificazioni informatiche</a></li><li><a href="/certificazioni/linguistiche/">Certificazioni linguistiche</a></li><li><a href="/certificazioni/graduatorie-scuola/">Punteggio graduatorie</a></li><li><a href="/corsi-singoli-cfu/">Corsi singoli</a></li><li><a href="/riconoscimento-cfu/">Riconoscimento CFU</a></li><li><a href="/formazione-aziendale/">Formazione aziendale</a></li></ul></div><div><h5>Approfondimenti</h5><ul><li><a href="/offerta-formativa/">Offerta formativa</a></li><li><a href="/janus-diploma-online/">Janus, diploma online</a></li><li><a href="/medicina-senza-test-ingresso/">Medicina senza test d'ingresso</a></li><li><a href="/intelligenza-artificiale-ai-act/">Formazione AI e AI Act</a></li><li><a href="/fondo-nuove-competenze-2026/">Fondo Nuove Competenze 2026</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/calogero-di-carlo/">Calogero Di Carlo</a></li><li><a href="/la-voce-dell-olympo/">La Voce dell'Olympo</a></li><li><a href="/eventi/">Eventi</a></li><li><a href="/servizi-studenti/">Servizi agli studenti</a></li><li><a href="/rete-e-partner/">Rete e partner</a></li><li><a href="/sedi/">Sedi</a></li><li><a href="/poli-aperti/">Poli aperti</a></li><li><a href="/iscrizione/">Iscrizione</a></li><li><a href="/apri-una-sede/">Apri una sede</a></li></ul></div></nav>
     <div class="f-legal" style="padding-bottom:22px">
       UNICESD OLYMPO SRL &mdash; Universitas Centro Studi Olympo &middot; Sede legale Via Trabia 1, 90133 Palermo (PA) &middot; Sede operativa Largo Lituania 11 (ex Via Danimarca), 90141 Palermo (PA) &middot; P.IVA e C.F. 06398000825 &middot; REA PA-318277 &middot; Capitale sociale &euro; 10.000 i.v. &middot; ATECO 85.60.09<br>
       UNICESD Olympo &egrave; un centro di servizi di supporto all'istruzione. I titoli di studio sono rilasciati dagli atenei con cui vengono attivati i percorsi.
@@ -3075,6 +3432,301 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
   </div>
 </div>
 
+<!-- ===== AREA RISERVATA: accesso, iscrizione e scheda personale =====
+     Si apre da ogni elemento con data-area (data-area="register" apre direttamente l'iscrizione),
+     da #area-riservata nell'indirizzo o da ?area=1. Logica in fondo a script.html (blocco AREA RISERVATA).
+     Senza chiavi Supabase (UO_AUTH in script.html) funziona in MODALITA' DIMOSTRATIVA: i dati restano
+     solo nel browser di chi prova. Istruzioni: sorgenti/area-riservata/LEGGIMI-AREA-RISERVATA.md -->
+<div id="arbg" role="dialog" aria-modal="true" aria-labelledby="ar-title" hidden>
+
+  <!-- ACCESSO / ISCRIZIONE -->
+  <div class="ar-auth" id="arAuth">
+    <button class="ar-x" type="button" data-ar-close aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="ar-side dark">
+      <img src="assets/logo-light-480.webp" alt="UNICESD Olympo" width="480" height="213" class="ar-logo">
+      <div class="eyebrow"><em></em> Area Riservata</div>
+      <h3 id="ar-title">Il tuo spazio <span class="grad">personale</span></h3>
+      <ul class="ar-perks">
+        <li><b>La tua scheda</b><span>Dati anagrafici, recapiti e percorso scelto, sempre aggiornati.</span></li>
+        <li><b>I tuoi documenti</b><span>Carichi documento, titolo di studio e contratto firmato.</span></li>
+        <li><b>Modulistica e contratto</b><span>Tutti i moduli da scaricare, in un posto solo.</span></li>
+        <li><b>Lo stato della pratica</b><span>Vedi a che punto &egrave; la tua iscrizione.</span></li>
+      </ul>
+      <p class="ar-help">Problemi di accesso? <a href="tel:+393281376792">328 137 6792</a> &middot; <a href="mailto:Calogero60@yahoo.it">Calogero60@yahoo.it</a></p>
+    </div>
+
+    <div class="ar-main">
+      <div class="ar-demo" data-ar-demo hidden><b>Modalit&agrave; dimostrativa.</b> Il portale non &egrave; ancora collegato al server: puoi provarlo, ma i dati restano solo in questo browser.</div>
+
+      <!-- login -->
+      <form class="ar-pane" id="arLogin" data-pane="login" novalidate>
+        <h4>Accedi</h4>
+        <p class="ar-sub">Inserisci le credenziali che hai scelto al momento dell'iscrizione.</p>
+        <div class="field"><label for="arl-email">Email</label><input id="arl-email" name="email" type="email" required autocomplete="username" placeholder="nome@email.it"><div class="err-msg">Inserisci un indirizzo email valido</div></div>
+        <div class="field ar-pw"><label for="arl-pw">Password</label><input id="arl-pw" name="password" type="password" required autocomplete="current-password" placeholder="La tua password"><button type="button" class="ar-eye" aria-label="Mostra la password">&#128065;</button><div class="err-msg">Inserisci la password</div></div>
+        <div class="ar-row"><a href="#" data-ar-go="forgot">Password dimenticata?</a></div>
+        <div class="ar-msg" role="alert"></div>
+        <button type="submit" class="btn btn-p ar-wide"><span>Accedi</span><span class="shine"></span></button>
+        <div class="ar-or"><span>Non hai le credenziali?</span></div>
+        <button type="button" class="btn btn-lock ar-wide" data-ar-go="register"><span>Iscriviti</span></button>
+        <p class="ar-note">L'iscrizione crea il tuo account personale. Ti servono un documento d'identit&agrave;, il codice fiscale e i dati del tuo titolo di studio.</p>
+      </form>
+
+      <!-- password dimenticata -->
+      <form class="ar-pane" id="arForgot" data-pane="forgot" novalidate hidden>
+        <h4>Recupera la password</h4>
+        <p class="ar-sub">Scrivi l'email con cui ti sei iscritto: ti mandiamo un link per sceglierne una nuova.</p>
+        <div class="field"><label for="arf-email">Email</label><input id="arf-email" name="email" type="email" required autocomplete="username" placeholder="nome@email.it"><div class="err-msg">Inserisci un indirizzo email valido</div></div>
+        <div class="ar-msg" role="alert"></div>
+        <button type="submit" class="btn btn-p ar-wide"><span>Invia il link</span><span class="shine"></span></button>
+        <p class="ar-note"><a href="#" data-ar-go="login">&larr; Torna all'accesso</a></p>
+      </form>
+
+      <!-- nuova password (dal link ricevuto via email) -->
+      <form class="ar-pane" id="arRecover" data-pane="recover" novalidate hidden>
+        <h4>Scegli una nuova password</h4>
+        <p class="ar-sub">Almeno 8 caratteri, con lettere e numeri.</p>
+        <div class="field ar-pw"><label for="arr-pw">Nuova password</label><input id="arr-pw" name="password" type="password" required autocomplete="new-password"><button type="button" class="ar-eye" aria-label="Mostra la password">&#128065;</button><div class="err-msg">Almeno 8 caratteri, con lettere e numeri</div></div>
+        <div class="ar-msg" role="alert"></div>
+        <button type="submit" class="btn btn-p ar-wide"><span>Salva la password</span><span class="shine"></span></button>
+      </form>
+
+      <!-- iscrizione in 5 passi -->
+      <form class="ar-pane" id="arReg" data-pane="register" novalidate hidden>
+        <h4>Iscriviti</h4>
+        <p class="ar-sub">Cinque passi, circa cinque minuti. I campi con * sono obbligatori.</p>
+        <ol class="ar-steps" aria-label="Passi dell'iscrizione">
+          <li class="on"><i>1</i><span>Account</span></li><li><i>2</i><span>Anagrafica</span></li><li><i>3</i><span>Residenza</span></li><li><i>4</i><span>Percorso</span></li><li><i>5</i><span>Conferma</span></li>
+        </ol>
+
+        <fieldset class="ar-step" data-step="1">
+          <legend>Le tue credenziali</legend>
+          <div class="field"><label for="ar-email">Email *</label><input id="ar-email" name="email" type="email" autocomplete="email" placeholder="nome@email.it" required><div class="err-msg">Inserisci un indirizzo email valido</div></div>
+          <div class="f-row">
+            <div class="field ar-pw"><label for="ar-pw">Password *</label><input id="ar-pw" name="password" type="password" autocomplete="new-password" required><button type="button" class="ar-eye" aria-label="Mostra la password">&#128065;</button><div class="err-msg">Almeno 8 caratteri, con lettere e numeri</div></div>
+            <div class="field"><label for="ar-pw2">Ripeti la password *</label><input id="ar-pw2" name="password2" type="password" autocomplete="new-password" required><div class="err-msg">Le due password non coincidono</div></div>
+          </div>
+          <div class="ar-meter" aria-hidden="true"><i></i></div>
+          <p class="ar-note" style="text-align:left">Email e password saranno le tue credenziali per accedere all'Area Riservata. Conservale con cura.</p>
+        </fieldset>
+
+        <fieldset class="ar-step" data-step="2" hidden>
+          <legend>Dati anagrafici</legend>
+          <div class="f-row">
+            <div class="field"><label for="ar-nome">Nome *</label><input id="ar-nome" name="nome" type="text" autocomplete="given-name" required><div class="err-msg">Inserisci il nome</div></div>
+            <div class="field"><label for="ar-cognome">Cognome *</label><input id="ar-cognome" name="cognome" type="text" autocomplete="family-name" required><div class="err-msg">Inserisci il cognome</div></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-sesso">Sesso *</label><select id="ar-sesso" name="sesso" required><option value="">Seleziona&hellip;</option><option value="F">Femminile</option><option value="M">Maschile</option></select><div class="err-msg">Seleziona</div></div>
+            <div class="field"><label for="ar-nascita">Data di nascita *</label><input id="ar-nascita" name="data_nascita" type="date" autocomplete="bday" required><div class="err-msg">Inserisci la data di nascita</div></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-comn">Comune (o Stato estero) di nascita *</label><input id="ar-comn" name="comune_nascita" type="text" required><div class="err-msg">Inserisci il luogo di nascita</div></div>
+            <div class="field"><label for="ar-provn">Provincia di nascita</label><input id="ar-provn" name="prov_nascita" type="text" maxlength="2" placeholder="PA" class="ar-up"></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-citt">Cittadinanza *</label><input id="ar-citt" name="cittadinanza" type="text" value="Italiana" required><div class="err-msg">Inserisci la cittadinanza</div></div>
+            <div class="field"><label for="ar-cf">Codice fiscale *</label><input id="ar-cf" name="codice_fiscale" type="text" maxlength="16" class="ar-up" autocomplete="off" required><div class="err-msg">Codice fiscale non valido</div></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="ar-step" data-step="3" hidden>
+          <legend>Recapiti e residenza</legend>
+          <div class="f-row">
+            <div class="field"><label for="ar-cell">Cellulare *</label><input id="ar-cell" name="cellulare" type="tel" autocomplete="tel" placeholder="+39 333 000 0000" required><div class="err-msg">Inserisci un numero valido</div></div>
+            <div class="field"><label for="ar-tel">Altro telefono</label><input id="ar-tel" name="telefono" type="tel"></div>
+          </div>
+          <div class="field"><label for="ar-ind">Indirizzo di residenza *</label><input id="ar-ind" name="indirizzo" type="text" autocomplete="street-address" placeholder="Via e numero civico" required><div class="err-msg">Inserisci l'indirizzo</div></div>
+          <div class="f-row ar-3">
+            <div class="field"><label for="ar-cap">CAP *</label><input id="ar-cap" name="cap" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" required><div class="err-msg">CAP di 5 cifre</div></div>
+            <div class="field"><label for="ar-com">Comune *</label><input id="ar-com" name="comune" type="text" autocomplete="address-level2" required><div class="err-msg">Inserisci il comune</div></div>
+            <div class="field"><label for="ar-prov">Prov. *</label><input id="ar-prov" name="provincia" type="text" maxlength="2" class="ar-up" required><div class="err-msg">Sigla</div></div>
+          </div>
+          <div class="field"><label for="ar-dom">Domicilio, se diverso dalla residenza</label><input id="ar-dom" name="domicilio" type="text" placeholder="Facoltativo"></div>
+        </fieldset>
+
+        <fieldset class="ar-step" data-step="4" hidden>
+          <legend>Il tuo percorso</legend>
+          <div class="f-row">
+            <div class="field"><label for="ar-perc">Tipo di percorso *</label>
+              <select id="ar-perc" name="percorso" required>
+                <option value="">Seleziona&hellip;</option>
+                <option>Corso di laurea triennale</option><option>Corso di laurea magistrale</option><option>Laurea a ciclo unico</option>
+                <option>Master di I livello</option><option>Master di II livello</option><option>Diploma di scuola superiore online</option>
+                <option>Studiare all'estero (Medicina e area sanitaria)</option><option>Certificazioni informatiche e linguistiche</option>
+                <option>Corsi singoli e CFU</option><option>Corsi di intelligenza artificiale</option><option>Formazione professionale</option>
+              </select><div class="err-msg">Seleziona il tipo di percorso</div></div>
+            <div class="field"><label for="ar-corso">Corso *</label><input id="ar-corso" name="corso" type="text" list="ar-corsi" placeholder="Es. Giurisprudenza" required><datalist id="ar-corsi"></datalist><div class="err-msg">Indica il corso</div></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-mod">Modalit&agrave; *</label><select id="ar-mod" name="modalita" required><option value="">Seleziona&hellip;</option><option>Online</option><option>Online con supporto in sede</option></select><div class="err-msg">Seleziona</div></div>
+            <div class="field"><label for="ar-polo">Sede o polo di riferimento *</label><select id="ar-polo" name="polo" required><option value="">Seleziona&hellip;</option><option>Palermo &middot; Via Trabia 1</option><option>Campofelice di Roccella</option><option>Polo 00001 &middot; Global Campus Licata</option><option>Gliaca di Piraino &middot; AFEIP</option><option>Nessuna preferenza (tutto online)</option></select><div class="err-msg">Seleziona</div></div>
+          </div>
+          <div class="f-row">
+            <div class="field"><label for="ar-tit">Titolo di studio posseduto *</label><select id="ar-tit" name="titolo_studio" required><option value="">Seleziona&hellip;</option><option>Licenza media</option><option>Diploma di scuola superiore</option><option>Laurea triennale</option><option>Laurea magistrale / vecchio ordinamento</option><option>Master / Dottorato</option><option>Titolo estero</option></select><div class="err-msg">Seleziona il titolo</div></div>
+            <div class="field"><label for="ar-anno">Anno di conseguimento</label><input id="ar-anno" name="anno_titolo" type="text" inputmode="numeric" maxlength="4" placeholder="Es. 2012"></div>
+          </div>
+          <div class="field"><label for="ar-ist">Istituto o ateneo che lo ha rilasciato</label><input id="ar-ist" name="istituto" type="text" placeholder="Nome e citt&agrave;"></div>
+        </fieldset>
+
+        <fieldset class="ar-step" data-step="5" hidden>
+          <legend>Riepilogo e consensi</legend>
+          <dl class="ar-recap" id="arRecap"></dl>
+          <label class="check"><input type="checkbox" name="consenso_contratto" required><span>Ho letto e accetto il <a href="modulistica/contratto-con-lo-studente.pdf" target="_blank" rel="noopener">Contratto con lo studente</a> di UNICESD Olympo. *</span></label>
+          <label class="check"><input type="checkbox" name="consenso_privacy" required><span>Ho letto l'<a href="#" data-modal="privacy">informativa privacy</a> e acconsento al trattamento dei miei dati per gestire l'iscrizione. *</span></label>
+          <label class="check"><input type="checkbox" name="consenso_marketing"><span>Acconsento a ricevere aggiornamenti su corsi, master e iniziative di UNICESD Olympo.</span></label>
+          <p class="ar-note" style="text-align:left">Dichiaro che i dati inseriti sono veritieri, consapevole delle conseguenze previste dagli artt. 75 e 76 del D.P.R. 445/2000 per le dichiarazioni mendaci.</p>
+        </fieldset>
+
+        <div class="ar-msg" role="alert"></div>
+        <div class="ar-nav">
+          <button type="button" class="btn btn-g" data-ar-prev hidden>&larr; Indietro</button>
+          <button type="button" class="btn btn-p" data-ar-next><span>Avanti &rarr;</span><span class="shine"></span></button>
+          <button type="submit" class="btn btn-p" data-ar-submit hidden><span>Completa l'iscrizione</span><span class="shine"></span></button>
+        </div>
+        <p class="ar-note">Hai gi&agrave; le credenziali? <a href="#" data-ar-go="login">Accedi</a></p>
+      </form>
+
+      <!-- iscrizione ricevuta, in attesa di conferma email -->
+      <div class="ar-pane ar-done" data-pane="check" hidden>
+        <div class="ar-done-ic">&#9993;</div>
+        <h4>Controlla la tua email</h4>
+        <p class="ar-sub">Ti abbiamo scritto all'indirizzo <b data-ar-mail></b>. Apri il messaggio e clicca sul link di conferma: da quel momento puoi accedere con la tua email e la password che hai scelto.</p>
+        <button type="button" class="btn btn-p ar-wide" data-ar-go="login"><span>Vai all'accesso</span><span class="shine"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDA PERSONALE (dopo l'accesso) -->
+  <div class="ar-dash" id="arDash" hidden>
+    <aside class="ar-nav-side dark">
+      <img src="assets/logo-light-480.webp" alt="UNICESD Olympo" width="480" height="213" class="ar-logo">
+      <div class="ar-me">
+        <div class="ar-av" data-f="iniziali">&middot;</div>
+        <div><b data-f="nome_completo"></b><span>Matricola <em data-f="matricola"></em></span></div>
+      </div>
+      <nav class="ar-tabs" role="tablist">
+        <button type="button" class="on" data-ar-tab="scheda" role="tab">&#128100; La mia scheda</button>
+        <button type="button" data-ar-tab="documenti" role="tab">&#128206; I miei documenti</button>
+        <button type="button" data-ar-tab="moduli" role="tab">&#128196; Modulistica</button>
+        <button type="button" data-ar-tab="contratto" role="tab">&#9998; Contratto</button>
+        <button type="button" data-ar-tab="sicurezza" role="tab">&#128273; Password</button>
+      </nav>
+      <button type="button" class="btn btn-g btn-sm ar-out" data-ar-logout>Esci</button>
+      <button type="button" class="ar-back" data-ar-close>&larr; Torna al sito</button>
+    </aside>
+
+    <div class="ar-body">
+      <button class="ar-x" type="button" data-ar-close aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <div class="ar-demo" data-ar-demo hidden><b>Modalit&agrave; dimostrativa.</b> I dati restano solo in questo browser.</div>
+
+      <!-- La mia scheda -->
+      <section class="ar-tab" data-tab="scheda">
+        <div class="ar-hello"><span>Ciao</span> <b data-f="nome"></b></div>
+        <div class="ar-state">
+          <div class="ar-state-h"><b>Stato della pratica</b><span class="ar-pill" data-f="stato_label"></span></div>
+          <ol class="ar-track" data-f="track"><li>Registrazione</li><li>Documenti</li><li>Verifica della segreteria</li><li>Iscrizione perfezionata</li></ol>
+          <p class="ar-state-t" data-f="stato_testo"></p>
+        </div>
+
+        <div class="ar-card">
+          <div class="ar-card-h"><h5>Dati anagrafici</h5><span class="ar-lockt">&#128274; Non modificabili</span></div>
+          <dl class="ar-dl">
+            <div><dt>Nome</dt><dd data-f="nome"></dd></div><div><dt>Cognome</dt><dd data-f="cognome"></dd></div>
+            <div><dt>Sesso</dt><dd data-f="sesso_label"></dd></div><div><dt>Data di nascita</dt><dd data-f="data_nascita_it"></dd></div>
+            <div><dt>Luogo di nascita</dt><dd data-f="luogo_nascita"></dd></div><div><dt>Cittadinanza</dt><dd data-f="cittadinanza"></dd></div>
+            <div><dt>Codice fiscale</dt><dd data-f="codice_fiscale"></dd></div><div><dt>Email di accesso</dt><dd data-f="email"></dd></div>
+            <div><dt>Matricola</dt><dd data-f="matricola"></dd></div><div><dt>Iscritto dal</dt><dd data-f="creato_it"></dd></div>
+          </dl>
+          <p class="ar-hint">Per correggere un dato bloccato scarica il modulo <a href="modulistica/variazione-dati-anagrafici.pdf" target="_blank" rel="noopener">Variazione dei dati anagrafici</a> e caricalo fra i tuoi documenti, oppure scrivi alla segreteria.</p>
+        </div>
+
+        <form class="ar-card" id="arEdit" novalidate>
+          <div class="ar-card-h"><h5>Recapiti e residenza</h5><span class="ar-okt">&#9998; Modificabili</span></div>
+          <div class="f-row">
+            <div class="field"><label for="are-cell">Cellulare *</label><input id="are-cell" name="cellulare" type="tel"><div class="err-msg">Inserisci un numero valido</div></div>
+            <div class="field"><label for="are-tel">Altro telefono</label><input id="are-tel" name="telefono" type="tel"></div>
+          </div>
+          <div class="field"><label for="are-ind">Indirizzo di residenza *</label><input id="are-ind" name="indirizzo" type="text"><div class="err-msg">Inserisci l'indirizzo</div></div>
+          <div class="f-row ar-3">
+            <div class="field"><label for="are-cap">CAP *</label><input id="are-cap" name="cap" type="text" inputmode="numeric" maxlength="5"><div class="err-msg">CAP di 5 cifre</div></div>
+            <div class="field"><label for="are-com">Comune *</label><input id="are-com" name="comune" type="text"><div class="err-msg">Inserisci il comune</div></div>
+            <div class="field"><label for="are-prov">Prov. *</label><input id="are-prov" name="provincia" type="text" maxlength="2" class="ar-up"><div class="err-msg">Sigla</div></div>
+          </div>
+          <div class="field"><label for="are-dom">Domicilio, se diverso</label><input id="are-dom" name="domicilio" type="text"></div>
+          <div class="field"><label for="are-polo">Sede o polo di riferimento</label><select id="are-polo" name="polo"></select></div>
+          <label class="check"><input type="checkbox" name="consenso_marketing"><span>Voglio ricevere aggiornamenti su corsi, master e iniziative.</span></label>
+          <div class="ar-msg" role="alert"></div>
+          <button type="submit" class="btn btn-p"><span>Salva le modifiche</span><span class="shine"></span></button>
+        </form>
+
+        <div class="ar-card">
+          <div class="ar-card-h"><h5>Il percorso scelto</h5><span class="ar-lockt">&#128274; Non modificabile</span></div>
+          <dl class="ar-dl">
+            <div><dt>Tipo di percorso</dt><dd data-f="percorso"></dd></div><div><dt>Corso</dt><dd data-f="corso"></dd></div>
+            <div><dt>Modalit&agrave;</dt><dd data-f="modalita"></dd></div><div><dt>Titolo posseduto</dt><dd data-f="titolo_studio"></dd></div>
+            <div><dt>Rilasciato da</dt><dd data-f="istituto"></dd></div><div><dt>Anno</dt><dd data-f="anno_titolo"></dd></div>
+          </dl>
+          <p class="ar-hint">Vuoi cambiare corso? Usa il modulo <a href="modulistica/passaggio-ad-altro-corso.pdf" target="_blank" rel="noopener">Passaggio ad altro corso</a>.</p>
+        </div>
+      </section>
+
+      <!-- Documenti -->
+      <section class="ar-tab" data-tab="documenti" hidden>
+        <h4 class="ar-h">I miei documenti</h4>
+        <p class="ar-sub">Carica i documenti in PDF o in foto (JPG, PNG), fino a 10 MB ciascuno. La segreteria li controlla e aggiorna lo stato della pratica.</p>
+        <div class="ar-docs" id="arDocs"></div>
+      </section>
+
+      <!-- Modulistica -->
+      <section class="ar-tab" data-tab="moduli" hidden>
+        <h4 class="ar-h">Modulistica</h4>
+        <p class="ar-sub">Scarica il modulo, compilalo, firmalo e caricalo nella sezione <a href="#" data-ar-tab="documenti">I miei documenti</a> come &laquo;Altro documento&raquo;.</p>
+        <div class="ar-mods" id="arMods"></div>
+      </section>
+
+      <!-- Contratto -->
+      <section class="ar-tab" data-tab="contratto" hidden>
+        <h4 class="ar-h">Il contratto con lo studente</h4>
+        <div class="ar-card">
+          <p>Hai accettato il <b>Contratto con lo studente</b> il <b data-f="contratto_it"></b>, al momento dell'iscrizione online.</p>
+          <p>Per perfezionare l'iscrizione scarica il contratto, firmalo in ogni pagina e caricalo fra i tuoi documenti (oppure consegnalo in sede).</p>
+          <div class="ar-actions">
+            <a class="btn btn-p" href="modulistica/contratto-con-lo-studente.pdf" target="_blank" rel="noopener"><span>Scarica il contratto (PDF)</span><span class="shine"></span></a>
+            <button type="button" class="btn btn-g" data-ar-tab="documenti">Carica il contratto firmato</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Password -->
+      <section class="ar-tab" data-tab="sicurezza" hidden>
+        <h4 class="ar-h">Cambia la password</h4>
+        <form class="ar-card" id="arPw" novalidate>
+          <div class="f-row">
+            <div class="field ar-pw"><label for="arp-1">Nuova password</label><input id="arp-1" name="password" type="password" required autocomplete="new-password"><button type="button" class="ar-eye" aria-label="Mostra la password">&#128065;</button><div class="err-msg">Almeno 8 caratteri, con lettere e numeri</div></div>
+            <div class="field"><label for="arp-2">Ripeti la password</label><input id="arp-2" name="password2" type="password" required autocomplete="new-password"><div class="err-msg">Le due password non coincidono</div></div>
+          </div>
+          <div class="ar-msg" role="alert"></div>
+          <button type="submit" class="btn btn-p"><span>Aggiorna la password</span><span class="shine"></span></button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- ===== JANUS IN EVIDENZA: finestra che segue il mouse per qualche secondo, poi si ferma in basso a destra =====
+     Logica in fondo a script.html (blocco JANUS IN EVIDENZA). Compare su tutte le pagine; segue il mouse solo
+     alla prima pagina della visita. Chiusa con la X non ricompare fino alla visita successiva. Prova: ?janus=1 -->
+<div id="jnfly" hidden>
+  <button type="button" class="jnf-x" aria-label="Chiudi">&times;</button>
+  <button type="button" class="jnf-min" aria-label="Riduci">&ndash;</button>
+  <a href="#janus" class="jnf-card" aria-label="Janus, diploma online: scopri gli 11 indirizzi">
+    <span class="jnf-tag">In evidenza</span>
+    <img src="assets/janus/janus-sede-560.webp" width="560" height="866" alt="Janus Istituto Superiore per la Formazione: la sede con le attivit&agrave; della rete" decoding="async">
+    <span class="jnf-cap"><b>Janus</b> &middot; Diploma online<small>11 indirizzi, tutor personale &middot; Scopri &rarr;</small></span>
+  </a>
+  <i class="jnf-bar"></i>
+</div>
+
 <!-- ===== TOAST ===== -->
 <div id="toast"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2ee6a0" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span id="toast-txt">Fatto</span></div>
 
@@ -3105,17 +3757,17 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
 <div id="evbg" role="dialog" aria-modal="true" aria-labelledby="evpop-title">
   <div class="evpop">
     <button class="evpop-x" id="evx" aria-label="Chiudi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div class="evpop-img"><img width="680" height="1020" src="assets/eventi/convention-18set2026.webp" alt="Convention UNICESD Olympo, 18 settembre 2026" loading="lazy" decoding="async"></div>
+    <div class="evpop-img"><img width="1290" height="1373" src="assets/eventi/programma-24ott2026.webp" alt="Programma del 24 ottobre 2026, AFEIP a Gliaca di Piraino" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></div>
     <div class="evpop-main" id="evpop-main">
       <span class="ev-badge">Prossimo evento <i></i></span>
-      <h3 id="evpop-title">Convention UNICESD Olympo</h3>
-      <div class="ev-kicker">Incontrarsi, confrontarsi, crescere</div>
+      <h3 id="evpop-title">Insieme, per una formazione sempre pi&ugrave; grande</h3>
+      <div class="ev-kicker">AFEIP Formazione Professionale</div>
       <div class="evpop-meta">
-        <span>&#128197; Venerd&igrave; 18 settembre 2026</span>
-        <span>&#128337; Lavori ore 16:00 &middot; reg. dalle 15:00</span>
-        <span>&#128205; TH Roma Carpegna Palace &mdash; Roma</span>
+        <span>&#128197; Sabato 24 ottobre 2026</span>
+        <span>&#128337; Lavori ore 16:00 &middot; accoglienza dalle 15:00</span>
+        <span>&#128205; Centro Sociale &laquo;Don Pino Puglisi&raquo; &mdash; Gliaca di Piraino (ME)</span>
       </div>
-      <p style="color:#b9c7e6;font-size:14.4px;margin-bottom:20px">Una giornata per presentare il rilancio di UNICESD Olympo, creare sinergie tra organizzazioni e partner e costruire insieme il futuro della formazione. <b style="color:#fff">Lascia i tuoi dati e ti inviamo il programma completo e le modalit&agrave; di adesione.</b></p>
+      <p style="color:#b9c7e6;font-size:14.4px;margin-bottom:20px">L'intervento di Rosalba Molica, il confronto sui nuovi temi della formazione partecipata e la cena con il taglio della torta. <b style="color:#fff">Lascia i tuoi dati per partecipare: ti ricontattiamo con tutti i dettagli.</b></p>
       <form class="evpop-form" id="evform" novalidate>
         <div class="f-row">
           <div class="field"><label for="ev-nome">Nome e cognome *</label><input id="ev-nome" name="nome" type="text" placeholder="Il tuo nome"><div class="err-msg">Inserisci nome e cognome</div></div>
@@ -3124,7 +3776,7 @@ body:not(.sub) #partner .wrap>.feature,body:not(.sub) #partner .wrap>.pnote{disp
         <div class="field"><label for="ev-mail">Email *</label><input id="ev-mail" name="email" type="email" placeholder="nome@email.it"><div class="err-msg">Inserisci un indirizzo email valido</div></div>
         <div class="field"><label for="ev-org">Ente o azienda</label><input id="ev-org" name="org" type="text" placeholder="Facoltativo"></div>
         <label class="check"><input type="checkbox" id="ev-priv"><span>Ho letto e accetto l'<a href="#" data-modal="privacy">informativa privacy</a> e acconsento a essere ricontattato per informazioni sull'evento. *</span></label>
-        <button type="submit" class="btn btn-p" style="width:100%"><span>Ricevi il programma</span><span class="shine"></span></button>
+        <button type="submit" class="btn btn-p" style="width:100%"><span>Voglio partecipare</span><span class="shine"></span></button>
         <a href="#" class="evpop-later" id="evlater">No grazie, continuo a navigare</a>
       </form>
     </div>
@@ -4206,6 +4858,341 @@ document.addEventListener('click',function(e){
     items.forEach(function(it){ it.classList.toggle('hit',on&&it.getAttribute('data-tipo')===t); });
   }); });
 })();
+
+/* ===== AREA RISERVATA =====
+   Per collegare il portale vero, incolla qui URL e chiave pubblica (anon key) del progetto Supabase:
+   istruzioni in sorgenti/area-riservata/LEGGIMI-AREA-RISERVATA.md. Finche' restano vuote, il portale
+   funziona in modalita' dimostrativa (dati salvati solo nel browser di chi prova). */
+window.UO_AUTH = window.UO_AUTH || { url: '', key: '' };
+(function(){
+  var bg=document.getElementById('arbg'); if(!bg) return;
+  var CFG=window.UO_AUTH, LIVE=!!(CFG.url&&CFG.key);
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var BASE=location.protocol==='file:'?'':'/';
+  var EDIT=['cellulare','telefono','indirizzo','cap','comune','provincia','domicilio','polo','consenso_marketing'];
+  var STATI={registrato:['Registrazione ricevuta',1,'Ora carica i tuoi documenti e il contratto firmato: la segreteria li verifica e ti ricontatta.'],
+             documenti:['Documenti caricati',2,'Abbiamo ricevuto i documenti. La segreteria li sta controllando.'],
+             verifica:['In verifica',3,'La segreteria sta completando la tua pratica con l\'ateneo o l\'ente di riferimento.'],
+             iscritto:['Iscrizione perfezionata',4,'La tua iscrizione &egrave; completa. Riceverai via email le credenziali della piattaforma didattica.']};
+  var DOCS=[['identita','Documento d\'identit&agrave;','Fronte e retro, in corso di validit&agrave;.'],
+            ['cf','Codice fiscale o tessera sanitaria','Fronte e retro.'],
+            ['titolo','Titolo di studio','Diploma, certificato o autocertificazione firmata.'],
+            ['foto','Fototessera','Recente, su fondo chiaro.'],
+            ['contratto','Contratto firmato','Il contratto con lo studente firmato in ogni pagina.'],
+            ['pagamento','Ricevuta di pagamento','Bonifico o ricevuta della prima rata.'],
+            ['altro','Altro documento','Moduli compilati, riconoscimento crediti, certificati.']];
+  var MODULI=[['Iscrizione',[['domanda-di-iscrizione','Domanda di iscrizione e adesione ai servizi'],['contratto-con-lo-studente','Contratto con lo studente'],['richiesta-rateizzazione','Richiesta di pagamento rateale']]],
+    ['Crediti e carriera',[['riconoscimento-crediti','Richiesta di valutazione e riconoscimento crediti (CFU)'],['iscrizione-corsi-singoli','Domanda di iscrizione a corsi singoli'],['iscrizione-uditore','Domanda di iscrizione come uditore'],['studente-tempo-parziale','Richiesta di iscrizione a tempo parziale'],['passaggio-ad-altro-corso','Passaggio ad altro corso'],['trasferimento','Domanda di trasferimento'],['ricongiunzione-carriera','Richiesta di ricongiunzione della carriera'],['rinuncia-agli-studi','Rinuncia agli studi e recesso dai servizi']]],
+    ['Esami e titoli',[['scelta-sede-esami','Scelta della sede per esami e sedute di laurea'],['richiesta-duplicati','Richiesta di duplicato di documenti']]],
+    ['Dati e dichiarazioni',[['variazione-dati-anagrafici','Variazione dei dati anagrafici'],['istanza-alla-direzione','Istanza alla Direzione'],['autocertificazione-titolo-di-studio','Autocertificazione del titolo di studio'],['dichiarazione-sostitutiva-certificazione','Dichiarazione sostitutiva di certificazione'],['dichiarazione-sostitutiva-atto-notorio','Dichiarazione sostitutiva dell\'atto di notoriet&agrave;']]]];
+  var CORSI=['Giurisprudenza','Economia','Scienze e tecniche psicologiche','Scienze dell\'educazione e della formazione','Ingegneria informatica e dell\'automazione','Scienze delle attività motorie e sportive','Mediazione linguistica','Scienze politiche','Lettere','Scienze biologiche','Management sanitario','Made in Italy Global Leadership','Liceo scientifico','Liceo scientifico sportivo','Liceo linguistico','Liceo delle scienze umane','Istituto tecnico AFM','Medicina e chirurgia (estero)','Odontoiatria (estero)','Infermieristica (estero)','EIPASS','Certificazione linguistica'];
+
+  /* ---------- servizio: Supabase o modalita' dimostrativa ---------- */
+  var sb=null, sbLoading=null;
+  function loadSb(){
+    if(sb) return Promise.resolve(sb);
+    if(sbLoading) return sbLoading;
+    sbLoading=new Promise(function(res,rej){
+      var s=document.createElement('script');
+      s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js';
+      s.onload=function(){ sb=window.supabase.createClient(CFG.url,CFG.key,{auth:{persistSession:true,detectSessionInUrl:true}});
+        sb.auth.onAuthStateChange(function(ev){ if(ev==='PASSWORD_RECOVERY'){ open('recover') } });
+        res(sb) };
+      s.onerror=function(){ rej(new Error('Impossibile raggiungere il server. Controlla la connessione.')) };
+      document.head.appendChild(s);
+    });
+    return sbLoading;
+  }
+  function itErr(e){
+    var m=(e&&e.message)||String(e);
+    if(/invalid login/i.test(m)) return 'Email o password non corrette.';
+    if(/not confirmed/i.test(m)) return 'Devi prima confermare l\'email: apri il messaggio che ti abbiamo inviato.';
+    if(/already registered|already exists/i.test(m)) return 'Esiste gi&agrave; un account con questa email. Prova ad accedere o recupera la password.';
+    if(/database error saving new user/i.test(m)) return 'Non &egrave; stato possibile completare l\'iscrizione: il codice fiscale potrebbe essere gi&agrave; registrato. Contatta la segreteria.';
+    if(/codice_fiscale|duplicate key/i.test(m)) return 'Questo codice fiscale risulta gi&agrave; registrato. Contatta la segreteria.';
+    if(/rate limit|too many/i.test(m)) return 'Troppi tentativi ravvicinati. Riprova fra qualche minuto.';
+    if(/password/i.test(m)&&/least|weak|short/i.test(m)) return 'La password &egrave; troppo debole.';
+    return m;
+  }
+  /* modalita' dimostrativa: tutto in localStorage */
+  var DKEY='uo-area-demo';
+  function dload(){ try{ return JSON.parse(localStorage.getItem(DKEY))||{users:{},cur:null} }catch(e){ return {users:{},cur:null} } }
+  function dsave(d){ try{ localStorage.setItem(DKEY,JSON.stringify(d)) }catch(e){} }
+  function hash(s){ var h=5381; for(var i=0;i<s.length;i++){ h=((h<<5)+h+s.charCodeAt(i))|0 } return 'h'+(h>>>0).toString(36) }
+
+  var API={
+    session:function(){
+      if(!LIVE){ var d=dload(); return Promise.resolve(d.cur&&d.users[d.cur]?{email:d.cur}:null) }
+      return loadSb().then(function(c){ return c.auth.getSession() }).then(function(r){ var s=r.data.session; return s?{email:s.user.email,id:s.user.id}:null });
+    },
+    signIn:function(email,pw){
+      if(!LIVE){ var d=dload(), u=d.users[email]; if(!u||u.pw!==hash(pw)) return Promise.reject(new Error('Invalid login')); d.cur=email; dsave(d); return Promise.resolve({email:email}) }
+      return loadSb().then(function(c){ return c.auth.signInWithPassword({email:email,password:pw}) }).then(function(r){ if(r.error) throw r.error; return {email:r.data.user.email,id:r.data.user.id} });
+    },
+    signUp:function(email,pw,profile){
+      if(!LIVE){ var d=dload(); if(d.users[email]) return Promise.reject(new Error('already registered'));
+        var n=Object.keys(d.users).length+1; profile.email=email; profile.matricola='UO'+String(new Date().getFullYear()).slice(2)+String(n).padStart(5,'0');
+        profile.stato='registrato'; profile.created_at=new Date().toISOString(); profile.consenso_contratto=profile.created_at;
+        d.users[email]={pw:hash(pw),profile:profile,docs:{}}; d.cur=email; dsave(d); return Promise.resolve({session:true}) }
+      return loadSb().then(function(c){ return c.auth.signUp({email:email,password:pw,options:{data:profile,emailRedirectTo:location.origin+'/?area=1'}}) })
+        .then(function(r){ if(r.error) throw r.error; if(r.data.user&&r.data.user.identities&&r.data.user.identities.length===0) throw new Error('already registered'); return {session:!!r.data.session} });
+    },
+    signOut:function(){ if(!LIVE){ var d=dload(); d.cur=null; dsave(d); return Promise.resolve() } return loadSb().then(function(c){ return c.auth.signOut() }) },
+    profile:function(){
+      if(!LIVE){ var d=dload(); return Promise.resolve(d.users[d.cur].profile) }
+      return loadSb().then(function(c){ return c.from('profili').select('*').single() }).then(function(r){ if(r.error) throw r.error; return r.data });
+    },
+    update:function(patch){
+      if(!LIVE){ var d=dload(); Object.assign(d.users[d.cur].profile,patch); dsave(d); return Promise.resolve(d.users[d.cur].profile) }
+      return loadSb().then(function(c){ return c.auth.getUser().then(function(u){ return c.from('profili').update(patch).eq('id',u.data.user.id).select().single() }) })
+        .then(function(r){ if(r.error) throw r.error; return r.data });
+    },
+    reset:function(email){
+      if(!LIVE) return Promise.resolve();
+      return loadSb().then(function(c){ return c.auth.resetPasswordForEmail(email,{redirectTo:location.origin+'/?area=1'}) }).then(function(r){ if(r.error) throw r.error });
+    },
+    setPw:function(pw){
+      if(!LIVE){ var d=dload(); d.users[d.cur].pw=hash(pw); dsave(d); return Promise.resolve() }
+      return loadSb().then(function(c){ return c.auth.updateUser({password:pw}) }).then(function(r){ if(r.error) throw r.error });
+    },
+    docs:function(){
+      if(!LIVE){ var d=dload(); return Promise.resolve(d.users[d.cur].docs||{}) }
+      return loadSb().then(function(c){ return c.auth.getUser().then(function(u){ var id=u.data.user.id;
+        return c.storage.from('documenti').list(id,{limit:100,sortBy:{column:'created_at',order:'desc'}}).then(function(r){
+          if(r.error) throw r.error; var out={};
+          (r.data||[]).forEach(function(f){ var slot=f.name.split('__')[0]; (out[slot]=out[slot]||[]).push({name:f.name.split('__').slice(2).join('__')||f.name,path:id+'/'+f.name,at:f.created_at}) });
+          return out }) }) });
+    },
+    upload:function(slot,file){
+      if(!LIVE){ var d=dload(), u=d.users[d.cur]; u.docs=u.docs||{}; (u.docs[slot]=u.docs[slot]||[]).unshift({name:file.name,at:new Date().toISOString()});
+        if(u.profile.stato==='registrato') u.profile.stato='documenti'; dsave(d); return Promise.resolve() }
+      return loadSb().then(function(c){ return c.auth.getUser().then(function(u){
+        var safe=file.name.normalize('NFD').replace(/[^\w.\-]+/g,'_');
+        return c.storage.from('documenti').upload(u.data.user.id+'/'+slot+'__'+Date.now()+'__'+safe,file,{upsert:false}) }) })
+        .then(function(r){ if(r.error) throw r.error });
+    },
+    link:function(path){ return loadSb().then(function(c){ return c.storage.from('documenti').createSignedUrl(path,120) }).then(function(r){ if(r.error) throw r.error; return r.data.signedUrl }) }
+  };
+
+  /* ---------- interfaccia ---------- */
+  var auth=$('#arAuth'), dash=$('#arDash'), lastFocus=null;
+  $$('[data-ar-demo]',bg).forEach(function(e){ e.hidden=LIVE });
+  $$('a[href^="modulistica/"]',bg).forEach(function(a){ a.setAttribute('href',BASE+a.getAttribute('href')) });
+  var dl=$('#ar-corsi'); CORSI.forEach(function(c){ var o=document.createElement('option'); o.value=c; dl.appendChild(o) });
+  $('#are-polo').innerHTML=$('#ar-polo').innerHTML;
+
+  function show(el,on){ if(on){ el.hidden=false; requestAnimationFrame(function(){ bg.classList.add('on') }) } }
+  function pane(name){ $$('.ar-pane',auth).forEach(function(p){ p.hidden=p.getAttribute('data-pane')!==name }); var f=$('[data-pane="'+name+'"] input',auth); if(f&&matchMedia('(pointer:fine)').matches) setTimeout(function(){ f.focus() },80); $$('.ar-msg',auth).forEach(function(m){ m.className='ar-msg' }) }
+  function msg(form,t,ok){ var m=$('.ar-msg',form); m.innerHTML=t; m.className='ar-msg on'+(ok?' ok':'') }
+  function busy(btn,on){ if(!btn) return; btn.disabled=on; btn.style.opacity=on?.6:'' }
+  function open(view){
+    lastFocus=document.activeElement; bg.hidden=false; document.documentElement.classList.add('ar-lock');
+    requestAnimationFrame(function(){ bg.classList.add('on') });
+    if(view==='recover'){ dash.hidden=true; auth.hidden=false; pane('recover'); return }
+    API.session().then(function(s){
+      if(s&&view!=='register'){ auth.hidden=true; dash.hidden=false; loadDash() }
+      else { dash.hidden=true; auth.hidden=false; pane(view==='register'?'register':'login'); if(view==='register') step(1) }
+    }).catch(function(e){ auth.hidden=false; dash.hidden=true; pane('login'); msg($('#arLogin'),itErr(e)) });
+  }
+  function close(){
+    bg.classList.remove('on'); document.documentElement.classList.remove('ar-lock');
+    setTimeout(function(){ bg.hidden=true },300);
+    if(location.hash==='#area-riservata') history.replaceState(null,'',location.pathname+location.search);
+    if(lastFocus&&lastFocus.focus) lastFocus.focus();
+  }
+  window.UOArea={open:open,close:close};
+
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-area]');
+    if(t){ e.preventDefault(); e.stopPropagation(); var mob=document.getElementById('mob'); if(mob&&mob.classList.contains('on')){ var b=document.getElementById('burger'); if(b) b.click() } open(t.getAttribute('data-area')||'login'); return }
+    if(bg.hidden) return;
+    if(e.target===bg||e.target.closest('[data-ar-close]')){ e.preventDefault(); close(); return }
+    var g=e.target.closest('[data-ar-go]'); if(g){ e.preventDefault(); pane(g.getAttribute('data-ar-go')); if(g.getAttribute('data-ar-go')==='register') step(1); return }
+    var tb=e.target.closest('[data-ar-tab]'); if(tb){ e.preventDefault(); tab(tb.getAttribute('data-ar-tab')); return }
+    var eye=e.target.closest('.ar-eye'); if(eye){ var i=eye.parentElement.querySelector('input'); i.type=i.type==='password'?'text':'password'; return }
+    if(e.target.closest('[data-ar-logout]')){ API.signOut().then(function(){ setBtn(null); dash.hidden=true; auth.hidden=false; pane('login') }) }
+  },true);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!bg.hidden){ e.stopPropagation(); close() } },true);
+
+  /* validazione */
+  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function strong(p){ return p.length>=8&&/[a-z]/i.test(p)&&/\d/.test(p) }
+  function cfOk(cf){
+    cf=cf.toUpperCase(); if(!/^[A-Z]{6}[0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]$/.test(cf)) return false;
+    var odd=[1,0,5,7,9,13,15,17,19,21,2,4,18,20,11,3,6,8,12,14,16,10,22,25,24,23], s=0;
+    for(var i=0;i<15;i++){ var c=cf.charCodeAt(i), v=c<65?c-48:c-65; s+=(i%2===0)?odd[v]:v }
+    return String.fromCharCode(65+s%26)===cf[15];
+  }
+  function check(el){
+    var v=(el.value||'').trim(), ok=true, n=el.name;
+    if(el.type==='checkbox') ok=!el.required||el.checked;
+    else if(el.required&&!v) ok=false;
+    else if(n==='email'&&v) ok=EMAIL.test(v);
+    else if(n==='password'&&(el.closest('#arReg,#arPw,#arRecover'))) ok=strong(el.value);
+    else if(n==='password2') ok=v===el.form.elements.password.value&&v!=='';
+    else if(n==='codice_fiscale') ok=cfOk(v);
+    else if(n==='cap'&&v) ok=/^\d{5}$/.test(v);
+    else if(n==='cellulare'&&v) ok=v.replace(/\D/g,'').length>=8;
+    else if(n==='provincia'&&v) ok=/^[A-Za-z]{2}$/.test(v);
+    else if(n==='data_nascita'&&v){ var y=+v.slice(0,4); ok=y>1920&&y<=new Date().getFullYear()-13 }
+    var f=el.closest('.field'); if(f) f.classList.toggle('err',!ok);
+    if(el.type==='checkbox'&&!ok) el.closest('.check').style.color='var(--err)'; else if(el.type==='checkbox') el.closest('.check').style.color='';
+    return ok;
+  }
+  function checkAll(scope){ var ok=true, first=null; $$('input,select',scope).forEach(function(el){ if(el.closest('[hidden]')&&el.closest('[hidden]')!==scope) return; if(!check(el)){ ok=false; first=first||el } }); if(first) first.focus(); return ok }
+  bg.addEventListener('input',function(e){ var f=e.target.closest('.field'); if(f) f.classList.remove('err'); if(e.target.classList.contains('ar-up')){ var p=e.target.selectionStart; e.target.value=e.target.value.toUpperCase(); e.target.setSelectionRange(p,p) } if(e.target.id==='ar-pw') meter(e.target.value) });
+  function meter(p){ var s=0; if(p.length>=8)s++; if(/[a-z]/.test(p)&&/[A-Z]/.test(p))s++; if(/\d/.test(p))s++; if(/[^\w]/.test(p)||p.length>=12)s++; var i=$('.ar-meter i'); i.style.width=(s*25)+'%'; i.style.background=['#c62838','#c62838','#e0a020','#1f5fd0','#0a7a45'][s] }
+
+  /* login */
+  $('#arLogin').addEventListener('submit',function(e){ e.preventDefault(); var f=this; if(!checkAll(f)) return; var b=$('[type=submit]',f); busy(b,true);
+    API.signIn(f.email.value.trim().toLowerCase(),f.password.value).then(function(){ f.reset(); auth.hidden=true; dash.hidden=false; loadDash() })
+      .catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+  $('#arForgot').addEventListener('submit',function(e){ e.preventDefault(); var f=this; if(!checkAll(f)) return; var b=$('[type=submit]',f); busy(b,true);
+    API.reset(f.email.value.trim().toLowerCase()).then(function(){ msg(f,LIVE?'Se l\'indirizzo &egrave; registrato, riceverai a breve un\'email con il link per scegliere una nuova password.':'In modalit&agrave; dimostrativa non vengono inviate email.',true) })
+      .catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+  $('#arRecover').addEventListener('submit',function(e){ e.preventDefault(); var f=this; if(!checkAll(f)) return; var b=$('[type=submit]',f); busy(b,true);
+    API.setPw(f.password.value).then(function(){ f.reset(); auth.hidden=true; dash.hidden=false; loadDash() }).catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+
+  /* iscrizione a passi */
+  var reg=$('#arReg'), cur=1, N=5;
+  function step(n){ cur=n; $$('.ar-step',reg).forEach(function(s){ s.hidden=+s.getAttribute('data-step')!==n });
+    $$('.ar-steps li',reg).forEach(function(li,i){ li.className=i+1<n?'done':(i+1===n?'on':'') });
+    $('[data-ar-prev]',reg).hidden=n===1; $('[data-ar-next]',reg).hidden=n===N; $('[data-ar-submit]',reg).hidden=n!==N;
+    $('.ar-msg',reg).className='ar-msg'; if(n===N) recap(); var m=$('.ar-main'); if(m) m.scrollTop=0; bg.scrollTop=0 }
+  $('[data-ar-next]',reg).addEventListener('click',function(){ if(checkAll($('.ar-step[data-step="'+cur+'"]',reg))) step(cur+1) });
+  $('[data-ar-prev]',reg).addEventListener('click',function(){ step(cur-1) });
+  reg.addEventListener('keydown',function(e){ if(e.key==='Enter'&&e.target.tagName==='INPUT'&&cur<N){ e.preventDefault(); $('[data-ar-next]',reg).click() } });
+  function val(n){ var el=reg.elements[n]; return el?(el.type==='checkbox'?el.checked:el.value.trim()):'' }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c] }) }
+  function itDate(s){ if(!s) return ''; var d=new Date(s.length===10?s+'T12:00:00':s); return isNaN(d)?s:d.toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'}) }
+  function recap(){
+    var rows=[['Nome e cognome',val('nome')+' '+val('cognome')],['Codice fiscale',val('codice_fiscale').toUpperCase()],['Nato/a a',val('comune_nascita')+(val('prov_nascita')?' ('+val('prov_nascita').toUpperCase()+')':'')+', '+itDate(val('data_nascita'))],
+      ['Email',val('email')],['Cellulare',val('cellulare')],['Residenza',val('indirizzo')+', '+val('cap')+' '+val('comune')+' ('+val('provincia').toUpperCase()+')'],
+      ['Percorso',val('percorso')],['Corso',val('corso')+' &middot; '+esc(val('modalita'))],['Sede',val('polo')],['Titolo posseduto',val('titolo_studio')]];
+    $('#arRecap').innerHTML=rows.map(function(r){ return '<div><dt>'+r[0]+'</dt><dd>'+(r[0]==='Corso'?esc(val('corso'))+' &middot; '+esc(val('modalita')):esc(r[1]))+'</dd></div>' }).join('');
+  }
+  reg.addEventListener('submit',function(e){ e.preventDefault(); if(!checkAll($('.ar-step[data-step="5"]',reg))) return;
+    var b=$('[data-ar-submit]',reg); busy(b,true);
+    var p={}; ['nome','cognome','sesso','data_nascita','comune_nascita','prov_nascita','cittadinanza','codice_fiscale','cellulare','telefono','indirizzo','cap','comune','provincia','domicilio','percorso','corso','modalita','polo','titolo_studio','anno_titolo','istituto'].forEach(function(n){ p[n]=val(n) });
+    p.codice_fiscale=p.codice_fiscale.toUpperCase(); p.provincia=p.provincia.toUpperCase(); p.prov_nascita=p.prov_nascita.toUpperCase();
+    p.consenso_privacy=true; p.consenso_marketing=val('consenso_marketing');
+    var email=val('email').toLowerCase();
+    API.signUp(email,reg.elements.password.value,p).then(function(r){
+      if(r.session){ reg.reset(); auth.hidden=true; dash.hidden=false; loadDash(true) }
+      else { $('[data-ar-mail]',auth).textContent=email; reg.reset(); pane('check') }
+    }).catch(function(err){ msg(reg,itErr(err)); if(/already/i.test(err.message||'')) step(1) }).then(function(){ busy(b,false) });
+  });
+
+  /* scheda personale */
+  var P=null;
+  function fill(p){
+    P=p; var st=STATI[p.stato]||STATI.registrato;
+    var v={nome_completo:p.nome+' '+p.cognome,iniziali:((p.nome||' ')[0]+(p.cognome||' ')[0]).toUpperCase(),sesso_label:p.sesso==='F'?'Femminile':(p.sesso==='M'?'Maschile':''),
+      data_nascita_it:itDate(p.data_nascita),luogo_nascita:(p.comune_nascita||'')+(p.prov_nascita?' ('+p.prov_nascita+')':''),creato_it:itDate(p.created_at),
+      contratto_it:itDate(p.consenso_contratto||p.created_at),stato_label:st[0]};
+    $$('[data-f]',dash).forEach(function(el){ var k=el.getAttribute('data-f');
+      if(k==='track'){ $$('li',el).forEach(function(li,i){ li.className=i+1<st[1]||st[1]===4?'done':(i+1===st[1]?'now':'') }); return }
+      if(k==='stato_testo'){ el.innerHTML=st[2]; return }
+      var x=k in v?v[k]:p[k]; el.textContent=(x===null||x===undefined||x==='')?'—':x });
+    var f=$('#arEdit'); EDIT.forEach(function(n){ var el=f.elements[n]; if(!el) return; if(el.type==='checkbox') el.checked=!!p[n]; else el.value=p[n]||'' });
+  }
+  function loadDash(nuovo){
+    API.profile().then(function(p){ fill(p); setBtn(p); tab('scheda'); if(nuovo) toast('Iscrizione completata: benvenuto, '+p.nome+'!') })
+      .catch(function(err){ dash.hidden=true; auth.hidden=false; pane('login'); msg($('#arLogin'),itErr(err)) });
+  }
+  function tab(n){ $$('.ar-tab',dash).forEach(function(s){ s.hidden=s.getAttribute('data-tab')!==n }); $$('.ar-tabs button',dash).forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-ar-tab')===n) });
+    $('.ar-body',dash).scrollTop=0; if(n==='documenti') docs(); if(n==='moduli') mods() }
+  $('#arEdit').addEventListener('submit',function(e){ e.preventDefault(); var f=this, ok=true;
+    ['cellulare','indirizzo','cap','comune','provincia'].forEach(function(n){ var el=f.elements[n]; el.required=true; if(!check(el)) ok=false });
+    if(!ok) return; var patch={}; EDIT.forEach(function(n){ var el=f.elements[n]; patch[n]=el.type==='checkbox'?el.checked:el.value.trim() }); patch.provincia=patch.provincia.toUpperCase();
+    var b=$('[type=submit]',f); busy(b,true);
+    API.update(patch).then(function(p){ fill(p); msg(f,'Modifiche salvate.',true) }).catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+  $('#arPw').addEventListener('submit',function(e){ e.preventDefault(); var f=this; if(!checkAll(f)) return; var b=$('[type=submit]',f); busy(b,true);
+    API.setPw(f.password.value).then(function(){ f.reset(); msg(f,'Password aggiornata.',true) }).catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+
+  function docs(){
+    var box=$('#arDocs'); box.innerHTML='<p class="ar-sub">Caricamento&hellip;</p>';
+    API.docs().then(function(have){
+      box.innerHTML=DOCS.map(function(d){ var l=have[d[0]]||[];
+        return '<div class="ar-doc'+(l.length?' ok':'')+'"><div class="ar-doc-h"><b>'+d[1]+'</b><small>'+(l.length?'&#10003; Caricato':'Da caricare')+'</small></div><p>'+d[2]+'</p>'
+          +(l.length?'<ul>'+l.map(function(x){ return '<li>'+(x.path?'<a href="#" data-path="'+esc(x.path)+'">'+esc(x.name)+'</a>':esc(x.name))+'<span>'+itDate(x.at)+'</span></li>' }).join('')+'</ul>':'')
+          +'<label class="btn btn-g btn-sm">'+(l.length?'Carica un altro file':'Carica il file')+'<input type="file" accept=".pdf,.jpg,.jpeg,.png,.heic" data-slot="'+d[0]+'"></label></div>' }).join('');
+    }).catch(function(err){ box.innerHTML='<div class="ar-msg on">'+itErr(err)+'</div>' });
+  }
+  $('#arDocs').addEventListener('change',function(e){ var i=e.target; if(!i.files||!i.files[0]) return; var f=i.files[0];
+    if(f.size>10*1024*1024){ toast('Il file supera i 10 MB'); i.value=''; return }
+    i.parentElement.firstChild.textContent='Caricamento…';
+    API.upload(i.getAttribute('data-slot'),f).then(function(){ toast('Documento caricato'); docs(); if(!LIVE) API.profile().then(fill) }).catch(function(err){ toast(itErr(err)); docs() }) });
+  $('#arDocs').addEventListener('click',function(e){ var a=e.target.closest('[data-path]'); if(!a) return; e.preventDefault(); API.link(a.getAttribute('data-path')).then(function(u){ window.open(u,'_blank','noopener') }) });
+  function mods(){ $('#arMods').innerHTML=MODULI.map(function(g){ return '<div class="ar-mod-g">'+g[0]+'</div>'+g[1].map(function(m){ return '<a class="ar-mod" href="'+BASE+'modulistica/'+m[0]+'.pdf" target="_blank" rel="noopener"><i>PDF</i><span>'+m[1]+'</span><small>Scarica</small></a>' }).join('') }).join('') }
+
+  function toast(t){ var el=document.getElementById('toast'), tx=document.getElementById('toast-txt'); if(!el||!tx) return; tx.innerHTML=t; el.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(function(){ el.classList.remove('on') },3600) }
+
+  /* pulsante "Area Riservata" -> "La mia area" quando sei dentro */
+  function setBtn(p){ $$('[data-area]').forEach(function(b){ if(!b.classList.contains('btn-lock')) return; var s=b.querySelector('span:not(.shine)'); if(!s) return;
+    if(!b.getAttribute('data-l0')) b.setAttribute('data-l0',s.textContent); s.textContent=p?'La mia area':b.getAttribute('data-l0'); b.classList.toggle('ar-in',!!p) }) }
+  var hasSess=false; try{ hasSess=LIVE?Object.keys(localStorage).some(function(k){ return /^sb-.*-auth-token$/.test(k) }):!!dload().cur }catch(e){}
+  if(hasSess) API.session().then(function(s){ if(s) API.profile().then(setBtn).catch(function(){}) }).catch(function(){});
+
+  /* apertura da indirizzo: #area-riservata, ?area=1, link di conferma o di recupero password */
+  var q=location.search+location.hash;
+  if(/type=recovery/.test(q)) loadSb().then(function(){ open('recover') });
+  else if(location.hash==='#area-riservata'||/[?&]area=1/.test(location.search)||(LIVE&&/access_token=|[?&]code=/.test(q))) setTimeout(function(){ open('login') },LIVE?600:300);
+  window.addEventListener('hashchange',function(){ if(location.hash==='#area-riservata') open('login') });
+})();
+
+
+/* ===== JANUS IN EVIDENZA =====
+   Alla prima pagina della visita la finestra segue il mouse per SEGUI millisecondi, poi si ferma
+   in basso a destra. Sulle pagine successive compare gia' ferma. La X la nasconde fino alla visita dopo. */
+(function(){
+  var box=document.getElementById('jnfly'); if(!box) return;
+  var SEGUI=8000, RITARDO=1800;
+  var S={get:function(k){ try{ return sessionStorage.getItem(k) }catch(e){ return null } }, set:function(k,v){ try{ sessionStorage.setItem(k,v) }catch(e){} }};
+  var force=/[?&]janus=1/.test(location.search);
+  if(!force&&S.get('uo-jn-chiuso')) return;
+  if(/janus-diploma-online/.test(location.pathname)) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var follow=(force||!S.get('uo-jn-visto'))&&fine&&!reduce;
+  var x=0,y=0,tx=0,ty=0,mx=-1,my=-1,raf=0,t0=0,docked=false;
+  function W(){ return box.offsetWidth } function H(){ return box.offsetHeight }
+  function dockPos(){ var b=window.innerWidth<=640?84:96, dx=window.innerWidth-W()-(window.innerWidth<=640?14:26), dy=window.innerHeight-H()-b;
+    var ck=document.getElementById('cookie'); if(ck){ var r=ck.getBoundingClientRect(), cs=getComputedStyle(ck);
+      if(r.width&&cs.visibility!=='hidden'&&+cs.opacity>0.1&&r.top<window.innerHeight&&r.right>dx) dy=Math.min(dy,r.top-H()-14) }
+    return [dx, Math.max(70,dy)] }
+  document.addEventListener('click',function(e){ if(e.target.closest('#cookie')) setTimeout(function(){ if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } },700) });
+  function place(rot){ box.style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0) rotate('+(rot||0).toFixed(2)+'deg)' }
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)) }
+  function loop(t){
+    if(!t0) t0=t; var p=Math.min(1,(t-t0)/SEGUI); box.style.setProperty('--p',p);
+    if(mx<0){ tx=window.innerWidth*.62+Math.sin(t/900)*90; ty=window.innerHeight*.28+Math.cos(t/1100)*60 }
+    else { tx=mx+28; ty=my+22 }
+    tx=clamp(tx,10,window.innerWidth-W()-10); ty=clamp(ty,70,window.innerHeight-H()-10);
+    var vx=(tx-x)*.075, vy=(ty-y)*.075; x+=vx; y+=vy; place(clamp(vx*.35,-9,9));
+    if(p<1) raf=requestAnimationFrame(loop); else dock();
+  }
+  function dock(){
+    if(docked) return; docked=true; cancelAnimationFrame(raf); document.removeEventListener('mousemove',mv);
+    box.classList.add('docked'); var d=dockPos(); x=d[0]; y=d[1]; place(0);
+    setTimeout(function(){ box.classList.add('float') },900);
+  }
+  function mv(e){ mx=e.clientX; my=e.clientY }
+  function start(){
+    box.hidden=false; S.set('uo-jn-visto','1');
+    if(follow){ x=window.innerWidth-W()-30; y=window.innerHeight; place(0); requestAnimationFrame(function(){ box.classList.add('on') });
+      document.addEventListener('mousemove',mv,{passive:true}); raf=requestAnimationFrame(loop) }
+    else { var d=dockPos(); x=d[0]; y=window.innerHeight+20; place(0); box.classList.add('docked');
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.classList.add('on'); docked=true; var d2=dockPos(); y=d2[1]; place(0); setTimeout(function(){ box.classList.add('float') },900) }) }) }
+  }
+  box.querySelector('.jnf-x').addEventListener('click',function(e){ e.preventDefault(); S.set('uo-jn-chiuso','1'); cancelAnimationFrame(raf); box.classList.remove('on'); setTimeout(function(){ box.hidden=true },500) });
+  box.querySelector('.jnf-min').addEventListener('click',function(e){ e.preventDefault(); box.classList.toggle('mini'); if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } });
+  box.querySelector('.jnf-card').addEventListener('click',function(){ if(!docked) dock() });
+  window.addEventListener('resize',function(){ if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } });
+  function go(){ setTimeout(start,RITARDO) }
+  var pl=document.getElementById('preloader');
+  if(document.readyState==='complete') go(); else window.addEventListener('load',function(){ setTimeout(go,pl?1400:0) });
+})();
+
 </script>
 
 </body></html>

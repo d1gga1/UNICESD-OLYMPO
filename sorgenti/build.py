@@ -131,6 +131,10 @@ IMAGES = {
     "__CESD_VP2__": "img/cesd/cesd-video-2.webp",
     # La Voce dell'Olympo - notizie e popup delle ultime news
     "__IMG_VO_NICCOLI__": "img/voce/niccoli-addetto-stampa.webp",
+    # Area riservata, iscrizione, Janus in evidenza, evento del 24 ottobre 2026
+    "__IMG_JANUS_FLY__": "img/janus/janus-sede-560.webp",
+    "__IMG_ECOSISTEMA__": "img/ecosistema-unicesd-feip.webp",
+    "__IMG_PROGRAMMA_24OTT__": "img/eventi/programma-24ott2026.webp",
 }
 
 # Sfondi generati con Higgsfield + globo animato: finiscono nel CSS e nel markup.

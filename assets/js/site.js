@@ -1072,3 +1072,338 @@ document.addEventListener('click',function(e){
     items.forEach(function(it){ it.classList.toggle('hit',on&&it.getAttribute('data-tipo')===t); });
   }); });
 })();
+
+/* ===== AREA RISERVATA =====
+   Per collegare il portale vero, incolla qui URL e chiave pubblica (anon key) del progetto Supabase:
+   istruzioni in sorgenti/area-riservata/LEGGIMI-AREA-RISERVATA.md. Finche' restano vuote, il portale
+   funziona in modalita' dimostrativa (dati salvati solo nel browser di chi prova). */
+window.UO_AUTH = window.UO_AUTH || { url: '', key: '' };
+(function(){
+  var bg=document.getElementById('arbg'); if(!bg) return;
+  var CFG=window.UO_AUTH, LIVE=!!(CFG.url&&CFG.key);
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var BASE=location.protocol==='file:'?'':'/';
+  var EDIT=['cellulare','telefono','indirizzo','cap','comune','provincia','domicilio','polo','consenso_marketing'];
+  var STATI={registrato:['Registrazione ricevuta',1,'Ora carica i tuoi documenti e il contratto firmato: la segreteria li verifica e ti ricontatta.'],
+             documenti:['Documenti caricati',2,'Abbiamo ricevuto i documenti. La segreteria li sta controllando.'],
+             verifica:['In verifica',3,'La segreteria sta completando la tua pratica con l\'ateneo o l\'ente di riferimento.'],
+             iscritto:['Iscrizione perfezionata',4,'La tua iscrizione &egrave; completa. Riceverai via email le credenziali della piattaforma didattica.']};
+  var DOCS=[['identita','Documento d\'identit&agrave;','Fronte e retro, in corso di validit&agrave;.'],
+            ['cf','Codice fiscale o tessera sanitaria','Fronte e retro.'],
+            ['titolo','Titolo di studio','Diploma, certificato o autocertificazione firmata.'],
+            ['foto','Fototessera','Recente, su fondo chiaro.'],
+            ['contratto','Contratto firmato','Il contratto con lo studente firmato in ogni pagina.'],
+            ['pagamento','Ricevuta di pagamento','Bonifico o ricevuta della prima rata.'],
+            ['altro','Altro documento','Moduli compilati, riconoscimento crediti, certificati.']];
+  var MODULI=[['Iscrizione',[['domanda-di-iscrizione','Domanda di iscrizione e adesione ai servizi'],['contratto-con-lo-studente','Contratto con lo studente'],['richiesta-rateizzazione','Richiesta di pagamento rateale']]],
+    ['Crediti e carriera',[['riconoscimento-crediti','Richiesta di valutazione e riconoscimento crediti (CFU)'],['iscrizione-corsi-singoli','Domanda di iscrizione a corsi singoli'],['iscrizione-uditore','Domanda di iscrizione come uditore'],['studente-tempo-parziale','Richiesta di iscrizione a tempo parziale'],['passaggio-ad-altro-corso','Passaggio ad altro corso'],['trasferimento','Domanda di trasferimento'],['ricongiunzione-carriera','Richiesta di ricongiunzione della carriera'],['rinuncia-agli-studi','Rinuncia agli studi e recesso dai servizi']]],
+    ['Esami e titoli',[['scelta-sede-esami','Scelta della sede per esami e sedute di laurea'],['richiesta-duplicati','Richiesta di duplicato di documenti']]],
+    ['Dati e dichiarazioni',[['variazione-dati-anagrafici','Variazione dei dati anagrafici'],['istanza-alla-direzione','Istanza alla Direzione'],['autocertificazione-titolo-di-studio','Autocertificazione del titolo di studio'],['dichiarazione-sostitutiva-certificazione','Dichiarazione sostitutiva di certificazione'],['dichiarazione-sostitutiva-atto-notorio','Dichiarazione sostitutiva dell\'atto di notoriet&agrave;']]]];
+  var CORSI=['Giurisprudenza','Economia','Scienze e tecniche psicologiche','Scienze dell\'educazione e della formazione','Ingegneria informatica e dell\'automazione','Scienze delle attività motorie e sportive','Mediazione linguistica','Scienze politiche','Lettere','Scienze biologiche','Management sanitario','Made in Italy Global Leadership','Liceo scientifico','Liceo scientifico sportivo','Liceo linguistico','Liceo delle scienze umane','Istituto tecnico AFM','Medicina e chirurgia (estero)','Odontoiatria (estero)','Infermieristica (estero)','EIPASS','Certificazione linguistica'];
+
+  /* ---------- servizio: Supabase o modalita' dimostrativa ---------- */
+  var sb=null, sbLoading=null;
+  function loadSb(){
+    if(sb) return Promise.resolve(sb);
+    if(sbLoading) return sbLoading;
+    sbLoading=new Promise(function(res,rej){
+      var s=document.createElement('script');
+      s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js';
+      s.onload=function(){ sb=window.supabase.createClient(CFG.url,CFG.key,{auth:{persistSession:true,detectSessionInUrl:true}});
+        sb.auth.onAuthStateChange(function(ev){ if(ev==='PASSWORD_RECOVERY'){ open('recover') } });
+        res(sb) };
+      s.onerror=function(){ rej(new Error('Impossibile raggiungere il server. Controlla la connessione.')) };
+      document.head.appendChild(s);
+    });
+    return sbLoading;
+  }
+  function itErr(e){
+    var m=(e&&e.message)||String(e);
+    if(/invalid login/i.test(m)) return 'Email o password non corrette.';
+    if(/not confirmed/i.test(m)) return 'Devi prima confermare l\'email: apri il messaggio che ti abbiamo inviato.';
+    if(/already registered|already exists/i.test(m)) return 'Esiste gi&agrave; un account con questa email. Prova ad accedere o recupera la password.';
+    if(/database error saving new user/i.test(m)) return 'Non &egrave; stato possibile completare l\'iscrizione: il codice fiscale potrebbe essere gi&agrave; registrato. Contatta la segreteria.';
+    if(/codice_fiscale|duplicate key/i.test(m)) return 'Questo codice fiscale risulta gi&agrave; registrato. Contatta la segreteria.';
+    if(/rate limit|too many/i.test(m)) return 'Troppi tentativi ravvicinati. Riprova fra qualche minuto.';
+    if(/password/i.test(m)&&/least|weak|short/i.test(m)) return 'La password &egrave; troppo debole.';
+    return m;
+  }
+  /* modalita' dimostrativa: tutto in localStorage */
+  var DKEY='uo-area-demo';
+  function dload(){ try{ return JSON.parse(localStorage.getItem(DKEY))||{users:{},cur:null} }catch(e){ return {users:{},cur:null} } }
+  function dsave(d){ try{ localStorage.setItem(DKEY,JSON.stringify(d)) }catch(e){} }
+  function hash(s){ var h=5381; for(var i=0;i<s.length;i++){ h=((h<<5)+h+s.charCodeAt(i))|0 } return 'h'+(h>>>0).toString(36) }
+
+  var API={
+    session:function(){
+      if(!LIVE){ var d=dload(); return Promise.resolve(d.cur&&d.users[d.cur]?{email:d.cur}:null) }
+      return loadSb().then(function(c){ return c.auth.getSession() }).then(function(r){ var s=r.data.session; return s?{email:s.user.email,id:s.user.id}:null });
+    },
+    signIn:function(email,pw){
+      if(!LIVE){ var d=dload(), u=d.users[email]; if(!u||u.pw!==hash(pw)) return Promise.reject(new Error('Invalid login')); d.cur=email; dsave(d); return Promise.resolve({email:email}) }
+      return loadSb().then(function(c){ return c.auth.signInWithPassword({email:email,password:pw}) }).then(function(r){ if(r.error) throw r.error; return {email:r.data.user.email,id:r.data.user.id} });
+    },
+    signUp:function(email,pw,profile){
+      if(!LIVE){ var d=dload(); if(d.users[email]) return Promise.reject(new Error('already registered'));
+        var n=Object.keys(d.users).length+1; profile.email=email; profile.matricola='UO'+String(new Date().getFullYear()).slice(2)+String(n).padStart(5,'0');
+        profile.stato='registrato'; profile.created_at=new Date().toISOString(); profile.consenso_contratto=profile.created_at;
+        d.users[email]={pw:hash(pw),profile:profile,docs:{}}; d.cur=email; dsave(d); return Promise.resolve({session:true}) }
+      return loadSb().then(function(c){ return c.auth.signUp({email:email,password:pw,options:{data:profile,emailRedirectTo:location.origin+'/?area=1'}}) })
+        .then(function(r){ if(r.error) throw r.error; if(r.data.user&&r.data.user.identities&&r.data.user.identities.length===0) throw new Error('already registered'); return {session:!!r.data.session} });
+    },
+    signOut:function(){ if(!LIVE){ var d=dload(); d.cur=null; dsave(d); return Promise.resolve() } return loadSb().then(function(c){ return c.auth.signOut() }) },
+    profile:function(){
+      if(!LIVE){ var d=dload(); return Promise.resolve(d.users[d.cur].profile) }
+      return loadSb().then(function(c){ return c.from('profili').select('*').single() }).then(function(r){ if(r.error) throw r.error; return r.data });
+    },
+    update:function(patch){
+      if(!LIVE){ var d=dload(); Object.assign(d.users[d.cur].profile,patch); dsave(d); return Promise.resolve(d.users[d.cur].profile) }
+      return loadSb().then(function(c){ return c.auth.getUser().then(function(u){ return c.from('profili').update(patch).eq('id',u.data.user.id).select().single() }) })
+        .then(function(r){ if(r.error) throw r.error; return r.data });
+    },
+    reset:function(email){
+      if(!LIVE) return Promise.resolve();
+      return loadSb().then(function(c){ return c.auth.resetPasswordForEmail(email,{redirectTo:location.origin+'/?area=1'}) }).then(function(r){ if(r.error) throw r.error });
+    },
+    setPw:function(pw){
+      if(!LIVE){ var d=dload(); d.users[d.cur].pw=hash(pw); dsave(d); return Promise.resolve() }
+      return loadSb().then(function(c){ return c.auth.updateUser({password:pw}) }).then(function(r){ if(r.error) throw r.error });
+    },
+    docs:function(){
+      if(!LIVE){ var d=dload(); return Promise.resolve(d.users[d.cur].docs||{}) }
+      return loadSb().then(function(c){ return c.auth.getUser().then(function(u){ var id=u.data.user.id;
+        return c.storage.from('documenti').list(id,{limit:100,sortBy:{column:'created_at',order:'desc'}}).then(function(r){
+          if(r.error) throw r.error; var out={};
+          (r.data||[]).forEach(function(f){ var slot=f.name.split('__')[0]; (out[slot]=out[slot]||[]).push({name:f.name.split('__').slice(2).join('__')||f.name,path:id+'/'+f.name,at:f.created_at}) });
+          return out }) }) });
+    },
+    upload:function(slot,file){
+      if(!LIVE){ var d=dload(), u=d.users[d.cur]; u.docs=u.docs||{}; (u.docs[slot]=u.docs[slot]||[]).unshift({name:file.name,at:new Date().toISOString()});
+        if(u.profile.stato==='registrato') u.profile.stato='documenti'; dsave(d); return Promise.resolve() }
+      return loadSb().then(function(c){ return c.auth.getUser().then(function(u){
+        var safe=file.name.normalize('NFD').replace(/[^\w.\-]+/g,'_');
+        return c.storage.from('documenti').upload(u.data.user.id+'/'+slot+'__'+Date.now()+'__'+safe,file,{upsert:false}) }) })
+        .then(function(r){ if(r.error) throw r.error });
+    },
+    link:function(path){ return loadSb().then(function(c){ return c.storage.from('documenti').createSignedUrl(path,120) }).then(function(r){ if(r.error) throw r.error; return r.data.signedUrl }) }
+  };
+
+  /* ---------- interfaccia ---------- */
+  var auth=$('#arAuth'), dash=$('#arDash'), lastFocus=null;
+  $$('[data-ar-demo]',bg).forEach(function(e){ e.hidden=LIVE });
+  $$('a[href^="modulistica/"]',bg).forEach(function(a){ a.setAttribute('href',BASE+a.getAttribute('href')) });
+  var dl=$('#ar-corsi'); CORSI.forEach(function(c){ var o=document.createElement('option'); o.value=c; dl.appendChild(o) });
+  $('#are-polo').innerHTML=$('#ar-polo').innerHTML;
+
+  function show(el,on){ if(on){ el.hidden=false; requestAnimationFrame(function(){ bg.classList.add('on') }) } }
+  function pane(name){ $$('.ar-pane',auth).forEach(function(p){ p.hidden=p.getAttribute('data-pane')!==name }); var f=$('[data-pane="'+name+'"] input',auth); if(f&&matchMedia('(pointer:fine)').matches) setTimeout(function(){ f.focus() },80); $$('.ar-msg',auth).forEach(function(m){ m.className='ar-msg' }) }
+  function msg(form,t,ok){ var m=$('.ar-msg',form); m.innerHTML=t; m.className='ar-msg on'+(ok?' ok':'') }
+  function busy(btn,on){ if(!btn) return; btn.disabled=on; btn.style.opacity=on?.6:'' }
+  function open(view){
+    lastFocus=document.activeElement; bg.hidden=false; document.documentElement.classList.add('ar-lock');
+    requestAnimationFrame(function(){ bg.classList.add('on') });
+    if(view==='recover'){ dash.hidden=true; auth.hidden=false; pane('recover'); return }
+    API.session().then(function(s){
+      if(s&&view!=='register'){ auth.hidden=true; dash.hidden=false; loadDash() }
+      else { dash.hidden=true; auth.hidden=false; pane(view==='register'?'register':'login'); if(view==='register') step(1) }
+    }).catch(function(e){ auth.hidden=false; dash.hidden=true; pane('login'); msg($('#arLogin'),itErr(e)) });
+  }
+  function close(){
+    bg.classList.remove('on'); document.documentElement.classList.remove('ar-lock');
+    setTimeout(function(){ bg.hidden=true },300);
+    if(location.hash==='#area-riservata') history.replaceState(null,'',location.pathname+location.search);
+    if(lastFocus&&lastFocus.focus) lastFocus.focus();
+  }
+  window.UOArea={open:open,close:close};
+
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-area]');
+    if(t){ e.preventDefault(); e.stopPropagation(); var mob=document.getElementById('mob'); if(mob&&mob.classList.contains('on')){ var b=document.getElementById('burger'); if(b) b.click() } open(t.getAttribute('data-area')||'login'); return }
+    if(bg.hidden) return;
+    if(e.target===bg||e.target.closest('[data-ar-close]')){ e.preventDefault(); close(); return }
+    var g=e.target.closest('[data-ar-go]'); if(g){ e.preventDefault(); pane(g.getAttribute('data-ar-go')); if(g.getAttribute('data-ar-go')==='register') step(1); return }
+    var tb=e.target.closest('[data-ar-tab]'); if(tb){ e.preventDefault(); tab(tb.getAttribute('data-ar-tab')); return }
+    var eye=e.target.closest('.ar-eye'); if(eye){ var i=eye.parentElement.querySelector('input'); i.type=i.type==='password'?'text':'password'; return }
+    if(e.target.closest('[data-ar-logout]')){ API.signOut().then(function(){ setBtn(null); dash.hidden=true; auth.hidden=false; pane('login') }) }
+  },true);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!bg.hidden){ e.stopPropagation(); close() } },true);
+
+  /* validazione */
+  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function strong(p){ return p.length>=8&&/[a-z]/i.test(p)&&/\d/.test(p) }
+  function cfOk(cf){
+    cf=cf.toUpperCase(); if(!/^[A-Z]{6}[0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]$/.test(cf)) return false;
+    var odd=[1,0,5,7,9,13,15,17,19,21,2,4,18,20,11,3,6,8,12,14,16,10,22,25,24,23], s=0;
+    for(var i=0;i<15;i++){ var c=cf.charCodeAt(i), v=c<65?c-48:c-65; s+=(i%2===0)?odd[v]:v }
+    return String.fromCharCode(65+s%26)===cf[15];
+  }
+  function check(el){
+    var v=(el.value||'').trim(), ok=true, n=el.name;
+    if(el.type==='checkbox') ok=!el.required||el.checked;
+    else if(el.required&&!v) ok=false;
+    else if(n==='email'&&v) ok=EMAIL.test(v);
+    else if(n==='password'&&(el.closest('#arReg,#arPw,#arRecover'))) ok=strong(el.value);
+    else if(n==='password2') ok=v===el.form.elements.password.value&&v!=='';
+    else if(n==='codice_fiscale') ok=cfOk(v);
+    else if(n==='cap'&&v) ok=/^\d{5}$/.test(v);
+    else if(n==='cellulare'&&v) ok=v.replace(/\D/g,'').length>=8;
+    else if(n==='provincia'&&v) ok=/^[A-Za-z]{2}$/.test(v);
+    else if(n==='data_nascita'&&v){ var y=+v.slice(0,4); ok=y>1920&&y<=new Date().getFullYear()-13 }
+    var f=el.closest('.field'); if(f) f.classList.toggle('err',!ok);
+    if(el.type==='checkbox'&&!ok) el.closest('.check').style.color='var(--err)'; else if(el.type==='checkbox') el.closest('.check').style.color='';
+    return ok;
+  }
+  function checkAll(scope){ var ok=true, first=null; $$('input,select',scope).forEach(function(el){ if(el.closest('[hidden]')&&el.closest('[hidden]')!==scope) return; if(!check(el)){ ok=false; first=first||el } }); if(first) first.focus(); return ok }
+  bg.addEventListener('input',function(e){ var f=e.target.closest('.field'); if(f) f.classList.remove('err'); if(e.target.classList.contains('ar-up')){ var p=e.target.selectionStart; e.target.value=e.target.value.toUpperCase(); e.target.setSelectionRange(p,p) } if(e.target.id==='ar-pw') meter(e.target.value) });
+  function meter(p){ var s=0; if(p.length>=8)s++; if(/[a-z]/.test(p)&&/[A-Z]/.test(p))s++; if(/\d/.test(p))s++; if(/[^\w]/.test(p)||p.length>=12)s++; var i=$('.ar-meter i'); i.style.width=(s*25)+'%'; i.style.background=['#c62838','#c62838','#e0a020','#1f5fd0','#0a7a45'][s] }
+
+  /* login */
+  $('#arLogin').addEventListener('submit',function(e){ e.preventDefault(); var f=this; if(!checkAll(f)) return; var b=$('[type=submit]',f); busy(b,true);
+    API.signIn(f.email.value.trim().toLowerCase(),f.password.value).then(function(){ f.reset(); auth.hidden=true; dash.hidden=false; loadDash() })
+      .catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+  $('#arForgot').addEventListener('submit',function(e){ e.preventDefault(); var f=this; if(!checkAll(f)) return; var b=$('[type=submit]',f); busy(b,true);
+    API.reset(f.email.value.trim().toLowerCase()).then(function(){ msg(f,LIVE?'Se l\'indirizzo &egrave; registrato, riceverai a breve un\'email con il link per scegliere una nuova password.':'In modalit&agrave; dimostrativa non vengono inviate email.',true) })
+      .catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+  $('#arRecover').addEventListener('submit',function(e){ e.preventDefault(); var f=this; if(!checkAll(f)) return; var b=$('[type=submit]',f); busy(b,true);
+    API.setPw(f.password.value).then(function(){ f.reset(); auth.hidden=true; dash.hidden=false; loadDash() }).catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+
+  /* iscrizione a passi */
+  var reg=$('#arReg'), cur=1, N=5;
+  function step(n){ cur=n; $$('.ar-step',reg).forEach(function(s){ s.hidden=+s.getAttribute('data-step')!==n });
+    $$('.ar-steps li',reg).forEach(function(li,i){ li.className=i+1<n?'done':(i+1===n?'on':'') });
+    $('[data-ar-prev]',reg).hidden=n===1; $('[data-ar-next]',reg).hidden=n===N; $('[data-ar-submit]',reg).hidden=n!==N;
+    $('.ar-msg',reg).className='ar-msg'; if(n===N) recap(); var m=$('.ar-main'); if(m) m.scrollTop=0; bg.scrollTop=0 }
+  $('[data-ar-next]',reg).addEventListener('click',function(){ if(checkAll($('.ar-step[data-step="'+cur+'"]',reg))) step(cur+1) });
+  $('[data-ar-prev]',reg).addEventListener('click',function(){ step(cur-1) });
+  reg.addEventListener('keydown',function(e){ if(e.key==='Enter'&&e.target.tagName==='INPUT'&&cur<N){ e.preventDefault(); $('[data-ar-next]',reg).click() } });
+  function val(n){ var el=reg.elements[n]; return el?(el.type==='checkbox'?el.checked:el.value.trim()):'' }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c] }) }
+  function itDate(s){ if(!s) return ''; var d=new Date(s.length===10?s+'T12:00:00':s); return isNaN(d)?s:d.toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'}) }
+  function recap(){
+    var rows=[['Nome e cognome',val('nome')+' '+val('cognome')],['Codice fiscale',val('codice_fiscale').toUpperCase()],['Nato/a a',val('comune_nascita')+(val('prov_nascita')?' ('+val('prov_nascita').toUpperCase()+')':'')+', '+itDate(val('data_nascita'))],
+      ['Email',val('email')],['Cellulare',val('cellulare')],['Residenza',val('indirizzo')+', '+val('cap')+' '+val('comune')+' ('+val('provincia').toUpperCase()+')'],
+      ['Percorso',val('percorso')],['Corso',val('corso')+' &middot; '+esc(val('modalita'))],['Sede',val('polo')],['Titolo posseduto',val('titolo_studio')]];
+    $('#arRecap').innerHTML=rows.map(function(r){ return '<div><dt>'+r[0]+'</dt><dd>'+(r[0]==='Corso'?esc(val('corso'))+' &middot; '+esc(val('modalita')):esc(r[1]))+'</dd></div>' }).join('');
+  }
+  reg.addEventListener('submit',function(e){ e.preventDefault(); if(!checkAll($('.ar-step[data-step="5"]',reg))) return;
+    var b=$('[data-ar-submit]',reg); busy(b,true);
+    var p={}; ['nome','cognome','sesso','data_nascita','comune_nascita','prov_nascita','cittadinanza','codice_fiscale','cellulare','telefono','indirizzo','cap','comune','provincia','domicilio','percorso','corso','modalita','polo','titolo_studio','anno_titolo','istituto'].forEach(function(n){ p[n]=val(n) });
+    p.codice_fiscale=p.codice_fiscale.toUpperCase(); p.provincia=p.provincia.toUpperCase(); p.prov_nascita=p.prov_nascita.toUpperCase();
+    p.consenso_privacy=true; p.consenso_marketing=val('consenso_marketing');
+    var email=val('email').toLowerCase();
+    API.signUp(email,reg.elements.password.value,p).then(function(r){
+      if(r.session){ reg.reset(); auth.hidden=true; dash.hidden=false; loadDash(true) }
+      else { $('[data-ar-mail]',auth).textContent=email; reg.reset(); pane('check') }
+    }).catch(function(err){ msg(reg,itErr(err)); if(/already/i.test(err.message||'')) step(1) }).then(function(){ busy(b,false) });
+  });
+
+  /* scheda personale */
+  var P=null;
+  function fill(p){
+    P=p; var st=STATI[p.stato]||STATI.registrato;
+    var v={nome_completo:p.nome+' '+p.cognome,iniziali:((p.nome||' ')[0]+(p.cognome||' ')[0]).toUpperCase(),sesso_label:p.sesso==='F'?'Femminile':(p.sesso==='M'?'Maschile':''),
+      data_nascita_it:itDate(p.data_nascita),luogo_nascita:(p.comune_nascita||'')+(p.prov_nascita?' ('+p.prov_nascita+')':''),creato_it:itDate(p.created_at),
+      contratto_it:itDate(p.consenso_contratto||p.created_at),stato_label:st[0]};
+    $$('[data-f]',dash).forEach(function(el){ var k=el.getAttribute('data-f');
+      if(k==='track'){ $$('li',el).forEach(function(li,i){ li.className=i+1<st[1]||st[1]===4?'done':(i+1===st[1]?'now':'') }); return }
+      if(k==='stato_testo'){ el.innerHTML=st[2]; return }
+      var x=k in v?v[k]:p[k]; el.textContent=(x===null||x===undefined||x==='')?'—':x });
+    var f=$('#arEdit'); EDIT.forEach(function(n){ var el=f.elements[n]; if(!el) return; if(el.type==='checkbox') el.checked=!!p[n]; else el.value=p[n]||'' });
+  }
+  function loadDash(nuovo){
+    API.profile().then(function(p){ fill(p); setBtn(p); tab('scheda'); if(nuovo) toast('Iscrizione completata: benvenuto, '+p.nome+'!') })
+      .catch(function(err){ dash.hidden=true; auth.hidden=false; pane('login'); msg($('#arLogin'),itErr(err)) });
+  }
+  function tab(n){ $$('.ar-tab',dash).forEach(function(s){ s.hidden=s.getAttribute('data-tab')!==n }); $$('.ar-tabs button',dash).forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-ar-tab')===n) });
+    $('.ar-body',dash).scrollTop=0; if(n==='documenti') docs(); if(n==='moduli') mods() }
+  $('#arEdit').addEventListener('submit',function(e){ e.preventDefault(); var f=this, ok=true;
+    ['cellulare','indirizzo','cap','comune','provincia'].forEach(function(n){ var el=f.elements[n]; el.required=true; if(!check(el)) ok=false });
+    if(!ok) return; var patch={}; EDIT.forEach(function(n){ var el=f.elements[n]; patch[n]=el.type==='checkbox'?el.checked:el.value.trim() }); patch.provincia=patch.provincia.toUpperCase();
+    var b=$('[type=submit]',f); busy(b,true);
+    API.update(patch).then(function(p){ fill(p); msg(f,'Modifiche salvate.',true) }).catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+  $('#arPw').addEventListener('submit',function(e){ e.preventDefault(); var f=this; if(!checkAll(f)) return; var b=$('[type=submit]',f); busy(b,true);
+    API.setPw(f.password.value).then(function(){ f.reset(); msg(f,'Password aggiornata.',true) }).catch(function(err){ msg(f,itErr(err)) }).then(function(){ busy(b,false) }) });
+
+  function docs(){
+    var box=$('#arDocs'); box.innerHTML='<p class="ar-sub">Caricamento&hellip;</p>';
+    API.docs().then(function(have){
+      box.innerHTML=DOCS.map(function(d){ var l=have[d[0]]||[];
+        return '<div class="ar-doc'+(l.length?' ok':'')+'"><div class="ar-doc-h"><b>'+d[1]+'</b><small>'+(l.length?'&#10003; Caricato':'Da caricare')+'</small></div><p>'+d[2]+'</p>'
+          +(l.length?'<ul>'+l.map(function(x){ return '<li>'+(x.path?'<a href="#" data-path="'+esc(x.path)+'">'+esc(x.name)+'</a>':esc(x.name))+'<span>'+itDate(x.at)+'</span></li>' }).join('')+'</ul>':'')
+          +'<label class="btn btn-g btn-sm">'+(l.length?'Carica un altro file':'Carica il file')+'<input type="file" accept=".pdf,.jpg,.jpeg,.png,.heic" data-slot="'+d[0]+'"></label></div>' }).join('');
+    }).catch(function(err){ box.innerHTML='<div class="ar-msg on">'+itErr(err)+'</div>' });
+  }
+  $('#arDocs').addEventListener('change',function(e){ var i=e.target; if(!i.files||!i.files[0]) return; var f=i.files[0];
+    if(f.size>10*1024*1024){ toast('Il file supera i 10 MB'); i.value=''; return }
+    i.parentElement.firstChild.textContent='Caricamento…';
+    API.upload(i.getAttribute('data-slot'),f).then(function(){ toast('Documento caricato'); docs(); if(!LIVE) API.profile().then(fill) }).catch(function(err){ toast(itErr(err)); docs() }) });
+  $('#arDocs').addEventListener('click',function(e){ var a=e.target.closest('[data-path]'); if(!a) return; e.preventDefault(); API.link(a.getAttribute('data-path')).then(function(u){ window.open(u,'_blank','noopener') }) });
+  function mods(){ $('#arMods').innerHTML=MODULI.map(function(g){ return '<div class="ar-mod-g">'+g[0]+'</div>'+g[1].map(function(m){ return '<a class="ar-mod" href="'+BASE+'modulistica/'+m[0]+'.pdf" target="_blank" rel="noopener"><i>PDF</i><span>'+m[1]+'</span><small>Scarica</small></a>' }).join('') }).join('') }
+
+  function toast(t){ var el=document.getElementById('toast'), tx=document.getElementById('toast-txt'); if(!el||!tx) return; tx.innerHTML=t; el.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(function(){ el.classList.remove('on') },3600) }
+
+  /* pulsante "Area Riservata" -> "La mia area" quando sei dentro */
+  function setBtn(p){ $$('[data-area]').forEach(function(b){ if(!b.classList.contains('btn-lock')) return; var s=b.querySelector('span:not(.shine)'); if(!s) return;
+    if(!b.getAttribute('data-l0')) b.setAttribute('data-l0',s.textContent); s.textContent=p?'La mia area':b.getAttribute('data-l0'); b.classList.toggle('ar-in',!!p) }) }
+  var hasSess=false; try{ hasSess=LIVE?Object.keys(localStorage).some(function(k){ return /^sb-.*-auth-token$/.test(k) }):!!dload().cur }catch(e){}
+  if(hasSess) API.session().then(function(s){ if(s) API.profile().then(setBtn).catch(function(){}) }).catch(function(){});
+
+  /* apertura da indirizzo: #area-riservata, ?area=1, link di conferma o di recupero password */
+  var q=location.search+location.hash;
+  if(/type=recovery/.test(q)) loadSb().then(function(){ open('recover') });
+  else if(location.hash==='#area-riservata'||/[?&]area=1/.test(location.search)||(LIVE&&/access_token=|[?&]code=/.test(q))) setTimeout(function(){ open('login') },LIVE?600:300);
+  window.addEventListener('hashchange',function(){ if(location.hash==='#area-riservata') open('login') });
+})();
+
+
+/* ===== JANUS IN EVIDENZA =====
+   Alla prima pagina della visita la finestra segue il mouse per SEGUI millisecondi, poi si ferma
+   in basso a destra. Sulle pagine successive compare gia' ferma. La X la nasconde fino alla visita dopo. */
+(function(){
+  var box=document.getElementById('jnfly'); if(!box) return;
+  var SEGUI=8000, RITARDO=1800;
+  var S={get:function(k){ try{ return sessionStorage.getItem(k) }catch(e){ return null } }, set:function(k,v){ try{ sessionStorage.setItem(k,v) }catch(e){} }};
+  var force=/[?&]janus=1/.test(location.search);
+  if(!force&&S.get('uo-jn-chiuso')) return;
+  if(/janus-diploma-online/.test(location.pathname)) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var follow=(force||!S.get('uo-jn-visto'))&&fine&&!reduce;
+  var x=0,y=0,tx=0,ty=0,mx=-1,my=-1,raf=0,t0=0,docked=false;
+  function W(){ return box.offsetWidth } function H(){ return box.offsetHeight }
+  function dockPos(){ var b=window.innerWidth<=640?84:96, dx=window.innerWidth-W()-(window.innerWidth<=640?14:26), dy=window.innerHeight-H()-b;
+    var ck=document.getElementById('cookie'); if(ck){ var r=ck.getBoundingClientRect(), cs=getComputedStyle(ck);
+      if(r.width&&cs.visibility!=='hidden'&&+cs.opacity>0.1&&r.top<window.innerHeight&&r.right>dx) dy=Math.min(dy,r.top-H()-14) }
+    return [dx, Math.max(70,dy)] }
+  document.addEventListener('click',function(e){ if(e.target.closest('#cookie')) setTimeout(function(){ if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } },700) });
+  function place(rot){ box.style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0) rotate('+(rot||0).toFixed(2)+'deg)' }
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)) }
+  function loop(t){
+    if(!t0) t0=t; var p=Math.min(1,(t-t0)/SEGUI); box.style.setProperty('--p',p);
+    if(mx<0){ tx=window.innerWidth*.62+Math.sin(t/900)*90; ty=window.innerHeight*.28+Math.cos(t/1100)*60 }
+    else { tx=mx+28; ty=my+22 }
+    tx=clamp(tx,10,window.innerWidth-W()-10); ty=clamp(ty,70,window.innerHeight-H()-10);
+    var vx=(tx-x)*.075, vy=(ty-y)*.075; x+=vx; y+=vy; place(clamp(vx*.35,-9,9));
+    if(p<1) raf=requestAnimationFrame(loop); else dock();
+  }
+  function dock(){
+    if(docked) return; docked=true; cancelAnimationFrame(raf); document.removeEventListener('mousemove',mv);
+    box.classList.add('docked'); var d=dockPos(); x=d[0]; y=d[1]; place(0);
+    setTimeout(function(){ box.classList.add('float') },900);
+  }
+  function mv(e){ mx=e.clientX; my=e.clientY }
+  function start(){
+    box.hidden=false; S.set('uo-jn-visto','1');
+    if(follow){ x=window.innerWidth-W()-30; y=window.innerHeight; place(0); requestAnimationFrame(function(){ box.classList.add('on') });
+      document.addEventListener('mousemove',mv,{passive:true}); raf=requestAnimationFrame(loop) }
+    else { var d=dockPos(); x=d[0]; y=window.innerHeight+20; place(0); box.classList.add('docked');
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.classList.add('on'); docked=true; var d2=dockPos(); y=d2[1]; place(0); setTimeout(function(){ box.classList.add('float') },900) }) }) }
+  }
+  box.querySelector('.jnf-x').addEventListener('click',function(e){ e.preventDefault(); S.set('uo-jn-chiuso','1'); cancelAnimationFrame(raf); box.classList.remove('on'); setTimeout(function(){ box.hidden=true },500) });
+  box.querySelector('.jnf-min').addEventListener('click',function(e){ e.preventDefault(); box.classList.toggle('mini'); if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } });
+  box.querySelector('.jnf-card').addEventListener('click',function(){ if(!docked) dock() });
+  window.addEventListener('resize',function(){ if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } });
+  function go(){ setTimeout(start,RITARDO) }
+  var pl=document.getElementById('preloader');
+  if(document.readyState==='complete') go(); else window.addEventListener('load',function(){ setTimeout(go,pl?1400:0) });
+})();
+
