@@ -1078,7 +1078,7 @@ document.addEventListener('click',function(e){
    Per collegare il portale vero, incolla qui URL e chiave pubblica (anon key) del progetto Supabase:
    istruzioni in sorgenti/area-riservata/LEGGIMI-AREA-RISERVATA.md. Finche' restano vuote, il portale
    funziona in modalita' dimostrativa (dati salvati solo nel browser di chi prova). */
-window.UO_AUTH = window.UO_AUTH || { url: '', key: '' };
+window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase.co', key: 'sb_publishable_Xw0LEqS4vuJz3_soF93RIA_f7CZ6MgT' };
 (function(){
   var bg=document.getElementById('arbg'); if(!bg) return;
   var CFG=window.UO_AUTH, LIVE=!!(CFG.url&&CFG.key);
@@ -1109,7 +1109,7 @@ window.UO_AUTH = window.UO_AUTH || { url: '', key: '' };
     if(sbLoading) return sbLoading;
     sbLoading=new Promise(function(res,rej){
       var s=document.createElement('script');
-      s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js';
+      s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.js';
       s.onload=function(){ sb=window.supabase.createClient(CFG.url,CFG.key,{auth:{persistSession:true,detectSessionInUrl:true}});
         sb.auth.onAuthStateChange(function(ev){ if(ev==='PASSWORD_RECOVERY'){ open('recover') } });
         res(sb) };
@@ -1184,7 +1184,7 @@ window.UO_AUTH = window.UO_AUTH || { url: '', key: '' };
       return loadSb().then(function(c){ return c.auth.getUser().then(function(u){
         var safe=file.name.normalize('NFD').replace(/[^\w.\-]+/g,'_');
         return c.storage.from('documenti').upload(u.data.user.id+'/'+slot+'__'+Date.now()+'__'+safe,file,{upsert:false}) }) })
-        .then(function(r){ if(r.error) throw r.error });
+        .then(function(r){ if(r.error) throw r.error; return sb.rpc('segnala_documento') });
     },
     link:function(path){ return loadSb().then(function(c){ return c.storage.from('documenti').createSignedUrl(path,120) }).then(function(r){ if(r.error) throw r.error; return r.data.signedUrl }) }
   };
