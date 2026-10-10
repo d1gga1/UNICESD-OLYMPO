@@ -52,7 +52,8 @@ def main() -> None:
     (REPO / "index.html").write_text(out, encoding="utf-8")
 
     for n in ("head.html", "content.html", "body.html", "script.html", "schema.html", "build.py", "build_repo.py",
-              "build_pages.py", "pagine.py"):
+              "build_pages.py", "pagine.py", "build_extra.py", "pagine_lauree.py", "pagine_diploma_estero.py",
+              "pagine_guide_local.py"):
         shutil.copy2(HERE / n, REPO / "sorgenti" / n)
 
     kb = (REPO / "index.html").stat().st_size / 1024

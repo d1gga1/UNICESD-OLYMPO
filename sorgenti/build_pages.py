@@ -24,6 +24,13 @@ REPO = ROOT / "repo-github"
 import sys
 sys.path.insert(0, str(HERE))
 from pagine import SITE, COURSES, HUBS, PAGES, ANCHOR_MAP, TAB_MAP, TEXT_MAP  # noqa: E402
+import build_extra as BX  # noqa: E402  (pagine SEO del 10/2026)
+
+# agganci per build_extra.py
+EXTRA_CARDS = {}     # card dei corsi che non stanno in COURSES
+PAGE_EXTRA = {}      # url -> html aggiunto in fondo a una pagina tematica
+HUB_EXTRA = {}       # hub -> html aggiunto in fondo
+HUB_EXTRA_KEYS = {}  # hub -> chiavi in piu' nell'ItemList
 
 TODAY = datetime.date.today().isoformat()
 ORG_ID = SITE + "/#organizzazione"
@@ -145,7 +152,8 @@ def chrome_links(page_html: str, keep: set) -> str:
 # blocco link nel footer (maglia interna verso tutte le pagine)
 # ---------------------------------------------------------------------------
 def footer_nav() -> str:
-    groups = [
+    groups = BX.footer_groups(sys.modules[__name__])
+    _old = [
         ("Corsi di laurea online", [(c["url"], c["short"]) for k, c in COURSES.items() if c["hub"] == "lauree"]),
         ("Master e alta formazione", [(c["url"], c["short"]) for k, c in COURSES.items() if c["hub"] == "master"]),
         ("Certificazioni e CFU", [(c["url"], c["short"]) for k, c in COURSES.items() if c["hub"] in ("certificazioni", "singoli")]),
@@ -273,6 +281,8 @@ def page_hero(trail, eyebrow, h1, lead, cta=True):
 
 
 def card_link(key):
+    if key in EXTRA_CARDS:
+        return EXTRA_CARDS[key]
     c, meta = COURSES[key], CARDS[key]
     return (f'<article class="card rv tilt {meta["bg"]}"><div class="card-ic">{meta["ic"]}</div>'
             f'<h3 class="ch-link"><a href="{c["url"]}" class="card-link">{meta["h3"]}</a></h3><p>{meta["p"]}</p>'
@@ -367,9 +377,14 @@ def course_schema(key):
 
 
 def itemlist_schema(url, keys, name):
+    def u_n(k):
+        if k in COURSES:
+            return COURSES[k]["url"], COURSES[k]["name"]
+        c = BX.LAUREE[k]
+        return c["url"], plain(c["short"])
     return {"@type": "ItemList", "@id": SITE + url + "#elenco", "name": name,
-            "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": SITE + COURSES[k]["url"],
-                                 "name": COURSES[k]["name"]} for i, k in enumerate(keys)]}
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": SITE + u_n(k)[0],
+                                 "name": u_n(k)[1]} for i, k in enumerate(keys)]}
 
 
 # ---------------------------------------------------------------------------
@@ -387,6 +402,7 @@ def assemble(url, title, desc, main_html, graph, og="/assets/og-cover.jpg", keep
     keep.discard("top")  # il logo porta alla home
     body = PRE_MAIN_PAGES + '<main id="top">\n' + main + "\n</main>" + POST_MAIN
     body = rewrite_links(body, keep)
+    body = BX.link_existing(body)
     body = add_footer_nav(body)
     # il logo in alto porta alla home
     body = body.replace('<a href="/" class="brand" aria-label="UNICESD Olympo, torna all\'inizio">',
@@ -428,6 +444,7 @@ def build_courses():
         for sid in c.get("sections", []):
             main += SECTIONS[sid] + "\n"
         sib = [k for k, x in COURSES.items() if x["hub"] == c["hub"] and k != key][:6]
+        sib = BX.extra_siblings(key) + sib[:6 - len(BX.extra_siblings(key))]
         if sib:
             main += cards_section(sib, "Altri percorsi che potrebbero interessarti")
         graph = base_graph(c["url"], c["title"], c["desc"], "/assets/og-cover.jpg", trail)
@@ -448,10 +465,11 @@ def build_hubs():
         main = page_hero(trail, h["eyebrow"], h["h1"], h["lead"])
         main += cards_section(h["keys"], "I percorsi disponibili",
                               "Apri la scheda di ogni corso per contenuti, sbocchi e modalità.", sid="percorsi")
+        main += HUB_EXTRA.get(hid, "")
         for sid in h.get("extra", []):
             main += SECTIONS[sid] + "\n"
         graph = base_graph(h["url"], h["title"], h["desc"], "/assets/og-cover.jpg", trail, typ="CollectionPage")
-        graph.append(itemlist_schema(h["url"], h["keys"], h["name"]))
+        graph.append(itemlist_schema(h["url"], h["keys"] + HUB_EXTRA_KEYS.get(hid, []), h["name"]))
         assemble(h["url"], h["title"], h["desc"], main, graph)
         BUILT.append((h["url"], "0.9", "weekly", []))
 
@@ -480,6 +498,7 @@ def build_pages():
             main += hubs_block()
         for sid in p["sections"]:
             main += SECTIONS[sid] + "\n"
+        main += PAGE_EXTRA.get(url, "")
         og = p.get("og", "/assets/og-cover.jpg")
         typ = "AboutPage" if url == "/chi-siamo/" else ("ContactPage" if p.get("contact") else
               ("FAQPage" if p.get("faq") else ("ProfilePage" if p.get("person") else "WebPage")))
@@ -518,7 +537,11 @@ def hubs_block():
              ("/certificazioni/", "Certificazioni", "Informatiche, linguistiche e per le graduatorie"),
              ("/corsi-singoli-cfu/", "Corsi singoli e CFU", "Solo gli esami che ti servono"),
              ("/riconoscimento-cfu/", "Riconoscimento CFU", "Valutazione gratuita in 48 ore"),
-             ("/medicina-senza-test-ingresso/", "Medicina all'estero", "Area sanitaria senza test d'ingresso")]
+             ("/medicina-senza-test-ingresso/", "Medicina all'estero", "Area sanitaria senza test d'ingresso"),
+             ("/lauree-triennali-online/", "Lauree triennali", "15 corsi da 180 CFU"),
+             ("/lauree-magistrali-online/", "Lauree magistrali", "10 corsi da 120 CFU più il ciclo unico"),
+             ("/janus-diploma-online/", "Diploma online", "11 indirizzi e recupero anni"),
+             ("/guide/", "Guide", "CFU, esami, costi, valore legale")]
     li = "".join(f'<a class="hub-i rv" href="{u}"><b>{n}</b><span>{s}</span>{ARROW}</a>' for u, n, s in items)
     return f'<section class="hubs"><div class="wrap"><div class="hub-grid">{li}</div></div></section>\n'
 
@@ -640,7 +663,7 @@ def patch_home():
     h = re.sub(r'\n<section id="[\w-]+" class="(?:ente|vo)-page"[^>]*>.*?\n</section>', "", h, flags=re.S)
     visible = set(re.findall(r'\sid="([\w-]+)"', h))
     i = h.index('<main id="top">'); j = h.index("</main>")
-    h = h[:i] + rewrite_links(h[i:j], visible) + h[j:]
+    h = h[:i] + BX.link_existing(rewrite_links(h[i:j], visible)) + h[j:]
     h = add_footer_nav(h)
     # "Scopri il corso" nelle card: diventa un link vero alla scheda (il resto della card apre il popup)
     def card_more(m):
@@ -761,15 +784,22 @@ def llms():
     lines += ["", "## Pagine"]
     for p in PAGES:
         lines.append(f"- [{p['name']}]({SITE}{p['url']}): {p['desc']}")
+    lines += BX.llms_lines(sys.modules[__name__])
     (REPO / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def main():
+    global PAGES_CSS
+    me = sys.modules[__name__]
+    PAGES_CSS += BX.CSS
+    BX.register_cards(me)
+    BX.page_extras(me)
     write_assets()
     icons()
     build_hubs()
     build_courses()
     build_pages()
+    BX.build_all(me)
     patch_home()
     sitemap()
     (REPO / "robots.txt").write_text(ROBOTS, encoding="utf-8")

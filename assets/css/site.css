@@ -1782,3 +1782,29 @@ html.ar-lock .modal-bg{z-index:8900}
 .f-seo a:hover{opacity:1;text-decoration:underline}
 @media(max-width:980px){.c-grid{grid-template-columns:1fr}.c-side{position:static}.c3{grid-template-columns:1fr}.f-seo{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.phero{padding:44px 0 44px}.f-seo{grid-template-columns:1fr}}
+
+/* ===== pagine SEO 10/2026 (build_extra.py) ===== */
+.x-tbl{width:100%;border-collapse:collapse;margin:6px 0 18px;font-size:14.5px;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:block;overflow-x:auto}
+.x-tbl table{width:100%;border-collapse:collapse;min-width:520px}
+.x-tbl th,.x-tbl td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);color:var(--txt-dim)}
+.x-tbl th{font-family:'Sora';font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--txt-strong);background:var(--surface)}
+.x-tbl tr:last-child td{border-bottom:none}
+.x-tbl a,.c-main p a,.c-main li a{color:var(--cy)}
+.x-steps{counter-reset:st;list-style:none;padding:0;margin:0 0 16px}
+.x-steps li{counter-increment:st;position:relative;padding:0 0 12px 44px;color:var(--txt-dim);font-size:15px}
+.x-steps li::before{content:counter(st);position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 13px 'Sora';color:#fff;background:linear-gradient(135deg,var(--cy),#2b4bb8)}
+.x-ind{display:grid;gap:10px;margin:4px 0 18px}
+.x-ind div{padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.x-ind b{display:block;font-family:'Sora';font-size:15px;color:var(--txt-strong);margin-bottom:3px}
+.x-ind span{font-size:14px;color:var(--txt-dim)}
+.x-faq{margin-top:34px}
+.x-faq .faq-a>div{padding:0 22px 18px;color:var(--txt-dim);font-size:14.6px}
+.x-meta{font-size:13px;color:var(--txt-mute);margin:-4px 0 18px}
+.x-area{margin-top:46px}
+.x-area:first-of-type{margin-top:10px}
+.x-area h3{font-size:20px;margin-bottom:14px}
+.rail-link{color:inherit;text-decoration:none}
+.rail-link:hover{text-decoration:underline}
+.ec-card h4 a{color:inherit;text-decoration:none}
+.ec-card h4 a:hover{text-decoration:underline}
+.ec-card h4 a::after{content:" \2192";font-size:.85em;opacity:.6}
