@@ -135,6 +135,14 @@ IMAGES = {
     "__IMG_JANUS_FLY__": "img/janus/janus-sede-560.webp",
     "__IMG_ECOSISTEMA__": "img/ecosistema-unicesd-feip.webp",
     "__IMG_PROGRAMMA_24OTT__": "img/eventi/programma-24ott2026.webp",
+    # 11 ottobre 2026: notizie da Trieste (7 e 9 ottobre) e partner accreditato Mnemosine
+    "__IMG_VO_TS_GENERALI__": "img/voce/trieste-generali-9ott2026.webp",
+    "__IMG_VO_TS_LOCANDINA__": "img/voce/trieste-generali-locandina.webp",
+    "__IMG_VO_TS_SAMER__": "img/voce/trieste-samer-di-carlo.webp",
+    "__IMG_VO_TS_CAMPUS__": "img/voce/trieste-campus.webp",
+    "__IMG_VO_TS_PANTECCA__": "img/voce/trieste-pantecca-ufficio.webp",
+    "__IMG_VO_TS_AULA__": "img/voce/trieste-aula-consiliare.webp",
+    "__IMG_MNEMOSINE__": "img/partner/mnemosine.webp",
 }
 
 # Sfondi generati con Higgsfield + globo animato: finiscono nel CSS e nel markup.

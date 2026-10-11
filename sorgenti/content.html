@@ -1736,4 +1736,15 @@ html.ar-lock .modal-bg{z-index:8900}
 @media (max-width:640px){#jnfly{width:150px}#jnfly .jnf-cap{font-size:12.5px}#jnfly .jnf-cap small{display:none}#jnfly.mini{width:128px}}
 @media print{#jnfly{display:none!important}}
 
+
+/* ---- 11/10/2026: miniature nelle notizie della Voce + badge Mnemosine nel footer ---- */
+.vo-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.vo-thumbs a{display:block;aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:1px solid rgba(130,180,255,.28);transition:transform .4s var(--ease),border-color .4s}
+.vo-thumbs a:hover{transform:translateY(-3px);border-color:rgba(130,180,255,.7)}
+.vo-thumbs img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.vo-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.vo-pair .vo-media img{aspect-ratio:3/4;height:auto;object-fit:cover;object-position:center top}
+.f-badge{display:inline-block;background:#fff;border-radius:12px;padding:8px 12px;margin:0 0 18px;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .4s var(--ease)}
+.f-badge:hover{transform:translateY(-2px)}
+.f-badge img{display:block;width:170px;height:auto}
 </style>
