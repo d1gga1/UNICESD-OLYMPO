@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=83f3177f">
+<link rel="stylesheet" href="/assets/css/site.css?v=c6243e9c">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNICESD Olympo">
 <meta property="og:locale" content="it_IT">
@@ -56,7 +56,7 @@
     "@type": "ImageObject",
     "url": "https://unicesd-olympo.com/assets/og-cover.jpg"
    },
-   "dateModified": "2026-10-11",
+   "dateModified": "2026-10-12",
    "publisher": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    }
@@ -113,7 +113,7 @@
    },
    "image": "https://unicesd-olympo.com/assets/og-cover.jpg",
    "datePublished": "2026-10-10",
-   "dateModified": "2026-10-11",
+   "dateModified": "2026-10-12",
    "author": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    },
@@ -349,7 +349,7 @@
 <section class="course">
   <div class="wrap c-grid">
     <article class="c-main rv">
-      <p class="x-meta">Guida a cura della redazione di UNICESD Olympo · aggiornata al 11/10/2026</p><h2>1. Parti dal lavoro che vuoi fare</h2>
+      <p class="x-meta">Guida a cura della redazione di UNICESD Olympo · aggiornata al 12/10/2026</p><h2>1. Parti dal lavoro che vuoi fare</h2>
 <p>Prima di guardare il nome del corso, chiediti quale lavoro vuoi fare tra cinque anni. Alcune professioni richiedono una laurea precisa: avvocato (<a href="/corsi-di-laurea/giurisprudenza/">Giurisprudenza</a>), psicologo (<a href="/corsi-di-laurea/magistrale-psicologia/">Psicologia LM-51</a>), ingegnere, pedagogista. Altre accettano lauree diverse.</p>
 <h2>2. Controlla se serve la magistrale</h2>
 <p>Se la professione richiede il secondo livello, scegli una triennale che ti dia i requisiti curricolari per quella magistrale: eviti di dover recuperare crediti dopo. Ne parliamo nella guida <a href="/guide/laurea-triennale-magistrale-differenze/">triennale, magistrale e ciclo unico</a>.</p>
@@ -365,7 +365,7 @@
     <aside class="c-side">
       <div class="c-box dark">
         <h2>In sintesi</h2>
-        <div class="feat-box"><div class="fb-row"><span>Tipo</span><b>Guida</b></div><div class="fb-row"><span>Tempo di lettura</span><b>3 minuti</b></div><div class="fb-row"><span>Aggiornata</span><b>11/10/2026</b></div><div class="fb-row"><span>Dubbi?</span><b>Orientamento gratuito</b></div></div>
+        <div class="feat-box"><div class="fb-row"><span>Tipo</span><b>Guida</b></div><div class="fb-row"><span>Tempo di lettura</span><b>3 minuti</b></div><div class="fb-row"><span>Aggiornata</span><b>12/10/2026</b></div><div class="fb-row"><span>Dubbi?</span><b>Orientamento gratuito</b></div></div>
         
         <a href="#iscrizione" class="btn btn-p" style="width:100%;margin-top:18px"><span>Richiedi informazioni</span><span class="shine"></span></a>
         <a href="tel:+393509651711" class="btn btn-g" style="width:100%;margin-top:10px">+39 350 965 1711</a>
@@ -545,6 +545,7 @@
         <li><b>I tuoi documenti</b><span>Carichi documento, titolo di studio e contratto firmato.</span></li>
         <li><b>Modulistica e contratto</b><span>Tutti i moduli da scaricare, in un posto solo.</span></li>
         <li><b>Lo stato della pratica</b><span>Vedi a che punto &egrave; la tua iscrizione.</span></li>
+        <li><b>Pagamenti, carriera ed esami</b><span>Rate e scadenze, il libretto con voti e media, il calendario degli appelli con la prenotazione.</span></li>
       </ul>
       <p class="ar-help">Problemi di accesso? <a href="tel:+393281376792">328 137 6792</a> &middot; <a href="mailto:Calogero60@yahoo.it">Calogero60@yahoo.it</a></p>
     </div>
@@ -701,6 +702,9 @@
       </div>
       <nav class="ar-tabs" role="tablist">
         <button type="button" class="on" data-ar-tab="scheda" role="tab">&#128100; La mia scheda</button>
+        <button type="button" data-ar-tab="economia" role="tab">&#128182; Situazione economica</button>
+        <button type="button" data-ar-tab="carriera" role="tab">&#127891; Carriera</button>
+        <button type="button" data-ar-tab="esami" role="tab">&#128197; Esami e prenotazioni</button>
         <button type="button" data-ar-tab="documenti" role="tab">&#128206; I miei documenti</button>
         <button type="button" data-ar-tab="moduli" role="tab">&#128196; Modulistica</button>
         <button type="button" data-ar-tab="contratto" role="tab">&#9998; Contratto</button>
@@ -765,6 +769,24 @@
         </div>
       </section>
 
+      <!-- Situazione economica (tabelle rette e rate, sola lettura) -->
+      <section class="ar-tab" data-tab="economia" hidden>
+        <h4 class="ar-h">Situazione economica</h4>
+        <p class="ar-sub">Retta, rate e pagamenti del tuo percorso. Gli importi li inserisce la segreteria; un pagamento risulta registrato dopo il controllo della ricevuta.</p>
+        <div id="arEco"></div>
+      </section>
+      <!-- Carriera (tabella carriera: il libretto, un rigo per esame) -->
+      <section class="ar-tab" data-tab="carriera" hidden>
+        <h4 class="ar-h">La mia carriera</h4>
+        <p class="ar-sub">Gli esami del tuo piano di studi, anno per anno, con voti, crediti e media.</p>
+        <div id="arCar"></div>
+      </section>
+      <!-- Calendario esami e prenotazioni (tabelle appelli e prenotazioni) -->
+      <section class="ar-tab" data-tab="esami" hidden>
+        <h4 class="ar-h">Calendario esami e prenotazioni</h4>
+        <p class="ar-sub">Prenota gli appelli entro la data di chiusura. Fino alla chiusura puoi anche annullare la prenotazione.</p>
+        <div id="arEsa"></div>
+      </section>
       <!-- Documenti -->
       <section class="ar-tab" data-tab="documenti" hidden>
         <h4 class="ar-h">I miei documenti</h4>
@@ -878,5 +900,5 @@
 </div>
 
 <script>window.UO_PAGES={"c1": "/corsi-di-laurea/giurisprudenza/", "c2": "/corsi-di-laurea/economia-aziendale/", "c3": "/corsi-di-laurea/scienze-psicologiche/", "c4": "/corsi-di-laurea/scienze-educazione/", "c5": "/corsi-di-laurea/ingegneria-informatica/", "c6": "/corsi-di-laurea/scienze-motorie/", "m1": "/master-made-in-italy-global-leadership/", "m2": "/master-universitari/management-imprese-turistiche/", "m3": "/master-universitari/didattica-innovazione-digitale/", "m4": "/master-universitari/diritto-impresa-internazionale/", "m5": "/master-universitari/data-analytics-business/", "m6": "/master-universitari/management-sanitario/", "k1": "/certificazioni/informatiche/", "k2": "/certificazioni/linguistiche/", "k3": "/certificazioni/graduatorie-scuola/", "s1": "/corsi-singoli-cfu/", "s2": "/riconoscimento-cfu/", "s3": "/formazione-aziendale/"};</script>
-<script src="/assets/js/site.js?v=de887e32" defer></script>
+<script src="/assets/js/site.js?v=53d74ebc" defer></script>
 </body></html>

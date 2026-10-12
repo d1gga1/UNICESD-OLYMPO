@@ -1125,6 +1125,7 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     if(/already registered|already exists/i.test(m)) return 'Esiste gi&agrave; un account con questa email. Prova ad accedere o recupera la password.';
     if(/database error saving new user/i.test(m)) return 'Non &egrave; stato possibile completare l\'iscrizione: il codice fiscale potrebbe essere gi&agrave; registrato. Contatta la segreteria.';
     if(/codice_fiscale|duplicate key/i.test(m)) return 'Questo codice fiscale risulta gi&agrave; registrato. Contatta la segreteria.';
+    if(/schema cache|does not exist|could not find the (table|function)/i.test(m)) return 'Questa sezione non &egrave; ancora attiva: la segreteria la sta configurando.';
     if(/rate limit|too many/i.test(m)) return 'Troppi tentativi ravvicinati. Riprova fra qualche minuto.';
     if(/password/i.test(m)&&/least|weak|short/i.test(m)) return 'La password &egrave; troppo debole.';
     return m;
@@ -1188,6 +1189,70 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     },
     link:function(path){ return loadSb().then(function(c){ return c.storage.from('documenti').createSignedUrl(path,120) }).then(function(r){ if(r.error) throw r.error; return r.data.signedUrl }) }
   };
+
+  /* ---------- situazione economica, carriera, esami (tabelle in supabase-carriera.sql) ---------- */
+  function rows(r){ if(r.error) throw r.error; return r.data||[] }
+  API.eco=function(){
+    if(!LIVE){ var u=demoU(); return Promise.resolve({rette:u.eco.rette,rate:u.eco.rate}) }
+    return loadSb().then(function(c){ return Promise.all([c.from('rette').select('*').order('id'),c.from('rate').select('*').order('scadenza').order('numero')]) })
+      .then(function(r){ return {rette:rows(r[0]),rate:rows(r[1])} });
+  };
+  API.car=function(){
+    if(!LIVE) return Promise.resolve(demoU().car);
+    return loadSb().then(function(c){ return c.from('carriera').select('*').order('anno_corso').order('ordine').order('id') }).then(rows);
+  };
+  API.app=function(){
+    if(!LIVE){ var u=demoU(), m=u.profile.matricola;
+      return Promise.resolve(u.app.map(function(a){ var x=Object.assign({},a), ex=u.car.filter(function(c){ return c.insegnamento.toLowerCase()===a.insegnamento.toLowerCase() });
+        x.prenotato=(a.chi||[]).indexOf(m)>-1; x.iscritti=(a.chi||[]).length+(a.altri||0); x.nel_piano=ex.length>0; x.superato=ex.some(function(c){ return c.esito!=='da sostenere' }); return x })) }
+    return loadSb().then(function(c){ return c.rpc('miei_appelli') }).then(rows);
+  };
+  API.prenota=function(id){
+    if(!LIVE){ var d=dload(), u=d.users[d.cur], a=u.app.filter(function(x){ return x.id===id })[0], m=u.profile.matricola, oggi=ymd(new Date());
+      if(!a) return Promise.reject(new Error('Appello non disponibile.'));
+      if(a.apertura&&oggi<a.apertura) return Promise.reject(new Error('Le prenotazioni si aprono il '+itShort(a.apertura)+'.'));
+      if(oggi>(a.chiusura||ymd(addD(pd(a.data),-1)))) return Promise.reject(new Error('Le prenotazioni per questo appello sono chiuse.'));
+      var altro=u.app.filter(function(x){ return x.id!==id&&x.data>=oggi&&x.insegnamento===a.insegnamento&&(x.chi||[]).indexOf(m)>-1 })[0];
+      if(altro) return Promise.reject(new Error('Sei gi&agrave; prenotato per questo esame all\'appello del '+itShort(altro.data)+'. Annulla quella prenotazione prima di sceglierne un\'altra.'));
+      if(a.posti&&(a.chi||[]).length+(a.altri||0)>=a.posti) return Promise.reject(new Error('Posti esauriti per questo appello.'));
+      a.chi=a.chi||[]; if(a.chi.indexOf(m)<0) a.chi.push(m); dsave(d); return Promise.resolve() }
+    return loadSb().then(function(c){ return c.rpc('prenota_appello',{p_appello:id}) }).then(function(r){ if(r.error) throw r.error });
+  };
+  API.annulla=function(id){
+    if(!LIVE){ var d=dload(), u=d.users[d.cur], a=u.app.filter(function(x){ return x.id===id })[0], m=u.profile.matricola;
+      if(a) a.chi=(a.chi||[]).filter(function(x){ return x!==m }); dsave(d); return Promise.resolve() }
+    return loadSb().then(function(c){ return c.rpc('annulla_prenotazione',{p_appello:id}) }).then(function(r){ if(r.error) throw r.error });
+  };
+
+  /* date: le colonne "date" arrivano come AAAA-MM-GG */
+  function pd(s){ var p=String(s).slice(0,10).split('-'); return new Date(+p[0],+p[1]-1,+p[2]) }
+  function ymd(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0') }
+  function addD(d,n){ var x=new Date(d); x.setDate(x.getDate()+n); return x }
+  function itShort(s){ return s?pd(s).toLocaleDateString('it-IT',{day:'2-digit',month:'2-digit',year:'numeric'}):'' }
+  function eur(n){ return (+n||0).toLocaleString('it-IT',{style:'currency',currency:'EUR'}) }
+
+  /* dati di prova per la modalita' dimostrativa (creati una volta per utente) */
+  function demoU(){
+    var d=dload(), u=d.users[d.cur]; if(u.car&&u.eco&&u.app) return u;
+    var t=new Date(); t.setHours(12,0,0,0); var D=function(n){ return ymd(addD(t,n)) }, aa=t.getMonth()>=8?t.getFullYear()+'/'+(t.getFullYear()+1):(t.getFullYear()-1)+'/'+t.getFullYear();
+    u.eco={rette:[{anno_accademico:aa,voce:'Retta annuale',importo:2400,riduzione:300,causale_riduzione:'Convenzione con il polo di riferimento'},{anno_accademico:aa,voce:'Tassa di iscrizione e servizi',importo:200,riduzione:0}],
+      rate:[{anno_accademico:aa,numero:1,descrizione:'Prima rata, all\'iscrizione',importo:500,scadenza:D(-40),pagata_il:D(-42),metodo:'Bonifico',riferimento:'CRO 0412 7781'},
+            {anno_accademico:aa,numero:2,descrizione:'Seconda rata',importo:600,scadenza:D(-5)},
+            {anno_accademico:aa,numero:3,descrizione:'Terza rata',importo:600,scadenza:D(10)},
+            {anno_accademico:aa,numero:4,descrizione:'Quarta rata',importo:600,scadenza:D(70)}]};
+    var P=[[1,'Istituzioni di diritto privato','IUS/01',15,'esame',28,0,-130],[1,'Filosofia del diritto','IUS/20',15,'esame',30,1,-95],[1,'Diritto romano','IUS/18',15,'esame',26,0,-60],[1,'Diritto costituzionale','IUS/08',15,'esame'],
+      [2,'Storia del diritto medievale e moderno','IUS/19',15,'esame'],[2,'Diritto ecclesiastico','IUS/11',6,'esame'],[2,'Diritto commerciale','IUS/04',15,'esame'],[2,'Diritto tributario','IUS/12',9,'esame'],[2,'Economia politica','SECS-P/01',15,'esame'],
+      [3,'Diritto penale','IUS/17',15,'esame'],[3,'Diritto amministrativo','IUS/10',15,'esame'],[3,'Diritto del lavoro','IUS/07',12,'esame'],[3,'Esami a scelta','',6,'a scelta'],[3,'Lingua inglese','L-LIN/12',6,'altro',null,0,-20,'riconosciuto']];
+    u.car=P.map(function(r,i){ var ok=r[5]||r[8]; return {anno_corso:r[0],insegnamento:r[1],ssd:r[2],cfu:r[3],tipo:r[4],esito:r[8]||(r[5]?'superato':'da sostenere'),voto:r[5]||null,lode:!!r[6],data_esame:ok?D(r[7]):null,anno_accademico:ok?aa:null} });
+    var A=[['Diritto costituzionale',12,'Scritto','Online','Piattaforma d\'esame',-10,null,30,true],['Diritto costituzionale',47,'Orale','Palermo · Via Trabia 1','Aula 2',25,null,null],
+      ['Storia del diritto medievale e moderno',19,'Orale','Online','Videochiamata',-5,15,20,false,20],['Diritto ecclesiastico',26,'Scritto','Polo 00001 · Global Campus Licata','Aula magna',-3,null,40],
+      ['Diritto commerciale',33,'Scritto e orale','Online','Piattaforma d\'esame',-1,null,null],['Diritto tributario',54,'Scritto','Online','Piattaforma d\'esame',20,null,null],['Economia politica',40,'Scritto','Campofelice di Roccella','Aula 1',5,null,25],
+      ['Diritto romano',22,'Orale','Online','Videochiamata',-8,null,null],['Diritto costituzionale',-18,'Scritto','Online','Piattaforma d\'esame',-40,null,null]];
+    var doc={'Diritto costituzionale':'Prof. G. Marino','Storia del diritto medievale e moderno':'Prof.ssa L. Ferrante','Diritto ecclesiastico':'Prof. A. Greco','Diritto commerciale':'Prof.ssa M. Lo Presti','Diritto tributario':'Prof. S. Amato','Economia politica':'Prof. F. Russo','Diritto romano':'Prof. C. Bellini'};
+    var W=function(n){ var x=addD(t,n), g=x.getDay(); return ymd(addD(x,g===6?-1:g===0?1:0)) };
+    u.app=A.map(function(a,i){ return {id:i+1,insegnamento:a[0],docente:doc[a[0]],data:W(a[1]),ora:['09:30:00','15:00:00','10:00:00'][i%3],tipo:a[2],sede:a[3],aula:a[4],apertura:D(a[5]),chiusura:a[6]!=null?D(a[6]):null,posti:a[7],chi:a[8]?[u.profile.matricola]:[],altri:a[9]||(a[7]?Math.min(a[7]-4,i*3+2):i*2)} });
+    dsave(d); return u;
+  }
 
   /* ---------- interfaccia ---------- */
   var auth=$('#arAuth'), dash=$('#arDash'), lastFocus=null;
@@ -1312,11 +1377,12 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     var f=$('#arEdit'); EDIT.forEach(function(n){ var el=f.elements[n]; if(!el) return; if(el.type==='checkbox') el.checked=!!p[n]; else el.value=p[n]||'' });
   }
   function loadDash(nuovo){
+    ecoData=carData=esaData=calM=calSel=ecoAA=null; esaF='tutti';
     API.profile().then(function(p){ fill(p); setBtn(p); tab('scheda'); if(nuovo) toast('Iscrizione completata: benvenuto, '+p.nome+'!') })
       .catch(function(err){ dash.hidden=true; auth.hidden=false; pane('login'); msg($('#arLogin'),itErr(err)) });
   }
   function tab(n){ $$('.ar-tab',dash).forEach(function(s){ s.hidden=s.getAttribute('data-tab')!==n }); $$('.ar-tabs button',dash).forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-ar-tab')===n) });
-    $('.ar-body',dash).scrollTop=0; if(n==='documenti') docs(); if(n==='moduli') mods() }
+    $('.ar-body',dash).scrollTop=0; if(n==='documenti') docs(); if(n==='moduli') mods(); if(n==='economia') eco(); if(n==='carriera') car(); if(n==='esami') esa() }
   $('#arEdit').addEventListener('submit',function(e){ e.preventDefault(); var f=this, ok=true;
     ['cellulare','indirizzo','cap','comune','provincia'].forEach(function(n){ var el=f.elements[n]; el.required=true; if(!check(el)) ok=false });
     if(!ok) return; var patch={}; EDIT.forEach(function(n){ var el=f.elements[n]; patch[n]=el.type==='checkbox'?el.checked:el.value.trim() }); patch.provincia=patch.provincia.toUpperCase();
@@ -1340,6 +1406,195 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     API.upload(i.getAttribute('data-slot'),f).then(function(){ toast('Documento caricato'); docs(); if(!LIVE) API.profile().then(fill) }).catch(function(err){ toast(itErr(err)); docs() }) });
   $('#arDocs').addEventListener('click',function(e){ var a=e.target.closest('[data-path]'); if(!a) return; e.preventDefault(); API.link(a.getAttribute('data-path')).then(function(u){ window.open(u,'_blank','noopener') }) });
   function mods(){ $('#arMods').innerHTML=MODULI.map(function(g){ return '<div class="ar-mod-g">'+g[0]+'</div>'+g[1].map(function(m){ return '<a class="ar-mod" href="'+BASE+'modulistica/'+m[0]+'.pdf" target="_blank" rel="noopener"><i>PDF</i><span>'+m[1]+'</span><small>Scarica</small></a>' }).join('') }).join('') }
+
+  /* ===== scheda: SITUAZIONE ECONOMICA ===== */
+  var ecoAA=null, ecoData=null;
+  function oggi(){ var t=new Date(); t.setHours(0,0,0,0); return t }
+  function failBox(box,err){ box.innerHTML='<div class="ar-msg on">'+itErr(err)+'</div>' }
+  function emptyBox(ic,t,p){ return '<div class="ar-card ar-empty"><div class="ic">'+ic+'</div><b>'+t+'</b><p>'+p+'</p></div>' }
+  function rataStato(r){
+    var s=pd(r.scadenza), g=Math.round((s-oggi())/864e5);
+    if(r.pagata_il) return ['ok','Pagata il '+itShort(r.pagata_il)];
+    if(g<0) return ['late','Scaduta da '+(-g)+(g===-1?' giorno':' giorni')];
+    if(g<=15) return ['warn',g===0?'Scade oggi':'Scade fra '+g+(g===1?' giorno':' giorni')];
+    return ['todo','Da pagare'];
+  }
+  function eco(){
+    var box=$('#arEco'); if(!ecoData) box.innerHTML='<p class="ar-load">Caricamento&hellip;</p>';
+    API.eco().then(function(d){ ecoData=d; ecoDraw() }).catch(function(e){ failBox(box,e) });
+  }
+  function ecoDraw(){
+    var box=$('#arEco'), d=ecoData, anni=[];
+    d.rette.concat(d.rate).forEach(function(r){ if(anni.indexOf(r.anno_accademico)<0) anni.push(r.anno_accademico) });
+    anni.sort().reverse();
+    if(!anni.length){ box.innerHTML=emptyBox('&#128182;','Piano dei pagamenti non ancora disponibile','La segreteria inserisce retta e rate al perfezionamento dell\'iscrizione. Se hai gi&agrave; pagato, carica la ricevuta fra <a href="#" data-ar-tab="documenti">I miei documenti</a>.')+payCard(); return }
+    if(anni.indexOf(ecoAA)<0) ecoAA=anni[0];
+    var rette=d.rette.filter(function(r){ return r.anno_accademico===ecoAA }), rate=d.rate.filter(function(r){ return r.anno_accademico===ecoAA })
+      .sort(function(a,b){ return a.scadenza<b.scadenza?-1:a.scadenza>b.scadenza?1:a.numero-b.numero });
+    var lordo=0, rid=0; rette.forEach(function(r){ lordo+=+r.importo; rid+=+r.riduzione||0 });
+    var totRate=0, pagato=0, scad=[], next=null; rate.forEach(function(r){ totRate+=+r.importo; if(r.pagata_il) pagato+=+r.importo; else if(pd(r.scadenza)<oggi()) scad.push(r); else if(!next) next=r });
+    var dovuto=rette.length?lordo-rid:totRate, resto=Math.max(0,dovuto-pagato), perc=dovuto?Math.min(100,Math.round(pagato/dovuto*100)):0, sc=0; scad.forEach(function(r){ sc+=+r.importo });
+    var h='';
+    if(anni.length>1) h+='<div class="ar-chips" role="tablist">'+anni.map(function(a){ return '<button type="button" data-eco-aa="'+esc(a)+'" class="'+(a===ecoAA?'on':'')+'">A.A. '+esc(a)+'</button>' }).join('')+'</div>';
+    if(scad.length) h+='<div class="ar-alert"><i>&#9888;</i><div><b>'+(scad.length===1?'Hai una rata scaduta':'Hai '+scad.length+' rate scadute')+' per '+eur(sc)+'.</b> Effettua il pagamento e carica la ricevuta fra <a href="#" data-ar-tab="documenti">I miei documenti</a>; se hai gi&agrave; pagato, la segreteria la registra appena controllata.</div></div>';
+    h+='<div class="ar-kpis">'
+      +'<div class="ar-kpi top"><small>Totale A.A. '+esc(ecoAA)+'</small><b>'+eur(dovuto)+'</b><span>'+(rid?'gi&agrave; scontato di '+eur(rid):rate.length+' '+(rate.length===1?'rata':'rate'))+'</span></div>'
+      +'<div class="ar-kpi ok"><small>Pagato</small><b>'+eur(pagato)+'</b><span>'+perc+'% del totale</span></div>'
+      +'<div class="ar-kpi'+(scad.length?' late':'')+'"><small>Da pagare</small><b>'+eur(resto)+'</b><span>'+(scad.length?eur(sc)+' scaduti':'nessuna rata scaduta')+'</span></div>'
+      +'<div class="ar-kpi"><small>Prossima scadenza</small><b>'+(next?itShort(next.scadenza):'&mdash;')+'</b><span>'+(next?eur(next.importo)+' &middot; rata '+next.numero:(resto?'vedi le rate scadute':'tutto saldato'))+'</span></div>'
+      +'</div>';
+    h+='<div class="ar-card"><div class="ar-bar"><i style="width:'+perc+'%"></i></div><div class="ar-bar-l"><span>Pagato '+eur(pagato)+'</span><span>Totale '+eur(dovuto)+'</span></div></div>';
+    if(rette.length) h+='<div class="ar-card"><div class="ar-card-h"><h5>Composizione</h5><span class="ar-lockt">A.A. '+esc(ecoAA)+'</span></div><div class="ar-voci">'
+      +rette.map(function(r){ return '<div><span>'+esc(r.voce)+(r.note?'<small>'+esc(r.note)+'</small>':'')+'</span><b>'+eur(r.importo)+'</b></div>'+(+r.riduzione?'<div class="rid"><span>Riduzione'+(r.causale_riduzione?'<small>'+esc(r.causale_riduzione)+'</small>':'')+'</span><b>&minus; '+eur(r.riduzione)+'</b></div>':'') }).join('')
+      +'<div class="tot"><span>Totale dovuto</span><b>'+eur(dovuto)+'</b></div></div>'
+      +(rate.length&&Math.abs(totRate-dovuto)>.009?'<p class="ar-hint">Le rate programmate sommano '+eur(totRate)+': per chiarimenti scrivi alla segreteria.</p>':'')+'</div>';
+    h+='<div class="ar-card"><div class="ar-card-h"><h5>Piano delle rate</h5><span class="ar-lockt">'+rate.length+' '+(rate.length===1?'rata':'rate')+'</span></div>';
+    if(rate.length) h+='<div class="ar-rate-h"><span>N.</span><span>Descrizione</span><span>Scadenza</span><span>Importo</span><span>Stato</span></div><div class="ar-rate">'
+      +rate.map(function(r){ var s=rataStato(r); return '<div class="ar-rata '+s[0]+'"><i>'+esc(r.numero)+'</i><div><b>'+esc(r.descrizione||('Rata '+r.numero))+'</b>'
+        +(r.pagata_il&&(r.metodo||r.riferimento)?'<small>'+esc([r.metodo,r.riferimento].filter(Boolean).join(' · '))+'</small>':'')+(r.note?'<small>'+esc(r.note)+'</small>':'')+'</div>'
+        +'<div class="dt"><small>Scadenza</small>'+itShort(r.scadenza)+'</div><div class="imp">'+eur(r.importo)+'</div><div class="st"><span class="ar-st '+s[0]+'">'+s[1]+'</span></div></div>' }).join('')+'</div>';
+    else h+='<p>Le rate di questo anno non sono ancora state inserite.</p>';
+    h+='</div>'+payCard();
+    box.innerHTML=h;
+  }
+  function payCard(){
+    var cau='Matricola '+(P&&P.matricola||'')+' - '+(P?(P.cognome+' '+P.nome).toUpperCase():'')+' - Rata n. ...';
+    return '<div class="ar-card"><div class="ar-card-h"><h5>Come pagare</h5></div><dl class="ar-pay">'
+      +'<div><dt>Modalit&agrave;</dt><dd>Bonifico bancario, oppure in sede</dd></div>'
+      +'<div><dt>Coordinate bancarie</dt><dd>Te le comunica la segreteria</dd></div>'
+      +'<div style="grid-column:1/-1"><dt>Causale</dt><dd><span data-cau>'+esc(cau)+'</span><button type="button" class="ar-copy" data-copy>Copia</button></dd></div></dl>'
+      +'<p>Dopo il pagamento carica la ricevuta: la rata risulta pagata quando la segreteria l\'ha registrata.</p><div class="ar-actions">'
+      +'<button type="button" class="btn btn-p btn-sm" data-ar-tab="documenti"><span>Carica la ricevuta</span><span class="shine"></span></button>'
+      +'<a class="btn btn-g btn-sm" href="'+BASE+'modulistica/richiesta-rateizzazione.pdf" target="_blank" rel="noopener">Chiedi una rateizzazione diversa</a></div></div>';
+  }
+  $('#arEco').addEventListener('click',function(e){
+    var b=e.target.closest('[data-eco-aa]'); if(b){ ecoAA=b.getAttribute('data-eco-aa'); ecoDraw(); return }
+    if(e.target.closest('[data-copy]')){ var t=$('[data-cau]',this).textContent; try{ navigator.clipboard.writeText(t).then(function(){ toast('Causale copiata') }) }catch(x){ toast(t) } }
+  });
+
+  /* ===== scheda: CARRIERA ===== */
+  var carData=null;
+  function voto(c){ if(c.esito==='da sostenere') return '';
+    if(c.voto) return c.voto+(c.lode?' e lode':'')+'<small style="display:inline;font-size:12px;color:var(--txt-mute);font-family:Outfit">/30</small>';
+    return c.esito==='riconosciuto'?'Convalidato':'Idoneo' }
+  function car(){
+    var box=$('#arCar'); if(!carData) box.innerHTML='<p class="ar-load">Caricamento&hellip;</p>';
+    API.car().then(function(l){ carData=l; carDraw() }).catch(function(e){ failBox(box,e) });
+  }
+  function medie(l){
+    var sp=0, sc=0, sv=0, n=0; l.forEach(function(c){ if(c.esito!=='da sostenere'&&c.voto){ var v=+c.voto; sp+=v*(+c.cfu); sc+=+c.cfu; sv+=v; n++ } });
+    return {pond:sc?sp/sc:0, arit:n?sv/n:0, n:n};
+  }
+  function carDraw(){
+    var box=$('#arCar'), l=carData||[];
+    if(!l.length){ box.innerHTML=emptyBox('&#127891;','Il tuo libretto non &egrave; ancora attivo','Il piano di studi compare qui quando l\'iscrizione &egrave; perfezionata. Per far valutare esami gi&agrave; sostenuti altrove usa il modulo <a href="'+BASE+'modulistica/riconoscimento-crediti.pdf" target="_blank" rel="noopener">Riconoscimento crediti</a>.'); return }
+    var tot=0, ok=0, ne=0, nok=0, anni={};
+    l.forEach(function(c){ var f=+c.cfu||0, s=c.esito!=='da sostenere'; tot+=f; if(s) ok+=f; if(c.tipo!=='tirocinio'&&c.tipo!=='prova finale'){ ne++; if(s) nok++ }
+      (anni[c.anno_corso]=anni[c.anno_corso]||[]).push(c) });
+    var m=medie(l), p=tot?Math.round(ok/tot*100):0, fmt=function(x){ return x?x.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2}):'&mdash;' };
+    var h='<div class="ar-car-top"><div class="ar-ring"><div class="r" style="--p:'+p+'"><div><b>'+(ok%1?ok.toFixed(1):ok)+'</b><small>di '+(tot%1?tot.toFixed(1):tot)+' CFU</small></div></div><span>'+p+'% del percorso completato</span></div>'
+      +'<div class="ar-kpis"><div class="ar-kpi ok"><small>Esami superati</small><b>'+nok+' su '+ne+'</b><span>'+(ne-nok)+' ancora da sostenere</span></div>'
+      +'<div class="ar-kpi"><small>Media ponderata</small><b>'+fmt(m.pond)+'</b><span>sui crediti, con '+m.n+' '+(m.n===1?'voto':'voti')+'</span></div>'
+      +'<div class="ar-kpi"><small>Media aritmetica</small><b>'+fmt(m.arit)+'</b><span>la lode vale 30</span></div>'
+      +'<div class="ar-kpi top"><small>Base di laurea</small><b>'+(m.pond?fmt(m.pond*110/30):'&mdash;')+'<span style="display:inline;font-size:13px"> /110</span></b><span>media ponderata &times; 110 / 30</span></div></div></div>';
+    var primo=null;
+    Object.keys(anni).sort(function(a,b){ return a-b }).forEach(function(a){
+      var es=anni[a], cf=0, co=0, n=0, no=0; es.forEach(function(c){ cf+=+c.cfu||0; if(c.esito!=='da sostenere'){ co+=+c.cfu||0; no++ } n++ });
+      var aperto=primo===null&&no<n; if(aperto) primo=a;
+      h+='<details class="ar-yr"'+(aperto?' open':'')+'><summary><h5>'+a+'&deg; anno</h5><div class="ar-bar"><i style="width:'+(cf?Math.round(co/cf*100):0)+'%"></i></div><em>'+no+'/'+n+' &middot; '+co+'/'+cf+' CFU</em></summary>'
+        +'<div class="ar-exs"><div class="ar-ex-h"><span>Insegnamento</span><span>CFU</span><span>Esito</span><span>Data</span></div>'
+        +es.map(function(c){ var s=c.esito!=='da sostenere', tp={'a scelta':'A scelta','tirocinio':'Tirocinio','prova finale':'Prova finale','altro':'Attivit&agrave;'}[c.tipo]||'';
+          return '<div class="ar-ex'+(s?'':' todo')+'"><div><b>'+esc(c.insegnamento)+'</b><small>'+[esc(c.ssd||''),tp,c.note?esc(c.note):''].filter(Boolean).join(' &middot; ')+'</small></div>'
+            +'<span class="cfu">'+(+c.cfu)+'<span class="m-only"> CFU</span></span>'
+            +'<span class="es">'+(s?(c.voto?'<span class="vt">'+voto(c)+'</span>':'<span class="ar-st ok">'+voto(c)+'</span>')+(c.esito==='riconosciuto'&&c.voto?' <span class="ar-st info">Riconosciuto</span>':''):'<span class="ar-st todo">Da sostenere</span>')+'</span>'
+            +'<span class="dt">'+(s&&c.data_esame?itShort(c.data_esame):'&mdash;')+'</span></div>' }).join('')+'</div></details>';
+    });
+    h+='<div class="ar-actions" style="margin-top:6px"><button type="button" class="btn btn-g btn-sm" data-car-print>&#128424; Stampa il libretto</button><button type="button" class="btn btn-g btn-sm" data-ar-tab="esami">&#128197; Prenota un esame</button></div>'
+      +'<p class="ar-hint">Il libretto lo aggiorna la segreteria dopo la verbalizzazione. Se manca un esame o un dato &egrave; sbagliato, scrivi alla segreteria con il modulo <a href="'+BASE+'modulistica/istanza-alla-direzione.pdf" target="_blank" rel="noopener">Istanza alla Direzione</a>.</p>';
+    box.innerHTML=h;
+  }
+  $('#arCar').addEventListener('click',function(e){ if(!e.target.closest('[data-car-print]')) return;
+    var l=carData||[], m=medie(l), w=window.open('','_blank'); if(!w){ toast('Consenti le finestre pop-up per stampare'); return }
+    var r=l.map(function(c){ var s=c.esito!=='da sostenere'; return '<tr><td>'+c.anno_corso+'&deg;</td><td>'+esc(c.insegnamento)+'</td><td>'+esc(c.ssd||'')+'</td><td>'+(+c.cfu)+'</td><td>'+(s?(c.voto?c.voto+(c.lode?' e lode':''):(c.esito==='riconosciuto'?'Convalidato':'Idoneo')):'&mdash;')+'</td><td>'+(s&&c.data_esame?itShort(c.data_esame):'')+'</td></tr>' }).join('');
+    w.document.write('<!doctype html><html lang="it"><head><meta charset="utf-8"><title>Libretto '+esc(P.matricola)+'</title><style>body{font:13px/1.45 Arial,sans-serif;color:#111;margin:32px}h1{font-size:19px;margin:0}p{margin:4px 0 16px;color:#444}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #ccc;padding:6px 8px;text-align:left}th{background:#eef1f8;font-size:11px;text-transform:uppercase}tfoot td{font-weight:bold;border:0;padding-top:12px}.n{font-size:11px;color:#666;margin-top:24px}</style></head><body>'
+      +'<h1>UNICESD Olympo &middot; Libretto dello studente</h1><p><b>'+esc(P.cognome+' '+P.nome)+'</b> &middot; Matricola '+esc(P.matricola)+' &middot; '+esc(P.corso||'')+'</p>'
+      +'<table><thead><tr><th>Anno</th><th>Insegnamento</th><th>SSD</th><th>CFU</th><th>Esito</th><th>Data</th></tr></thead><tbody>'+r+'</tbody><tfoot><tr><td colspan="6">Media ponderata '+(m.pond?m.pond.toFixed(2):'—')+' &middot; Media aritmetica '+(m.arit?m.arit.toFixed(2):'—')+'</td></tr></tfoot></table>'
+      +'<p class="n">Estratto stampato dall\'Area Riservata il '+new Date().toLocaleDateString('it-IT')+'. Non sostituisce il certificato ufficiale rilasciato dall\'ateneo.</p><script>onload=function(){print()}<\/script></body></html>');
+    w.document.close();
+  });
+
+  /* ===== scheda: CALENDARIO ESAMI E PRENOTAZIONI ===== */
+  var esaData=null, calM=null, calSel=null, esaF='tutti';
+  var MESI=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'], GG=['dom','lun','mar','mer','gio','ven','sab'];
+  function esa(){
+    var box=$('#arEsa'); if(!esaData) box.innerHTML='<p class="ar-load">Caricamento&hellip;</p>';
+    API.app().then(function(l){ esaData=l; esaDraw() }).catch(function(e){ failBox(box,e) });
+  }
+  function appStato(a){
+    var o=oggi(), d=pd(a.data), ch=a.chiusura?pd(a.chiusura):addD(d,-1), pieno=a.posti&&a.iscritti>=a.posti;
+    if(d<o) return {k:'past',t:a.prenotato?'Sostenuto':'Concluso',c:'todo'};
+    if(a.superato) return {k:'done',t:'Esame gi&agrave; superato',c:'ok'};
+    if(a.prenotato) return {k:'mine',t:'Prenotato',c:'ok',annulla:o<=ch,sub:o<=ch?'Puoi annullare fino al '+itShort(ymd(ch)):'Prenotazioni chiuse'};
+    if(a.apertura&&o<pd(a.apertura)) return {k:'soon',t:'Prenotazioni dal '+itShort(a.apertura),c:'info'};
+    if(o>ch) return {k:'closed',t:'Prenotazioni chiuse',c:'todo'};
+    if(pieno) return {k:'full',t:'Posti esauriti',c:'late'};
+    var g=Math.round((ch-o)/864e5);
+    return {k:'open',t:g===0?'Ultimo giorno per prenotare':'Prenotabile fino al '+itShort(ymd(ch)),c:g<=3?'warn':'info',prenota:true};
+  }
+  function appCard(a){
+    var s=appStato(a), d=pd(a.data), libero=a.posti?Math.max(0,a.posti-a.iscritti):null;
+    var meta=[esc(a.tipo||''),a.ora?'ore '+String(a.ora).slice(0,5):'',esc(a.sede||'')+(a.aula?' &middot; '+esc(a.aula):''),esc(a.docente||'')].filter(Boolean).map(function(x){ return '<span>'+x+'</span>' }).join('');
+    var act='';
+    if(s.prenota) act='<button type="button" class="btn btn-p btn-sm" data-pren="'+a.id+'"><span>Prenota</span><span class="shine"></span></button>';
+    if(s.annulla) act='<button type="button" class="btn btn-g btn-sm danger" data-ann="'+a.id+'">Annulla</button>';
+    return '<div class="ar-app'+(s.k==='mine'?' mine':'')+(/past|closed|done|full/.test(s.k)?' off':'')+'"><div class="ar-day"><small>'+GG[d.getDay()]+'</small><b>'+d.getDate()+'</b><small>'+MESI[d.getMonth()]+'</small></div>'
+      +'<div><h6>'+esc(a.insegnamento)+'</h6><div class="meta">'+meta+'</div><div class="st-l"><span class="ar-st '+s.c+'">'+s.t+'</span>'+(s.sub?'<small class="posti">'+s.sub+'</small>':'')+(a.note?'<small class="posti">'+esc(a.note)+'</small>':'')+'</div></div>'
+      +'<div class="act">'+act+(libero!==null&&s.k!=='past'&&s.k!=='done'?'<span class="posti">'+(libero?libero+' '+(libero===1?'posto libero':'posti liberi')+' su '+a.posti:'Nessun posto libero')+'</span>':'')+'</div></div>';
+  }
+  function esaDraw(){
+    var box=$('#arEsa'), l=(esaData||[]).slice().sort(function(a,b){ return a.data<b.data?-1:a.data>b.data?1:String(a.ora||'')<String(b.ora||'')?-1:1 }), o=oggi(), h='';
+    if(LIVE&&P&&P.stato!=='iscritto') h+='<div class="ar-info"><i>&#8505;</i><div>Potrai prenotare gli esami quando la tua iscrizione sar&agrave; <b>perfezionata</b>. Intanto puoi consultare il calendario.</div></div>';
+    if(!l.length){ box.innerHTML=h+emptyBox('&#128197;','Nessun appello in calendario','Gli appelli dei tuoi esami compaiono qui appena la segreteria li pubblica. Per sostenere gli esami in una sede diversa usa il modulo <a href="'+BASE+'modulistica/scelta-sede-esami.pdf" target="_blank" rel="noopener">Scelta della sede esami</a>.'); return }
+    var mie=l.filter(function(a){ return a.prenotato&&pd(a.data)>=o });
+    var fut=l.filter(function(a){ return pd(a.data)>=o });
+    if(!calM){ var f=fut[0]||l[l.length-1]; calM=new Date(pd(f.data).getFullYear(),pd(f.data).getMonth(),1) }
+    h+='<div class="ar-sec"><span>Le mie prenotazioni</span></div><div class="ar-mylist">'+(mie.length?mie.map(appCard).join(''):'<div class="ar-card" style="margin:0;padding:16px 20px"><p style="margin:0">Non hai prenotazioni attive. Scegli un appello qui sotto.</p></div>')+'</div>';
+    // calendario del mese
+    var y=calM.getFullYear(), mo=calM.getMonth(), first=(new Date(y,mo,1).getDay()+6)%7, nd=new Date(y,mo+1,0).getDate(), byDay={};
+    l.forEach(function(a){ var d=pd(a.data); if(d.getFullYear()===y&&d.getMonth()===mo){ var k=d.getDate(); (byDay[k]=byDay[k]||[]).push(a) } });
+    var cal='<div class="ar-cal"><div class="ar-cal-h"><button type="button" data-cal="-1" aria-label="Mese precedente">&lsaquo;</button><b>'+calM.toLocaleDateString('it-IT',{month:'long',year:'numeric'})+'</b><button type="button" data-cal="1" aria-label="Mese successivo">&rsaquo;</button></div><div class="ar-cal-g">'
+      +['L','M','M','G','V','S','D'].map(function(x){ return '<span>'+x+'</span>' }).join('')+new Array(first+1).join('<i></i>');
+    for(var g=1;g<=nd;g++){ var dd=new Date(y,mo,g), ap=byDay[g]||[], k=ymd(dd), c=[];
+      if(ap.length) c.push('has'); if(ap.some(function(a){ return a.prenotato })) c.push('mine'); if(dd<o) c.push('past'); if(+dd===+o) c.push('today'); if(calSel===k) c.push('sel');
+      cal+='<button type="button" class="'+c.join(' ')+'"'+(ap.length?' data-day="'+k+'" aria-label="'+g+': '+ap.length+' appell'+(ap.length===1?'o':'i')+'"':' tabindex="-1"')+'>'+g+'</button>' }
+    cal+='</div><div class="ar-cal-l"><span><i></i>Appello</span><span><i class="g"></i>Prenotato</span><span><i class="r"></i>Oggi</span></div></div>';
+    // elenco filtrato
+    var vis=l.filter(function(a){ var d=pd(a.data); if(calSel) return a.data.slice(0,10)===calSel; return d.getFullYear()===y&&d.getMonth()===mo })
+      .filter(function(a){ if(esaF==='aperti') return appStato(a).prenota; if(esaF==='piano') return a.nel_piano&&!a.superato; return true });
+    var titolo=calSel?pd(calSel).toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'}):'Appelli di '+calM.toLocaleDateString('it-IT',{month:'long'});
+    var lista='<div><div class="ar-chips">'+[['tutti','Tutti'],['aperti','Prenotabili ora'],['piano','Da sostenere']].map(function(f){ return '<button type="button" data-esaf="'+f[0]+'" class="'+(esaF===f[0]?'on':'')+'">'+f[1]+'</button>' }).join('')+'</div>'
+      +'<div class="ar-sec"><span style="text-transform:none;letter-spacing:0;font-size:14px;color:var(--txt-strong)">'+titolo+'</span>'+(calSel?'<a data-day-clear>Tutto il mese</a>':'')+'</div>'
+      +'<div class="ar-apps">'+(vis.length?vis.map(appCard).join(''):'<div class="ar-card" style="margin:0;padding:16px 20px"><p style="margin:0">Nessun appello'+(esaF!=='tutti'?' con questo filtro':'')+' '+(calSel?'in questo giorno':'in questo mese')+'.'+(fut.length&&!calSel?' Usa le frecce del calendario per vedere gli altri mesi.':'')+'</p></div>')+'</div></div>';
+    box.innerHTML=h+'<div class="ar-sec"><span>Calendario degli appelli</span></div><div class="ar-esa">'+cal+lista+'</div>'
+      +'<p class="ar-hint">Ti presenti all\'esame con un documento d\'identit&agrave; valido. Per sostenere l\'esame in un\'altra sede usa il modulo <a href="'+BASE+'modulistica/scelta-sede-esami.pdf" target="_blank" rel="noopener">Scelta della sede esami</a>.</p>';
+  }
+  var confT=null;
+  $('#arEsa').addEventListener('click',function(e){
+    var t;
+    if((t=e.target.closest('[data-cal]'))){ calM=new Date(calM.getFullYear(),calM.getMonth()+(+t.getAttribute('data-cal')),1); calSel=null; esaDraw(); return }
+    if((t=e.target.closest('[data-day]'))){ var k=t.getAttribute('data-day'); calSel=calSel===k?null:k; esaDraw(); return }
+    if(e.target.closest('[data-day-clear]')){ calSel=null; esaDraw(); return }
+    if((t=e.target.closest('[data-esaf]'))){ esaF=t.getAttribute('data-esaf'); esaDraw(); return }
+    t=e.target.closest('[data-pren],[data-ann]'); if(!t) return;
+    var pren=t.hasAttribute('data-pren'), id=+t.getAttribute(pren?'data-pren':'data-ann');
+    if(!t.classList.contains('confirm')){ // primo clic: chiede conferma sul pulsante stesso
+      $$('#arEsa .confirm').forEach(function(b){ b.classList.remove('confirm'); b.firstChild.textContent=b.hasAttribute('data-pren')?'Prenota':'Annulla' });
+      t.classList.add('confirm'); t.firstChild.textContent=pren?'Conferma prenotazione':'Conferma annullamento';
+      clearTimeout(confT); confT=setTimeout(function(){ if(t.isConnected){ t.classList.remove('confirm'); t.firstChild.textContent=pren?'Prenota':'Annulla' } },5000); return }
+    busy(t,true); t.firstChild.textContent=pren?'Prenotazione…':'Annullamento…';
+    (pren?API.prenota(id):API.annulla(id)).then(function(){ toast(pren?'Prenotazione confermata':'Prenotazione annullata'); esa() })
+      .catch(function(err){ toast(itErr(err)); esa() });
+  });
 
   function toast(t){ var el=document.getElementById('toast'), tx=document.getElementById('toast-txt'); if(!el||!tx) return; tx.innerHTML=t; el.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(function(){ el.classList.remove('on') },3600) }
 

@@ -3209,6 +3209,7 @@
         <li><b>I tuoi documenti</b><span>Carichi documento, titolo di studio e contratto firmato.</span></li>
         <li><b>Modulistica e contratto</b><span>Tutti i moduli da scaricare, in un posto solo.</span></li>
         <li><b>Lo stato della pratica</b><span>Vedi a che punto &egrave; la tua iscrizione.</span></li>
+        <li><b>Pagamenti, carriera ed esami</b><span>Rate e scadenze, il libretto con voti e media, il calendario degli appelli con la prenotazione.</span></li>
       </ul>
       <p class="ar-help">Problemi di accesso? <a href="tel:+393281376792">328 137 6792</a> &middot; <a href="mailto:Calogero60@yahoo.it">Calogero60@yahoo.it</a></p>
     </div>
@@ -3365,6 +3366,9 @@
       </div>
       <nav class="ar-tabs" role="tablist">
         <button type="button" class="on" data-ar-tab="scheda" role="tab">&#128100; La mia scheda</button>
+        <button type="button" data-ar-tab="economia" role="tab">&#128182; Situazione economica</button>
+        <button type="button" data-ar-tab="carriera" role="tab">&#127891; Carriera</button>
+        <button type="button" data-ar-tab="esami" role="tab">&#128197; Esami e prenotazioni</button>
         <button type="button" data-ar-tab="documenti" role="tab">&#128206; I miei documenti</button>
         <button type="button" data-ar-tab="moduli" role="tab">&#128196; Modulistica</button>
         <button type="button" data-ar-tab="contratto" role="tab">&#9998; Contratto</button>
@@ -3429,6 +3433,24 @@
         </div>
       </section>
 
+      <!-- Situazione economica (tabelle rette e rate, sola lettura) -->
+      <section class="ar-tab" data-tab="economia" hidden>
+        <h4 class="ar-h">Situazione economica</h4>
+        <p class="ar-sub">Retta, rate e pagamenti del tuo percorso. Gli importi li inserisce la segreteria; un pagamento risulta registrato dopo il controllo della ricevuta.</p>
+        <div id="arEco"></div>
+      </section>
+      <!-- Carriera (tabella carriera: il libretto, un rigo per esame) -->
+      <section class="ar-tab" data-tab="carriera" hidden>
+        <h4 class="ar-h">La mia carriera</h4>
+        <p class="ar-sub">Gli esami del tuo piano di studi, anno per anno, con voti, crediti e media.</p>
+        <div id="arCar"></div>
+      </section>
+      <!-- Calendario esami e prenotazioni (tabelle appelli e prenotazioni) -->
+      <section class="ar-tab" data-tab="esami" hidden>
+        <h4 class="ar-h">Calendario esami e prenotazioni</h4>
+        <p class="ar-sub">Prenota gli appelli entro la data di chiusura. Fino alla chiusura puoi anche annullare la prenotazione.</p>
+        <div id="arEsa"></div>
+      </section>
       <!-- Documenti -->
       <section class="ar-tab" data-tab="documenti" hidden>
         <h4 class="ar-h">I miei documenti</h4>
