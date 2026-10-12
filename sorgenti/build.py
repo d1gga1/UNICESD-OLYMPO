@@ -135,6 +135,7 @@ IMAGES = {
     "__IMG_JANUS_FLY__": "img/janus/janus-sede-560.webp",
     "__IMG_ECOSISTEMA__": "img/ecosistema-unicesd-feip.webp",
     "__IMG_PROGRAMMA_24OTT__": "img/eventi/programma-24ott2026.webp",
+    "__IMG_GENTILEZZA_12OTT__": "img/eventi/gentilezza-12ott2026.webp",
     # 11 ottobre 2026: notizie da Trieste (7 e 9 ottobre) e partner accreditato Mnemosine
     "__IMG_VO_TS_GENERALI__": "img/voce/trieste-generali-9ott2026.webp",
     "__IMG_VO_TS_LOCANDINA__": "img/voce/trieste-generali-locandina.webp",
