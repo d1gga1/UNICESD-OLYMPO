@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=c6243e9c">
+<link rel="stylesheet" href="/assets/css/site.css?v=65c12b47">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNICESD Olympo">
 <meta property="og:locale" content="it_IT">
@@ -56,7 +56,7 @@
     "@type": "ImageObject",
     "url": "https://unicesd-olympo.com/assets/og-cover.jpg"
    },
-   "dateModified": "2026-10-12",
+   "dateModified": "2026-10-13",
    "publisher": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    }
@@ -113,7 +113,7 @@
    },
    "image": "https://unicesd-olympo.com/assets/og-cover.jpg",
    "datePublished": "2026-10-10",
-   "dateModified": "2026-10-12",
+   "dateModified": "2026-10-13",
    "author": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    },
@@ -349,7 +349,7 @@
 <section class="course">
   <div class="wrap c-grid">
     <article class="c-main rv">
-      <p class="x-meta">Guida a cura della redazione di UNICESD Olympo · aggiornata al 12/10/2026</p><h2>La definizione</h2>
+      <p class="x-meta">Guida a cura della redazione di UNICESD Olympo · aggiornata al 13/10/2026</p><h2>La definizione</h2>
 <p>Il <b>Credito Formativo Universitario (CFU)</b> misura l'impegno richiesto allo studente. Secondo il decreto ministeriale 270/2004, <b>1 CFU corrisponde a 25 ore di lavoro complessivo</b>: lezioni, studio individuale, esercitazioni, tirocini. Un anno di studio a tempo pieno vale convenzionalmente <b>60 CFU</b>.</p>
 <p>I CFU sono compatibili con il sistema europeo ECTS: questo facilita il riconoscimento degli studi tra Paesi diversi.</p>
 <h2>Quanti CFU servono</h2>
@@ -362,7 +362,7 @@
     <aside class="c-side">
       <div class="c-box dark">
         <h2>In sintesi</h2>
-        <div class="feat-box"><div class="fb-row"><span>Tipo</span><b>Guida</b></div><div class="fb-row"><span>Tempo di lettura</span><b>3 minuti</b></div><div class="fb-row"><span>Aggiornata</span><b>12/10/2026</b></div><div class="fb-row"><span>Dubbi?</span><b>Orientamento gratuito</b></div></div>
+        <div class="feat-box"><div class="fb-row"><span>Tipo</span><b>Guida</b></div><div class="fb-row"><span>Tempo di lettura</span><b>3 minuti</b></div><div class="fb-row"><span>Aggiornata</span><b>13/10/2026</b></div><div class="fb-row"><span>Dubbi?</span><b>Orientamento gratuito</b></div></div>
         
         <a href="#iscrizione" class="btn btn-p" style="width:100%;margin-top:18px"><span>Richiedi informazioni</span><span class="shine"></span></a>
         <a href="tel:+393509651711" class="btn btn-g" style="width:100%;margin-top:10px">+39 350 965 1711</a>
@@ -559,6 +559,8 @@
         <div class="ar-row"><a href="#" data-ar-go="forgot">Password dimenticata?</a></div>
         <div class="ar-msg" role="alert"></div>
         <button type="submit" class="btn btn-p ar-wide"><span>Accedi</span><span class="shine"></span></button>
+        <button type="button" class="btn btn-g ar-wide ar-quick" data-ar-demo data-ar-quick hidden>&#9889; Entra con uno studente di prova</button>
+        <button type="button" class="btn btn-g ar-wide ar-app-only" data-app-install hidden>&#11015; Installa l'app sul telefono</button>
         <div class="ar-or"><span>Non hai le credenziali?</span></div>
         <button type="button" class="btn btn-lock ar-wide" data-ar-go="register"><span>Iscriviti</span></button>
         <p class="ar-note">L'iscrizione crea il tuo account personale. Ti servono un documento d'identit&agrave;, il codice fiscale e i dati del tuo titolo di studio.</p>
@@ -699,6 +701,7 @@
       </div>
       <nav class="ar-tabs" role="tablist">
         <button type="button" class="on" data-ar-tab="scheda" role="tab">&#128100; La mia scheda</button>
+        <button type="button" data-ar-tab="lezioni" role="tab">&#127916; Le mie lezioni</button>
         <button type="button" data-ar-tab="economia" role="tab">&#128182; Situazione economica</button>
         <button type="button" data-ar-tab="carriera" role="tab">&#127891; Carriera</button>
         <button type="button" data-ar-tab="esami" role="tab">&#128197; Esami e prenotazioni</button>
@@ -706,9 +709,13 @@
         <button type="button" data-ar-tab="moduli" role="tab">&#128196; Modulistica</button>
         <button type="button" data-ar-tab="contratto" role="tab">&#9998; Contratto</button>
         <button type="button" data-ar-tab="sicurezza" role="tab">&#128273; Password</button>
+        <a class="ar-tab-x ar-app-only" href="/" target="_blank" rel="noopener">&#127760; Sito UNICESD</a>
+        <button type="button" class="ar-tab-x ar-app-only" data-ar-logout>&#10162; Esci</button>
       </nav>
       <button type="button" class="btn btn-g btn-sm ar-out" data-ar-logout>Esci</button>
       <button type="button" class="ar-back" data-ar-close>&larr; Torna al sito</button>
+      <button type="button" class="ar-inst ar-app-only" data-app-install hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg> Installa</button>
+      <button type="button" class="ar-menu ar-app-only" data-ar-menu aria-label="Tutte le sezioni" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </aside>
 
     <div class="ar-body">
@@ -718,12 +725,24 @@
       <!-- La mia scheda -->
       <section class="ar-tab" data-tab="scheda">
         <div class="ar-hello"><span>Ciao</span> <b data-f="nome"></b></div>
+        <div class="ar-riep" id="arRiep" hidden></div>
         <div class="ar-state">
           <div class="ar-state-h"><b>Stato della pratica</b><span class="ar-pill" data-f="stato_label"></span></div>
           <ol class="ar-track" data-f="track"><li>Registrazione</li><li>Documenti</li><li>Verifica della segreteria</li><li>Iscrizione perfezionata</li></ol>
           <p class="ar-state-t" data-f="stato_testo"></p>
         </div>
 
+        <!-- l'app sul telefono (solo sul sito pubblicato, non nell'app stessa) -->
+        <div class="ar-card ar-promo" data-app-promo hidden>
+          <div class="ar-promo-t">
+            <span class="ar-promo-k">Novit&agrave;</span>
+            <h5>L'Area Riservata sul tuo telefono</h5>
+            <p>Calendario degli esami e prenotazioni, pagamenti, carriera e lezioni con la classe, in un'app che si installa in un tocco, senza passare dagli store.</p>
+            <a class="btn btn-p btn-sm" href="/app/" target="_blank" rel="noopener"><span>Apri l'app</span><span class="shine"></span></a>
+            <small>Dal computer: inquadra il codice con la fotocamera del telefono.</small>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 132" width="112" height="112" class="ar-qr" role="img" aria-label="Codice QR per aprire l'app UNICESD sul telefono"><g transform="scale(4)"><path fill="#fff" d="M0 0h33v33h-33z"/><path class="qrline" stroke="#0a1638" d="M2 2.5h7m8 0h1m1 0h4m1 0h7m-29 1h1m5 0h1m1 0h1m1 0h4m1 0h3m4 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h3m2 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m3 0h1m1 0h1m1 0h3m2 0h1m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-19 1h1m1 0h2m3 0h3m-19 1h3m1 0h2m4 0h1m3 0h1m1 0h2m7 0h2m-28 1h2m1 0h1m1 0h1m1 0h2m4 0h1m1 0h2m2 0h1m1 0h2m1 0h3m1 0h1m-29 1h2m2 0h4m2 0h5m7 0h1m1 0h1m1 0h2m-27 1h1m5 0h1m3 0h1m1 0h1m4 0h3m2 0h2m3 0h1m-29 1h1m4 0h2m2 0h1m1 0h5m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m-27 1h1m2 0h1m1 0h2m1 0h1m2 0h2m1 0h2m1 0h1m2 0h2m1 0h2m1 0h1m-28 1h1m2 0h6m2 0h2m1 0h1m3 0h3m1 0h3m1 0h2m-28 1h1m1 0h2m2 0h1m4 0h3m1 0h1m1 0h1m1 0h3m1 0h2m2 0h1m-29 1h1m1 0h2m1 0h2m3 0h2m6 0h1m1 0h2m1 0h3m1 0h2m-27 1h2m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h2m-27 1h1m3 0h1m1 0h1m1 0h2m2 0h1m2 0h1m4 0h1m1 0h1m1 0h2m-23 1h3m2 0h1m3 0h1m1 0h1m2 0h3m1 0h3m1 0h4m-28 1h1m4 0h5m1 0h1m3 0h3m1 0h8m-20 1h4m2 0h1m4 0h2m3 0h2m1 0h2m-29 1h7m3 0h1m6 0h1m1 0h2m1 0h1m1 0h1m1 0h2m-28 1h1m5 0h1m1 0h2m3 0h1m6 0h1m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m2 0h1m3 0h3m1 0h2m1 0h7m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h4m2 0h1m1 0h1m4 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h4m5 0h1m2 0h1m2 0h1m4 0h1m-29 1h1m5 0h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m2 0h2m1 0h1m-28 1h7m2 0h1m1 0h5m2 0h6m1 0h1m1 0h1"/></g></svg>
+        </div>
         <div class="ar-card">
           <div class="ar-card-h"><h5>Dati anagrafici</h5><span class="ar-lockt">&#128274; Non modificabili</span></div>
           <dl class="ar-dl">
@@ -766,6 +785,10 @@
         </div>
       </section>
 
+      <!-- Le mie lezioni e aula virtuale (tabelle in supabase-aula.sql). data-v1/v2: video della demo -->
+      <section class="ar-tab" data-tab="lezioni" hidden>
+        <div id="arLez" data-v1="/assets/aula/lezione-demo-1.mp4" data-p1="/assets/aula/lezione-demo-1.webp" data-v2="/assets/aula/lezione-demo-2.mp4" data-p2="/assets/aula/lezione-demo-2.webp"></div>
+      </section>
       <!-- Situazione economica (tabelle rette e rate, sola lettura) -->
       <section class="ar-tab" data-tab="economia" hidden>
         <h4 class="ar-h">Situazione economica</h4>
@@ -823,6 +846,27 @@
           <button type="submit" class="btn btn-p"><span>Aggiorna la password</span><span class="shine"></span></button>
         </form>
       </section>
+    </div>
+    <!-- barra in basso: solo nell'app (/app/) sul telefono -->
+    <nav class="ar-bnav" aria-label="Sezioni principali">
+      <button type="button" class="on" data-ar-tab="scheda"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><span>Home</span></button>
+      <button type="button" data-ar-tab="lezioni"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="13" rx="2.5"/><path d="M10 8.5v5l4.2-2.5z" fill="currentColor"/><path d="M8 21h8"/></svg><span>Lezioni</span></button>
+      <button type="button" data-ar-tab="esami"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8 14l2.5 2.5L16 12"/></svg><span>Esami</span></button>
+      <button type="button" data-ar-tab="carriera"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6"/></svg><span>Carriera</span></button>
+      <button type="button" data-ar-tab="economia"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19M6.5 15h4"/></svg><span>Pagamenti</span></button>
+    </nav>
+  </div>
+  <!-- istruzioni per installare l'app su iPhone/iPad (Safari non ha il pulsante automatico) -->
+  <div class="ar-ios" id="appIos" hidden role="dialog" aria-label="Installa l'app">
+    <div class="ar-ios-c">
+      <button type="button" class="ar-x" data-ios-x aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <img src="/assets/icons/icon-192.png" alt="" width="64" height="64">
+      <h5>Installa UNICESD sull'iPhone</h5>
+      <ol>
+        <li>In Safari tocca <b>Condividi</b> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7.5 7.5L12 3l4.5 4.5M5 11v9h14v-9"/></svg> in basso</li>
+        <li>Scorri e scegli <b>Aggiungi alla schermata Home</b></li>
+        <li>Tocca <b>Aggiungi</b>: l'icona UNICESD compare fra le tue app</li>
+      </ol>
     </div>
   </div>
 </div>
@@ -897,5 +941,5 @@
 </div>
 
 <script>window.UO_PAGES={"c1": "/corsi-di-laurea/giurisprudenza/", "c2": "/corsi-di-laurea/economia-aziendale/", "c3": "/corsi-di-laurea/scienze-psicologiche/", "c4": "/corsi-di-laurea/scienze-educazione/", "c5": "/corsi-di-laurea/ingegneria-informatica/", "c6": "/corsi-di-laurea/scienze-motorie/", "m1": "/master-made-in-italy-global-leadership/", "m2": "/master-universitari/management-imprese-turistiche/", "m3": "/master-universitari/didattica-innovazione-digitale/", "m4": "/master-universitari/diritto-impresa-internazionale/", "m5": "/master-universitari/data-analytics-business/", "m6": "/master-universitari/management-sanitario/", "k1": "/certificazioni/informatiche/", "k2": "/certificazioni/linguistiche/", "k3": "/certificazioni/graduatorie-scuola/", "s1": "/corsi-singoli-cfu/", "s2": "/riconoscimento-cfu/", "s3": "/formazione-aziendale/"};</script>
-<script src="/assets/js/site.js?v=53d74ebc" defer></script>
+<script src="/assets/js/site.js?v=c68dcb09" defer></script>
 </body></html>

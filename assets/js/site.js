@@ -1080,7 +1080,10 @@ document.addEventListener('click',function(e){
 window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase.co', key: 'sb_publishable_Xw0LEqS4vuJz3_soF93RIA_f7CZ6MgT' };
 (function(){
   var bg=document.getElementById('arbg'); if(!bg) return;
-  var CFG=window.UO_AUTH, LIVE=!!(CFG.url&&CFG.key);
+  /* ?demo=1 nell'indirizzo: forza la modalita' dimostrativa (per presentare il portale senza toccare i dati veri) */
+  var FORCE_DEMO=false; try{ if(/[?&]demo=1/.test(location.search)) sessionStorage.setItem('uo-demo','1'); if(/[?&]demo=0/.test(location.search)) sessionStorage.removeItem('uo-demo'); FORCE_DEMO=sessionStorage.getItem('uo-demo')==='1' }catch(e){}
+  var CFG=window.UO_AUTH, LIVE=!!(CFG.url&&CFG.key)&&!FORCE_DEMO;
+  var APP=document.documentElement.classList.contains('ar-app'); // pagina /app/: l'Area Riservata come app a schermo intero
   var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
   var BASE=location.protocol==='file:'?'':'/';
   var EDIT=['cellulare','telefono','indirizzo','cap','comune','provincia','domicilio','polo','consenso_marketing'];
@@ -1149,9 +1152,15 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
         var n=Object.keys(d.users).length+1; profile.email=email; profile.matricola='UO'+String(new Date().getFullYear()).slice(2)+String(n).padStart(5,'0');
         profile.stato='registrato'; profile.created_at=new Date().toISOString(); profile.consenso_contratto=profile.created_at;
         d.users[email]={pw:hash(pw),profile:profile,docs:{}}; d.cur=email; dsave(d); return Promise.resolve({session:true}) }
-      return loadSb().then(function(c){ return c.auth.signUp({email:email,password:pw,options:{data:profile,emailRedirectTo:location.origin+'/?area=1'}}) })
+      return loadSb().then(function(c){ return c.auth.signUp({email:email,password:pw,options:{data:profile,emailRedirectTo:location.origin+(APP?'/app/':'/?area=1')}}) })
         .then(function(r){ if(r.error) throw r.error; if(r.data.user&&r.data.user.identities&&r.data.user.identities.length===0) throw new Error('already registered'); return {session:!!r.data.session} });
     },
+    quick:function(){ var d=dload(), e='studente.prova@unicesd-olympo.com';
+      if(!d.users[e]){ d.users[e]={pw:hash('Prova2026'),docs:{contratto:[{name:'contratto-firmato.pdf',at:new Date().toISOString()}],identita:[{name:'carta-identita.pdf',at:new Date().toISOString()}]},
+        profile:{email:e,nome:'Mario',cognome:'Rossi',sesso:'M',data_nascita:'2001-03-14',comune_nascita:'Palermo',prov_nascita:'PA',cittadinanza:'Italiana',codice_fiscale:'RSSMRA01C14G273X',
+          cellulare:'333 123 4567',indirizzo:'Via Libert\u00e0 10',cap:'90139',comune:'Palermo',provincia:'PA',percorso:'Laurea triennale',corso:'Giurisprudenza',modalita:'Online',polo:'Palermo \u00b7 Via Trabia 1',
+          titolo_studio:'Diploma di maturit\u00e0',istituto:'Liceo classico G. Garibaldi',anno_titolo:'2020',matricola:'UO2600042',stato:'iscritto',created_at:new Date(Date.now()-40*864e5).toISOString()}} }
+      d.cur=e; dsave(d); return Promise.resolve() },
     signOut:function(){ if(!LIVE){ var d=dload(); d.cur=null; dsave(d); return Promise.resolve() } return loadSb().then(function(c){ return c.auth.signOut() }) },
     profile:function(){
       if(!LIVE){ var d=dload(); return Promise.resolve(d.users[d.cur].profile) }
@@ -1164,7 +1173,7 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     },
     reset:function(email){
       if(!LIVE) return Promise.resolve();
-      return loadSb().then(function(c){ return c.auth.resetPasswordForEmail(email,{redirectTo:location.origin+'/?area=1'}) }).then(function(r){ if(r.error) throw r.error });
+      return loadSb().then(function(c){ return c.auth.resetPasswordForEmail(email,{redirectTo:location.origin+(APP?'/app/':'/?area=1')}) }).then(function(r){ if(r.error) throw r.error });
     },
     setPw:function(pw){
       if(!LIVE){ var d=dload(); d.users[d.cur].pw=hash(pw); dsave(d); return Promise.resolve() }
@@ -1274,6 +1283,7 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     }).catch(function(e){ auth.hidden=false; dash.hidden=true; pane('login'); msg($('#arLogin'),itErr(e)) });
   }
   function close(){
+    lezLeave(); if(APP) return;
     bg.classList.remove('on'); document.documentElement.classList.remove('ar-lock');
     setTimeout(function(){ bg.hidden=true },300);
     if(location.hash==='#area-riservata') history.replaceState(null,'',location.pathname+location.search);
@@ -1289,9 +1299,12 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     var g=e.target.closest('[data-ar-go]'); if(g){ e.preventDefault(); pane(g.getAttribute('data-ar-go')); if(g.getAttribute('data-ar-go')==='register') step(1); return }
     var tb=e.target.closest('[data-ar-tab]'); if(tb){ e.preventDefault(); tab(tb.getAttribute('data-ar-tab')); return }
     var eye=e.target.closest('.ar-eye'); if(eye){ var i=eye.parentElement.querySelector('input'); i.type=i.type==='password'?'text':'password'; return }
-    if(e.target.closest('[data-ar-logout]')){ API.signOut().then(function(){ setBtn(null); dash.hidden=true; auth.hidden=false; pane('login') }) }
+    if(e.target.closest('[data-ar-quick]')){ API.quick().then(function(){ auth.hidden=true; dash.hidden=false; loadDash() }); return }
+    if(e.target.closest('[data-ar-menu]')){ var mo=dash.classList.toggle('menu'); e.target.closest('[data-ar-menu]').setAttribute('aria-expanded',mo); return }
+    if(e.target.closest('[data-ios-x]')){ $('#appIos').hidden=true; return }
+    if(e.target.closest('[data-ar-logout]')){ lezLeave(); API.signOut().then(function(){ setBtn(null); dash.hidden=true; auth.hidden=false; pane('login') }) }
   },true);
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!bg.hidden){ e.stopPropagation(); close() } },true);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!bg.hidden&&!APP){ e.stopPropagation(); close() } },true);
 
   /* validazione */
   var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -1376,12 +1389,15 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     var f=$('#arEdit'); EDIT.forEach(function(n){ var el=f.elements[n]; if(!el) return; if(el.type==='checkbox') el.checked=!!p[n]; else el.value=p[n]||'' });
   }
   function loadDash(nuovo){
-    ecoData=carData=esaData=calM=calSel=ecoAA=null; esaF='tutti';
-    API.profile().then(function(p){ fill(p); setBtn(p); tab('scheda'); if(nuovo) toast('Iscrizione completata: benvenuto, '+p.nome+'!') })
+    ecoData=carData=esaData=calM=calSel=ecoAA=null; esaF='tutti'; lezLeave(); lezData=null;
+    API.profile().then(function(p){ fill(p); setBtn(p); tab(startTab()); if(nuovo) toast('Iscrizione completata: benvenuto, '+p.nome+'!') })
       .catch(function(err){ dash.hidden=true; auth.hidden=false; pane('login'); msg($('#arLogin'),itErr(err)) });
   }
-  function tab(n){ $$('.ar-tab',dash).forEach(function(s){ s.hidden=s.getAttribute('data-tab')!==n }); $$('.ar-tabs button',dash).forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-ar-tab')===n) });
-    $('.ar-body',dash).scrollTop=0; if(n==='documenti') docs(); if(n==='moduli') mods(); if(n==='economia') eco(); if(n==='carriera') car(); if(n==='esami') esa() }
+  function tab(n){ if(n!=='lezioni') lezLeave(); dash.classList.remove('menu');
+    $$('.ar-tab',dash).forEach(function(s){ s.hidden=s.getAttribute('data-tab')!==n }); $$('.ar-tabs button,.ar-bnav button',dash).forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-ar-tab')===n) });
+    $('.ar-body',dash).scrollTop=0; if(n==='scheda') riepilogo(); if(n==='documenti') docs(); if(n==='moduli') mods(); if(n==='economia') eco(); if(n==='carriera') car(); if(n==='esami') esa(); if(n==='lezioni') les();
+    if(APP&&!(n==='lezioni'&&/^#lezione-/.test(location.hash))) try{ history.replaceState(null,'',location.pathname+location.search+(n==='scheda'?'':'#'+n)) }catch(e){} }
+  function startTab(){ if(/^#lezione-\d+$/.test(location.hash)) return 'lezioni'; var m=/^#(\w+)$/.exec(location.hash); return APP&&m&&$('.ar-tab[data-tab="'+m[1]+'"]',dash)?m[1]:'scheda' }
   $('#arEdit').addEventListener('submit',function(e){ e.preventDefault(); var f=this, ok=true;
     ['cellulare','indirizzo','cap','comune','provincia'].forEach(function(n){ var el=f.elements[n]; el.required=true; if(!check(el)) ok=false });
     if(!ok) return; var patch={}; EDIT.forEach(function(n){ var el=f.elements[n]; patch[n]=el.type==='checkbox'?el.checked:el.value.trim() }); patch.provincia=patch.provincia.toUpperCase();
@@ -1595,6 +1611,386 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
       .catch(function(err){ toast(itErr(err)); esa() });
   });
 
+  /* ===== scheda: LE MIE LEZIONI e AULA VIRTUALE (tabelle in supabase-aula.sql) =====
+     Elenco delle lezioni del corso; dentro la lezione, accanto al video, l'aula: chi c'e' adesso
+     (presenze in tempo reale sul canale privato della classe), la chat della lezione e gli appunti,
+     personali o condivisi con la classe, con i rimandi al minuto [12:34]. Tutto sulla piattaforma UNICESD.
+     In modalita' dimostrativa: due lezioni vere da guardare e una classe simulata. */
+  var lezData=null, AU=null;
+  function mmss(s){ s=Math.max(0,Math.floor(+s||0)); var h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return (h?h+':'+String(m).padStart(2,'0'):String(m).padStart(2,'0'))+':'+String(x).padStart(2,'0') }
+  function secOf(t){ var p=t.split(':').map(Number); return p.length===3?p[0]*3600+p[1]*60+p[2]:p[0]*60+p[1] }
+  var TSRE=/\[(\d{1,2}:\d{2}(?::\d{2})?)\]/g;
+  function rich(t){ return esc(t).replace(TSRE,function(_,x){ return '<button type="button" class="au-ts" data-seek="'+secOf(x)+'">'+x+'</button>' }).replace(/\n/g,'<br>') }
+  function hue(n){ var h=7; for(var i=0;i<n.length;i++) h=(h*31+n.charCodeAt(i))%360; return h }
+  function avt(n,cls){ var i=String(n||'?').replace(/\./g,'').split(' ').map(function(w){ return w.charAt(0) }).join('').slice(0,2).toUpperCase();
+    return '<span class="au-av'+(cls?' '+cls:'')+'" style="--h:'+hue(String(n||''))+'" aria-hidden="true">'+esc(i)+'</span>' }
+  function hhmm(d){ return d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'}) }
+  function quando(iso){ var d=new Date(iso), s=(Date.now()-d)/1000; if(s<50) return 'adesso'; if(s<3600) return Math.round(s/60)+' min fa';
+    var o=new Date(); if(d.toDateString()===o.toDateString()) return 'oggi, '+hhmm(d); o.setDate(o.getDate()-1); if(d.toDateString()===o.toDateString()) return 'ieri, '+hhmm(d);
+    return d.toLocaleDateString('it-IT',{day:'numeric',month:'short'})+', '+hhmm(d) }
+  function lezBox(){ return $('#arLez') }
+
+  /* ---------- dati: Supabase o demo ---------- */
+  var DEMO_NOMI=['Giulia M.','Marco R.','Sara L.','Andrea C.','Francesca P.','Luca B.','Chiara D.','Davide F.','Elena G.','Paolo T.','Martina S.','Simone V.'];
+  function demoAula(){ var d=dload(), u=d.users[d.cur];
+    if(!u.aula){ u.aula={vis:{1:{secondi:62,visti:62,durata:192}},msgs:{},notes:{},utili:{}}; dsave(d) } return {d:d,u:u} }
+  function demoLezioni(){
+    var el=lezBox(), t=new Date(); t.setHours(12,0,0,0); var D=function(n){ return ymd(addD(t,n)) };
+    return [
+      {id:1,insegnamento:'Diritto costituzionale',titolo:'Lezione 1 · Le fonti del diritto',docente:'Prof. G. Marino',descrizione:'Che cos\'è una fonte del diritto, la gerarchia delle fonti, i criteri per risolvere i conflitti fra norme; decreto-legge, decreto legislativo e referendum abrogativo.',video:el.getAttribute('data-v1'),poster:el.getAttribute('data-p1'),durata_min:3,ordine:1,materiali:[{titolo:'Slide della lezione',url:'#demo'},{titolo:'Costituzione, artt. 70-82',url:'#demo'}],pubblicata:D(-6)},
+      {id:2,insegnamento:'Diritto costituzionale',titolo:'Lezione 2 · La Costituzione e la sua revisione',docente:'Prof. G. Marino',durata_min:52,ordine:2,pubblicata:D(3)},
+      {id:3,insegnamento:'Diritto costituzionale',titolo:'Lezione 3 · Il Parlamento',docente:'Prof. G. Marino',durata_min:47,ordine:3,pubblicata:D(10)},
+      {id:4,insegnamento:'Diritto commerciale',titolo:'Lezione 1 · L\'imprenditore',docente:'Prof.ssa M. Lo Presti',descrizione:'La nozione di imprenditore dell\'art. 2082 c.c. e le tre figure del codice: agricolo, piccolo e commerciale, con lo statuto che ne segue.',video:el.getAttribute('data-v2'),poster:el.getAttribute('data-p2'),durata_min:3,ordine:1,materiali:[{titolo:'Slide della lezione',url:'#demo'}],pubblicata:D(-2)},
+      {id:5,insegnamento:'Diritto commerciale',titolo:'Lezione 2 · L\'azienda e i segni distintivi',docente:'Prof.ssa M. Lo Presti',durata_min:44,ordine:2,pubblicata:D(5)},
+      {id:6,insegnamento:'Storia del diritto medievale e moderno',titolo:'Lezione 1 · Il diritto comune',docente:'Prof.ssa L. Ferrante',durata_min:55,ordine:1,pubblicata:D(8)}
+    ].map(function(l){ l.in_arrivo=l.pubblicata>ymd(new Date()); return l });
+  }
+  var DEMO_NOTE={
+    1:[{id:901,autore:'Giulia M.',utili:4,ore:-20,testo:'LE FONTI DEL DIRITTO\n[00:24] Fonte = atto o fatto che produce norme giuridiche\n- di produzione: creano le norme\n- di cognizione: le fanno conoscere (Gazzetta Ufficiale)\n\n[00:48] GERARCHIA\n1. Costituzione e leggi costituzionali\n2. Leggi ordinarie, decreti-legge, decreti legislativi\n3. Leggi regionali\n4. Regolamenti\n5. Consuetudini\n\n[01:12] Conflitti fra norme: gerarchico, cronologico, specialità, competenza'},
+       {id:902,autore:'Marco R.',utili:2,ore:-3,testo:'[01:36] DECRETO-LEGGE (art. 77) → necessità e urgenza, conversione entro 60 giorni, altrimenti perde efficacia dall\'inizio\n[02:00] DECRETO LEGISLATIVO (art. 76) → legge delega con principi e criteri, tempo limitato, oggetti definiti\n[02:24] REFERENDUM (art. 75) → 500.000 elettori o 5 Consigli regionali; quorum: maggioranza degli aventi diritto'}],
+    4:[{id:903,autore:'Chiara D.',utili:3,ore:-26,testo:'[00:24] Art. 2082: attività economica + organizzata + professionale + per produrre o scambiare\n[01:12] Piccolo imprenditore (2083): lavoro proprio e dei familiari\n[01:36] Commerciale (2195): industria, intermediazione, trasporto, banca e assicurazioni\n[02:00] Statuto: registro imprese, scritture contabili, crisi d\'impresa'}]};
+  var DEMO_STORIA={1:[['Elena G.','Le slide si scaricano dai materiali sotto il video 👍',null,-22],['Paolo T.','Grazie Elena!',null,-21.5]],4:[['Davide F.','Lezione chiarissima, ottima per ripassare',null,-30]]};
+  var DEMO_COPIONE={
+    1:[[5,'Giulia M.','Ciao a tutti! Oggi fonti del diritto 📚',null],[16,'Marco R.','Qualcuno mi spiega la differenza fra fonti di produzione e di cognizione?',30],
+       [28,'Sara L.','Quelle di produzione creano le norme, quelle di cognizione le fanno conoscere: tipo la Gazzetta Ufficiale',30],
+       [46,'Giulia M.','La gerarchia è al [00:48], segnatevela per l\'esame 📌',50],[72,'Andrea C.','Il decreto-legge non convertito perde efficacia da subito o dall\'inizio?',100],
+       [84,'Marco R.','Dall\'inizio, è al [01:36]. Ho messo tutto nei miei appunti condivisi',100]],
+    4:[[7,'Luca B.','Buongiorno! Qualcuno ha già dato l\'esame di commerciale?',null],[22,'Chiara D.','Io a giugno: chiedono tanto la differenza fra piccolo imprenditore e commerciale',null],
+       [40,'Luca B.','Grazie! È dal [01:12] in poi',75]]};
+
+  API.lezioni=function(){
+    if(!LIVE){ var a=demoAula().u.aula;
+      return Promise.resolve(demoLezioni().map(function(l){ var v=a.vis[l.id]||{}, n=a.notes[l.id];
+        l.secondi=v.secondi||0; l.visti=v.visti||0; l.durata=v.durata||null; l.completata=!!v.completata; l.miei_appunti=!!(n&&n.testo);
+        l.appunti_classe=(DEMO_NOTE[l.id]||[]).length; l.messaggi=(DEMO_STORIA[l.id]||[]).length+(a.msgs[l.id]||[]).length; return l })) }
+    return loadSb().then(function(c){ return c.rpc('mie_lezioni') }).then(rows);
+  };
+  API.visione=function(id,s,d){
+    if(!LIVE){ var x=demoAula(), v=x.u.aula.vis[id]||{secondi:0,visti:0}; v.secondi=Math.floor(s); v.visti=Math.max(v.visti,v.secondi); if(d) v.durata=Math.floor(d);
+      v.completata=v.completata||(v.durata&&v.visti>=v.durata*.9); x.u.aula.vis[id]=v; dsave(x.d); return Promise.resolve() }
+    return loadSb().then(function(c){ return c.rpc('segna_visione',{p_lezione:id,p_secondi:Math.floor(s),p_durata:d?Math.floor(d):null}) }).then(function(r){ if(r.error) throw r.error });
+  };
+  API.videoUrl=function(path){ if(/^https?:|^data:|^blob:|^assets\/|^\//.test(path)||!LIVE) return Promise.resolve(path);
+    return loadSb().then(function(c){ return c.storage.from('lezioni').createSignedUrl(path,4*3600) }).then(function(r){ if(r.error) throw r.error; return r.data.signedUrl }) };
+
+  /* ---------- la classe: chi e' online adesso (presenze) ---------- */
+  var INVK='uo-aula-invisibile';
+  var CL={on:false,list:[],subs:[],me:{l:0,t:0,s:'idle'},inv:false,nome:'',ch:null,sim:null,tk:0,
+    start:function(){ if(CL.on) return; CL.on=true; try{ CL.inv=localStorage.getItem(INVK)==='1' }catch(e){}
+      CL.nome=P?(String(P.nome||'').trim().split(' ')[0]+' '+String(P.cognome||' ').trim().charAt(0).toUpperCase()+'.'):'Tu';
+      if(!LIVE){ simStart(); return }
+      var c; loadSb().then(function(x){ c=x; return c.rpc('mia_classe') }).then(function(r){ if(r.error) throw r.error; if(!r.data||!CL.on) return;
+        CL.nome=r.data.nome||CL.nome;
+        return c.auth.getSession().then(function(s){ var tok=s.data.session&&s.data.session.access_token; if(tok&&c.realtime.setAuth) c.realtime.setAuth(tok);
+          var key=Math.random().toString(36).slice(2,10);
+          CL.ch=c.channel(r.data.topic,{config:{private:true,presence:{key:key}}});
+          CL.ch.on('presence',{event:'sync'},function(){ var st=CL.ch.presenceState(), out=[];
+            Object.keys(st).forEach(function(k){ if(k===key) return; var m=st[k][st[k].length-1]; if(m&&m.n) out.push({k:k,n:m.n,l:+m.l||0,t:+m.t||0,s:m.s||'idle',at:m.at||Date.now()}) });
+            CL.list=out; CL.emit() });
+          CL.ch.subscribe(function(st){ if(st==='SUBSCRIBED') CL.push(true) });
+        }) }).catch(function(){ /* presenze non disponibili: l'aula funziona lo stesso */ });
+    },
+    stop:function(){ CL.on=false; clearInterval(CL.sim); CL.sim=null; if(CL.ch){ try{ CL.ch.untrack(); sb.removeChannel(CL.ch) }catch(e){} CL.ch=null } CL.list=[] },
+    set:function(p){ Object.assign(CL.me,p); CL.push() },
+    push:function(now){ if(!CL.ch) return; var go=function(){ CL.tk=Date.now(); if(CL.inv){ CL.ch.untrack(); return }
+        CL.ch.track({n:CL.nome,l:CL.me.l,t:Math.floor(CL.me.t),s:CL.me.s,at:Date.now()}) };
+      clearTimeout(CL.pt); if(now||Date.now()-CL.tk>4000) go(); else CL.pt=setTimeout(go,4000-(Date.now()-CL.tk)) },
+    invisibile:function(on){ CL.inv=on; try{ localStorage.setItem(INVK,on?'1':'0') }catch(e){} CL.push(true); CL.emit() },
+    emit:function(){ CL.subs.forEach(function(f){ f(CL.list) }) },
+    in:function(id){ return CL.list.filter(function(p){ return p.l===id }) }
+  };
+  /* classe simulata (solo demo) */
+  function simStart(){
+    var pick=DEMO_NOMI.slice().sort(function(){ return Math.random()-.5 }), now=Date.now();
+    var base=[['Giulia M.',1,30,'play'],['Marco R.',1,96,'play'],['Sara L.',1,140,'appunti'],['Andrea C.',1,12,'play'],['Luca B.',4,40,'play'],['Chiara D.',4,88,'pausa'],['Elena G.',0,0,'idle']];
+    CL.list=base.map(function(b){ return {k:b[0],n:b[0],l:b[1],t:b[2],s:b[3],at:now-Math.random()*6e5} });
+    var tick=0;
+    CL.sim=setInterval(function(){ tick++;
+      CL.list.forEach(function(p){ if(p.s==='play'){ p.t+=1; if(p.t>190){ p.t=0 } } });
+      if(tick%7===0){ var r=Math.random(), on=CL.list.map(function(p){ return p.n });
+        if(r<.25&&CL.list.length<9){ var nn=pick.filter(function(n){ return on.indexOf(n)<0 })[0]; if(nn) CL.list.push({k:nn,n:nn,l:Math.random()<.6?1:(Math.random()<.5?4:0),t:Math.floor(Math.random()*60),s:'play',at:Date.now()}) }
+        else if(r<.4&&CL.list.length>5){ var i=Math.floor(Math.random()*CL.list.length); if(['Giulia M.','Marco R.','Luca B.'].indexOf(CL.list[i].n)<0) CL.list.splice(i,1) }
+        else { var q=CL.list[Math.floor(Math.random()*CL.list.length)]; if(q&&q.l) q.s=['play','play','pausa','appunti','chat'][Math.floor(Math.random()*5)] } }
+      if(tick%3===0) CL.emit();
+    },1000);
+    setTimeout(CL.emit,50);
+  }
+  function simJoin(n,l,s){ var p=CL.list.filter(function(x){ return x.n===n })[0]; if(!p){ p={k:n,n:n,l:l,t:0,s:'play',at:Date.now()}; CL.list.push(p) } p.l=l; if(s) p.s=s; CL.emit() }
+
+  /* ---------- elenco delle lezioni ---------- */
+  function les(){
+    var box=lezBox(); if(AU) return; box.classList.remove('au-room'); $('.ar-body',dash).classList.remove('ar-wide');
+    if(!lezData) box.innerHTML='<p class="ar-load">Caricamento&hellip;</p>';
+    CL.start(); CL.set({l:0,s:'idle'});
+    API.lezioni().then(function(d){ lezData=d; if(!AU) lesDraw(); var m=/^#lezione-(\d+)$/.exec(location.hash); if(m&&!AU) aulaOpen(+m[1]) }).catch(function(e){ failBox(box,e) });
+  }
+  function lesDraw(){
+    var box=lezBox(), l=lezData||[];
+    var h='<h4 class="ar-h">Le mie lezioni</h4><p class="ar-sub">Le videolezioni del tuo corso. Entrando in una lezione sei <b>in aula</b>: vedi chi la sta seguendo con te, scrivi in chat e scambi gli appunti con i compagni.</p>';
+    if(!l.length){ box.innerHTML=h+emptyBox('&#127916;','Le tue lezioni compariranno qui','Le videolezioni del tuo corso si attivano quando l\'iscrizione &egrave; perfezionata. Per qualsiasi dubbio scrivi alla segreteria.'); return }
+    h+='<div class="au-online" data-au-online></div>';
+    var rip=l.filter(function(x){ return !x.in_arrivo&&x.secondi>5&&!x.completata })[0];
+    if(rip) h+='<button type="button" class="au-resume" data-au-open="'+rip.id+'">'+(rip.poster?'<img src="'+esc(rip.poster)+'" alt="" loading="lazy">':'<span class="au-resume-ph">&#9654;</span>')
+      +'<span><small>Riprendi da dove eri rimasto</small><b>'+esc(rip.titolo)+'</b><em>'+esc(rip.insegnamento)+' &middot; dal minuto '+mmss(rip.secondi)+'</em>'
+      +'<i class="au-bar"><i style="width:'+pct(rip)+'%"></i></i></span><span class="au-go">Riprendi &rarr;</span></button>';
+    var g={}, ord=[]; l.forEach(function(x){ if(!g[x.insegnamento]){ g[x.insegnamento]=[]; ord.push(x.insegnamento) } g[x.insegnamento].push(x) });
+    ord.forEach(function(k){ var a=g[k], ok=a.filter(function(x){ return !x.in_arrivo }).length, fatte=a.filter(function(x){ return x.completata }).length;
+      h+='<div class="au-grp"><div class="ar-sec"><span>'+esc(k)+'</span><span class="au-cnt">'+ok+' disponibili'+(fatte?' &middot; '+fatte+' completate':'')+'</span></div><div class="au-list">';
+      a.forEach(function(x,i){
+        if(x.in_arrivo){ h+='<div class="au-row soon"><span class="au-num">'+(x.ordine||i+1)+'</span><span class="au-rt"><b>'+esc(x.titolo)+'</b><small>'+esc([x.docente,x.durata_min?x.durata_min+' min':''].filter(Boolean).join(' · '))+'</small></span><span class="au-badges"><span class="au-b soon">In arrivo il '+itShort(x.pubblicata).slice(0,5)+'</span></span></div>'; return }
+        h+='<button type="button" class="au-row'+(x.completata?' done':'')+'" data-au-open="'+x.id+'"><span class="au-num">'+(x.completata?'&#10003;':(x.ordine||i+1))+'</span>'
+          +'<span class="au-rt"><b>'+esc(x.titolo)+'</b><small>'+esc([x.docente,x.durata_min?x.durata_min+' min':''].filter(Boolean).join(' · '))+'</small>'
+          +(x.visti?'<i class="au-bar"><i style="width:'+pct(x)+'%"></i></i>':'')+'</span>'
+          +'<span class="au-badges"><span class="au-b live" data-au-live="'+x.id+'" hidden></span>'
+          +(x.appunti_classe?'<span class="au-b">&#128221; '+x.appunti_classe+'</span>':'')+(x.messaggi?'<span class="au-b">&#128172; '+x.messaggi+'</span>':'')
+          +'<span class="au-enter">Entra in aula &rarr;</span></span></button>' });
+      h+='</div></div>' });
+    box.innerHTML=h; lesLive();
+  }
+  function pct(x){ var d=x.durata||(x.durata_min?x.durata_min*60:0); return d?Math.min(100,Math.round(100*(x.visti||0)/d)):0 }
+  function lesLive(){
+    var box=lezBox(); if(!box||AU) return; var on=$('[data-au-online]',box); if(!on) return;
+    var L=CL.list, ids={}; L.forEach(function(p){ if(p.l) ids[p.l]=(ids[p.l]||0)+1 });
+    $$('[data-au-live]',box).forEach(function(b){ var n=ids[b.getAttribute('data-au-live')]||0; b.hidden=!n; b.innerHTML='<i></i>'+n+' in aula' });
+    if(!L.length){ on.innerHTML='<span class="au-on-t">Nessun compagno online in questo momento.</span>'; return }
+    var top=Object.keys(ids).sort(function(a,b){ return ids[b]-ids[a] })[0], tl=top&&(lezData||[]).filter(function(x){ return x.id==top })[0];
+    on.innerHTML='<span class="au-stack">'+L.slice(0,5).map(function(p){ return avt(p.n) }).join('')+'</span><span class="au-on-t"><i class="au-dot"></i><b>'+L.length+(L.length===1?' compagno':' compagni')+'</b> del tuo corso online adesso'
+      +(tl?' &middot; '+ids[top]+' in <a href="#" data-au-open="'+tl.id+'">'+esc(tl.insegnamento)+'</a>':'')+'</span>';
+  }
+  CL.subs.push(function(){ if(AU) aulaPeople(); else lesLive() });
+
+  /* ---------- l'aula: video + presenze + chat + appunti ---------- */
+  function aulaOpen(id){
+    var L=(lezData||[]).filter(function(x){ return x.id===id })[0]; if(!L||L.in_arrivo) return;
+    if(AU) aulaClose(true);
+    AU={id:id,L:L,msgs:[],notes:[],mine:null,utili:{},unread:0,pane:'aula',nt:'miei',v:null,iframe:false,timers:[],bot:0,ch:null,saveT:0,lastSave:0};
+    var box=lezBox(); box.classList.add('au-room'); $('.ar-body',dash).classList.add('ar-wide'); $('.ar-body',dash).scrollTop=0;
+    try{ history.replaceState(null,'',location.pathname+location.search+'#lezione-'+id) }catch(e){}
+    var mat=(L.materiali||[]).map(function(m){ return '<a class="au-mat" href="'+esc(m.url)+'" data-mat="'+esc(m.url)+'" target="_blank" rel="noopener">&#128196; '+esc(m.titolo||'Materiale')+'</a>' }).join('');
+    box.innerHTML='<div class="au">'
+      +'<div class="au-top"><button type="button" class="au-back" data-au-back>&larr; Tutte le lezioni</button><span class="au-live"><i></i><b data-au-n>1</b>&nbsp;in aula</span></div>'
+      +'<div class="au-grid"><div class="au-main"><div class="au-player" id="auPlayer"><p class="ar-load">Caricamento del video&hellip;</p></div>'
+      +'<div class="au-info"><span class="au-ins">'+esc(L.insegnamento)+'</span><h4>'+esc(L.titolo)+'</h4><p class="au-doc">'+esc([L.docente,L.durata_min?L.durata_min+' min':''].filter(Boolean).join(' · '))+'</p>'
+      +(L.descrizione?'<p class="au-desc">'+esc(L.descrizione)+'</p>':'')+(mat?'<div class="au-mats">'+mat+'</div>':'')+'</div></div>'
+      +'<aside class="au-side" aria-label="Aula virtuale"><div class="au-tabs" role="tablist">'
+      +'<button type="button" class="on" data-au-tab="aula" role="tab">In aula <em data-au-n>1</em></button>'
+      +'<button type="button" data-au-tab="chat" role="tab">Chat <em class="au-unr" data-au-unr hidden></em></button>'
+      +'<button type="button" data-au-tab="appunti" role="tab">Appunti</button></div>'
+      +'<div class="au-pane" data-au-pane="aula"><div id="auPeople"></div></div>'
+      +'<div class="au-pane" data-au-pane="chat" hidden><div class="au-msgs" id="auMsgs" aria-live="polite"><p class="ar-load">Caricamento&hellip;</p></div>'
+      +'<form class="au-send" id="auSend"><label class="au-at"><input type="checkbox" checked> collega al minuto <b data-au-now>00:00</b></label>'
+      +'<div class="au-in"><textarea rows="1" maxlength="1000" placeholder="Scrivi alla classe&hellip;" aria-label="Messaggio"></textarea><button type="submit" aria-label="Invia"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></div></form></div>'
+      +'<div class="au-pane" data-au-pane="appunti" hidden><div class="au-seg"><button type="button" class="on" data-au-nt="miei">I miei</button><button type="button" data-au-nt="classe">Della classe <em data-au-ncl>0</em></button></div>'
+      +'<div data-au-ntp="miei"><div class="au-ntbar"><button type="button" class="au-stamp" data-au-stamp>+ <span data-au-now>00:00</span></button>'
+      +'<label class="au-share"><input type="checkbox" data-au-share><span>Condividi con la classe</span></label></div>'
+      +'<textarea class="au-note" id="auNote" placeholder="Scrivi qui i tuoi appunti. Con &laquo;+ minuto&raquo; inserisci il punto del video: [12:34] diventa un link che ci riporta." maxlength="30000"></textarea>'
+      +'<div class="au-saved" data-au-saved>&nbsp;</div><div class="au-marks" data-au-marks></div></div>'
+      +'<div data-au-ntp="classe" hidden><div id="auNotesCl"></div></div>'
+      +'<p class="au-fmt">&#128274; Gli appunti restano sulla piattaforma UNICESD: li leggono solo gli studenti del corso, se scegli di condividerli.</p></div>'
+      +'</aside></div></div>';
+    CL.set({l:id,t:L.secondi||0,s:'pausa'});
+    aulaPlayer(L); aulaPeople(); aulaLoad();
+  }
+  function aulaClose(quiet){
+    if(!AU) return; var a=AU; aulaSave(true);
+    a.timers.forEach(clearTimeout); clearInterval(a.iv); if(a.hls) try{ a.hls.destroy() }catch(e){}
+    if(a.ch){ try{ sb.removeChannel(a.ch) }catch(e){} }
+    if(a.v){ try{ a.v.pause() }catch(e){} }
+    AU=null; if(location.hash.indexOf('#lezione-')===0) try{ history.replaceState(null,'',location.pathname+location.search+(APP?'#lezioni':'')) }catch(e){}
+    if(!quiet){ lezData=null; les() }
+  }
+  function lezLeave(){ if(AU) aulaClose(true); if(CL.on) CL.stop(); var b=lezBox(); if(b){ b.classList.remove('au-room') } var ab=$('.ar-body',dash); if(ab) ab.classList.remove('ar-wide') }
+
+  /* il lettore: mp4/webm, HLS (m3u8), oppure YouTube/Vimeo/Bunny incorporati */
+  function aulaPlayer(L){
+    var box=$('#auPlayer'), v=L.video||'';
+    if(!v){ box.innerHTML='<div class="au-novid">&#127916;<b>Video in preparazione</b><span>La segreteria lo sta caricando: intanto puoi usare chat e appunti.</span></div>'; AU.iframe=true; nowTick(); return }
+    var yt=/(?:youtube\.com\/(?:watch\?v=|embed\/|live\/)|youtu\.be\/)([\w-]{11})/.exec(v), vm=/vimeo\.com\/(?:video\/)?(\d+)/.exec(v), bn=/iframe\.mediadelivery\.net\/(?:embed|play)\/(\d+)\/([\w-]+)/.exec(v);
+    if(yt||vm||bn){ AU.iframe=true;
+      var src=yt?'https://www.youtube-nocookie.com/embed/'+yt[1]+'?rel=0&modestbranding=1':vm?'https://player.vimeo.com/video/'+vm[1]+'?dnt=1':'https://iframe.mediadelivery.net/embed/'+bn[1]+'/'+bn[2]+'?autoplay=false';
+      box.innerHTML='<iframe src="'+src+'" title="'+esc(L.titolo)+'" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen loading="lazy"></iframe>'; nowTick(); return }
+    API.videoUrl(v).then(function(url){ if(!AU||AU.L!==L) return;
+      box.innerHTML='<video controls playsinline preload="metadata"'+(L.poster?' poster="'+esc(L.poster)+'"':'')+' controlslist="nodownload" oncontextmenu="return false"></video>';
+      var el=$('video',box); AU.v=el;
+      var hlsNeeded=/\.m3u8(\?|$)/i.test(url)&&!el.canPlayType('application/vnd.apple.mpegurl');
+      var go=function(){ if(hlsNeeded&&window.Hls&&window.Hls.isSupported()){ AU.hls=new window.Hls(); AU.hls.loadSource(url); AU.hls.attachMedia(el) } else el.src=url };
+      if(hlsNeeded&&!window.Hls){ var s=document.createElement('script'); s.src='https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js'; s.onload=go; s.onerror=function(){ el.src=url }; document.head.appendChild(s) } else go();
+      el.addEventListener('loadedmetadata',function(){ if(!mine()) return; var s=L.secondi||0; if(s>5&&s<el.duration-8){ el.currentTime=s; toast('Riprendi dal minuto '+mmss(s)) } },{once:true});
+      var mine=function(){ return AU&&AU.v===el };
+      el.addEventListener('play',function(){ if(mine()) CL.set({s:'play',t:el.currentTime}) });
+      el.addEventListener('pause',function(){ if(!mine()) return; CL.set({s:'pausa',t:el.currentTime}); aulaSave(true) });
+      el.addEventListener('seeked',function(){ if(mine()) CL.set({t:el.currentTime}) });
+      el.addEventListener('ended',function(){ if(mine()) aulaSave(true) });
+      el.addEventListener('timeupdate',function(){ if(!mine()) return; nowTick(); CL.me.t=el.currentTime; if(Date.now()-AU.lastSave>20000&&!el.paused) aulaSave() });
+      nowTick();
+    }).catch(function(e){ box.innerHTML='<div class="au-novid">&#9888;<b>Video non disponibile</b><span>'+itErr(e)+'</span></div>' });
+  }
+  function nowT(){ return AU&&AU.v?AU.v.currentTime:null }
+  function nowTick(){ if(!AU) return; var t=nowT(), s=t==null?'--:--':mmss(t);
+    $$('[data-au-now]',lezBox()).forEach(function(e){ e.textContent=s }); var st=$('[data-au-stamp]',lezBox()); if(st) st.disabled=t==null;
+    var at=$('.au-at input',lezBox()); if(at&&t==null){ at.checked=false; at.disabled=true } }
+  function seek(s){ if(!AU) return; if(!AU.v){ toast('Con questo tipo di video il salto al minuto non &egrave; disponibile'); return }
+    AU.v.currentTime=s; var p=AU.v.play(); if(p&&p.catch) p.catch(function(){}); if(matchMedia('(max-width:1060px)').matches) $('#auPlayer').scrollIntoView({behavior:'smooth',block:'start'}) }
+  function aulaSave(force){ if(!AU||!AU.v) return; var v=AU.v, s=v.currentTime||0, d=isFinite(v.duration)?v.duration:null; if(!force&&s<1) return;
+    AU.lastSave=Date.now(); var L=AU.L; L.secondi=Math.floor(s); L.visti=Math.max(L.visti||0,L.secondi); if(d) L.durata=Math.floor(d); if(d&&L.visti>=d*.9) L.completata=true;
+    API.visione(AU.id,s,d).catch(function(){}) }
+
+  /* presenze nell'aula */
+  function aulaPeople(){
+    if(!AU) return; var box=$('#auPeople'); if(!box) return;
+    var qui=CL.in(AU.id), altri=CL.list.filter(function(p){ return p.l!==AU.id }), n=qui.length+(CL.inv?0:1);
+    $$('[data-au-n]',lezBox()).forEach(function(e){ e.textContent=n });
+    var ST={play:'&#9654; sta guardando',pausa:'&#10074;&#10074; in pausa',appunti:'&#9998; scrive appunti',chat:'&#128172; in chat',idle:'nell\'area riservata'};
+    var h='<div class="au-me">'+avt(CL.nome,'me')+'<div><b>'+esc(CL.nome)+' <small>(tu)</small></b><span>'+(CL.inv?'Sei invisibile: i compagni non ti vedono':'I compagni ti vedono in aula')+'</span></div>'
+      +'<label class="au-sw" title="Visibile ai compagni"><input type="checkbox" data-au-vis'+(CL.inv?'':' checked')+'><i></i></label></div>';
+    h+='<div class="ar-sec"><span>In questa lezione</span><span>'+qui.length+'</span></div>';
+    if(!qui.length) h+='<p class="au-empty">Per ora ci sei solo tu. Quando entra un compagno lo vedi qui, in tempo reale.</p>';
+    else h+='<ul class="au-ppl">'+qui.map(function(p){ var t=p.l&&p.s!=='idle'?mmss(p.t):'';
+      return '<li>'+avt(p.n)+'<div><b>'+esc(p.n)+'</b><span>'+ST[p.s]+(t&&(p.s==='play'||p.s==='pausa')?' &middot; '+t:'')+'</span></div>'
+        +(AU.v&&t?'<button type="button" class="au-follow" data-seek="'+Math.floor(p.t)+'" title="Vai al punto in cui si trova">Vai a '+t+'</button>':'')+'</li>' }).join('')+'</ul>';
+    if(altri.length){ h+='<div class="ar-sec"><span>Altri compagni online</span><span>'+altri.length+'</span></div><ul class="au-ppl dim">'
+      +altri.map(function(p){ var x=p.l&&(lezData||[]).filter(function(z){ return z.id===p.l })[0];
+        return '<li>'+avt(p.n)+'<div><b>'+esc(p.n)+'</b><span>'+(x?'in <a href="#" data-au-open="'+x.id+'">'+esc(x.insegnamento)+' &middot; '+esc(x.titolo.split(' · ')[0])+'</a>':'online nell\'area riservata')+'</span></div></li>' }).join('')+'</ul>' }
+    h+='<p class="au-priv">I compagni vedono solo il tuo nome e l\'iniziale del cognome. Puoi diventare invisibile con l\'interruttore qui sopra.</p>';
+    box.innerHTML=h;
+  }
+
+  /* chat e appunti: caricamento e tempo reale */
+  function aulaLoad(){
+    var id=AU.id, a=AU;
+    if(!LIVE){ var x=demoAula().u.aula, t=Date.now();
+      a.msgs=(DEMO_STORIA[id]||[]).map(function(m,i){ return {id:-100-i,autore:m[0],testo:m[1],minuto:m[2],created_at:new Date(t+m[3]*3600e3).toISOString()} }).concat(x.msgs[id]||[]);
+      a.notes=(DEMO_NOTE[id]||[]).map(function(n){ return {id:n.id,autore:n.autore,testo:n.testo,condiviso:true,utili:n.utili+(x.utili[n.id]?1:0),updated_at:new Date(t+n.ore*3600e3).toISOString()} });
+      a.utili=x.utili; a.mine=x.notes[id]||{testo:'',condiviso:false}; chatDraw(); notesDraw(); mineDraw(); botStart(); return }
+    loadSb().then(function(c){
+      return Promise.all([
+        c.from('aula_messaggi').select('id,matricola,autore,testo,minuto,created_at,nascosto').eq('lezione',id).order('created_at',{ascending:false}).limit(200),
+        c.from('appunti').select('id,matricola,autore,testo,condiviso,utili,updated_at').eq('lezione',id),
+        c.from('appunti_utili').select('appunti')
+      ]).then(function(r){ if(AU!==a) return;
+        a.msgs=rows(r[0]).reverse().map(function(m){ m.me=m.matricola===P.matricola; return m });
+        var all=rows(r[1]); a.mine=all.filter(function(n){ return n.matricola===P.matricola })[0]||{testo:'',condiviso:false};
+        a.notes=all.filter(function(n){ return n.matricola!==P.matricola&&n.condiviso&&n.testo });
+        (r[2].data||[]).forEach(function(u){ a.utili[u.appunti]=true });
+        chatDraw(); notesDraw(); mineDraw();
+        a.ch=c.channel('lezione-'+id)
+          .on('postgres_changes',{event:'*',schema:'public',table:'aula_messaggi',filter:'lezione=eq.'+id},function(ev){ if(AU!==a) return;
+            if(ev.eventType==='DELETE'){ a.msgs=a.msgs.filter(function(m){ return m.id!==ev.old.id }); chatDraw(); return }
+            var m=ev.new; m.me=m.matricola===P.matricola; var i=a.msgs.map(function(x){ return x.id }).indexOf(m.id);
+            if(m.nascosto&&!m.me){ if(i>-1) a.msgs.splice(i,1) } else if(i>-1) a.msgs[i]=m; else { a.msgs.push(m); if(!m.me) unread() } chatDraw() })
+          .on('postgres_changes',{event:'*',schema:'public',table:'appunti',filter:'lezione=eq.'+id},function(ev){ if(AU!==a) return; var n=ev.new||{};
+            if(ev.eventType==='DELETE'||n.matricola===P.matricola) return; a.notes=a.notes.filter(function(x){ return x.id!==n.id });
+            if(n.condiviso&&n.testo) a.notes.unshift(n); notesDraw() })
+          .subscribe();
+      });
+    }).catch(function(e){ var mb=$('#auMsgs'); if(mb) mb.innerHTML='<div class="ar-msg on">'+itErr(e)+'</div>' });
+  }
+  function unread(){ if(AU.pane==='chat') return; AU.unread++; var u=$('[data-au-unr]',lezBox()); if(u){ u.hidden=false; u.textContent=AU.unread } }
+  function chatDraw(){
+    var box=$('#auMsgs'); if(!box||!AU) return; var stick=box.scrollHeight-box.scrollTop-box.clientHeight<80;
+    if(!AU.msgs.length){ box.innerHTML='<p class="au-empty">Nessun messaggio ancora. Rompi il ghiaccio: una domanda, un dubbio, un saluto alla classe.</p>'; return }
+    box.innerHTML=AU.msgs.map(function(m){ var me=m.me||m.mio;
+      return '<div class="au-msg'+(me?' me':'')+'">'+(me?'':avt(m.autore))+'<div class="au-bub"><div class="au-mh"><b>'+(me?'Tu':esc(m.autore))+'</b><span>'+quando(m.created_at)+'</span>'
+        +(me&&m.id>0?'<button type="button" class="au-del" data-au-del="'+m.id+'" aria-label="Cancella il messaggio">&times;</button>':'')+'</div>'
+        +(m.minuto!=null?'<button type="button" class="au-ts min" data-seek="'+m.minuto+'">&#9654; '+mmss(m.minuto)+'</button> ':'')+rich(m.testo)+'</div></div>' }).join('');
+    if(stick||AU.firstChat!==true){ box.scrollTop=box.scrollHeight; AU.firstChat=true }
+  }
+  function notesDraw(){
+    var box=$('#auNotesCl'); if(!box||!AU) return; var n=AU.notes;
+    var c=$('[data-au-ncl]',lezBox()); if(c) c.textContent=n.length;
+    if(!n.length){ box.innerHTML='<p class="au-empty">Nessun compagno ha ancora condiviso i suoi appunti per questa lezione. Puoi essere il primo: scrivi i tuoi e attiva &laquo;Condividi con la classe&raquo;.</p>'; return }
+    box.innerHTML=n.slice().sort(function(a,b){ return (b.utili||0)-(a.utili||0) }).map(function(x){ var on=!!AU.utili[x.id];
+      return '<article class="au-nt">'+'<div class="au-nt-h">'+avt(x.autore)+'<div><b>'+esc(x.autore)+'</b><span>aggiornati '+quando(x.updated_at)+'</span></div></div>'
+        +'<div class="au-nt-b">'+rich(x.testo)+'</div><div class="au-nt-f"><button type="button" class="au-ut'+(on?' on':'')+'" data-au-ut="'+x.id+'">&#128077; Utili'+(x.utili?' &middot; '+x.utili:'')+'</button>'
+        +'<button type="button" class="au-cp" data-au-cp="'+x.id+'">Aggiungi ai miei</button></div></article>' }).join('');
+  }
+  function mineDraw(){ if(!AU) return; var t=$('#auNote'), s=$('[data-au-share]',lezBox()); if(!t) return; t.value=AU.mine.testo||''; s.checked=!!AU.mine.condiviso; marks();
+    $('[data-au-saved]',lezBox()).innerHTML=AU.mine.updated_at?'Salvati '+quando(AU.mine.updated_at):'&nbsp;' }
+  function marks(){ var t=$('#auNote'), b=$('[data-au-marks]',lezBox()); if(!t||!b) return; var m=[], r; TSRE.lastIndex=0;
+    while((r=TSRE.exec(t.value))&&m.length<40){ var line=t.value.slice(r.index).split('\n')[0].replace(/\[\d{1,2}:\d{2}(?::\d{2})?\]/g,'').trim(); m.push('<button type="button" class="au-ts" data-seek="'+secOf(r[1])+'">'+r[1]+'</button>'+(line?'<span>'+esc(line.slice(0,60))+'</span>':'')) }
+    b.innerHTML=m.length?'<div class="ar-sec"><span>I momenti che hai segnato</span></div><div class="au-mk">'+m.map(function(x){ return '<div>'+x+'</div>' }).join('')+'</div>':'' }
+  function notesSave(){ if(!AU) return; var a=AU, txt=$('#auNote').value, sh=$('[data-au-share]',lezBox()).checked, lab=$('[data-au-saved]',lezBox());
+    a.mine.testo=txt; a.mine.condiviso=sh; lab.textContent='Salvataggio…';
+    var done=function(){ a.mine.updated_at=new Date().toISOString(); if(AU===a) lab.textContent='Salvati alle '+hhmm(new Date())+(sh?' · condivisi con la classe':' · visibili solo a te') };
+    if(!LIVE){ var x=demoAula(); x.u.aula.notes[a.id]={testo:txt,condiviso:sh,updated_at:new Date().toISOString()}; dsave(x.d); setTimeout(done,250); return }
+    loadSb().then(function(c){ return c.rpc('salva_appunti',{p_lezione:a.id,p_testo:txt,p_condiviso:sh}) }).then(function(r){ if(r.error) throw r.error; done() })
+      .catch(function(e){ if(AU===a) lab.innerHTML='<span class="au-err">Non salvati: '+itErr(e)+'</span>' });
+  }
+  function chatSend(txt,min){ var a=AU;
+    if(!LIVE){ var x=demoAula(), m={id:Date.now(),autore:CL.nome,testo:txt,minuto:min,created_at:new Date().toISOString(),mio:true};
+      (x.u.aula.msgs[a.id]=x.u.aula.msgs[a.id]||[]).push(m); dsave(x.d); a.msgs.push(m); chatDraw(); botReply(txt,min); return Promise.resolve() }
+    return loadSb().then(function(c){ return c.rpc('scrivi_in_aula',{p_lezione:a.id,p_testo:txt,p_minuto:min==null?null:Math.floor(min)}) }).then(function(r){ if(r.error) throw r.error;
+      if(AU===a&&!a.msgs.some(function(m){ return m.id===r.data })){ a.msgs.push({id:r.data,autore:CL.nome,testo:txt,minuto:min==null?null:Math.floor(min),created_at:new Date().toISOString(),me:true,matricola:P.matricola}); chatDraw() } });
+  }
+  /* demo: la classe che scrive */
+  function botPost(n,txt,min){ if(!AU) return; simJoin(n,AU.id,'chat'); AU.msgs.push({id:-Date.now(),autore:n,testo:txt,minuto:min,created_at:new Date().toISOString()}); chatDraw(); unread();
+    setTimeout(function(){ var p=CL.list.filter(function(x){ return x.n===n })[0]; if(p&&p.s==='chat') p.s='play' },6000) }
+  function botStart(){ var a=AU, cp=DEMO_COPIONE[a.id]||[]; cp.forEach(function(m){ a.timers.push(setTimeout(function(){ if(AU===a) botPost(m[1],m[2],m[3]) },m[0]*1000)) }) }
+  function botReply(txt,min){ var a=AU; if(a.bot>=3) return; a.bot++;
+    var chi=CL.in(a.id).map(function(p){ return p.n }); if(!chi.length) chi=['Giulia M.']; var n=chi[Math.floor(Math.random()*chi.length)];
+    var r=/\?/.test(txt)?'Bella domanda! Io l\'ho capita riguardando il punto '+(min!=null?'['+mmss(min)+']':'della lezione')+' con calma: se vuoi ne parliamo qui 🙂'
+      :['👍','D\'accordo con te!','Grazie, utilissimo 🙏','Giusto, me lo segno 📌'][Math.floor(Math.random()*4)];
+    a.timers.push(setTimeout(function(){ if(AU===a) botPost(n,r,null) },3500+Math.random()*3000)) }
+
+  /* eventi dell'aula */
+  lezBox()&&lezBox().addEventListener('click',function(e){
+    var t;
+    if((t=e.target.closest('[data-au-open]'))){ e.preventDefault(); aulaOpen(+t.getAttribute('data-au-open')); return }
+    if(e.target.closest('[data-au-back]')){ aulaClose(); return }
+    if((t=e.target.closest('[data-seek]'))){ e.preventDefault(); seek(+t.getAttribute('data-seek')); return }
+    if((t=e.target.closest('[data-mat]'))){ if(t.getAttribute('data-mat')==='#demo'){ e.preventDefault(); toast('Nella demo le dispense non sono collegate'); return }
+      if(LIVE&&!/^https?:/.test(t.getAttribute('data-mat'))){ e.preventDefault(); API.videoUrl(t.getAttribute('data-mat')).then(function(u){ window.open(u,'_blank','noopener') }).catch(function(err){ toast(itErr(err)) }) } return }
+    if((t=e.target.closest('[data-au-tab]'))){ var p=t.getAttribute('data-au-tab'); AU.pane=p;
+      $$('[data-au-tab]',lezBox()).forEach(function(b){ b.classList.toggle('on',b===t) }); $$('[data-au-pane]',lezBox()).forEach(function(x){ x.hidden=x.getAttribute('data-au-pane')!==p });
+      if(p==='chat'){ AU.unread=0; var u=$('[data-au-unr]',lezBox()); if(u) u.hidden=true; var mb=$('#auMsgs'); mb.scrollTop=mb.scrollHeight } return }
+    if((t=e.target.closest('[data-au-nt]'))){ var q=t.getAttribute('data-au-nt'); $$('[data-au-nt]',lezBox()).forEach(function(b){ b.classList.toggle('on',b===t) });
+      $$('[data-au-ntp]',lezBox()).forEach(function(x){ x.hidden=x.getAttribute('data-au-ntp')!==q }); return }
+    if(e.target.closest('[data-au-stamp]')){ var ta=$('#auNote'), s='['+mmss(nowT()||0)+'] ', i=ta.selectionStart||ta.value.length, pre=ta.value.slice(0,i);
+      if(pre&&!/\n$/.test(pre)) s='\n'+s; ta.value=pre+s+ta.value.slice(i); ta.focus(); ta.selectionStart=ta.selectionEnd=i+s.length; ta.dispatchEvent(new Event('input')); return }
+    if((t=e.target.closest('[data-au-ut]'))){ var id=+t.getAttribute('data-au-ut'), n=AU.notes.filter(function(x){ return x.id===id })[0]; if(!n) return;
+      if(!LIVE){ var x=demoAula(); if(x.u.aula.utili[id]){ delete x.u.aula.utili[id]; n.utili-- } else { x.u.aula.utili[id]=true; n.utili++ } AU.utili=x.u.aula.utili; dsave(x.d); notesDraw(); return }
+      loadSb().then(function(c){ return c.rpc('appunti_utili_toggle',{p_appunti:id}) }).then(function(r){ if(r.error) throw r.error; n.utili=r.data; if(AU.utili[id]) delete AU.utili[id]; else AU.utili[id]=true; notesDraw() }).catch(function(err){ toast(itErr(err)) }); return }
+    if((t=e.target.closest('[data-au-cp]'))){ var nn=AU.notes.filter(function(x){ return x.id===+t.getAttribute('data-au-cp') })[0], ta2=$('#auNote'); if(!nn) return;
+      ta2.value=(ta2.value?ta2.value.replace(/\s+$/,'')+'\n\n':'')+'— dagli appunti di '+nn.autore+' —\n'+nn.testo; ta2.dispatchEvent(new Event('input'));
+      $('[data-au-nt="miei"]',lezBox()).click(); toast('Aggiunti ai tuoi appunti'); return }
+    if((t=e.target.closest('[data-au-del]'))){ var mid=+t.getAttribute('data-au-del');
+      loadSb().then(function(c){ return c.rpc('cancella_messaggio',{p_id:mid}) }).then(function(){ AU.msgs=AU.msgs.filter(function(m){ return m.id!==mid }); chatDraw() }); return }
+  });
+  lezBox()&&lezBox().addEventListener('change',function(e){
+    if(e.target.matches('[data-au-vis]')){ CL.invisibile(!e.target.checked); return }
+    if(e.target.matches('[data-au-share]')){ notesSave(); if(e.target.checked) toast('I tuoi appunti ora li vede la classe') }
+  });
+  lezBox()&&lezBox().addEventListener('input',function(e){
+    if(e.target.id==='auNote'){ clearTimeout(AU.saveT); AU.saveT=setTimeout(notesSave,1200); marks(); if(CL.me.s!=='appunti'){ CL.set({s:'appunti'}) } clearTimeout(AU.stT); AU.stT=setTimeout(function(){ if(AU) CL.set({s:AU.v&&!AU.v.paused?'play':'pausa'}) },8000) }
+    if(e.target.matches('.au-in textarea')){ var ta=e.target; ta.style.height='auto'; ta.style.height=Math.min(ta.scrollHeight,120)+'px' }
+  });
+  lezBox()&&lezBox().addEventListener('keydown',function(e){ if(e.target.matches('.au-in textarea')&&e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); $('#auSend').requestSubmit?$('#auSend').requestSubmit():$('#auSend [type=submit]').click() } });
+  lezBox()&&lezBox().addEventListener('submit',function(e){ if(e.target.id!=='auSend') return; e.preventDefault();
+    var f=e.target, ta=$('textarea',f), txt=ta.value.trim(), b=$('[type=submit]',f); if(!txt) return;
+    var min=$('.au-at input',f).checked?nowT():null; busy(b,true);
+    chatSend(txt,min).then(function(){ ta.value=''; ta.style.height='auto' }).catch(function(err){ toast(itErr(err)) }).then(function(){ busy(b,false) }) });
+  window.addEventListener('pagehide',function(){ aulaSave(true) });
+  document.addEventListener('visibilitychange',function(){ if(document.hidden) aulaSave(true) });
+
+  /* ===== riepilogo in cima alla scheda: prossimo esame, pagamenti, CFU, lezione da riprendere ===== */
+  function riepilogo(){
+    var box=$('#arRiep'); if(!box) return; box.innerHTML=''; var o=ymd(new Date());
+    var card=function(tab,ic,k,v,s,cls){ return '<button type="button" class="ar-rp'+(cls?' '+cls:'')+'" data-ar-tab="'+tab+'"><i>'+ic+'</i><small>'+k+'</small><b>'+v+'</b><span>'+s+'</span></button>' };
+    var jobs=[API.app().then(function(l){ var p=l.filter(function(a){ return a.prenotato&&String(a.data).slice(0,10)>=o })[0];
+        return p?card('esami','&#128197;','Prossimo esame',esc(p.insegnamento),itShort(p.data)+(p.ora?' &middot; '+String(p.ora).slice(0,5):'')+' &middot; '+esc(p.sede))
+          :card('esami','&#128197;','Esami','Nessuna prenotazione',l.length?'Vedi gli appelli e prenota':'Calendario degli appelli') }),
+      API.eco().then(function(d){ var r=d.rate||[]; if(!r.length) return null; var oggiD=oggi(), sc=r.filter(function(x){ return !x.pagata_il&&pd(x.scadenza)<oggiD });
+        if(sc.length){ var t=sc.reduce(function(s,x){ return s+(+x.importo) },0); return card('economia','&#9888;','Pagamenti',sc.length===1?'1 rata scaduta':sc.length+' rate scadute',eur(t)+' da regolarizzare','late') }
+        var nx=r.filter(function(x){ return !x.pagata_il })[0];
+        return nx?card('economia','&#128182;','Prossima rata',eur(nx.importo),'scade il '+itShort(nx.scadenza)):card('economia','&#10003;','Pagamenti','In regola','Tutte le rate pagate','ok') }),
+      API.car().then(function(l){ if(!l.length) return null; var tot=0, ok=0; l.forEach(function(c){ tot+=+c.cfu||0; if(c.esito!=='da sostenere') ok+=+c.cfu||0 });
+        return card('carriera','&#127891;','Carriera',ok+' / '+tot+' CFU',l.filter(function(c){ return c.esito!=='da sostenere' }).length+' esami superati') }),
+      API.lezioni().then(function(l){ if(!l.length) return null; var r=l.filter(function(x){ return !x.in_arrivo&&x.secondi>5&&!x.completata })[0];
+        return r?card('lezioni','&#9654;','Riprendi la lezione',esc(r.titolo.split(' · ').pop()),esc(r.insegnamento)+' &middot; dal minuto '+mmss(r.secondi))
+          :card('lezioni','&#127916;','Le mie lezioni',l.filter(function(x){ return !x.in_arrivo }).length+' disponibili','Entra in aula con la classe') })];
+    Promise.all(jobs.map(function(p){ return p.catch(function(){ return null }) })).then(function(c){ c=c.filter(Boolean); box.innerHTML=c.join(''); box.hidden=!c.length });
+  }
+
   function toast(t){ var el=document.getElementById('toast'), tx=document.getElementById('toast-txt'); if(!el||!tx) return; tx.innerHTML=t; el.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(function(){ el.classList.remove('on') },3600) }
 
   /* pulsante "Area Riservata" -> "La mia area" quando sei dentro */
@@ -1603,9 +1999,28 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
   var hasSess=false; try{ hasSess=LIVE?Object.keys(localStorage).some(function(k){ return /^sb-.*-auth-token$/.test(k) }):!!dload().cur }catch(e){}
   if(hasSess) API.session().then(function(s){ if(s) API.profile().then(setBtn).catch(function(){}) }).catch(function(){});
 
+  /* l'app per il telefono: promo nella scheda del sito, installazione e funzionamento offline nell'app */
+  $$('[data-app-promo]').forEach(function(e){ e.hidden=APP||location.protocol==='file:' });
+  $$('.ar-app-only').forEach(function(e){ if(!APP) e.remove() });
+  if(APP){
+    var bip=null, isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),
+        alone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+    var instShow=function(){ $$('[data-app-install]').forEach(function(b){ b.hidden=alone||!(bip||isIOS) }) };
+    window.addEventListener('beforeinstallprompt',function(e){ e.preventDefault(); bip=e; instShow() });
+    window.addEventListener('appinstalled',function(){ bip=null; alone=true; instShow(); toast('App installata: la trovi fra le tue app') });
+    document.addEventListener('click',function(e){ if(!e.target.closest('[data-app-install]')) return; e.preventDefault();
+      if(bip){ bip.prompt(); bip.userChoice.then(function(){ bip=null; instShow() }) } else $('#appIos').hidden=false });
+    instShow();
+    if('serviceWorker' in navigator&&location.protocol==='https:') navigator.serviceWorker.register('/app/sw.js',{scope:'/app/'}).catch(function(){});
+    var net=function(){ document.documentElement.classList.toggle('offline',!navigator.onLine) }; window.addEventListener('online',net); window.addEventListener('offline',net); net();
+    window.addEventListener('hashchange',function(){ var m=/^#(\w+)$/.exec(location.hash); if(!dash.hidden&&m&&$('.ar-tab[data-tab="'+m[1]+'"]',dash)) tab(m[1]) });
+  }
+
   /* apertura da indirizzo: #area-riservata, ?area=1, link di conferma o di recupero password */
   var q=location.search+location.hash;
   if(/type=recovery/.test(q)) loadSb().then(function(){ open('recover') });
+  else if(APP) open('login');
+  else if(/^#lezione-\d+$/.test(location.hash)) setTimeout(function(){ open('login') },LIVE?600:300);
   else if(location.hash==='#area-riservata'||/[?&]area=1/.test(location.search)||(LIVE&&/access_token=|[?&]code=/.test(q))) setTimeout(function(){ open('login') },LIVE?600:300);
   window.addEventListener('hashchange',function(){ if(location.hash==='#area-riservata') open('login') });
 })();
@@ -1662,3 +2077,19 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
   if(document.readyState==='complete') go(); else window.addEventListener('load',function(){ setTimeout(go,pl?1400:0) });
 })();
 
+
+/* ===== POLI APERTI: contatore con obiettivo =====
+   Conta le schede dei poli (.polo-card, esclusa la tratteggiata .polo-next) e riempie la barra verso l'obiettivo. */
+(function(){
+  var box=document.querySelector('[data-polo-goal]'); if(!box) return;
+  var goal=+box.getAttribute('data-polo-goal')||1000, n=document.querySelectorAll('#poli .polo-card:not(.polo-next)').length||1;
+  var q=function(s){ return box.querySelector(s) }, it=function(v){ return v.toLocaleString('it-IT') };
+  q('[data-pg-n]').setAttribute('data-count',n); q('[data-pg-n]').textContent=it(n);
+  q('[data-pg-open]').textContent=it(n); q('[data-pg-word]').textContent=n===1?'polo aperto':'poli aperti';
+  q('[data-pg-left]').textContent=it(Math.max(goal-n,0));
+  var bar=q('.pg-bar'); bar.setAttribute('aria-valuenow',n); bar.setAttribute('aria-valuemax',goal);
+  var w=Math.max(100*n/goal,1.2)+'%'; // anche 1 polo su 1000 deve vedersi
+  if(!('IntersectionObserver' in window)){ q('.pg-bar i').style.width=w; return }
+  var o=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ o.disconnect(); setTimeout(function(){ q('.pg-bar i').style.width=w },250) } },{threshold:.4});
+  o.observe(bar);
+})();

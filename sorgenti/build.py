@@ -170,6 +170,10 @@ AI_ASSETS = {
     "__CESD_VIDEO_1__": "img/cesd/cesd-video-1.mp4",   # incontro nella sala museo, 0:50
     "__CESD_VIDEO_2__": "img/cesd/cesd-video-2.mp4",   # proiezione e conferenza, 1:21
     "__PLAT_VIDEO__": "img/ai/plat.mp4",        # b-roll studentessa al laptop, loop di 4s
+    "__AULA_VIDEO_1__": "img/aula/lezione-demo-1.mp4",    # demo aula virtuale: Diritto costituzionale, lezione 1 (3:12)
+    "__AULA_POSTER_1__": "img/aula/lezione-demo-1.webp",
+    "__AULA_VIDEO_2__": "img/aula/lezione-demo-2.mp4",    # demo aula virtuale: Diritto commerciale, lezione 1 (2:48)
+    "__AULA_POSTER_2__": "img/aula/lezione-demo-2.webp",
 }
 
 MIMES = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",

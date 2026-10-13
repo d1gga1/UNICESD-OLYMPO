@@ -909,7 +909,7 @@
     </div>
 
     <!-- 12 ottobre 2026: convegno "Gentilezza in campo" all'ARS (locandina: img/eventi/gentilezza-12ott2026.webp) -->
-    <div class="ev-feat rv-s" id="evento-12ott" style="margin-top:22px">
+    <div class="ev-feat ev-stack rv-s" id="evento-12ott" style="margin-top:22px">
       <a class="ev-poster" href="__IMG_GENTILEZZA_12OTT__" target="_blank" rel="noopener" aria-label="Apri a schermo intero la locandina del convegno Gentilezza in campo"><img width="1290" height="1970" src="__IMG_GENTILEZZA_12OTT__" alt="Locandina del convegno nazionale Gentilezza in campo, 12 ottobre 2026, Assemblea Regionale Siciliana, Sala Piersanti Mattarella: il prof. Calogero Di Carlo con il magistrato Nicola Graziano, presidente UNICEF Italia" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></a>
       <div class="ev-main">
         <span class="ev-badge" style="background:rgba(56,201,138,.13);border-color:rgba(56,201,138,.45);color:#7ee0a8"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><path d="M20 6L9 17l-5-5"/></svg> Appena concluso</span>
@@ -2670,7 +2670,7 @@
 
 <!-- ===== POLI APERTI ===== -->
 <!-- Per aggiungere un polo: copia un <a class="polo-card"> dentro .polo-grid, con il codice successivo
-     (00002, 00003...), e aggiorna il numero in .polo-count. Il riquadro di dettaglio (#licata) e' facoltativo. -->
+     (00002, 00003...), il contatore con l'obiettivo (.polo-goal) si aggiorna da solo. Il riquadro di dettaglio (#licata) e' facoltativo. -->
 <section id="poli" class="ente-page">
   <div class="wrap">
     <div class="sec-head center rv">
@@ -2678,7 +2678,17 @@
       <h2>I poli <span class="grad">aperti</span></h2>
       <p>Ogni polo UNICESD Olympo ha un codice progressivo che lo identifica nella rete: &egrave; il punto dove lo studente trova orientamento, iscrizione e assistenza vicino a casa, con gli stessi percorsi e lo stesso metodo del Centro Studi.</p>
     </div>
-    <div class="polo-count rv"><b>1</b><span>polo aperto</span></div>
+    <!-- contatore con obiettivo: il numero dei poli lo conta lo script dalle .polo-card (tranne la tratteggiata);
+         l'obiettivo si cambia in data-polo-goal -->
+    <div class="polo-goal rv" data-polo-goal="1000">
+      <div class="pg-top">
+        <div class="pg-num"><b data-count="1" data-pg-n>1</b><span>/ 1.000</span></div>
+        <div class="pg-lab"><span>Obiettivo</span><b>1000 poli</b></div>
+      </div>
+      <div class="pg-bar" role="progressbar" aria-label="Poli aperti sull'obiettivo di 1000" aria-valuemin="0" aria-valuemax="1000" aria-valuenow="1"><i></i></div>
+      <div class="pg-ticks" aria-hidden="true"><span>0</span><span>250</span><span>500</span><span>750</span><span>1.000</span></div>
+      <div class="pg-foot"><span><b data-pg-open>1</b> <span data-pg-word>polo aperto</span></span><span><b data-pg-left>999</b> ancora da aprire &middot; <a href="#apri-sede">Apri il tuo polo &rarr;</a></span></div>
+    </div>
     <div class="polo-grid">
       <a class="polo-card rv" href="#licata">
         <div class="polo-ph"><img width="1200" height="900" src="__IMG_LICATA_UFF__" alt="Global Campus Licata, polo UNICESD Olympo 00001" loading="lazy" decoding="async"><span class="polo-code">Polo n&deg; <b>00001</b></span></div>
@@ -3251,6 +3261,8 @@
         <div class="ar-row"><a href="#" data-ar-go="forgot">Password dimenticata?</a></div>
         <div class="ar-msg" role="alert"></div>
         <button type="submit" class="btn btn-p ar-wide"><span>Accedi</span><span class="shine"></span></button>
+        <button type="button" class="btn btn-g ar-wide ar-quick" data-ar-demo data-ar-quick hidden>&#9889; Entra con uno studente di prova</button>
+        <button type="button" class="btn btn-g ar-wide ar-app-only" data-app-install hidden>&#11015; Installa l'app sul telefono</button>
         <div class="ar-or"><span>Non hai le credenziali?</span></div>
         <button type="button" class="btn btn-lock ar-wide" data-ar-go="register"><span>Iscriviti</span></button>
         <p class="ar-note">L'iscrizione crea il tuo account personale. Ti servono un documento d'identit&agrave;, il codice fiscale e i dati del tuo titolo di studio.</p>
@@ -3391,6 +3403,7 @@
       </div>
       <nav class="ar-tabs" role="tablist">
         <button type="button" class="on" data-ar-tab="scheda" role="tab">&#128100; La mia scheda</button>
+        <button type="button" data-ar-tab="lezioni" role="tab">&#127916; Le mie lezioni</button>
         <button type="button" data-ar-tab="economia" role="tab">&#128182; Situazione economica</button>
         <button type="button" data-ar-tab="carriera" role="tab">&#127891; Carriera</button>
         <button type="button" data-ar-tab="esami" role="tab">&#128197; Esami e prenotazioni</button>
@@ -3398,9 +3411,13 @@
         <button type="button" data-ar-tab="moduli" role="tab">&#128196; Modulistica</button>
         <button type="button" data-ar-tab="contratto" role="tab">&#9998; Contratto</button>
         <button type="button" data-ar-tab="sicurezza" role="tab">&#128273; Password</button>
+        <a class="ar-tab-x ar-app-only" href="/" target="_blank" rel="noopener">&#127760; Sito UNICESD</a>
+        <button type="button" class="ar-tab-x ar-app-only" data-ar-logout>&#10162; Esci</button>
       </nav>
       <button type="button" class="btn btn-g btn-sm ar-out" data-ar-logout>Esci</button>
       <button type="button" class="ar-back" data-ar-close>&larr; Torna al sito</button>
+      <button type="button" class="ar-inst ar-app-only" data-app-install hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg> Installa</button>
+      <button type="button" class="ar-menu ar-app-only" data-ar-menu aria-label="Tutte le sezioni" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </aside>
 
     <div class="ar-body">
@@ -3410,12 +3427,24 @@
       <!-- La mia scheda -->
       <section class="ar-tab" data-tab="scheda">
         <div class="ar-hello"><span>Ciao</span> <b data-f="nome"></b></div>
+        <div class="ar-riep" id="arRiep" hidden></div>
         <div class="ar-state">
           <div class="ar-state-h"><b>Stato della pratica</b><span class="ar-pill" data-f="stato_label"></span></div>
           <ol class="ar-track" data-f="track"><li>Registrazione</li><li>Documenti</li><li>Verifica della segreteria</li><li>Iscrizione perfezionata</li></ol>
           <p class="ar-state-t" data-f="stato_testo"></p>
         </div>
 
+        <!-- l'app sul telefono (solo sul sito pubblicato, non nell'app stessa) -->
+        <div class="ar-card ar-promo" data-app-promo hidden>
+          <div class="ar-promo-t">
+            <span class="ar-promo-k">Novit&agrave;</span>
+            <h5>L'Area Riservata sul tuo telefono</h5>
+            <p>Calendario degli esami e prenotazioni, pagamenti, carriera e lezioni con la classe, in un'app che si installa in un tocco, senza passare dagli store.</p>
+            <a class="btn btn-p btn-sm" href="/app/" target="_blank" rel="noopener"><span>Apri l'app</span><span class="shine"></span></a>
+            <small>Dal computer: inquadra il codice con la fotocamera del telefono.</small>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 132" width="112" height="112" class="ar-qr" role="img" aria-label="Codice QR per aprire l'app UNICESD sul telefono"><g transform="scale(4)"><path fill="#fff" d="M0 0h33v33h-33z"/><path class="qrline" stroke="#0a1638" d="M2 2.5h7m8 0h1m1 0h4m1 0h7m-29 1h1m5 0h1m1 0h1m1 0h4m1 0h3m4 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h3m2 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m3 0h1m1 0h1m1 0h3m2 0h1m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-19 1h1m1 0h2m3 0h3m-19 1h3m1 0h2m4 0h1m3 0h1m1 0h2m7 0h2m-28 1h2m1 0h1m1 0h1m1 0h2m4 0h1m1 0h2m2 0h1m1 0h2m1 0h3m1 0h1m-29 1h2m2 0h4m2 0h5m7 0h1m1 0h1m1 0h2m-27 1h1m5 0h1m3 0h1m1 0h1m4 0h3m2 0h2m3 0h1m-29 1h1m4 0h2m2 0h1m1 0h5m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m-27 1h1m2 0h1m1 0h2m1 0h1m2 0h2m1 0h2m1 0h1m2 0h2m1 0h2m1 0h1m-28 1h1m2 0h6m2 0h2m1 0h1m3 0h3m1 0h3m1 0h2m-28 1h1m1 0h2m2 0h1m4 0h3m1 0h1m1 0h1m1 0h3m1 0h2m2 0h1m-29 1h1m1 0h2m1 0h2m3 0h2m6 0h1m1 0h2m1 0h3m1 0h2m-27 1h2m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h2m-27 1h1m3 0h1m1 0h1m1 0h2m2 0h1m2 0h1m4 0h1m1 0h1m1 0h2m-23 1h3m2 0h1m3 0h1m1 0h1m2 0h3m1 0h3m1 0h4m-28 1h1m4 0h5m1 0h1m3 0h3m1 0h8m-20 1h4m2 0h1m4 0h2m3 0h2m1 0h2m-29 1h7m3 0h1m6 0h1m1 0h2m1 0h1m1 0h1m1 0h2m-28 1h1m5 0h1m1 0h2m3 0h1m6 0h1m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m2 0h1m3 0h3m1 0h2m1 0h7m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h4m2 0h1m1 0h1m4 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h4m5 0h1m2 0h1m2 0h1m4 0h1m-29 1h1m5 0h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m2 0h2m1 0h1m-28 1h7m2 0h1m1 0h5m2 0h6m1 0h1m1 0h1"/></g></svg>
+        </div>
         <div class="ar-card">
           <div class="ar-card-h"><h5>Dati anagrafici</h5><span class="ar-lockt">&#128274; Non modificabili</span></div>
           <dl class="ar-dl">
@@ -3458,6 +3487,10 @@
         </div>
       </section>
 
+      <!-- Le mie lezioni e aula virtuale (tabelle in supabase-aula.sql). data-v1/v2: video della demo -->
+      <section class="ar-tab" data-tab="lezioni" hidden>
+        <div id="arLez" data-v1="__AULA_VIDEO_1__" data-p1="__AULA_POSTER_1__" data-v2="__AULA_VIDEO_2__" data-p2="__AULA_POSTER_2__"></div>
+      </section>
       <!-- Situazione economica (tabelle rette e rate, sola lettura) -->
       <section class="ar-tab" data-tab="economia" hidden>
         <h4 class="ar-h">Situazione economica</h4>
@@ -3515,6 +3548,27 @@
           <button type="submit" class="btn btn-p"><span>Aggiorna la password</span><span class="shine"></span></button>
         </form>
       </section>
+    </div>
+    <!-- barra in basso: solo nell'app (/app/) sul telefono -->
+    <nav class="ar-bnav" aria-label="Sezioni principali">
+      <button type="button" class="on" data-ar-tab="scheda"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><span>Home</span></button>
+      <button type="button" data-ar-tab="lezioni"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="13" rx="2.5"/><path d="M10 8.5v5l4.2-2.5z" fill="currentColor"/><path d="M8 21h8"/></svg><span>Lezioni</span></button>
+      <button type="button" data-ar-tab="esami"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8 14l2.5 2.5L16 12"/></svg><span>Esami</span></button>
+      <button type="button" data-ar-tab="carriera"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6"/></svg><span>Carriera</span></button>
+      <button type="button" data-ar-tab="economia"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19M6.5 15h4"/></svg><span>Pagamenti</span></button>
+    </nav>
+  </div>
+  <!-- istruzioni per installare l'app su iPhone/iPad (Safari non ha il pulsante automatico) -->
+  <div class="ar-ios" id="appIos" hidden role="dialog" aria-label="Installa l'app">
+    <div class="ar-ios-c">
+      <button type="button" class="ar-x" data-ios-x aria-label="Chiudi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <img src="/assets/icons/icon-192.png" alt="" width="64" height="64">
+      <h5>Installa UNICESD sull'iPhone</h5>
+      <ol>
+        <li>In Safari tocca <b>Condividi</b> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7.5 7.5L12 3l4.5 4.5M5 11v9h14v-9"/></svg> in basso</li>
+        <li>Scorri e scegli <b>Aggiungi alla schermata Home</b></li>
+        <li>Tocca <b>Aggiungi</b>: l'icona UNICESD compare fra le tue app</li>
+      </ol>
     </div>
   </div>
 </div>

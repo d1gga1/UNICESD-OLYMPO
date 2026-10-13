@@ -788,6 +788,117 @@ def llms():
     (REPO / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+
+# ---------------------------------------------------------------------------
+# l'APP per il telefono: /app/ (Area Riservata a schermo intero, installabile)
+# Stessi CSS e JS del sito; manifest e service worker propri, con scope /app/.
+# ---------------------------------------------------------------------------
+APP_SW = r"""/* UNICESD Studenti - service worker dell'app (/app/). Generato da build_pages.py */
+const V = 'uo-app-__VER__';
+const SHELL = __SHELL__;
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+});
+self.addEventListener('activate', e => {
+  e.waitUntil(caches.keys().then(k => Promise.all(k.filter(n => n.startsWith('uo-app-') && n !== V).map(n => caches.delete(n))))
+    .then(() => self.clients.claim()));
+});
+self.addEventListener('fetch', e => {
+  const r = e.request;
+  if (r.method !== 'GET' || r.headers.has('range')) return;          // video: sempre dalla rete
+  const u = new URL(r.url);
+  if (/supabase\.co$/.test(u.hostname)) return;                      // dati dello studente: mai in cache
+  if (r.mode === 'navigate') {                                       // la pagina: rete, e se manca la copia salvata
+    e.respondWith(fetch(r).then(res => { const c = res.clone(); caches.open(V).then(x => x.put('/app/', c)); return res })
+      .catch(() => caches.match('/app/')));
+    return;
+  }
+  const ok = (u.origin === location.origin && u.pathname.startsWith('/assets/')) ||
+             /^(cdn\.jsdelivr\.net|cdnjs\.cloudflare\.com|fonts\.googleapis\.com|fonts\.gstatic\.com)$/.test(u.hostname);
+  if (!ok || /\.mp4$/.test(u.pathname)) return;
+  e.respondWith(caches.open(V).then(c => c.match(r).then(hit => {    // file statici: subito dalla cache, aggiornati in background
+    const net = fetch(r).then(res => { if (res.ok || res.type === 'opaque') c.put(r, res.clone()); return res }).catch(() => hit);
+    return hit || net;
+  })));
+});
+"""
+
+
+def build_app():
+    from PIL import Image
+    import hashlib
+    d = REPO / "assets/icons"
+    d.mkdir(parents=True, exist_ok=True)
+    # icone dell'app: il marchio chiaro su blu notte
+    im = Image.open(HERE / "img/logo-light.png").convert("RGBA")
+    mark = im.crop((292, 0, 720, 178)); mark = mark.crop(mark.getbbox())
+
+    def sq(size, pad):
+        c = Image.new("RGBA", (size, size), (10, 22, 56, 255))
+        m = mark.copy(); inner = int(size * (1 - 2 * pad)); m.thumbnail((inner, inner), Image.LANCZOS)
+        c.paste(m, ((size - m.width) // 2, (size - m.height) // 2), m)
+        return c.convert("RGB")
+    sq(512, .14).save(d / "app-512.png", optimize=True)
+    sq(192, .14).save(d / "app-192.png", optimize=True)
+    sq(512, .24).save(d / "app-maskable-512.png", optimize=True)
+    sq(180, .16).save(d / "app-apple-180.png", optimize=True)
+
+    out = REPO / "app"; out.mkdir(exist_ok=True)
+    shortcuts = [("Esami e prenotazioni", "Esami", "esami"), ("Le mie lezioni", "Lezioni", "lezioni"),
+                 ("Carriera", "Carriera", "carriera"), ("Situazione economica", "Pagamenti", "economia")]
+    manifest = {"id": "/app/", "name": "UNICESD Studenti", "short_name": "UNICESD", "lang": "it", "dir": "ltr",
+                "description": "L'Area Riservata di UNICESD Olympo: esami e prenotazioni, lezioni con la classe, carriera e pagamenti.",
+                "start_url": "/app/", "scope": "/app/", "display": "standalone", "orientation": "portrait",
+                "background_color": "#050a1c", "theme_color": "#0a1638", "categories": ["education"],
+                "icons": [{"src": "/assets/icons/app-192.png", "sizes": "192x192", "type": "image/png"},
+                          {"src": "/assets/icons/app-512.png", "sizes": "512x512", "type": "image/png"},
+                          {"src": "/assets/icons/app-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}],
+                "shortcuts": [{"name": n, "short_name": s, "url": "/app/#" + t,
+                               "icons": [{"src": "/assets/icons/app-192.png", "sizes": "192x192"}]} for n, s, t in shortcuts]}
+    (out / "manifest.webmanifest").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    # stessa ossatura delle pagine interne (lo script del sito la presuppone); nell'app il CSS mostra solo #arbg
+    area = (PRE_MAIN_PAGES + '<main id="top">\n' + SECTIONS["iscrizione"] + "\n" + SECTIONS["contatti"] + "\n</main>" + POST_MAIN)
+    toast = ""
+    fonts = re.search(r'<link rel="stylesheet" href="https://fonts\.googleapis\.com[^>]+>', read("head.html")).group(0)
+    css = f"/assets/css/site.css?v={CSS_VER}"; js = f"/assets/js/site.js?v={JS_VER}"
+    page = f"""<!DOCTYPE html>
+<html lang="it" class="ar-app ar-lock">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>UNICESD Studenti</title>
+<meta name="description" content="{H.escape(manifest['description'])}">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#0a1638">
+<meta name="color-scheme" content="light dark">
+<link rel="manifest" href="/app/manifest.webmanifest">
+<link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/app-apple-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="UNICESD">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="canonical" href="{SITE}/app/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{fonts}
+<link rel="stylesheet" href="{css}">
+</head>
+<body class="sub app">
+{area}{toast}
+<script src="{js}" defer></script>
+</body></html>
+"""
+    (out / "index.html").write_text(page, encoding="utf-8")
+    shell = ["/app/", css, js, "/assets/icons/app-192.png", "/assets/icons/icon.svg"]
+    a = POST_MAIN.index('<div id="arbg"')
+    shell += sorted(set(re.findall(r'src="(/assets/[^"]+\.(?:webp|png|jpg))"', POST_MAIN[a:a + POST_MAIN[a:].index('<div id="jnfly"')])))
+    ver = hashlib.md5((page + CSS_VER + JS_VER).encode()).hexdigest()[:10]
+    (out / "sw.js").write_text(APP_SW.replace("__VER__", ver).replace("__SHELL__", json.dumps(shell)), encoding="utf-8")
+    print(f"App: {out / 'index.html'}  (cache {ver}, {len(shell)} file)")
+
+
 def main():
     global PAGES_CSS
     me = sys.modules[__name__]
@@ -796,6 +907,7 @@ def main():
     BX.page_extras(me)
     write_assets()
     icons()
+    build_app()
     build_hubs()
     build_courses()
     build_pages()

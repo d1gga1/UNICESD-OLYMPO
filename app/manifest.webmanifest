@@ -1,0 +1,81 @@
+{
+ "id": "/app/",
+ "name": "UNICESD Studenti",
+ "short_name": "UNICESD",
+ "lang": "it",
+ "dir": "ltr",
+ "description": "L'Area Riservata di UNICESD Olympo: esami e prenotazioni, lezioni con la classe, carriera e pagamenti.",
+ "start_url": "/app/",
+ "scope": "/app/",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#050a1c",
+ "theme_color": "#0a1638",
+ "categories": [
+  "education"
+ ],
+ "icons": [
+  {
+   "src": "/assets/icons/app-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/assets/icons/app-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "/assets/icons/app-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Esami e prenotazioni",
+   "short_name": "Esami",
+   "url": "/app/#esami",
+   "icons": [
+    {
+     "src": "/assets/icons/app-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Le mie lezioni",
+   "short_name": "Lezioni",
+   "url": "/app/#lezioni",
+   "icons": [
+    {
+     "src": "/assets/icons/app-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Carriera",
+   "short_name": "Carriera",
+   "url": "/app/#carriera",
+   "icons": [
+    {
+     "src": "/assets/icons/app-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Situazione economica",
+   "short_name": "Pagamenti",
+   "url": "/app/#economia",
+   "icons": [
+    {
+     "src": "/assets/icons/app-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  }
+ ]
+}
