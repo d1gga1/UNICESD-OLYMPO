@@ -131,10 +131,10 @@ IMAGES = {
     "__CESD_VP2__": "img/cesd/cesd-video-2.webp",
     # La Voce dell'Olympo - notizie e popup delle ultime news
     "__IMG_VO_NICCOLI__": "img/voce/niccoli-addetto-stampa.webp",
-    # Area riservata, iscrizione, Janus in evidenza, evento del 24 ottobre 2026
+    # Area riservata, iscrizione, Janus in evidenza, evento del 31 ottobre 2026 (era 24 ottobre)
     "__IMG_JANUS_FLY__": "img/janus/janus-sede-560.webp",
     "__IMG_ECOSISTEMA__": "img/ecosistema-unicesd-feip.webp",
-    "__IMG_PROGRAMMA_24OTT__": "img/eventi/programma-24ott2026.webp",
+    "__IMG_PROGRAMMA_31OTT__": "img/eventi/programma-31ott2026.webp",
     "__IMG_GENTILEZZA_12OTT__": "img/eventi/gentilezza-12ott2026.webp",
     # 11 ottobre 2026: notizie da Trieste (7 e 9 ottobre) e partner accreditato Mnemosine
     "__IMG_VO_TS_GENERALI__": "img/voce/trieste-generali-9ott2026.webp",

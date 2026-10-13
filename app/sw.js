@@ -1,5 +1,5 @@
 /* UNICESD Studenti - service worker dell'app (/app/). Generato da build_pages.py */
-const V = 'uo-app-b62ca179cc';
+const V = 'uo-app-d68b23ffe1';
 const SHELL = ["/app/", "/assets/css/site.css?v=65c12b47", "/assets/js/site.js?v=c68dcb09", "/assets/icons/app-192.png", "/assets/icons/icon.svg", "/assets/icons/icon-192.png", "/assets/logo-light-480.webp"];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
