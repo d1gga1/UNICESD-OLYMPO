@@ -98,7 +98,7 @@ LAUREE = {
             ("Scienze penitenziarie", "Ordinamento penitenziario, esecuzione della pena, trattamento e reinserimento: per chi lavora o vuole lavorare negli istituti di pena."),
             ("Criminologia", "Le cause del crimine, la vittimologia, le tecniche investigative e la prevenzione, con una solida base giuridica."),
             ("Consulente del lavoro e giurista d'impresa", "Diritto del lavoro, previdenza, buste paga e relazioni sindacali: la base per il praticantato da consulente del lavoro."),
-            ("Amministratori di condominio", "Diritto condominiale, contabilità, sicurezza degli edifici e gestione dei conflitti per chi amministra o vuole amministrare immobili."),
+            ("Amministratori di condominio", "Diritto immobiliare e governance del condominio, contabilità e fiscalità condominiale, diritto penale dell'edilizia e urbanistica per chi amministra o vuole amministrare immobili. <a href=\"/corsi-di-laurea/amministratori-di-condominio/\">Scheda e piano di studi completo</a>."),
         ],
         sbocchi=["Consulente del lavoro (dopo praticantato ed esame di Stato)", "Giurista d'impresa e addetto agli uffici legali e del personale", "Operatore nel sistema penitenziario e nei servizi per l'esecuzione penale", "Analista e consulente in ambito criminologico e della sicurezza", "Amministratore di condominio e property manager", "Funzionario nei concorsi pubblici che richiedono la laurea triennale"],
         accesso="Serve il diploma di scuola secondaria superiore. Non c'è numero chiuso. Per chi viene dalle forze dell'ordine o da altri corsi universitari è prevista la valutazione dei crediti già maturati.",
@@ -108,7 +108,7 @@ LAUREE = {
             ("Sono nelle forze dell'ordine: mi riconoscono i corsi?", "Molto spesso sì, una parte della formazione professionale può valere crediti. Mandaci il tuo stato di servizio e i titoli: la valutazione è gratuita."),
             ("Che cosa cambia tra criminologia e scienze penitenziarie?", "Criminologia studia il fenomeno criminale e la sua prevenzione; scienze penitenziarie si concentra su quello che succede dopo la condanna: esecuzione della pena, trattamento e reinserimento."),
         ],
-        related=["c1", "l36", "lm51"],
+        related=["c7", "c1", "l36", "lm51"],
     ),
     "l36": dict(
         code="L-36", typ="t", area="giu", years=3, cfu=180,

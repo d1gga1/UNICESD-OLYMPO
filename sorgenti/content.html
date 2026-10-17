@@ -2158,4 +2158,44 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
 .pg-foot b{color:var(--txt-strong)}
 .pg-foot a{color:var(--cy);font-weight:600;text-decoration:none}
 @media (max-width:560px){.polo-goal{padding:20px 18px 16px}.pg-num b{font-size:50px}.pg-lab{text-align:left}.pg-lab b{font-size:21px}.pg-foot{flex-direction:column}}
+
+/* ===== 17 ottobre 2026: corso in evidenza, Ricerca e sostenibilita' ===== */
+.cards>.card[data-new]{grid-column:1/-1;position:relative;border-color:rgba(37,99,235,.45);box-shadow:0 0 0 2px rgba(56,189,248,.25)}
+.cards>.card[data-new] p{max-width:760px}
+.rs-offer{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.rs-offer>div{display:flex;flex-direction:column;gap:4px;padding:22px 22px 20px;border-radius:18px;background:var(--card,rgba(255,255,255,.04));border:1px solid rgba(130,180,255,.22)}
+.rs-offer .rs-ic{font-size:26px;line-height:1;margin-bottom:6px}
+.rs-offer b{font-size:16.5px}
+.rs-offer span:not(.rs-ic){color:var(--txt-dim);font-size:14px}
+.rs-mile{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.rs-mile>div{padding:14px 14px 12px;border-left:3px solid #38bdf8;background:rgba(255,255,255,.04);border-radius:0 12px 12px 0}
+.rs-mile b{display:block;font-size:22px;margin-bottom:4px}
+.rs-mile span{font-size:13px;line-height:1.45;opacity:.85}
+.rs-nums{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rs-nums>div{padding:18px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(130,180,255,.22)}
+.rs-nums b{display:block;font-size:28px;line-height:1.1;margin-bottom:4px;background:linear-gradient(90deg,#7dd3fc,#a7f3d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rs-nums span{font-size:13.4px;opacity:.85;line-height:1.4}
+.rs-small{font-size:12.4px;opacity:.65;margin-top:10px}
+.rs-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rs-gal figure{margin:0}
+.rs-gal a{display:block;aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid rgba(130,180,255,.22)}
+.rs-gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.rs-gal a:hover img{transform:scale(1.04)}
+.rs-gal figcaption{font-size:13.2px;color:var(--txt-dim);margin-top:8px;line-height:1.45}
+.rs-press{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rs-pr{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:20px;border:1px solid rgba(130,180,255,.22);background:var(--card,rgba(255,255,255,.04));color:inherit;text-decoration:none;transition:transform .4s var(--ease),border-color .4s}
+.rs-pr:hover{transform:translateY(-3px);border-color:rgba(130,180,255,.6)}
+.rs-pr .rs-src{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#38bdf8}
+.rs-pr b{font-size:17.5px;line-height:1.35}
+.rs-pr span:not(.rs-src){color:var(--txt-dim);font-size:14.4px;line-height:1.6}
+.rs-pr em{font-style:normal;font-weight:700;font-size:14px;display:inline-flex;gap:6px;align-items:center;margin-top:auto}
+#ricerca .pnote{margin-top:40px}
+@media (max-width:900px){
+  .rs-offer,.rs-mile{grid-template-columns:1fr}
+  .rs-gal{grid-template-columns:1fr 1fr}
+  .rs-press{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .rs-gal{grid-template-columns:1fr}
+  }
 </style>

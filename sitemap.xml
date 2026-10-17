@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://unicesd-olympo.com/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -37,6 +37,18 @@
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/partner/mnemosine.webp</image:loc>
       <image:title>Partner accreditato Mnemosine</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/eve.webp</image:loc>
+      <image:title>Enna Verdi Energie Società Benefit</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/olympo-green.webp</image:loc>
+      <image:title>Olympo Green Education</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/capimed.webp</image:loc>
+      <image:title>Capimed Servizi</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/partner/siulp.webp</image:loc>
@@ -152,133 +164,139 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/master-universitari/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/certificazioni/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/giurisprudenza/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/economia-aziendale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-psicologiche/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-educazione/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/ingegneria-informatica/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unicesd-olympo.com/corsi-di-laurea/amministratori-di-condominio/</loc>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-motorie/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/master-made-in-italy-global-leadership/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/master-universitari/management-imprese-turistiche/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/master-universitari/didattica-innovazione-digitale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/master-universitari/diritto-impresa-internazionale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/master-universitari/data-analytics-business/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/master-universitari/management-sanitario/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/certificazioni/informatiche/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/certificazioni/linguistiche/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/certificazioni/graduatorie-scuola/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-singoli-cfu/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/riconoscimento-cfu/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/formazione-aziendale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/offerta-formativa/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -288,7 +306,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -326,7 +344,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/medicina-senza-test-ingresso/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -348,7 +366,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/intelligenza-artificiale-ai-act/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -358,7 +376,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/fondo-nuove-competenze-2026/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -368,7 +386,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/chi-siamo/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -426,7 +444,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/calogero-di-carlo/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -456,9 +474,25 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/la-voce-dell-olympo/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/voce/eve-ricerca-scientifica.webp</image:loc>
+      <image:title>Locandina Enna Verdi Energie Società Benefit in partnership con UNICESD Olympo: ricerca scientifica per un futuro sostenibile</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/voce/capimed-agrigento.webp</image:loc>
+      <image:title>Locandina: l&#x27;ufficio Capimed Servizi di Agrigento firma con la rete UNICESD Olympo, prossima apertura di 187 Centri Operativi Territoriali</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/voce/tecnocasa-incontro.webp</image:loc>
+      <image:title>Locandina: incontro istituzionale a difesa della professione con Alessandro Pedivillano, Serafino Biondo e Calogero Di Carlo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/voce/olympo-green-education.webp</image:loc>
+      <image:title>Locandina Olympo Green Education, cooperativa sociale in rete con UNICESD Olympo: formazione universitaria, inclusione e sostenibilità</image:title>
+    </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/voce/trieste-generali-9ott2026.webp</image:loc>
       <image:title>Incontro istituzionale a Trieste, Palazzo delle Generali: Calogero Di Carlo, Enrico Samer, Gustavo Dejak, Andrea Razzi e Marco Imburgia</image:title>
@@ -494,7 +528,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/eventi/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -668,13 +702,13 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/servizi-studenti/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/rete-e-partner/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -684,6 +718,18 @@
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/partner/mnemosine.webp</image:loc>
       <image:title>Partner accreditato Mnemosine</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/eve.webp</image:loc>
+      <image:title>Enna Verdi Energie Società Benefit</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/olympo-green.webp</image:loc>
+      <image:title>Olympo Green Education</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/partner/capimed.webp</image:loc>
+      <image:title>Capimed Servizi</image:title>
     </image:image>
     <image:image>
       <image:loc>https://unicesd-olympo.com/assets/partner/siulp.webp</image:loc>
@@ -787,8 +833,42 @@
     </image:image>
   </url>
   <url>
+    <loc>https://unicesd-olympo.com/ricerca-e-sostenibilita/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/voce/eve-ricerca-scientifica.webp</image:loc>
+      <image:title>Locandina Ricerca scientifica per un futuro sostenibile, Enna Verdi Energie e UNICESD Olympo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/ricerca/eve-fotovoltaico-utility.webp</image:loc>
+      <image:title>Impianto fotovoltaico a terra nell&#x27;entroterra siciliano</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/ricerca/eve-amianto-prima.webp</image:loc>
+      <image:title>Azienda agricola Gangi Dante: la copertura in amianto prima della bonifica</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/ricerca/eve-amianto-dopo.webp</image:loc>
+      <image:title>La stessa copertura dopo la bonifica, con il nuovo impianto fotovoltaico</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/ricerca/eve-biometano.webp</image:loc>
+      <image:title>Impianto per il biometano di Enna Verdi Energie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/ricerca/eve-torcia-biogas.webp</image:loc>
+      <image:title>Torcia di emergenza dell&#x27;impianto di recupero del biogas da discarica</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://unicesd-olympo.com/assets/ricerca/eve-fotovoltaico-professionale.webp</image:loc>
+      <image:title>Impianti fotovoltaici professionali realizzati per i clienti</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://unicesd-olympo.com/sedi/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -798,7 +878,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/poli-aperti/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -812,7 +892,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/iscrizione/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -822,7 +902,7 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/apri-una-sede/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -832,349 +912,349 @@
   </url>
   <url>
     <loc>https://unicesd-olympo.com/faq/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/contatti/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/lauree-triennali-online/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/lauree-magistrali-online/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-turismo/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-scienze-economia/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/servizi-giuridici/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-politiche/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-comunicazione/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/ingegneria-industriale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/ingegneria-civile-ambientale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-ingegneria-industriale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-ingegneria-civile/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-ingegneria-informatica/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/lettere/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/design-moda/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/lingue-culture/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-lettere/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-lingue-traduzione/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-scienze-pedagogiche/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-psicologia/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/scienze-biologiche/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-scienze-nutrizione/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/corsi-di-laurea/magistrale-scienze-motorie/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/liceo-scientifico/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/liceo-scientifico-sportivo/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/liceo-scienze-applicate/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/liceo-classico/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/liceo-linguistico/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/liceo-scienze-umane/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/liceo-economico-sociale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/tecnico-informatico/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/ragioneria-afm/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/socio-sanitario/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/janus-diploma-online/tecnico-turismo/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/recupero-anni-scolastici/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/odontoiatria-senza-test-ingresso/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/infermieristica-senza-test-ingresso/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/fisioterapia-senza-test-ingresso/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/igiene-dentale-online/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/studiare-medicina-in-romania/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/studiare-medicina-in-spagna/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/laurea-online-valore-legale/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/esami-universita-online/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/laurearsi-lavorando/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/cosa-sono-i-cfu/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/laurea-triennale-magistrale-differenze/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/master-primo-secondo-livello/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/costi-universita-online/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/ai-act-obbligo-formazione/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/come-scegliere-corso-di-laurea/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/riconoscimento-laurea-medicina-estero/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/glossario-universita/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/guide/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/universita-online-palermo/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/universita-online-cefalu/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/universita-online-licata/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://unicesd-olympo.com/universita-italiana-online-portogallo/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -207,7 +207,7 @@ def tm_of(key):
     """'t' o 'm' per qualsiasi corso di laurea (vecchio o nuovo)"""
     if key in LAUREE:
         return LAUREE[key]["typ"]
-    return {"c1": "u", "c2": "t", "c3": "t", "c4": "t", "c5": "t", "c6": "t"}.get(key)
+    return {"c1": "u", "c2": "t", "c3": "t", "c4": "t", "c5": "t", "c6": "t", "c7": "t"}.get(key)
 
 
 def laurea_name(bp, key):
@@ -265,7 +265,7 @@ def lauree_by_area(bp):
     for k, c in LAUREE.items():
         groups.setdefault(c["area"], []).append(k)
     # le lauree storiche vanno nell'area giusta
-    old = {"c1": "giu", "c2": "eco", "c3": "psi", "c4": "ped", "c5": "ing", "c6": "mot"}
+    old = {"c1": "giu", "c2": "eco", "c3": "psi", "c4": "ped", "c5": "ing", "c6": "mot", "c7": "giu"}
     for k, a in old.items():
         groups.setdefault(a, []).insert(0, k)
     out = []
@@ -284,7 +284,7 @@ def lauree_by_area(bp):
 
 
 def all_laurea_keys(bp):
-    return ["c1", "c2", "c3", "c4", "c5", "c6"] + list(LAUREE)
+    return ["c1", "c2", "c3", "c4", "c5", "c6", "c7"] + list(LAUREE)
 
 
 def build_hubs_tm(bp):
@@ -570,7 +570,7 @@ def llms_lines(bp):
 
 
 # le lauree "storiche" rimandano anche alle nuove schede collegate
-_SIB = {"c1": ["l14"], "c2": ["lm56", "l15"], "c3": ["lm51"], "c4": ["lm85"], "c5": ["lm32", "l9"], "c6": ["lm67", "l13"]}
+_SIB = {"c1": ["l14"], "c2": ["lm56", "l15"], "c3": ["lm51"], "c4": ["lm85"], "c5": ["lm32", "l9"], "c6": ["lm67", "l13"], "c7": ["l14"]}
 
 
 def extra_siblings(key):

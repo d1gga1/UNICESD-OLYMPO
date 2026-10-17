@@ -144,6 +144,20 @@ IMAGES = {
     "__IMG_VO_TS_PANTECCA__": "img/voce/trieste-pantecca-ufficio.webp",
     "__IMG_VO_TS_AULA__": "img/voce/trieste-aula-consiliare.webp",
     "__IMG_MNEMOSINE__": "img/partner/mnemosine.webp",
+    # 17 ottobre 2026: EVE, Capimed, Tecnocasa, Olympo Green
+    "__IMG_VO_EVE__": "img/voce/eve-ricerca-scientifica.webp",
+    "__IMG_VO_CAPIMED__": "img/voce/capimed-agrigento.webp",
+    "__IMG_VO_TECNOCASA__": "img/voce/tecnocasa-incontro.webp",
+    "__IMG_VO_GREEN__": "img/voce/olympo-green-education.webp",
+    "__IMG_EVE__": "img/partner/eve.webp",
+    "__IMG_CAPIMED__": "img/partner/capimed.webp",
+    "__IMG_OLYMPO_GREEN__": "img/partner/olympo-green.webp",
+    "__IMG_RS_FV__": "img/ricerca/eve-fotovoltaico-utility.webp",
+    "__IMG_RS_AM1__": "img/ricerca/eve-amianto-prima.webp",
+    "__IMG_RS_AM2__": "img/ricerca/eve-amianto-dopo.webp",
+    "__IMG_RS_BIO__": "img/ricerca/eve-biometano.webp",
+    "__IMG_RS_TORCIA__": "img/ricerca/eve-torcia-biogas.webp",
+    "__IMG_RS_FV2__": "img/ricerca/eve-fotovoltaico-professionale.webp",
 }
 
 # Sfondi generati con Higgsfield + globo animato: finiscono nel CSS e nel markup.
