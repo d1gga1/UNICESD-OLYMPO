@@ -148,6 +148,7 @@ IMAGES = {
     "__IMG_MNEMOSINE__": "img/partner/mnemosine.webp",
     # 17 ottobre 2026: EVE, Capimed, Tecnocasa, Olympo Green
     "__IMG_VO_EVE__": "img/voce/eve-ricerca-scientifica.webp",
+    "__IMG_VO_PACCHETTO__": "img/voce/pacchetto-stampa-proposta.webp",
     "__IMG_VO_CAPIMED__": "img/voce/capimed-agrigento.webp",
     "__IMG_VO_TECNOCASA__": "img/voce/tecnocasa-incontro.webp",
     "__IMG_VO_GREEN__": "img/voce/olympo-green-education.webp",
