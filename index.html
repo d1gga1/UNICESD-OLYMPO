@@ -2244,6 +2244,60 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
   .rs-gal{grid-template-columns:1fr}
   }
 
+
+/* ---- 28/10/2026: La Voce dell'Olympo rivista quindicinale, TG2000, Licata 8 novembre ---- */
+.rvm{margin-bottom:34px}
+.rvm-head{position:relative;z-index:2;display:grid;grid-template-columns:1fr 260px;gap:36px;align-items:start}
+.rvm .eyebrow{margin-bottom:12px}
+.rvm-target{color:#b9c7e6;font-size:14px;padding:12px 16px;border-left:3px solid #4fa0ff;background:rgba(255,255,255,.04);border-radius:0 12px 12px 0}
+.rvm-target b{color:#fff}
+.rvm-issue{border-radius:20px;padding:22px 20px;text-align:center;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(130,180,255,.35);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.rvm-issue-k{display:block;font-family:'Sora';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7fbaff}
+.rvm-issue>b{display:block;font-family:'Sora';font-size:84px;line-height:1;font-weight:800;color:#fff;margin:4px 0 2px;background:linear-gradient(120deg,#fff,#8cc4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rvm-issue-y{display:block;font-family:'Sora';font-size:15px;font-weight:600;color:#fff}
+.rvm-issue-d{display:inline-block;margin-top:10px;padding:5px 12px;border-radius:100px;background:rgba(255,138,43,.14);border:1px solid rgba(255,138,43,.42);color:#ffb066;font-size:11.5px;font-weight:600}
+.rvm-issue-f{display:grid;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(130,180,255,.2);text-align:left}
+.rvm-issue-f div{display:flex;justify-content:space-between;gap:10px;font-size:12.5px}
+.rvm-issue-f span{color:#8d9cbe}
+.rvm-issue-f b{color:#fff;font-weight:600;text-align:right}
+.rvm-sec{position:relative;z-index:2;margin-top:30px}
+.rvm-h{font-size:19px;color:#fff;margin-bottom:16px;display:flex;align-items:baseline;gap:12px}
+.rvm-h small{font-family:'Sora';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7fbaff;font-weight:500}
+.rvm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rvm-art{display:flex;flex-direction:column;padding:18px 18px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(130,180,255,.22);transition:transform .4s var(--ease),border-color .4s}
+.rvm-art:hover{transform:translateY(-3px);border-color:rgba(130,180,255,.55)}
+.rvm-art-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.rvm-n{font-family:'Sora';font-size:22px;font-weight:800;color:rgba(140,196,255,.55);line-height:1}
+.rvm-rub{font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#04102c;background:linear-gradient(120deg,#4fa0ff,#8cc4ff);padding:4px 9px;border-radius:100px;text-align:right}
+.rvm-art small{font-family:'Sora';font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8d9cbe}
+.rvm-art h4{font-size:16.5px;line-height:1.3;color:#fff;margin:6px 0 8px}
+.rvm-art p{font-size:13.4px;color:#b9c7e6;line-height:1.5;flex:1}
+.rvm-firma{margin-top:12px;padding-top:10px;border-top:1px solid rgba(130,180,255,.16);font-size:12px;color:#7fbaff;font-style:italic}
+.rvm-rubriche{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.rvm-rubrica{padding:16px 14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(130,180,255,.22)}
+.rvm-ic{font-size:24px;display:block;margin-bottom:8px}
+.rvm-rubrica b{display:block;color:#fff;font-size:14.5px;line-height:1.25}
+.rvm-rubrica small{display:block;color:#7fbaff;font-size:11.5px;margin:3px 0 8px}
+.rvm-rubrica p{font-size:12.8px;color:#b9c7e6;line-height:1.5}
+.rvm-news-h{font-size:clamp(20px,2.2vw,26px);margin:0 0 18px;padding-top:6px;display:flex;align-items:center;gap:14px}
+.rvm-news-h::after{content:'';flex:1;height:1px;background:var(--line)}
+.vo-tv{position:relative;aspect-ratio:16/10;display:flex!important;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 20%,rgba(79,160,255,.35),transparent 55%),linear-gradient(140deg,#0b1a48,#14307f 55%,#0a1436);color:#fff;text-decoration:none}
+.vo-tv::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 2px,transparent 2px 5px)}
+.vo-tv-live{position:absolute;top:16px;left:16px;font-family:'Sora';font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:8px;background:#d5262f}
+.vo-tv-play{position:relative;width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.7);backdrop-filter:blur(4px);transition:transform .4s var(--ease),background .4s}
+.vo-tv-play svg{margin-left:5px}
+.vo-tv:hover .vo-tv-play{transform:scale(1.08);background:#d5262f}
+.vo-tv-cap{position:absolute;left:16px;right:16px;bottom:14px}
+.vo-tv-cap b{display:block;font-family:'Sora';font-size:17px}
+.vo-tv-cap span{font-size:12.5px;color:#c8d6f4}
+.lic-inaug{display:flex;gap:12px;align-items:flex-start;margin:4px 0 18px;padding:14px 16px;border-radius:14px;background:rgba(255,209,102,.1);border:1px solid rgba(255,209,102,.4);color:#f3e6c4;font-size:14.4px;text-decoration:none;transition:border-color .3s}
+.lic-inaug:hover{border-color:#ffd166}
+.lic-inaug b{color:#ffd166}
+.lic-inaug>span:first-child{font-size:22px;line-height:1}
+@media(max-width:1100px){.rvm-rubriche{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.rvm-head{grid-template-columns:1fr;gap:22px}.rvm-grid{grid-template-columns:1fr 1fr}.rvm-issue{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;text-align:left;align-items:center}.rvm-issue>b{grid-row:span 3;font-size:64px}.rvm-issue-f{grid-column:1/-1}.rvm-issue-k,.rvm-issue-y,.rvm-issue-d{justify-self:start}}
+@media(max-width:600px){.rvm-grid,.rvm-rubriche{grid-template-columns:1fr}}
+
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
 .phero h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:16px 0 18px;max-width:980px}
@@ -2557,6 +2611,36 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
           }
         }
       ]
+    },
+    {
+      "@type": "Event",
+      "@id": "https://unicesd-olympo.com/#licata-inaugurazione-8nov2026",
+      "name": "Grande inaugurazione della nuova sede Global Campus Licata",
+      "description": "Inaugurazione della nuova sede di Global Campus Licata, polo n. 00001 della rete UNICESD Olympo: presentazione dei corsi di laurea online in Economia, Giurisprudenza, Psicologia, Lettere e Filosofia, Ingegneria e Scienze della Formazione e brindisi d'onore.",
+      "startDate": "2026-11-08T19:00:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "image": "https://unicesd-olympo.com/assets/voce/licata-inaugurazione-8nov2026.webp",
+      "location": {
+        "@type": "Place",
+        "name": "Global Campus Licata",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Corso Umberto 37",
+          "postalCode": "92027",
+          "addressLocality": "Licata",
+          "addressRegion": "AG",
+          "addressCountry": "IT"
+        }
+      },
+      "organizer": {
+        "@type": "EducationalOrganization",
+        "@id": "https://unicesd-olympo.com/#organizzazione",
+        "name": "UNICESD Olympo",
+        "url": "https://unicesd-olympo.com/"
+      },
+      "isAccessibleForFree": true,
+      "url": "https://unicesd-olympo.com/la-voce-dell-olympo/#vo-licata-inaugurazione"
     },
     {
       "@type": "Event",
@@ -3014,6 +3098,16 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
 
     <div class="ev-grid">
 
+      <article class="ev-card rv-s" id="evento-licata-8nov">
+        <div class="ev-date"><b>08</b><span>Nov</span><small>2026</small></div>
+        <div class="ev-body">
+          <em>In programma &middot; ore 19:00</em>
+          <b>Inaugurazione della nuova sede Global Campus Licata</b>
+          <p>Il polo n&deg; 00001 della rete apre la sua nuova sede: presentazione dei corsi di laurea online e brindisi d'onore. <a href="/la-voce-dell-olympo/#vo-licata-inaugurazione" style="color:var(--cy);font-weight:600">La locandina</a></p>
+          <span class="ev-where">Global Campus &middot; Corso Umberto 37, Licata (AG)</span>
+        </div>
+      </article>
+
       <article class="ev-card rv-s">
         <div class="ev-date past"><b>18</b><span>Set</span><small>2026</small></div>
         <div class="ev-body">
@@ -3171,6 +3265,7 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
         <article class="card rv tilt bg-informatica" data-modal="k1"><div class="card-ic">&#128187;</div><h3>Certificazioni Informatiche</h3><p>Percorsi riconosciuti per l'attestazione delle competenze digitali, validi come titolo valutabile.</p><div class="card-meta"><span class="chip cy">Digitale</span><span class="chip">Online</span></div><a class="card-more" data-page href="/certificazioni/informatiche/">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
         <article class="card rv tilt bg-territorio" style="transition-delay:.08s" data-modal="k2"><div class="card-ic">&#127760;</div><h3>Certificazioni Linguistiche</h3><p>Livelli da B1 a C2 secondo il Quadro Comune Europeo, con preparazione ed esame in sede.</p><div class="card-meta"><span class="chip cy">CEFR</span><span class="chip">B1 &ndash; C2</span></div><a class="card-more" data-page href="/certificazioni/linguistiche/">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
         <article class="card rv tilt bg-certif" style="transition-delay:.16s" data-modal="k3"><div class="card-ic">&#128203;</div><h3>Percorsi per Graduatorie</h3><p>Corsi e certificazioni utili all'incremento del punteggio nelle graduatorie del comparto scuola.</p><div class="card-meta"><span class="chip cy">Scuola</span><span class="chip">Punteggio</span></div><a class="card-more" data-page href="/certificazioni/graduatorie-scuola/">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></article>
+        <article class="card rv tilt bg-certif" style="transition-delay:.24s" data-modal="k4"><div class="card-ic">&#127860;</div><h3>HACCP Alimentarista</h3><p>Sicurezza alimentare per chi lavora in ristoranti, bar, mense e negozi: 12 ore, in presenza o online. Promo &euro; 29,99.</p><div class="card-meta"><span class="chip cy">Reg. CE 852/2004</span><span class="chip">12 ore</span></div><span class="card-more">Dettagli <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></article>
       </div>
     </div>
 
@@ -4690,6 +4785,7 @@ var DATA={
  k1:{e:'Certificazioni',t:'Certificazioni Informatiche',b:'<p>Percorsi di formazione e certificazione delle competenze digitali, spendibili nei concorsi pubblici, nelle graduatorie scolastiche e nel mercato del lavoro.</p><h5>Ambiti</h5><ul class="m-list">'+li('Alfabetizzazione digitale e uso del pacchetto office')+li('Sicurezza informatica e privacy')+li('Web editing e comunicazione digitale')+li('Coding e pensiero computazionale')+'</ul><p style="font-size:13px;color:var(--txt-mute)">Il valore e la spendibilit&agrave; di ciascuna certificazione dipendono dall\'ente certificatore e dalla normativa vigente al momento della richiesta.</p>'},
  k2:{e:'Certificazioni',t:'Certificazioni Linguistiche',b:'<p>Preparazione ed esame per la certificazione delle competenze linguistiche secondo il Quadro Comune Europeo di Riferimento.</p><h5>Livelli disponibili</h5><ul class="m-list">'+li('B1 &mdash; Intermedio')+li('B2 &mdash; Intermedio superiore')+li('C1 &mdash; Avanzato')+li('C2 &mdash; Padronanza')+'</ul><h5>Lingue</h5><ul class="m-list">'+li('Inglese, francese, spagnolo, tedesco')+li('Italiano L2 per studenti stranieri')+'</ul>'},
  k3:{e:'Certificazioni',t:'Percorsi per Graduatorie',b:'<p>Un pacchetto di corsi e certificazioni pensato per chi partecipa alle procedure di aggiornamento delle graduatorie del comparto scuola.</p><h5>Cosa comprende</h5><ul class="m-list">'+li('Corsi di perfezionamento annuali')+li('Master di I e II livello')+li('Certificazioni informatiche e linguistiche')+li('Assistenza alla compilazione della domanda')+'</ul><p style="font-size:13px;color:var(--txt-mute)">I punteggi attribuibili sono definiti dalle tabelle ministeriali vigenti. Verifica sempre il bando di riferimento.</p>'},
+ k4:{e:'Certificazioni',t:'HACCP Alimentarista',b:stats([['12','ore'],['&euro;29,99','promo'],['6h','ogni 3 anni']])+'<p>Corso di formazione sulla <b>sicurezza alimentare</b> per tutte le figure professionali del settore (ristoranti, bar, mense, industrie alimentari, negozi di alimentari), con Capimed Servizi e in partenariato con Studio Fazio EuroHACCP. In presenza o online.</p><h5>Cosa comprende</h5><ul class="m-list">'+li('Formazione iniziale di 12 ore, conforme al Reg. CE 852/2004')+li('Igiene alimentare e prevenzione dei rischi, con docenti esperti del settore')+li('Attestato al termine del corso e della verifica finale, valido su tutto il territorio nazionale')+li('Rinnovo e aggiornamento: 6 ore ogni 3 anni')+'</ul><h5>A chi &egrave; rivolto</h5><ul class="m-list">'+li('Addetti alla manipolazione degli alimenti')+li('Responsabili e titolari di attivit&agrave; alimentari')+li('Personale di bar, ristoranti, mense e gastronomie')+'</ul><p><b>Promo speciale &euro; 29,99 fino al 31 dicembre 2026.</b> Info e iscrizioni: <a href="mailto:info@unicesd-olympo.com">info@unicesd-olympo.com</a> &middot; <a href="tel:+393881133550">388 113 3550</a> &middot; <a href="tel:+393509651711">350 965 1711</a></p><p style="font-size:13px;color:var(--txt-mute)">Riferimento normativo regionale: Regione Siciliana, D.A. 698/2022.</p>'},
  s1:{e:'Corsi singoli',t:'Corsi Singoli e CFU',b:'<p>Se ti mancano alcuni crediti per accedere a un concorso, a una classe di concorso o a una laurea magistrale, puoi iscriverti a singoli insegnamenti senza immatricolarti a un intero corso di laurea.</p><h5>Come funziona</h5><ul class="m-list">'+li('Individuiamo insieme gli insegnamenti che ti servono')+li('Ti iscrivi solo a quelli, con costi proporzionali')+li('Sostieni gli esami nelle sedi convenzionate')+li('Ricevi la certificazione dei crediti acquisiti')+'</ul>'},
  s2:{e:'Servizi',t:'Riconoscimento della Carriera',b:stats([['48h','risposta'],['0&euro;','costo'],['100%','online']])+'<p>Analizziamo gratuitamente il tuo percorso di studi e la tua esperienza professionale per stimare quanti crediti possono essere riconosciuti e quanto si accorcia il tuo percorso.</p><h5>Cosa ci serve</h5><ul class="m-list">'+li('Autocertificazione degli esami sostenuti')+li('Eventuali attestati di formazione e certificazioni')+li('Curriculum professionale aggiornato')+'</ul><p style="font-size:13px;color:var(--txt-mute)">La valutazione ha carattere orientativo. La delibera formale dei CFU riconosciuti compete all\'ateneo che eroga il corso.</p>'},
  s3:{e:'Business',t:'Formazione Aziendale',b:'<p>Progettiamo percorsi formativi su misura per imprese, studi professionali ed enti, anche in modalit&agrave; blended e finanziabili attraverso i fondi interprofessionali.</p><h5>Ambiti pi&ugrave; richiesti</h5><ul class="m-list">'+li('Internazionalizzazione ed export')+li('Digitalizzazione dei processi e AI applicata')+li('Soft skill, leadership e team management')+li('Compliance e sicurezza sul lavoro')+'</ul>'},
@@ -4825,7 +4921,7 @@ window.addEventListener('scroll',function(){
       var on=d.hasAttribute('hidden');
       if(on)d.removeAttribute('hidden'); else d.setAttribute('hidden','');
       b.setAttribute('aria-expanded',on?'true':'false');
-      b.querySelector('span').textContent=on?'Chiudi il piano':'Leggi il piano completo';
+      b.querySelector('span').textContent=on?(b.getAttribute('data-open')||'Chiudi il piano'):(b.getAttribute('data-closed')||'Leggi il piano completo');
     });
   });
 
