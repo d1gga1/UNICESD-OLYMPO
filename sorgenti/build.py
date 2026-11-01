@@ -150,6 +150,9 @@ IMAGES = {
     "__IMG_VO_EVE__": "img/voce/eve-ricerca-scientifica.webp",
     "__IMG_VO_PACCHETTO__": "img/voce/pacchetto-stampa-proposta.webp",
     "__IMG_VO_LICATA_INAUG__": "img/voce/licata-inaugurazione-8nov2026.webp",
+    "__IMG_VO_AFEIP_BUCALO__": "img/voce/afeip-20anni-bucalo.webp",
+    "__IMG_VO_AFEIP_PLATEA__": "img/voce/afeip-20anni-platea.webp",
+    "__IMG_VO_AFEIP_SALA__": "img/voce/afeip-20anni-sala.webp",
     "__IMG_VO_HACCP__": "img/voce/haccp-alimentarista.webp",
     "__IMG_VO_CAPIMED__": "img/voce/capimed-agrigento.webp",
     "__IMG_VO_TECNOCASA__": "img/voce/tecnocasa-incontro.webp",
@@ -189,6 +192,8 @@ AI_ASSETS = {
     "__PREMIO_VIDEO__": "img/premio-video.mp4",      # ripresa integrale 2:47 della premiazione
     "__CESD_VIDEO_1__": "img/cesd/cesd-video-1.mp4",   # incontro nella sala museo, 0:50
     "__CESD_VIDEO_2__": "img/cesd/cesd-video-2.mp4",   # proiezione e conferenza, 1:21
+    "__VO_AFEIP_VIDEO__": "img/voce/afeip-20anni-video.mp4",    # convegno AFEIP 20 anni, 31 ottobre 2026, 0:15
+    "__VO_AFEIP_VP__": "img/voce/afeip-20anni-video.webp",
     "__PLAT_VIDEO__": "img/ai/plat.mp4",        # b-roll studentessa al laptop, loop di 4s
     "__AULA_VIDEO_1__": "img/aula/lezione-demo-1.mp4",    # demo aula virtuale: Diritto costituzionale, lezione 1 (3:12)
     "__AULA_POSTER_1__": "img/aula/lezione-demo-1.webp",

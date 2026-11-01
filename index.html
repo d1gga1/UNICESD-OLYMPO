@@ -2298,6 +2298,83 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
 @media(max-width:900px){.rvm-head{grid-template-columns:1fr;gap:22px}.rvm-grid{grid-template-columns:1fr 1fr}.rvm-issue{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;text-align:left;align-items:center}.rvm-issue>b{grid-row:span 3;font-size:64px}.rvm-issue-f{grid-column:1/-1}.rvm-issue-k,.rvm-issue-y,.rvm-issue-d{justify-self:start}}
 @media(max-width:600px){.rvm-grid,.rvm-rubriche{grid-template-columns:1fr}}
 
+/* ===== RIVISTA: lettore articoli + popup "Pubblica sulla rivista" (29/10/2026) ===== */
+.rvm-art{cursor:pointer;outline:none}
+.rvm-art:focus-visible{border-color:#8cc4ff;box-shadow:0 0 0 3px rgba(79,160,255,.35)}
+.rvm-read{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:600;color:#fff}
+.rvm-read i{font-style:normal;font-weight:400;color:#8d9cbe;font-size:12px}
+.rvm-read b{margin-left:auto;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(79,160,255,.16);border:1px solid rgba(130,180,255,.4);color:#8cc4ff;transition:.35s var(--ease)}
+.rvm-art:hover .rvm-read b{background:#4fa0ff;color:#04102c;transform:translateX(3px)}
+.rvrd,.rvreg{position:fixed;inset:0;z-index:9600;background:rgba(4,9,26,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;transition:.45s var(--ease)}
+.rvreg{z-index:9700}
+.rvrd.on,.rvreg.on{opacity:1;visibility:visible}
+.rvrd-box{position:relative;width:100%;max-width:820px;height:min(92vh,1100px);border-radius:24px;overflow:hidden;background:#fbfaf7;box-shadow:0 50px 120px rgba(0,0,0,.6);transform:translateY(40px) scale(.97);transition:.55s var(--ease)}
+.rvrd.on .rvrd-box,.rvreg.on .rvreg-box{transform:none}
+.rvrd-scroll{height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.rvrd-x{position:absolute;top:14px;right:14px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(4,16,44,.55);color:#fff;display:grid;place-items:center;cursor:pointer;transition:.3s}
+.rvrd-x:hover{background:#4fa0ff;color:#04102c;transform:rotate(90deg)}
+.rvrd-head{padding:44px 56px 34px;color:#fff;background:radial-gradient(120% 140% at 100% 0,#1d3a8a 0,rgba(29,58,138,0) 60%),linear-gradient(140deg,#06112b,#0d1f52)}
+.rvrd-mast{font-family:'Sora';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7fbaff;padding-bottom:16px;margin-bottom:20px;border-bottom:1px solid rgba(130,180,255,.22);padding-right:44px}
+.rvrd-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.rvrd-n{font-family:'Sora';font-size:30px;font-weight:800;line-height:1;color:rgba(140,196,255,.6)}
+.rvrd-meta small{font-family:'Sora';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#b9c7e6}
+.rvrd-head h3{font-size:clamp(24px,3.2vw,36px);line-height:1.18;color:#fff;margin:0 0 18px;letter-spacing:-.01em}
+.rvrd-by{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:14px;color:#cfe0ff}
+.rvrd-by span{font-style:italic}
+.rvrd-by i{font-style:normal;font-size:12px;color:#8d9cbe;padding:3px 10px;border-radius:100px;border:1px solid rgba(130,180,255,.3)}
+.rvrd-body{padding:40px 56px 10px;max-width:720px;margin:0 auto;color:#1f2433}
+.rvrd-body p{font-family:'Outfit';font-size:17.5px;line-height:1.78;margin:0 0 1.2em;color:#262b3b}
+.rvrd-body p:first-child::first-letter{float:left;font-family:'Sora';font-weight:800;font-size:64px;line-height:.9;padding:6px 10px 0 0;color:#1d3a8a}
+.rvrd-cta{max-width:720px;margin:14px auto 0;padding:18px 20px;border-radius:16px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#eef3fc;border:1px solid #d3def3;margin-left:56px;margin-right:56px}
+.rvrd-cta>div b{display:block;color:#0d1f52;font-size:15.5px}
+.rvrd-cta>div span{color:#55607a;font-size:13.5px}
+.rvreg .btn-g,.rvreg .btn-g span{color:#fff}
+.rvreg .btn-g{border-color:rgba(130,180,255,.4);background:rgba(255,255,255,.06)}
+.rvrd-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:26px 56px 44px}
+.rvrd-nav button{display:flex;flex-direction:column;gap:4px;text-align:left;padding:14px 16px;border-radius:14px;border:1px solid #dfe4ee;background:#fff;cursor:pointer;font-family:'Outfit';transition:.3s}
+.rvrd-nav button:last-child{text-align:right}
+.rvrd-nav button:hover{border-color:#4fa0ff;box-shadow:0 8px 24px rgba(13,31,82,.1)}
+.rvrd-nav small{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#4f7fd9;font-weight:600}
+.rvrd-nav b{font-size:14px;line-height:1.35;color:#0d1f52;font-weight:600}
+.rvrd-nav button[disabled]{visibility:hidden}
+.rvreg-box{position:relative;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;border-radius:24px;padding:38px 34px 28px;color:#fff;border:1px solid rgba(130,180,255,.32);background:radial-gradient(120% 90% at 100% 0,rgba(79,160,255,.22),rgba(79,160,255,0) 60%),linear-gradient(140deg,#0a1436,#152668 55%,#1d2f7c);box-shadow:0 50px 120px rgba(4,10,32,.7);transform:translateY(40px) scale(.95);transition:.55s var(--ease)}
+.rvreg-ic{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;font-size:26px;background:rgba(255,255,255,.08);border:1px solid rgba(130,180,255,.35);margin-bottom:14px}
+.rvreg-eye{font-family:'Sora';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7fbaff;margin-bottom:8px}
+.rvreg-box h3{font-size:clamp(23px,3vw,29px);line-height:1.2;margin:0 0 10px;color:#fff}
+.rvreg-lead{color:#b9c7e6;font-size:14.6px;margin:0 0 20px}
+.rvreg-lead b{color:#fff}
+.rvreg .field{margin-bottom:13px}
+.rvreg .field label{display:block;font-size:12.5px;color:#b9c7e6;margin-bottom:6px}
+.rvreg .field input{padding:12px 14px;font-size:14px;background:rgba(255,255,255,.07);border-color:rgba(130,180,255,.28);color:#eef3ff}
+.rvreg .f-row{gap:12px}
+.rvreg .check{color:#93a6cb}
+.rvreg .check a{color:#8cc4ff}
+.rvreg-later{display:block;text-align:center;margin-top:12px;font-size:12.6px;color:#8d9cbe;text-decoration:underline;text-underline-offset:3px}
+.rvreg-ok{text-align:center;padding:10px 0}
+.rvreg-ok p{color:#b9c7e6;font-size:14.4px;margin:0 0 18px}
+.rvreg-ok p b{color:#fff}
+.rvreg-note{padding:13px 15px;border-radius:13px;border:1px solid rgba(255,176,102,.4);background:rgba(255,138,43,.1);font-size:13px;color:#ffd2a8;margin:0 0 16px;text-align:left}
+body.rv-lock{overflow:hidden}
+@media(max-width:700px){
+  .rvrd,.rvreg{padding:0;align-items:flex-end}
+  .rvrd-box{height:96vh;border-radius:20px 20px 0 0}
+  .rvrd-head{padding:34px 20px 26px}
+  .rvrd-body{padding:28px 20px 6px}
+  .rvrd-body p{font-size:16.5px;line-height:1.72}
+  .rvrd-cta{margin-left:20px;margin-right:20px}
+  .rvrd-nav{grid-template-columns:1fr;padding:22px 20px 34px}
+  .rvrd-nav button:last-child{text-align:left}
+  .rvreg-box{border-radius:22px 22px 0 0;padding:30px 20px 22px;max-height:94vh}
+  .rvreg .f-row{grid-template-columns:1fr;gap:0}
+}
+/* ---------- VOCE: video nella notizia (AFEIP 20 anni) ---------- */
+.vo-grid>*{min-width:0}
+.vo-media.vo-video{background:#000}
+.vo-media.vo-video video{max-width:100%}
+.vo-media.vo-video:hover{transform:none}
+.vo-media.vo-video video{display:block;width:100%;height:auto;max-height:620px;aspect-ratio:9/16;object-fit:contain;background:#000;margin:0 auto}
+@media (max-width:860px){.vo-media.vo-video video{max-height:72vh}}
+
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
 .phero h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:16px 0 18px;max-width:980px}
@@ -2645,10 +2722,10 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
     {
       "@type": "Event",
       "@id": "https://unicesd-olympo.com/#afeip-31ott2026",
-      "name": "Insieme, per una formazione sempre più grande - AFEIP Formazione Professionale",
-      "description": "Giornata con l'Associazione Formazione e Inserimento Professionale al Centro Sociale Don Pino Puglisi: interventi di Rosalba Mollica, presidente FEIP, e Rosario Enzo Mollica, vicepresidente FEIP, interventi dei partecipanti sui nuovi temi della formazione partecipata; chiude i lavori Calogero Di Carlo, CEO di UNICESD Olympo.",
+      "name": "AFEIP, 20 anni. Una storia. Infinite possibilità - Convegno AFEIP Formazione Professionale",
+      "description": "Convegno per il ventesimo anniversario dell'Associazione Formazione e Inserimento Professionale al Centro Sociale Don Pino Puglisi di Piraino: saluti istituzionali di Rosario Enzo Mollica, presidente AFEIP, interventi dei partecipanti, fra cui la senatrice Ella Bucalo; chiude i lavori Calogero Di Carlo, CEO di UNICESD Olympo. Alle 13:00 celebrazione del 20° anniversario con aperitivo.",
       "startDate": "2026-10-31T10:00:00+01:00",
-      "endDate": "2026-10-31T17:00:00+01:00",
+      "endDate": "2026-10-31T14:30:00+01:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "image": "https://unicesd-olympo.com/assets/eventi/programma-31ott2026.webp",
@@ -2657,9 +2734,9 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
         "name": "Centro Sociale \"Don Pino Puglisi\"",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Via del Sole snc",
+          "streetAddress": "Via del Sole 72/A",
           "postalCode": "98060",
-          "addressLocality": "Gliaca di Piraino",
+          "addressLocality": "Piraino",
           "addressRegion": "ME",
           "addressCountry": "IT"
         }
@@ -3043,30 +3120,30 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
       <p>Convention, open day, incontri istituzionali e appuntamenti sportivi delle realt&agrave; della rete. Qui trovi il calendario aggiornato, con i prossimi appuntamenti in evidenza.</p>
     </div>
 
+    <!-- 31 ottobre 2026: 20 anni di AFEIP a Piraino (locandina definitiva: img/eventi/programma-31ott2026.webp) -->
     <div class="ev-feat rv-s" id="evento-31ott">
-      <a class="ev-poster" href="assets/eventi/programma-31ott2026.webp" target="_blank" rel="noopener" aria-label="Apri a schermo intero il programma del 31 ottobre 2026"><img width="1290" height="1384" src="assets/eventi/programma-31ott2026.webp" alt="Programma del giorno, 31 ottobre 2026: AFEIP Formazione professionale al Centro Sociale Don Pino Puglisi di Gliaca di Piraino" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></a>
+      <a class="ev-poster" href="assets/eventi/programma-31ott2026.webp" target="_blank" rel="noopener" aria-label="Apri a schermo intero il programma del convegno del 31 ottobre 2026"><img width="1078" height="1460" src="assets/eventi/programma-31ott2026.webp" alt="Programma del convegno AFEIP 20 anni, 31 ottobre 2026, Centro Sociale Don Pino Puglisi, Via del Sole 72/A, Piraino (ME)" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></a>
       <div class="ev-main">
-        <span class="ev-badge">Prossimo evento <i></i></span>
-        <h3>Insieme, per una formazione sempre pi&ugrave; grande</h3>
-        <div class="ev-kicker">AFEIP Formazione Professionale &mdash; Idee, persone, territori, opportunit&agrave; per il futuro</div>
-        <p class="ev-lead">Una giornata con l'<b>Associazione Formazione e Inserimento Professionale</b> al Centro Sociale &laquo;Don Pino Puglisi&raquo; di Gliaca di Piraino: l'accoglienza dei partecipanti, gli interventi di <b>Rosalba Mollica</b> e <b>Rosario Enzo Mollica</b>, presidente e vicepresidente FEIP, il confronto aperto sui nuovi temi della <b>formazione partecipata</b> e la chiusura dei lavori affidata a <b>Calogero Di Carlo</b>, CEO di UNICESD Olympo.</p>
+        <span class="ev-badge" style="background:rgba(56,201,138,.13);border-color:rgba(56,201,138,.45);color:#7ee0a8"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><path d="M20 6L9 17l-5-5"/></svg> Appena concluso</span>
+        <h3>AFEIP, 20 anni. Una storia. Infinite possibilit&agrave;.</h3>
+        <div class="ev-kicker">Convegno per il ventesimo anniversario di AFEIP Formazione Professionale &mdash; con la senatrice Ella Bucalo</div>
+        <p class="ev-lead">Al Centro Sociale &laquo;Don Pino Puglisi&raquo; di Piraino l'<b>Associazione Formazione e Inserimento Professionale</b> ha celebrato vent'anni di attivit&agrave;: i saluti istituzionali del presidente <b>Rosario Enzo Mollica</b>, gli interventi dei partecipanti, fra cui la senatrice <b>Ella Bucalo</b>, e la chiusura dei lavori affidata a <b>Calogero Di Carlo</b>, CEO di UNICESD Olympo.</p>
         <div class="ev-facts">
-          <div class="ev-fact"><div class="ic">&#128197;</div><div><b>Sabato 31 ottobre 2026</b><span>Inizio dei lavori ore 11:00</span></div></div>
-          <div class="ev-fact"><div class="ic">&#128337;</div><div><b>Registrazione e aperitivo</b><span>dalle ore 10:00</span></div></div>
-          <div class="ev-fact"><div class="ic">&#128205;</div><div><b>Centro Sociale &laquo;Don Pino Puglisi&raquo;</b><span>Via del Sole snc, 98060 Gliaca di Piraino (ME)</span></div></div>
+          <div class="ev-fact"><div class="ic">&#128197;</div><div><b>Sabato 31 ottobre 2026</b><span>dalle ore 10:00</span></div></div>
+          <div class="ev-fact"><div class="ic">&#127881;</div><div><b>20&deg; anniversario AFEIP</b><span>aperitivo e momento conviviale</span></div></div>
+          <div class="ev-fact"><div class="ic">&#128205;</div><div><b>Centro Sociale &laquo;Don Pino Puglisi&raquo;</b><span>Via del Sole 72/A, 98060 Piraino (ME)</span></div></div>
         </div>
         <ol class="ev-prog">
-          <li><b>10:00</b><span>Registrazione dei partecipanti e aperitivo di accoglienza</span></li>
-          <li><b>11:00</b><span>Inizio dei lavori</span></li>
-          <li><b>11:30</b><span>Interviene Rosalba Mollica, presidente FEIP</span></li>
-          <li><b>12:00&ndash;17:00</b><span>Interviene Rosario Enzo Mollica, vicepresidente FEIP</span></li>
-          <li><b>12:00&ndash;17:00</b><span>Interventi dei partecipanti sui nuovi temi della formazione partecipata</span></li>
-          <li><b>13:00</b><span>Chiude i lavori Calogero Di Carlo, CEO UNICESD Olympo</span></li>
+          <li><b>10:00</b><span>Registrazione dei partecipanti</span></li>
+          <li><b>10:30</b><span>Saluti istituzionali dell'Ing. Rosario Enzo Mollica, presidente AFEIP</span></li>
+          <li><b>11:00</b><span>Intervento dei partecipanti</span></li>
+          <li><b>12:00</b><span>Chiude i lavori Calogero Di Carlo, CEO UNICESD Olympo</span></li>
+          <li><b>13:00</b><span>Celebrazione del 20&deg; anniversario AFEIP, con aperitivo e momento conviviale</span></li>
         </ol>
         <div class="hero-cta" style="opacity:1;animation:none">
-          <button class="btn btn-p" data-evopen><span>Partecipa</span><span class="shine"></span></button>
+          <a href="/la-voce-dell-olympo/#vo-afeip-20anni" class="btn btn-p"><span>Foto e video</span><span class="shine"></span></a>
           <a href="assets/eventi/programma-31ott2026.webp" target="_blank" rel="noopener" class="btn btn-g">Apri il programma</a>
-          <a href="tel:+390941060287" class="btn btn-g">&#9742; AFEIP 0941 060287</a>
+          <a href="https://www.facebook.com/share/v/1FQSECrGQK/" target="_blank" rel="noopener" class="btn btn-g">Video su Facebook</a>
         </div>
       </div>
     </div>
@@ -4541,7 +4618,7 @@ html.ar-app.offline .ar-body::before{content:'Sei offline: vedi gli ultimi dati 
 <div id="evbg" role="dialog" aria-modal="true" aria-labelledby="evpop-title">
   <div class="evpop">
     <button class="evpop-x" id="evx" aria-label="Chiudi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div class="evpop-img"><img width="1290" height="1384" src="assets/eventi/programma-31ott2026.webp" alt="Programma del 31 ottobre 2026, AFEIP a Gliaca di Piraino" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></div>
+    <div class="evpop-img"><img width="1078" height="1460" src="assets/eventi/programma-31ott2026.webp" alt="Programma del 31 ottobre 2026, AFEIP a Piraino" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></div>
     <div class="evpop-main" id="evpop-main">
       <span class="ev-badge">Prossimo evento <i></i></span>
       <h3 id="evpop-title">Insieme, per una formazione sempre pi&ugrave; grande</h3>
@@ -6664,6 +6741,158 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
   if(!('IntersectionObserver' in window)){ q('.pg-bar i').style.width=w; return }
   var o=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ o.disconnect(); setTimeout(function(){ q('.pg-bar i').style.width=w },250) } },{threshold:.4});
   o.observe(bar);
+})();
+
+/* ---------- RIVISTA: lettore degli articoli del numero ---------- */
+(function(){
+  var rd=document.getElementById('rvrd'); if(!rd)return;
+  document.body.appendChild(rd); /* fuori dalla sezione: sopra header e widget */
+  var arts=[].slice.call(document.querySelectorAll('#vo-rivista .rvm-art')); if(!arts.length)return;
+  var cur=-1, g=function(id){return document.getElementById(id)};
+  function txt(a,s){var e=a.querySelector(s);return e?e.innerHTML:''}
+  function show(i){
+    var a=arts[i]; if(!a)return; cur=i;
+    g('rvrd-n').textContent=txt(a,'.rvm-n'); g('rvrd-rub').innerHTML=txt(a,'.rvm-rub'); g('rvrd-k').innerHTML=txt(a,'small');
+    g('rvrd-t').innerHTML=txt(a,'h4'); g('rvrd-f').innerHTML=txt(a,'.rvm-firma');
+    g('rvrd-min').textContent=(a.getAttribute('data-min')||'3')+' min di lettura';
+    g('rvrd-body').innerHTML=txt(a,'.rvm-full');
+    var p=arts[i-1], n=arts[i+1], bp=g('rvrd-prev'), bn=g('rvrd-next');
+    bp.disabled=!p; bn.disabled=!n;
+    bp.querySelector('b').innerHTML=p?txt(p,'h4'):''; bn.querySelector('b').innerHTML=n?txt(n,'h4'):'';
+    g('rvrd-scroll').scrollTop=0;
+    try{ history.replaceState(null,'','#'+a.id) }catch(e){}
+  }
+  function open(i){
+    /* lettura riservata ai registrati: chi non lo e' vede prima il popup "Registrati per leggere" */
+    if(!(window.rvLettore&&window.rvLettore())){ if(window.rvGate){ window.rvGate(function(){open(i)}); return } }
+    show(i); rd.classList.add('on'); document.body.classList.add('rv-lock'); setTimeout(function(){g('rvrd-x').focus()},300)
+  }
+  function close(){
+    rd.classList.remove('on'); document.body.classList.remove('rv-lock');
+    try{ history.replaceState(null,'',location.pathname+location.search+'#vo-rivista') }catch(e){}
+    if(arts[cur]) arts[cur].focus({preventScroll:true});
+  }
+  window.rvReaderOpen=function(){return rd.classList.contains('on')};
+  arts.forEach(function(a,i){
+    a.addEventListener('click',function(e){ if(e.target.closest('a'))return; open(i) });
+    a.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(i) } });
+  });
+  g('rvrd-x').addEventListener('click',close);
+  g('rvrd-prev').addEventListener('click',function(){ show(cur-1) });
+  g('rvrd-next').addEventListener('click',function(){ show(cur+1) });
+  rd.addEventListener('click',function(e){ if(e.target===rd)close() });
+  document.addEventListener('keydown',function(e){
+    if(!rd.classList.contains('on'))return;
+    if(e.key==='Escape'){ var r=g('rvreg'); if(!(r&&r.classList.contains('on')))close() }
+  });
+  /* link diretto a un articolo: /la-voce-dell-olympo/#rv-art-03 */
+  var m=/^#rv-art-(\d\d)$/.exec(location.hash);
+  if(m){ var k=arts.findIndex(function(a){return a.id==='rv-art-'+m[1]}); if(k>-1 && arts[k].offsetParent!==null) setTimeout(function(){open(k)},700) }
+})();
+
+/* ---------- RIVISTA: popup "Vuoi pubblicare qualcosa sulla rivista? Registrati" ---------- */
+(function(){
+  var bg=document.getElementById('rvreg'); if(!bg)return;
+  document.body.appendChild(bg);
+  var g=function(id){return document.getElementById(id)}, form=g('rvregform'), main=g('rvreg-main');
+  var KEY='uo-rivista-pubblica', DONE='uo-rivista-registrato', LETT='uo-rivista-lettore', opened=false;
+  var mode='pubblica', after=null;
+  /* testi del popup nelle due modalita': "pubblica" (proponi un contributo) e "leggi" (registrazione per leggere) */
+  var TX={
+    pubblica:{ic:'&#9997;&#65039;',t:'Vuoi pubblicare qualcosa <span class="grad">sulla rivista?</span>',
+      l:'Un articolo, un\'opinione, un reportage, una storia: <b>registrati</b> e la redazione ti ricontatta per concordare il tuo contributo.',
+      p:'acconsento a essere ricontattato dalla redazione',s:'Registrati',x:'No grazie, continuo a leggere'},
+    leggi:{ic:'&#128214;',t:'Registrati per leggere <span class="grad">La Voce dell\'Olympo</span>',
+      l:'La lettura &egrave; <b>gratuita</b>: lasciaci nome, cognome, email e telefono e leggi subito tutti gli articoli del numero. Ti avvisiamo anche quando esce il prossimo.',
+      p:'acconsento a ricevere comunicazioni sulla rivista e sui nuovi numeri',s:'Registrati e leggi',x:'Non ora'}
+  };
+  function setMode(m){
+    mode=m; var x=TX[m], q=function(id,h){var e=g(id); if(e)e.innerHTML=h};
+    q('rvreg-ic',x.ic); q('rvreg-t',x.t); q('rvreg-lead',x.l); q('rv-priv-t',x.p); q('rvreg-sub',x.s); q('rvreg-later',x.x);
+  }
+  function lsj(k,v){ try{ if(v===undefined)return JSON.parse(localStorage.getItem(k)||'null'); localStorage.setItem(k,JSON.stringify(v)) }catch(e){ return null } }
+  window.rvLettore=function(){ return !!(lsj(LETT)||ls(DONE)) };
+  window.rvGate=function(cb){ after=cb||null; setMode('leggi'); open() };
+  var forza=/[?&]pubblica=1/.test(location.search);
+  function ss(k,v){ try{ if(v===undefined)return sessionStorage.getItem(k); sessionStorage.setItem(k,v) }catch(e){} }
+  function ls(k,v){ try{ if(v===undefined)return localStorage.getItem(k); localStorage.setItem(k,v) }catch(e){} }
+  function open(){
+    if(bg.classList.contains('on'))return;
+    opened=true; ss(KEY,'1');
+    var me=lsj(LETT); if(me && form){ ['nome','cognome','mail','tel'].forEach(function(k){ var e=g('rv-'+k); if(e&&!e.value) e.value=me[k==='mail'?'email':k==='tel'?'telefono':k]||'' }) }
+    bg.classList.add('on'); document.body.classList.add('rv-lock');
+    setTimeout(function(){ var f=g('rv-nome'); if(f && window.innerWidth>860)f.focus() },500);
+  }
+  function close(){
+    bg.classList.remove('on'); after=null;
+    if(!(window.rvReaderOpen&&window.rvReaderOpen())) document.body.classList.remove('rv-lock');
+    setTimeout(function(){ if(!bg.classList.contains('on')) setMode('pubblica') },500);
+  }
+  g('rvreg-x').addEventListener('click',close);
+  g('rvreg-later').addEventListener('click',function(e){e.preventDefault();close()});
+  bg.addEventListener('click',function(e){ if(e.target===bg)close() });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&bg.classList.contains('on'))close() });
+  document.addEventListener('click',function(e){ var b=e.target.closest('[data-rvreg]'); if(b){ e.preventDefault(); setMode('pubblica'); open() } });
+
+  /* apertura automatica: una volta per visita, dopo 6 secondi passati sul riquadro della rivista */
+  function busy(){ return [].some.call(document.querySelectorAll('#evbg.on,#vobg.on,#mbg.on,#arbg.on,#rvrd.on'),function(){return true}) }
+  function tryAuto(){ if(opened||busy())return; open() }
+  var box=g('vo-rivista');
+  if(forza) setTimeout(open,1200);
+  else if(box && !ss(KEY) && !ls(DONE) && 'IntersectionObserver' in window){
+    var t=null, io=new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){ if(!t) t=setTimeout(function(){ io.disconnect(); tryAuto() },6000) }
+      else if(t){ clearTimeout(t); t=null }
+    },{threshold:.2});
+    io.observe(box);
+  }
+
+  /* invio: tabella Supabase rivista_autori; se non riesce, si propone l'invio per email */
+  function bad(el,cond){ var f=el.closest('.field'); f.classList.toggle('err',!cond); return cond }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=g('rv-nome'), c=g('rv-cognome'), m=g('rv-mail'), t=g('rv-tel'), pv=g('rv-priv'), ok=true;
+    ok = bad(n, n.value.trim().length>=2) && ok;
+    ok = bad(c, c.value.trim().length>=2) && ok;
+    ok = bad(m, /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(m.value.trim())) && ok;
+    ok = bad(t, t.value.replace(/\D/g,'').length>=8) && ok;
+    if(!pv.checked){ ok=false; pv.parentNode.style.color='#ff9aa4'; setTimeout(function(){pv.parentNode.style.color=''},2200) }
+    if(!ok)return;
+    var d={nome:n.value.trim().slice(0,80), cognome:c.value.trim().slice(0,80), email:m.value.trim().slice(0,160), telefono:t.value.trim().slice(0,30), pagina:(location.origin+location.pathname).slice(0,200)};
+    if(mode==='leggi') d.tipo='lettore'; /* colonna aggiunta in supabase-rivista.sql (1 novembre 2026) */
+    var C=window.UO_AUTH||{};
+    /* chi si registra (per leggere o per pubblicare) diventa lettore: i dati restano solo nel suo browser per riempire il modulo */
+    lsj(LETT,{nome:d.nome,cognome:d.cognome,email:d.email,telefono:d.telefono});
+    if(mode==='leggi'){
+      var go=after; var sb=g('rvreg-sub'); if(sb) sb.innerHTML='Un attimo&hellip;';
+      var fine=function(){ bg.classList.remove('on'); after=null; setTimeout(function(){ setMode('pubblica') },500); if(go) go(); else document.body.classList.remove('rv-lock') };
+      /* la lettura non resta bloccata se il salvataggio non riesce: si apre comunque l'articolo */
+      if(!(C.url&&C.key)||!window.fetch){ fine(); return }
+      var tm=setTimeout(fine,4000), fatto=false, uno=function(){ if(fatto)return; fatto=true; clearTimeout(tm); fine() };
+      fetch(C.url+'/rest/v1/rivista_autori',{method:'POST',headers:{'apikey':C.key,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(d)})
+        .then(uno).catch(uno);
+      return;
+    }
+    var btn=form.querySelector('button[type=submit]'); btn.innerHTML='<span>Invio in corso&hellip;</span>'; btn.disabled=true;
+    var done=function(saved){
+      if(saved) ls(DONE,'1');
+      var esc=function(s){return String(s).replace(/[&<>"]/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[x]})};
+      var mail='mailto:info@unicesd-olympo.com?subject='+encodeURIComponent("La Voce dell'Olympo - voglio pubblicare sulla rivista")
+        +'&body='+encodeURIComponent('Nome: '+d.nome+'\nCognome: '+d.cognome+'\nEmail: '+d.email+'\nTelefono: '+d.telefono+'\n\nVorrei proporre un contributo per La Voce dell\'Olympo.');
+      main.innerHTML='<div class="rvreg-ok">'
+        +'<div class="ok-icon" style="position:relative;margin:0 auto 14px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div>'
+        +'<h3 style="margin-bottom:10px">Grazie, '+esc(d.nome)+'!</h3>'
+        +(saved
+          ? '<p>La tua registrazione &egrave; arrivata alla redazione de <b>La Voce dell\'Olympo</b>. Ti ricontattiamo a <b>'+esc(d.email)+'</b> per concordare il tuo contributo.</p>'
+          : '<div class="rvreg-note">Non siamo riusciti a registrare la richiesta in automatico. Inviala con un clic per email: i tuoi dati sono gi&agrave; scritti nel messaggio.</div>'
+            +'<a href="'+mail+'" class="btn btn-p" style="width:100%;margin-bottom:10px"><span>&#9993; Invia per email</span></a>')
+        +'<button type="button" class="btn btn-g" id="rvreg-done" style="width:100%"><span>Torna alla rivista</span></button></div>';
+      g('rvreg-done').addEventListener('click',close);
+    };
+    if(!(C.url&&C.key)||!window.fetch){ done(false); return }
+    fetch(C.url+'/rest/v1/rivista_autori',{method:'POST',headers:{'apikey':C.key,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(d)})
+      .then(function(r){ done(r.ok) }).catch(function(){ done(false) });
+  });
 })();
 </script>
 

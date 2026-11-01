@@ -2095,3 +2095,155 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
   var o=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ o.disconnect(); setTimeout(function(){ q('.pg-bar i').style.width=w },250) } },{threshold:.4});
   o.observe(bar);
 })();
+
+/* ---------- RIVISTA: lettore degli articoli del numero ---------- */
+(function(){
+  var rd=document.getElementById('rvrd'); if(!rd)return;
+  document.body.appendChild(rd); /* fuori dalla sezione: sopra header e widget */
+  var arts=[].slice.call(document.querySelectorAll('#vo-rivista .rvm-art')); if(!arts.length)return;
+  var cur=-1, g=function(id){return document.getElementById(id)};
+  function txt(a,s){var e=a.querySelector(s);return e?e.innerHTML:''}
+  function show(i){
+    var a=arts[i]; if(!a)return; cur=i;
+    g('rvrd-n').textContent=txt(a,'.rvm-n'); g('rvrd-rub').innerHTML=txt(a,'.rvm-rub'); g('rvrd-k').innerHTML=txt(a,'small');
+    g('rvrd-t').innerHTML=txt(a,'h4'); g('rvrd-f').innerHTML=txt(a,'.rvm-firma');
+    g('rvrd-min').textContent=(a.getAttribute('data-min')||'3')+' min di lettura';
+    g('rvrd-body').innerHTML=txt(a,'.rvm-full');
+    var p=arts[i-1], n=arts[i+1], bp=g('rvrd-prev'), bn=g('rvrd-next');
+    bp.disabled=!p; bn.disabled=!n;
+    bp.querySelector('b').innerHTML=p?txt(p,'h4'):''; bn.querySelector('b').innerHTML=n?txt(n,'h4'):'';
+    g('rvrd-scroll').scrollTop=0;
+    try{ history.replaceState(null,'','#'+a.id) }catch(e){}
+  }
+  function open(i){
+    /* lettura riservata ai registrati: chi non lo e' vede prima il popup "Registrati per leggere" */
+    if(!(window.rvLettore&&window.rvLettore())){ if(window.rvGate){ window.rvGate(function(){open(i)}); return } }
+    show(i); rd.classList.add('on'); document.body.classList.add('rv-lock'); setTimeout(function(){g('rvrd-x').focus()},300)
+  }
+  function close(){
+    rd.classList.remove('on'); document.body.classList.remove('rv-lock');
+    try{ history.replaceState(null,'',location.pathname+location.search+'#vo-rivista') }catch(e){}
+    if(arts[cur]) arts[cur].focus({preventScroll:true});
+  }
+  window.rvReaderOpen=function(){return rd.classList.contains('on')};
+  arts.forEach(function(a,i){
+    a.addEventListener('click',function(e){ if(e.target.closest('a'))return; open(i) });
+    a.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(i) } });
+  });
+  g('rvrd-x').addEventListener('click',close);
+  g('rvrd-prev').addEventListener('click',function(){ show(cur-1) });
+  g('rvrd-next').addEventListener('click',function(){ show(cur+1) });
+  rd.addEventListener('click',function(e){ if(e.target===rd)close() });
+  document.addEventListener('keydown',function(e){
+    if(!rd.classList.contains('on'))return;
+    if(e.key==='Escape'){ var r=g('rvreg'); if(!(r&&r.classList.contains('on')))close() }
+  });
+  /* link diretto a un articolo: /la-voce-dell-olympo/#rv-art-03 */
+  var m=/^#rv-art-(\d\d)$/.exec(location.hash);
+  if(m){ var k=arts.findIndex(function(a){return a.id==='rv-art-'+m[1]}); if(k>-1 && arts[k].offsetParent!==null) setTimeout(function(){open(k)},700) }
+})();
+
+/* ---------- RIVISTA: popup "Vuoi pubblicare qualcosa sulla rivista? Registrati" ---------- */
+(function(){
+  var bg=document.getElementById('rvreg'); if(!bg)return;
+  document.body.appendChild(bg);
+  var g=function(id){return document.getElementById(id)}, form=g('rvregform'), main=g('rvreg-main');
+  var KEY='uo-rivista-pubblica', DONE='uo-rivista-registrato', LETT='uo-rivista-lettore', opened=false;
+  var mode='pubblica', after=null;
+  /* testi del popup nelle due modalita': "pubblica" (proponi un contributo) e "leggi" (registrazione per leggere) */
+  var TX={
+    pubblica:{ic:'&#9997;&#65039;',t:'Vuoi pubblicare qualcosa <span class="grad">sulla rivista?</span>',
+      l:'Un articolo, un\'opinione, un reportage, una storia: <b>registrati</b> e la redazione ti ricontatta per concordare il tuo contributo.',
+      p:'acconsento a essere ricontattato dalla redazione',s:'Registrati',x:'No grazie, continuo a leggere'},
+    leggi:{ic:'&#128214;',t:'Registrati per leggere <span class="grad">La Voce dell\'Olympo</span>',
+      l:'La lettura &egrave; <b>gratuita</b>: lasciaci nome, cognome, email e telefono e leggi subito tutti gli articoli del numero. Ti avvisiamo anche quando esce il prossimo.',
+      p:'acconsento a ricevere comunicazioni sulla rivista e sui nuovi numeri',s:'Registrati e leggi',x:'Non ora'}
+  };
+  function setMode(m){
+    mode=m; var x=TX[m], q=function(id,h){var e=g(id); if(e)e.innerHTML=h};
+    q('rvreg-ic',x.ic); q('rvreg-t',x.t); q('rvreg-lead',x.l); q('rv-priv-t',x.p); q('rvreg-sub',x.s); q('rvreg-later',x.x);
+  }
+  function lsj(k,v){ try{ if(v===undefined)return JSON.parse(localStorage.getItem(k)||'null'); localStorage.setItem(k,JSON.stringify(v)) }catch(e){ return null } }
+  window.rvLettore=function(){ return !!(lsj(LETT)||ls(DONE)) };
+  window.rvGate=function(cb){ after=cb||null; setMode('leggi'); open() };
+  var forza=/[?&]pubblica=1/.test(location.search);
+  function ss(k,v){ try{ if(v===undefined)return sessionStorage.getItem(k); sessionStorage.setItem(k,v) }catch(e){} }
+  function ls(k,v){ try{ if(v===undefined)return localStorage.getItem(k); localStorage.setItem(k,v) }catch(e){} }
+  function open(){
+    if(bg.classList.contains('on'))return;
+    opened=true; ss(KEY,'1');
+    var me=lsj(LETT); if(me && form){ ['nome','cognome','mail','tel'].forEach(function(k){ var e=g('rv-'+k); if(e&&!e.value) e.value=me[k==='mail'?'email':k==='tel'?'telefono':k]||'' }) }
+    bg.classList.add('on'); document.body.classList.add('rv-lock');
+    setTimeout(function(){ var f=g('rv-nome'); if(f && window.innerWidth>860)f.focus() },500);
+  }
+  function close(){
+    bg.classList.remove('on'); after=null;
+    if(!(window.rvReaderOpen&&window.rvReaderOpen())) document.body.classList.remove('rv-lock');
+    setTimeout(function(){ if(!bg.classList.contains('on')) setMode('pubblica') },500);
+  }
+  g('rvreg-x').addEventListener('click',close);
+  g('rvreg-later').addEventListener('click',function(e){e.preventDefault();close()});
+  bg.addEventListener('click',function(e){ if(e.target===bg)close() });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&bg.classList.contains('on'))close() });
+  document.addEventListener('click',function(e){ var b=e.target.closest('[data-rvreg]'); if(b){ e.preventDefault(); setMode('pubblica'); open() } });
+
+  /* apertura automatica: una volta per visita, dopo 6 secondi passati sul riquadro della rivista */
+  function busy(){ return [].some.call(document.querySelectorAll('#evbg.on,#vobg.on,#mbg.on,#arbg.on,#rvrd.on'),function(){return true}) }
+  function tryAuto(){ if(opened||busy())return; open() }
+  var box=g('vo-rivista');
+  if(forza) setTimeout(open,1200);
+  else if(box && !ss(KEY) && !ls(DONE) && 'IntersectionObserver' in window){
+    var t=null, io=new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){ if(!t) t=setTimeout(function(){ io.disconnect(); tryAuto() },6000) }
+      else if(t){ clearTimeout(t); t=null }
+    },{threshold:.2});
+    io.observe(box);
+  }
+
+  /* invio: tabella Supabase rivista_autori; se non riesce, si propone l'invio per email */
+  function bad(el,cond){ var f=el.closest('.field'); f.classList.toggle('err',!cond); return cond }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=g('rv-nome'), c=g('rv-cognome'), m=g('rv-mail'), t=g('rv-tel'), pv=g('rv-priv'), ok=true;
+    ok = bad(n, n.value.trim().length>=2) && ok;
+    ok = bad(c, c.value.trim().length>=2) && ok;
+    ok = bad(m, /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(m.value.trim())) && ok;
+    ok = bad(t, t.value.replace(/\D/g,'').length>=8) && ok;
+    if(!pv.checked){ ok=false; pv.parentNode.style.color='#ff9aa4'; setTimeout(function(){pv.parentNode.style.color=''},2200) }
+    if(!ok)return;
+    var d={nome:n.value.trim().slice(0,80), cognome:c.value.trim().slice(0,80), email:m.value.trim().slice(0,160), telefono:t.value.trim().slice(0,30), pagina:(location.origin+location.pathname).slice(0,200)};
+    if(mode==='leggi') d.tipo='lettore'; /* colonna aggiunta in supabase-rivista.sql (1 novembre 2026) */
+    var C=window.UO_AUTH||{};
+    /* chi si registra (per leggere o per pubblicare) diventa lettore: i dati restano solo nel suo browser per riempire il modulo */
+    lsj(LETT,{nome:d.nome,cognome:d.cognome,email:d.email,telefono:d.telefono});
+    if(mode==='leggi'){
+      var go=after; var sb=g('rvreg-sub'); if(sb) sb.innerHTML='Un attimo&hellip;';
+      var fine=function(){ bg.classList.remove('on'); after=null; setTimeout(function(){ setMode('pubblica') },500); if(go) go(); else document.body.classList.remove('rv-lock') };
+      /* la lettura non resta bloccata se il salvataggio non riesce: si apre comunque l'articolo */
+      if(!(C.url&&C.key)||!window.fetch){ fine(); return }
+      var tm=setTimeout(fine,4000), fatto=false, uno=function(){ if(fatto)return; fatto=true; clearTimeout(tm); fine() };
+      fetch(C.url+'/rest/v1/rivista_autori',{method:'POST',headers:{'apikey':C.key,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(d)})
+        .then(uno).catch(uno);
+      return;
+    }
+    var btn=form.querySelector('button[type=submit]'); btn.innerHTML='<span>Invio in corso&hellip;</span>'; btn.disabled=true;
+    var done=function(saved){
+      if(saved) ls(DONE,'1');
+      var esc=function(s){return String(s).replace(/[&<>"]/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[x]})};
+      var mail='mailto:info@unicesd-olympo.com?subject='+encodeURIComponent("La Voce dell'Olympo - voglio pubblicare sulla rivista")
+        +'&body='+encodeURIComponent('Nome: '+d.nome+'\nCognome: '+d.cognome+'\nEmail: '+d.email+'\nTelefono: '+d.telefono+'\n\nVorrei proporre un contributo per La Voce dell\'Olympo.');
+      main.innerHTML='<div class="rvreg-ok">'
+        +'<div class="ok-icon" style="position:relative;margin:0 auto 14px"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div>'
+        +'<h3 style="margin-bottom:10px">Grazie, '+esc(d.nome)+'!</h3>'
+        +(saved
+          ? '<p>La tua registrazione &egrave; arrivata alla redazione de <b>La Voce dell\'Olympo</b>. Ti ricontattiamo a <b>'+esc(d.email)+'</b> per concordare il tuo contributo.</p>'
+          : '<div class="rvreg-note">Non siamo riusciti a registrare la richiesta in automatico. Inviala con un clic per email: i tuoi dati sono gi&agrave; scritti nel messaggio.</div>'
+            +'<a href="'+mail+'" class="btn btn-p" style="width:100%;margin-bottom:10px"><span>&#9993; Invia per email</span></a>')
+        +'<button type="button" class="btn btn-g" id="rvreg-done" style="width:100%"><span>Torna alla rivista</span></button></div>';
+      g('rvreg-done').addEventListener('click',close);
+    };
+    if(!(C.url&&C.key)||!window.fetch){ done(false); return }
+    fetch(C.url+'/rest/v1/rivista_autori',{method:'POST',headers:{'apikey':C.key,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(d)})
+      .then(function(r){ done(r.ok) }).catch(function(){ done(false) });
+  });
+})();
