@@ -556,8 +556,9 @@ def contact_block():
       <p><a href="tel:+393356959796">+39 335 695 9796</a><br><small>Segreteria</small></p>
     </div>
     <div class="c-card rv"><h2>Email</h2>
-      <p><a href="mailto:Calogero60@yahoo.it">Calogero60@yahoo.it</a></p>
-      <p><a href="mailto:Palazzolo.jose@gmail.com">Palazzolo.jose@gmail.com</a></p>
+      <p><a href="mailto:info@unicesd-olympo.com">info@unicesd-olympo.com</a><br><small>Informazioni generali</small></p>
+      <p><a href="mailto:Calogero60@unicesd-olympo.com">Calogero60@unicesd-olympo.com</a></p>
+      <p><a href="mailto:Josemilia.palazzolo@unicesd-olympo.com">Josemilia.palazzolo@unicesd-olympo.com</a></p>
       <h2 style="margin-top:22px">Orari</h2>
       <p>Lunedì – venerdì 9:00 – 18:00<br>Sabato su appuntamento<br><small>Piattaforma e assistenza online attive h24</small></p>
     </div>

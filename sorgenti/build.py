@@ -153,6 +153,8 @@ IMAGES = {
     "__IMG_VO_AFEIP_BUCALO__": "img/voce/afeip-20anni-bucalo.webp",
     "__IMG_VO_AFEIP_PLATEA__": "img/voce/afeip-20anni-platea.webp",
     "__IMG_VO_AFEIP_SALA__": "img/voce/afeip-20anni-sala.webp",
+    "__IMG_VO_ITALIANO_L2__": "img/voce/italiano-l2-capimed.webp",
+    "__IMG_VO_KALOS_UFFICIO__": "img/voce/agro-bio-kalos-ufficio.webp",
     "__IMG_VO_HACCP__": "img/voce/haccp-alimentarista.webp",
     "__IMG_VO_CAPIMED__": "img/voce/capimed-agrigento.webp",
     "__IMG_VO_TECNOCASA__": "img/voce/tecnocasa-incontro.webp",
