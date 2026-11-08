@@ -2375,6 +2375,22 @@ body.rv-lock{overflow:hidden}
 .vo-media.vo-video video{display:block;width:100%;height:auto;max-height:620px;aspect-ratio:9/16;object-fit:contain;background:#000;margin:0 auto}
 @media (max-width:860px){.vo-media.vo-video video{max-height:72vh}}
 
+/* ===== 8 novembre 2026: banner sotto la locandina, KPI a 4, tariffe SIAP nelle Convenzioni ===== */
+.vo-banner{display:block;margin-top:12px;border-radius:14px;overflow:hidden;border:1px solid rgba(130,180,255,.28);transition:transform .4s var(--ease),border-color .4s}
+.vo-banner:hover{transform:translateY(-3px);border-color:rgba(130,180,255,.7)}
+.vo-banner img{display:block;width:100%;height:auto}
+.vo-kpi.vo-kpi4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:560px){.vo-kpi.vo-kpi4{grid-template-columns:repeat(2,1fr)}}
+.conv-tar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:6px 0 22px}
+.conv-col{background:rgba(255,255,255,.05);border:1px solid rgba(130,180,255,.22);border-radius:14px;padding:14px 14px 10px}
+.conv-col h4{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px;opacity:.85}
+.conv-col ul{list-style:none;margin:0;padding:0}
+.conv-col li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:6px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.86rem;line-height:1.3}
+.conv-col li:first-child{border-top:0}
+.conv-col li b{white-space:nowrap;font-weight:700}
+.conv-col li small{font-weight:400;opacity:.7;font-size:.8em}
+@media(max-width:1100px){.conv-tar{grid-template-columns:1fr}}
+
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
 .phero h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:16px 0 18px;max-width:980px}
@@ -3072,6 +3088,8 @@ body.rv-lock{overflow:hidden}
     <span class="mq-item"><em></em>Studio Eremita &ndash; AI &amp; Business Intelligence</span>
     <span class="mq-item"><em></em>INNOVA</span>
     <span class="mq-item"><em></em>SIULP Torino</span>
+    <span class="mq-item"><em></em>SIAP Trieste</span>
+    <span class="mq-item"><em></em>British Institutes</span>
     <span class="mq-item"><em></em>Fondo Nuove Competenze 2026</span>
     <span class="mq-item"><em></em>Made in Italy Global Leadership</span>
   </div>
@@ -3593,6 +3611,16 @@ body.rv-lock{overflow:hidden}
         <div class="pc-foot"><span>Torino &middot; iscritti e familiari</span><a class="pc-link" href="https://www.siulptorino.it/" target="_blank" rel="noopener">siulptorino.it <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
+      <article class="pcard rv-s" data-cat="repr" id="siap-trieste" style="transition-delay:.06s">
+        <div class="pc-top">
+          <div class="pc-mark" style="font-size:15px">SIAP<br>TS</div>
+          <div><span class="pc-role">Convenzione sindacale</span></div>
+        </div>
+        <h3>SIAP Trieste</h3>
+        <p>La segreteria provinciale di Trieste del <b>SIAP &mdash; Sindacato Italiano Appartenenti Polizia</b> ha una convenzione con UNICESD Olympo: <b>tariffe agevolate per iscritti e soci</b> su certificazioni informatiche (EIPASS, DigCompEdu, CIAD), certificazioni di inglese dal B2 al C2, CLIL, master e lauree eCampus, con rette dedicate a Forze Armate e Pubblica Amministrazione.</p>
+        <div class="pc-foot"><span>Trieste &middot; iscritti e soci</span><a class="pc-link" href="#convenzioni">Le tariffe <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </article>
+
       <article class="pcard rv-s" data-cat="inno" style="transition-delay:.12s">
         <div class="pc-top">
           <div class="pc-logo"><img width="300" height="300" src="assets/partner/eremita.webp" alt="Studio Eremita" loading="lazy" decoding="async"></div>
@@ -3734,6 +3762,16 @@ body.rv-lock{overflow:hidden}
         <h3>University for Peace &mdash; UPEACE</h3>
         <p>Ateneo internazionale istituito nel <b>1980 dall'Assemblea Generale delle Nazioni Unite</b> (risoluzione 35/55), con sede principale a Ciudad Col&oacute;n, in Costa Rica, e presidi a Ginevra e all'Aia. Rilascia <b>master e dottorati</b> in studi per la pace, risoluzione dei conflitti, diritto internazionale e studi ambientali. Il Segretario Generale dell'ONU ne &egrave; presidente onorario. In Italia il riferimento &egrave; la sede di <b>Roma, Palazzo Falletti &mdash; via Panisperna 207</b>.</p>
         <div class="pc-foot"><span>Roma &middot; Costa Rica &middot; Ginevra</span><a class="pc-link" href="https://www.upeace.org/" target="_blank" rel="noopener">upeace.org <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </article>
+
+      <article class="pcard rv-s" data-cat="cert" id="british-institutes">
+        <div class="pc-top">
+          <div class="pc-logo"><img width="480" height="240" src="assets/partner/british-institutes.webp" alt="Stemma del British Institutes Examination Board" loading="lazy" decoding="async"></div>
+          <div><span class="pc-role cert">Certificazioni di inglese</span></div>
+        </div>
+        <h3>British Institutes Examination Board</h3>
+        <p>In collaborazione con UNICESD Olympo, il <b>British Institutes Examination Board</b> rilascia le certificazioni di lingua inglese a chi frequenta i nostri corsi: <b>Kids</b> (4&ndash;6 anni), <b>Junior</b> (7&ndash;11), <b>Teen</b> (12&ndash;17) e <b>adulti</b> di tutti i livelli. Le lezioni si tengono nella sede operativa di Campofelice di Roccella, sulla SS 113 di fronte alla Q8.</p>
+        <div class="pc-foot"><span>Campofelice di Roccella &middot; Palermo</span><a class="pc-link" href="/la-voce-dell-olympo/#vo-inglese-bambini">Il corso <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </article>
 
       <article class="pcard rv-s" data-cat="cert">
@@ -3979,19 +4017,35 @@ body.rv-lock{overflow:hidden}
     </div>
 
 
-    <div class="feature rv-s dark" style="margin-top:52px">
+    <div class="feature rv-s dark" id="convenzioni" style="margin-top:52px">
       <div class="feat-grid g-conv">
         <div>
           <div class="eyebrow"><em></em> Convenzioni</div>
           <h2>Accordi che rendono lo studio <span class="grad">pi&ugrave; leggero</span></h2>
           <p>Accanto alle partnership accademiche esistono convenzioni rivolte a categorie professionali intere: sindacati, ordini, associazioni e aziende che aprono ai propri iscritti e ai loro familiari tariffe dedicate e percorsi costruiti sui turni di lavoro.</p>
           <p>&Egrave; il caso di <b>SIULP Torino</b>, la segreteria provinciale del sindacato di Polizia, con l'iniziativa &laquo;Investi sul tuo futuro e su quello della tua famiglia&raquo;: grazie alle convenzioni con i primari atenei telematici e digitali italiani, gli iscritti accedono a un catalogo interdisciplinare completo &mdash; giuridico, economico, umanistico, sanitario, psicologico, ingegneristico, politico-sociale e scienze motorie &mdash; con lauree triennali e magistrali, master di I e II livello, corsi di perfezionamento e formazione, tutto <b>100% online</b> e a rette agevolate estese ai familiari.</p>
+          <p>A <b>Trieste</b> la convenzione &egrave; con il <b>SIAP &mdash; Sindacato Italiano Appartenenti Polizia</b>: agli iscritti e ai soci SIAP Trieste UNICESD Olympo riserva tariffe agevolate su certificazioni, master e percorsi universitari.</p>
+          <div class="conv-tar" aria-label="Tariffe riservate agli iscritti SIAP Trieste">
+            <div class="conv-col">
+              <h4>Certificazioni informatiche</h4>
+              <ul><li><span>EIPASS Standard</span><b>&euro; 120</b></li><li><span>DigCompEdu</span><b>&euro; 150</b></li><li><span>7 Moduli User</span><b>&euro; 130</b></li><li><span>CIAD</span><b>&euro; 130</b></li><li><span>Dattilografia</span><b>&euro; 50</b></li></ul>
+            </div>
+            <div class="conv-col">
+              <h4>Lingue e CLIL</h4>
+              <ul><li><span>Inglese B2 + corso</span><b>&euro; 250</b></li><li><span>Inglese C1 + corso</span><b>&euro; 300</b></li><li><span>Inglese C2 + corso</span><b>&euro; 350</b></li><li><span>CLIL</span><b>&euro; 500</b></li></ul>
+            </div>
+            <div class="conv-col">
+              <h4>Master e lauree</h4>
+              <ul><li><span>Master L2 eCampus</span><b>&euro; 1.500</b></li><li><span>Laurea triennale</span><b>&euro; 2.500<small>/anno</small></b></li><li><span>Laurea magistrale</span><b>&euro; 2.700<small>/anno</small></b></li><li><span>Triennale Forze Armate e PA</span><b>&euro; 1.600<small>/anno</small></b></li><li><span>Singolo esame Forze Armate e PA</span><b>&euro; 50</b></li></ul>
+            </div>
+          </div>
           <p>Non serve scegliere fra lavoro, famiglia e studio: &egrave; esattamente il principio su cui &egrave; nata UNICESD Olympo. Se rappresenti un ente, un ordine professionale o un'azienda, possiamo costruire una convenzione dedicata.</p>
           <p>Lo stesso discorso vale per il <b>settore pubblico</b>. La <b>UIPA &mdash; Universit&agrave; Internazionale delle Pubbliche Amministrazioni</b>, con sede nella Repubblica di San Marino, &egrave; nata nel 2024 per la formazione di funzionari e amministratori pubblici e dei giovani che vogliono lavorare nel settore pubblico: un corso di laurea triennale in <b>Scienze Politiche, Giuridiche e Strategie Internazionali</b>, master di I e II livello su amministrazione digitale, contabilit&agrave; pubblica, contratti pubblici, diritto sanitario, gestione del personale e turismo locale, e un percorso in <b>Management Sportivo</b>. &Egrave; l'interlocutore naturale per comuni, enti e amministrazioni che vogliono una convenzione costruita sui propri dipendenti.</p>
 
           <div class="hero-cta" style="opacity:1;animation:none">
             <a href="#iscrizione" class="btn btn-p" data-cursor><span>Proponi una convenzione</span><span class="shine"></span></a>
             <a href="https://www.siulptorino.it/" target="_blank" rel="noopener" class="btn btn-g" data-cursor>L'iniziativa SIULP Torino</a>
+            <a href="https://www.siap-trieste.it/2026/11/05/unicesd-olympo-formazione-certificazioni-e-percorsi-universitari/" target="_blank" rel="noopener" class="btn btn-g" data-cursor>La convenzione SIAP Trieste</a>
             <a href="https://www.uipa.sm/" target="_blank" rel="noopener" class="btn btn-g" data-cursor>UIPA &middot; San Marino</a>
           </div>
         </div>

@@ -153,6 +153,11 @@ IMAGES = {
     "__IMG_VO_AFEIP_BUCALO__": "img/voce/afeip-20anni-bucalo.webp",
     "__IMG_VO_AFEIP_PLATEA__": "img/voce/afeip-20anni-platea.webp",
     "__IMG_VO_AFEIP_SALA__": "img/voce/afeip-20anni-sala.webp",
+    # 8 novembre 2026: Conduttore di Impresa Agricola, inglese British Institutes
+    "__IMG_VO_AGRICOLA__": "img/voce/conduttore-impresa-agricola.webp",
+    "__IMG_VO_INGLESE_BIEB__": "img/voce/inglese-bambini-british-institutes.webp",
+    "__IMG_VO_BIEB_BANNER__": "img/voce/british-institutes-unicesd.webp",
+    "__IMG_BIEB__": "img/partner/british-institutes.webp",
     "__IMG_VO_ITALIANO_L2__": "img/voce/italiano-l2-capimed.webp",
     "__IMG_VO_KALOS_UFFICIO__": "img/voce/agro-bio-kalos-ufficio.webp",
     "__IMG_VO_HACCP__": "img/voce/haccp-alimentarista.webp",
