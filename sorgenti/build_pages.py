@@ -894,7 +894,7 @@ def build_app():
     (out / "index.html").write_text(page, encoding="utf-8")
     shell = ["/app/", css, js, "/assets/icons/app-192.png", "/assets/icons/icon.svg"]
     a = POST_MAIN.index('<div id="arbg"')
-    shell += sorted(set(re.findall(r'src="(/assets/[^"]+\.(?:webp|png|jpg))"', POST_MAIN[a:a + POST_MAIN[a:].index('<div id="jnfly"')])))
+    shell += sorted(set(re.findall(r'src="(/assets/[^"]+\.(?:webp|png|jpg))"', POST_MAIN[a:a + POST_MAIN[a:].index('<div id="toast"')])))
     ver = hashlib.md5((page + CSS_VER + JS_VER).encode()).hexdigest()[:10]
     (out / "sw.js").write_text(APP_SW.replace("__VER__", ver).replace("__SHELL__", json.dumps(shell)), encoding="utf-8")
     print(f"App: {out / 'index.html'}  (cache {ver}, {len(shell)} file)")

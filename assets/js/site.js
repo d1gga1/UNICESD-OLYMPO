@@ -2028,58 +2028,6 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
 })();
 
 
-/* ===== JANUS IN EVIDENZA =====
-   Alla prima pagina della visita la finestra segue il mouse per SEGUI millisecondi, poi si ferma
-   in basso a destra. Sulle pagine successive compare gia' ferma. La X la nasconde fino alla visita dopo. */
-(function(){
-  var box=document.getElementById('jnfly'); if(!box) return;
-  var SEGUI=8000, RITARDO=1800;
-  var S={get:function(k){ try{ return sessionStorage.getItem(k) }catch(e){ return null } }, set:function(k,v){ try{ sessionStorage.setItem(k,v) }catch(e){} }};
-  var force=/[?&]janus=1/.test(location.search);
-  if(!force&&S.get('uo-jn-chiuso')) return;
-  if(/janus-diploma-online/.test(location.pathname)) return;
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
-  var follow=(force||!S.get('uo-jn-visto'))&&fine&&!reduce;
-  var x=0,y=0,tx=0,ty=0,mx=-1,my=-1,raf=0,t0=0,docked=false;
-  function W(){ return box.offsetWidth } function H(){ return box.offsetHeight }
-  function dockPos(){ var b=window.innerWidth<=640?84:96, dx=window.innerWidth-W()-(window.innerWidth<=640?14:26), dy=window.innerHeight-H()-b;
-    var ck=document.getElementById('cookie'); if(ck){ var r=ck.getBoundingClientRect(), cs=getComputedStyle(ck);
-      if(r.width&&cs.visibility!=='hidden'&&+cs.opacity>0.1&&r.top<window.innerHeight&&r.right>dx) dy=Math.min(dy,r.top-H()-14) }
-    return [dx, Math.max(70,dy)] }
-  document.addEventListener('click',function(e){ if(e.target.closest('#cookie')) setTimeout(function(){ if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } },700) });
-  function place(rot){ box.style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0) rotate('+(rot||0).toFixed(2)+'deg)' }
-  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)) }
-  function loop(t){
-    if(!t0) t0=t; var p=Math.min(1,(t-t0)/SEGUI); box.style.setProperty('--p',p);
-    if(mx<0){ tx=window.innerWidth*.62+Math.sin(t/900)*90; ty=window.innerHeight*.28+Math.cos(t/1100)*60 }
-    else { tx=mx+28; ty=my+22 }
-    tx=clamp(tx,10,window.innerWidth-W()-10); ty=clamp(ty,70,window.innerHeight-H()-10);
-    var vx=(tx-x)*.075, vy=(ty-y)*.075; x+=vx; y+=vy; place(clamp(vx*.35,-9,9));
-    if(p<1) raf=requestAnimationFrame(loop); else dock();
-  }
-  function dock(){
-    if(docked) return; docked=true; cancelAnimationFrame(raf); document.removeEventListener('mousemove',mv);
-    box.classList.add('docked'); var d=dockPos(); x=d[0]; y=d[1]; place(0);
-    setTimeout(function(){ box.classList.add('float') },900);
-  }
-  function mv(e){ mx=e.clientX; my=e.clientY }
-  function start(){
-    box.hidden=false; S.set('uo-jn-visto','1');
-    if(follow){ x=window.innerWidth-W()-30; y=window.innerHeight; place(0); requestAnimationFrame(function(){ box.classList.add('on') });
-      document.addEventListener('mousemove',mv,{passive:true}); raf=requestAnimationFrame(loop) }
-    else { var d=dockPos(); x=d[0]; y=window.innerHeight+20; place(0); box.classList.add('docked');
-      requestAnimationFrame(function(){ requestAnimationFrame(function(){ box.classList.add('on'); docked=true; var d2=dockPos(); y=d2[1]; place(0); setTimeout(function(){ box.classList.add('float') },900) }) }) }
-  }
-  box.querySelector('.jnf-x').addEventListener('click',function(e){ e.preventDefault(); S.set('uo-jn-chiuso','1'); cancelAnimationFrame(raf); box.classList.remove('on'); setTimeout(function(){ box.hidden=true },500) });
-  box.querySelector('.jnf-min').addEventListener('click',function(e){ e.preventDefault(); box.classList.toggle('mini'); if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } });
-  box.querySelector('.jnf-card').addEventListener('click',function(){ if(!docked) dock() });
-  window.addEventListener('resize',function(){ if(docked){ var d=dockPos(); x=d[0]; y=d[1]; place(0) } });
-  function go(){ setTimeout(start,RITARDO) }
-  var pl=document.getElementById('preloader');
-  if(document.readyState==='complete') go(); else window.addEventListener('load',function(){ setTimeout(go,pl?1400:0) });
-})();
-
-
 /* ===== POLI APERTI: contatore con obiettivo =====
    Conta le schede dei poli (.polo-card, esclusa la tratteggiata .polo-next) e riempie la barra verso l'obiettivo. */
 (function(){
@@ -2187,12 +2135,12 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&bg.classList.contains('on'))close() });
   document.addEventListener('click',function(e){ var b=e.target.closest('[data-rvreg]'); if(b){ e.preventDefault(); setMode('pubblica'); open() } });
 
-  /* apertura automatica: una volta per visita, dopo 6 secondi passati sul riquadro della rivista */
+  /* apertura automatica DISATTIVATA l'8/11/2026 (troppi avvisi sul telefono): si apre solo dai pulsanti [data-rvreg] o con ?pubblica=1 */
   function busy(){ return [].some.call(document.querySelectorAll('#evbg.on,#vobg.on,#mbg.on,#arbg.on,#rvrd.on'),function(){return true}) }
   function tryAuto(){ if(opened||busy())return; open() }
   var box=g('vo-rivista');
   if(forza) setTimeout(open,1200);
-  else if(box && !ss(KEY) && !ls(DONE) && 'IntersectionObserver' in window){
+  else if(false && box && !ss(KEY) && !ls(DONE) && 'IntersectionObserver' in window){
     var t=null, io=new IntersectionObserver(function(es){
       if(es[0].isIntersecting){ if(!t) t=setTimeout(function(){ io.disconnect(); tryAuto() },6000) }
       else if(t){ clearTimeout(t); t=null }
