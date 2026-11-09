@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&amp;family=Outfit:wght@200;300;400;500;600;700;800;900&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=f263746a">
+<link rel="stylesheet" href="/assets/css/site.css?v=6679e1e4">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="UNICESD Olympo">
 <meta property="og:locale" content="it_IT">
@@ -56,7 +56,7 @@
     "@type": "ImageObject",
     "url": "https://unicesd-olympo.com/assets/eventi/icb/icb-06.webp"
    },
-   "dateModified": "2026-11-08",
+   "dateModified": "2026-11-09",
    "publisher": {
     "@id": "https://unicesd-olympo.com/#organizzazione"
    }
@@ -374,7 +374,7 @@
   <div class="wrap">
     <div class="sec-head center rv">
       <div class="eyebrow"><em></em> Agenda</div>
-      <h2>Gli eventi di <span class="grad">Calogero Di Carlo</span></h2>
+      <h2>Incontra <span class="grad">Calogero Di Carlo</span></h2>
       <p>Convention, open day, incontri istituzionali e appuntamenti sportivi delle realt&agrave; della rete. Qui trovi il calendario aggiornato, con i prossimi appuntamenti in evidenza.</p>
     </div>
 
@@ -406,6 +406,11 @@
       </div>
     </div>
 
+    <p class="ev-more-wrap rv"><a href="#ev-precedenti" class="ev-more-link" id="evMoreLink" aria-expanded="false" aria-controls="ev-precedenti"><span>Vedi tutti gli incontri precedenti</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
+
+    <!-- Incontri precedenti: nascosti finche' non si clicca "Vedi tutti gli incontri precedenti" -->
+    <div class="ev-prev" id="ev-precedenti" hidden>
+
     <!-- 12 ottobre 2026: convegno "Gentilezza in campo" all'ARS (locandina: img/eventi/gentilezza-12ott2026.webp) -->
     <div class="ev-feat ev-stack rv-s" id="evento-12ott" style="margin-top:22px">
       <a class="ev-poster" href="/assets/eventi/gentilezza-12ott2026.webp" target="_blank" rel="noopener" aria-label="Apri a schermo intero la locandina del convegno Gentilezza in campo"><img width="1290" height="1970" src="/assets/eventi/gentilezza-12ott2026.webp" alt="Locandina del convegno nazionale Gentilezza in campo, 12 ottobre 2026, Assemblea Regionale Siciliana, Sala Piersanti Mattarella: il prof. Calogero Di Carlo con il magistrato Nicola Graziano, presidente UNICEF Italia" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></a>
@@ -434,11 +439,11 @@
     <div class="ev-grid">
 
       <article class="ev-card rv-s" id="evento-licata-8nov">
-        <div class="ev-date"><b>08</b><span>Nov</span><small>2026</small></div>
+        <div class="ev-date past"><b>08</b><span>Nov</span><small>2026</small></div>
         <div class="ev-body">
-          <em>In programma &middot; ore 19:00</em>
+          <em class="done"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Concluso &middot; ore 19:00</em>
           <b>Inaugurazione della nuova sede Global Campus Licata</b>
-          <p>Il polo n&deg; 00001 della rete apre la sua nuova sede: presentazione dei corsi di laurea online e brindisi d'onore. <a href="/la-voce-dell-olympo/#vo-licata-inaugurazione" style="color:var(--cy);font-weight:600">La locandina</a></p>
+          <p>Il polo n&deg; 00001 della rete ha aperto la sua nuova sede: presentazione dei corsi di laurea online e brindisi d'onore. <a href="/la-voce-dell-olympo/#vo-licata-inaugurazione" style="color:var(--cy);font-weight:600">La locandina</a></p>
           <span class="ev-where">Global Campus &middot; Corso Umberto 37, Licata (AG)</span>
         </div>
       </article>
@@ -495,6 +500,8 @@
       </article>
 
     </div>
+
+    </div><!-- /ev-precedenti -->
 
     <p class="pnote rv" style="margin-top:26px">Vuoi ricevere gli inviti ai prossimi appuntamenti? <a href="#contatti" style="color:var(--cy);font-weight:600">Lascia i tuoi contatti</a> e ti avvisiamo per tempo.</p>
   </div>
@@ -1282,5 +1289,5 @@
 </div>
 
 <script>window.UO_PAGES={"c1": "/corsi-di-laurea/giurisprudenza/", "c2": "/corsi-di-laurea/economia-aziendale/", "c3": "/corsi-di-laurea/scienze-psicologiche/", "c4": "/corsi-di-laurea/scienze-educazione/", "c5": "/corsi-di-laurea/ingegneria-informatica/", "c7": "/corsi-di-laurea/amministratori-di-condominio/", "c6": "/corsi-di-laurea/scienze-motorie/", "m1": "/master-made-in-italy-global-leadership/", "m2": "/master-universitari/management-imprese-turistiche/", "m3": "/master-universitari/didattica-innovazione-digitale/", "m4": "/master-universitari/diritto-impresa-internazionale/", "m5": "/master-universitari/data-analytics-business/", "m6": "/master-universitari/management-sanitario/", "k1": "/certificazioni/informatiche/", "k2": "/certificazioni/linguistiche/", "k3": "/certificazioni/graduatorie-scuola/", "s1": "/corsi-singoli-cfu/", "s2": "/riconoscimento-cfu/", "s3": "/formazione-aziendale/"};</script>
-<script src="/assets/js/site.js?v=71baa6d4" defer></script>
+<script src="/assets/js/site.js?v=b0d10fba" defer></script>
 </body></html>

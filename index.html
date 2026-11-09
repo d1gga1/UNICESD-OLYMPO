@@ -2377,6 +2377,15 @@ body.rv-lock{overflow:hidden}
   #cookie{bottom:12px;left:10px;right:10px;padding:16px 16px 14px}
   #cookie p{margin-bottom:12px}
 }
+/* INCONTRA: link "Vedi tutti gli incontri precedenti" e titoletto "I piu' richiesti" (9/11/2026) */
+.ev-more-wrap{margin:22px 0 0;text-align:center}
+.ev-more-link{display:inline-flex;align-items:center;gap:7px;color:var(--cy);font-weight:700;font-size:15px;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s,gap .2s}
+.ev-more-link:hover,.ev-more-link:focus-visible{border-bottom-color:currentColor;gap:10px}
+.ev-more-link svg{transition:transform .25s}
+.ev-more-link[aria-expanded="true"] svg{transform:rotate(-90deg)}
+.ev-prev{margin-top:4px}
+.ev-prev>.ev-feat:first-child{margin-top:22px!important}
+.tabs-lbl{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cy);margin:0 0 12px}
 
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}
@@ -3121,7 +3130,7 @@ body.rv-lock{overflow:hidden}
   <div class="wrap">
     <div class="sec-head center rv">
       <div class="eyebrow"><em></em> Agenda</div>
-      <h2>Gli eventi di <span class="grad">Calogero Di Carlo</span></h2>
+      <h2>Incontra <span class="grad">Calogero Di Carlo</span></h2>
       <p>Convention, open day, incontri istituzionali e appuntamenti sportivi delle realt&agrave; della rete. Qui trovi il calendario aggiornato, con i prossimi appuntamenti in evidenza.</p>
     </div>
 
@@ -3153,6 +3162,11 @@ body.rv-lock{overflow:hidden}
       </div>
     </div>
 
+    <p class="ev-more-wrap rv"><a href="#ev-precedenti" class="ev-more-link" id="evMoreLink" aria-expanded="false" aria-controls="ev-precedenti"><span>Vedi tutti gli incontri precedenti</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
+
+    <!-- Incontri precedenti: nascosti finche' non si clicca "Vedi tutti gli incontri precedenti" -->
+    <div class="ev-prev" id="ev-precedenti" hidden>
+
     <!-- 12 ottobre 2026: convegno "Gentilezza in campo" all'ARS (locandina: img/eventi/gentilezza-12ott2026.webp) -->
     <div class="ev-feat ev-stack rv-s" id="evento-12ott" style="margin-top:22px">
       <a class="ev-poster" href="assets/eventi/gentilezza-12ott2026.webp" target="_blank" rel="noopener" aria-label="Apri a schermo intero la locandina del convegno Gentilezza in campo"><img width="1290" height="1970" src="assets/eventi/gentilezza-12ott2026.webp" alt="Locandina del convegno nazionale Gentilezza in campo, 12 ottobre 2026, Assemblea Regionale Siciliana, Sala Piersanti Mattarella: il prof. Calogero Di Carlo con il magistrato Nicola Graziano, presidente UNICEF Italia" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></a>
@@ -3181,11 +3195,11 @@ body.rv-lock{overflow:hidden}
     <div class="ev-grid">
 
       <article class="ev-card rv-s" id="evento-licata-8nov">
-        <div class="ev-date"><b>08</b><span>Nov</span><small>2026</small></div>
+        <div class="ev-date past"><b>08</b><span>Nov</span><small>2026</small></div>
         <div class="ev-body">
-          <em>In programma &middot; ore 19:00</em>
+          <em class="done"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Concluso &middot; ore 19:00</em>
           <b>Inaugurazione della nuova sede Global Campus Licata</b>
-          <p>Il polo n&deg; 00001 della rete apre la sua nuova sede: presentazione dei corsi di laurea online e brindisi d'onore. <a href="/la-voce-dell-olympo/#vo-licata-inaugurazione" style="color:var(--cy);font-weight:600">La locandina</a></p>
+          <p>Il polo n&deg; 00001 della rete ha aperto la sua nuova sede: presentazione dei corsi di laurea online e brindisi d'onore. <a href="/la-voce-dell-olympo/#vo-licata-inaugurazione" style="color:var(--cy);font-weight:600">La locandina</a></p>
           <span class="ev-where">Global Campus &middot; Corso Umberto 37, Licata (AG)</span>
         </div>
       </article>
@@ -3243,6 +3257,8 @@ body.rv-lock{overflow:hidden}
 
     </div>
 
+    </div><!-- /ev-precedenti -->
+
     <p class="pnote rv" style="margin-top:26px">Vuoi ricevere gli inviti ai prossimi appuntamenti? <a href="#contatti" style="color:var(--cy);font-weight:600">Lascia i tuoi contatti</a> e ti avvisiamo per tempo.</p>
   </div>
 </section>
@@ -3264,6 +3280,7 @@ body.rv-lock{overflow:hidden}
       <div><b>6</b><span>percorsi di studio all'estero</span></div>
     </div>
 
+    <div class="tabs-lbl rv">I pi&ugrave; richiesti</div>
     <div class="tabs rv" id="tabs">
       <button class="tab on" data-p="0">Corsi di Laurea</button>
       <button class="tab" data-p="1">Master &amp; Post Laurea</button>
@@ -6868,6 +6885,23 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
     fetch(C.url+'/rest/v1/rivista_autori',{method:'POST',headers:{'apikey':C.key,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(d)})
       .then(function(r){ done(r.ok) }).catch(function(){ done(false) });
   });
+})();
+
+/* INCONTRA: apre e chiude gli incontri precedenti */
+(function(){
+  var link=document.getElementById('evMoreLink'), box=document.getElementById('ev-precedenti');
+  if(!link||!box) return;
+  var lbl=link.querySelector('span');
+  function set(open,scroll){
+    box.hidden=!open; link.setAttribute('aria-expanded',open?'true':'false');
+    lbl.textContent=open?'Nascondi gli incontri precedenti':'Vedi tutti gli incontri precedenti';
+    if(open) [].forEach.call(box.querySelectorAll('.rv,.rv-s'),function(e){e.classList.add('in')});
+    if(open&&scroll) box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  link.addEventListener('click',function(e){ e.preventDefault(); set(box.hidden,box.hidden); });
+  function fromHash(){ var id=location.hash.slice(1), el=id&&document.getElementById(id);
+    if(el&&(el===box||box.contains(el))){ set(true,false); setTimeout(function(){el.scrollIntoView({block:'start'})},30); } }
+  window.addEventListener('hashchange',fromHash); fromHash();
 })();
 </script>
 

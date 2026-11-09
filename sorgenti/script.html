@@ -2196,4 +2196,21 @@ window.UO_AUTH = window.UO_AUTH || { url: 'https://jalsxmyviroicqrgwvyv.supabase
       .then(function(r){ done(r.ok) }).catch(function(){ done(false) });
   });
 })();
+
+/* INCONTRA: apre e chiude gli incontri precedenti */
+(function(){
+  var link=document.getElementById('evMoreLink'), box=document.getElementById('ev-precedenti');
+  if(!link||!box) return;
+  var lbl=link.querySelector('span');
+  function set(open,scroll){
+    box.hidden=!open; link.setAttribute('aria-expanded',open?'true':'false');
+    lbl.textContent=open?'Nascondi gli incontri precedenti':'Vedi tutti gli incontri precedenti';
+    if(open) [].forEach.call(box.querySelectorAll('.rv,.rv-s'),function(e){e.classList.add('in')});
+    if(open&&scroll) box.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  link.addEventListener('click',function(e){ e.preventDefault(); set(box.hidden,box.hidden); });
+  function fromHash(){ var id=location.hash.slice(1), el=id&&document.getElementById(id);
+    if(el&&(el===box||box.contains(el))){ set(true,false); setTimeout(function(){el.scrollIntoView({block:'start'})},30); } }
+  window.addEventListener('hashchange',fromHash); fromHash();
+})();
 </script>

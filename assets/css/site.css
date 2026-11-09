@@ -2330,6 +2330,15 @@ body.rv-lock{overflow:hidden}
   #cookie{bottom:12px;left:10px;right:10px;padding:16px 16px 14px}
   #cookie p{margin-bottom:12px}
 }
+/* INCONTRA: link "Vedi tutti gli incontri precedenti" e titoletto "I piu' richiesti" (9/11/2026) */
+.ev-more-wrap{margin:22px 0 0;text-align:center}
+.ev-more-link{display:inline-flex;align-items:center;gap:7px;color:var(--cy);font-weight:700;font-size:15px;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s,gap .2s}
+.ev-more-link:hover,.ev-more-link:focus-visible{border-bottom-color:currentColor;gap:10px}
+.ev-more-link svg{transition:transform .25s}
+.ev-more-link[aria-expanded="true"] svg{transform:rotate(-90deg)}
+.ev-prev{margin-top:4px}
+.ev-prev>.ev-feat:first-child{margin-top:22px!important}
+.tabs-lbl{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cy);margin:0 0 12px}
 
 /* ===== pagine interne (build_pages.py) ===== */
 .phero{padding:64px 0 60px;background:radial-gradient(ellipse 130% 110% at 50% 0%,#101e4e 0%,#0a1130 55%,#050a1c 100%);overflow:hidden}

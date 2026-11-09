@@ -1543,7 +1543,7 @@
   <div class="wrap">
     <div class="sec-head center rv">
       <div class="eyebrow"><em></em> Agenda</div>
-      <h2>Gli eventi di <span class="grad">Calogero Di Carlo</span></h2>
+      <h2>Incontra <span class="grad">Calogero Di Carlo</span></h2>
       <p>Convention, open day, incontri istituzionali e appuntamenti sportivi delle realt&agrave; della rete. Qui trovi il calendario aggiornato, con i prossimi appuntamenti in evidenza.</p>
     </div>
 
@@ -1575,6 +1575,11 @@
       </div>
     </div>
 
+    <p class="ev-more-wrap rv"><a href="#ev-precedenti" class="ev-more-link" id="evMoreLink" aria-expanded="false" aria-controls="ev-precedenti"><span>Vedi tutti gli incontri precedenti</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
+
+    <!-- Incontri precedenti: nascosti finche' non si clicca "Vedi tutti gli incontri precedenti" -->
+    <div class="ev-prev" id="ev-precedenti" hidden>
+
     <!-- 12 ottobre 2026: convegno "Gentilezza in campo" all'ARS (locandina: img/eventi/gentilezza-12ott2026.webp) -->
     <div class="ev-feat ev-stack rv-s" id="evento-12ott" style="margin-top:22px">
       <a class="ev-poster" href="__IMG_GENTILEZZA_12OTT__" target="_blank" rel="noopener" aria-label="Apri a schermo intero la locandina del convegno Gentilezza in campo"><img width="1290" height="1970" src="__IMG_GENTILEZZA_12OTT__" alt="Locandina del convegno nazionale Gentilezza in campo, 12 ottobre 2026, Assemblea Regionale Siciliana, Sala Piersanti Mattarella: il prof. Calogero Di Carlo con il magistrato Nicola Graziano, presidente UNICEF Italia" loading="lazy" decoding="async" style="object-fit:contain;background:#fff"></a>
@@ -1603,11 +1608,11 @@
     <div class="ev-grid">
 
       <article class="ev-card rv-s" id="evento-licata-8nov">
-        <div class="ev-date"><b>08</b><span>Nov</span><small>2026</small></div>
+        <div class="ev-date past"><b>08</b><span>Nov</span><small>2026</small></div>
         <div class="ev-body">
-          <em>In programma &middot; ore 19:00</em>
+          <em class="done"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg> Concluso &middot; ore 19:00</em>
           <b>Inaugurazione della nuova sede Global Campus Licata</b>
-          <p>Il polo n&deg; 00001 della rete apre la sua nuova sede: presentazione dei corsi di laurea online e brindisi d'onore. <a href="#vo-licata-inaugurazione" style="color:var(--cy);font-weight:600">La locandina</a></p>
+          <p>Il polo n&deg; 00001 della rete ha aperto la sua nuova sede: presentazione dei corsi di laurea online e brindisi d'onore. <a href="#vo-licata-inaugurazione" style="color:var(--cy);font-weight:600">La locandina</a></p>
           <span class="ev-where">Global Campus &middot; Corso Umberto 37, Licata (AG)</span>
         </div>
       </article>
@@ -1665,6 +1670,8 @@
 
     </div>
 
+    </div><!-- /ev-precedenti -->
+
     <p class="pnote rv" style="margin-top:26px">Vuoi ricevere gli inviti ai prossimi appuntamenti? <a href="#contatti" style="color:var(--cy);font-weight:600">Lascia i tuoi contatti</a> e ti avvisiamo per tempo.</p>
   </div>
 </section>
@@ -1686,6 +1693,7 @@
       <div><b>6</b><span>percorsi di studio all'estero</span></div>
     </div>
 
+    <div class="tabs-lbl rv">I pi&ugrave; richiesti</div>
     <div class="tabs rv" id="tabs">
       <button class="tab on" data-p="0">Corsi di Laurea</button>
       <button class="tab" data-p="1">Master &amp; Post Laurea</button>
