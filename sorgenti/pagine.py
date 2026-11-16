@@ -333,6 +333,7 @@ ANCHOR_MAP = {
     "vo-rivista": "/la-voce-dell-olympo/#vo-rivista",
     "vo-licata-inaugurazione": "/la-voce-dell-olympo/#vo-licata-inaugurazione",
     "vo-haccp": "/la-voce-dell-olympo/#vo-haccp",
+    "vo-uet-protocollo": "/la-voce-dell-olympo/#vo-uet-protocollo",
     "vo-conduttore-agricola": "/la-voce-dell-olympo/#vo-conduttore-agricola",
     "vo-inglese-bambini": "/la-voce-dell-olympo/#vo-inglese-bambini",
     "vo-italiano-l2": "/la-voce-dell-olympo/#vo-italiano-l2",

@@ -153,6 +153,8 @@ IMAGES = {
     "__IMG_VO_AFEIP_BUCALO__": "img/voce/afeip-20anni-bucalo.webp",
     "__IMG_VO_AFEIP_PLATEA__": "img/voce/afeip-20anni-platea.webp",
     "__IMG_VO_AFEIP_SALA__": "img/voce/afeip-20anni-sala.webp",
+    # 12 novembre 2026: protocollo UNICESD Olympo - UET
+    "__IMG_VO_UET__": "img/voce/unicesd-uet-protocollo.webp",
     # 8 novembre 2026: Conduttore di Impresa Agricola, inglese British Institutes
     "__IMG_VO_AGRICOLA__": "img/voce/conduttore-impresa-agricola.webp",
     "__IMG_VO_INGLESE_BIEB__": "img/voce/inglese-bambini-british-institutes.webp",
