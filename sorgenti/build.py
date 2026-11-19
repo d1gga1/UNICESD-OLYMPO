@@ -153,6 +153,9 @@ IMAGES = {
     "__IMG_VO_AFEIP_BUCALO__": "img/voce/afeip-20anni-bucalo.webp",
     "__IMG_VO_AFEIP_PLATEA__": "img/voce/afeip-20anni-platea.webp",
     "__IMG_VO_AFEIP_SALA__": "img/voce/afeip-20anni-sala.webp",
+    # 19 novembre 2026: concorso Polizia di Stato (EIPASS), agente immobiliare in Romania
+    "__IMG_VO_POLIZIA__": "img/voce/polizia-vice-ispettori-informatici.webp",
+    "__IMG_VO_IMMOBILIARE_RO__": "img/voce/agente-immobiliare-romania.webp",
     # 12 novembre 2026: protocollo UNICESD Olympo - UET
     "__IMG_VO_UET__": "img/voce/unicesd-uet-protocollo.webp",
     # 8 novembre 2026: Conduttore di Impresa Agricola, inglese British Institutes
