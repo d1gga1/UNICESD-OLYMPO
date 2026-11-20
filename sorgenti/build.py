@@ -153,6 +153,8 @@ IMAGES = {
     "__IMG_VO_AFEIP_BUCALO__": "img/voce/afeip-20anni-bucalo.webp",
     "__IMG_VO_AFEIP_PLATEA__": "img/voce/afeip-20anni-platea.webp",
     "__IMG_VO_AFEIP_SALA__": "img/voce/afeip-20anni-sala.webp",
+    # 20 novembre 2026: Open Day Diventa Osteopata, ISFOA-MCU Roma, 22 novembre
+    "__IMG_OPENDAY_22NOV__": "img/eventi/openday-osteopatia-22nov2026.webp",
     # 19 novembre 2026: concorso Polizia di Stato (EIPASS), agente immobiliare in Romania
     "__IMG_VO_POLIZIA__": "img/voce/polizia-vice-ispettori-informatici.webp",
     "__IMG_VO_IMMOBILIARE_RO__": "img/voce/agente-immobiliare-romania.webp",
