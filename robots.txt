@@ -3,12 +3,36 @@ User-agent: *
 Allow: /
 Disallow: /sorgenti/
 Disallow: /_to_delete/
+Disallow: /app/sw.js
+
+# Motori di ricerca
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Applebot
+Allow: /
+Disallow: /sorgenti/
+Disallow: /_to_delete/
+
+# Motori di risposta AI: citano la fonte e portano traffico qualificato
+# ChatGPT (ricerca e navigazione), Perplexity, Claude, Gemini/AI Overviews, Copilot (usa Bingbot)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /sorgenti/
+Disallow: /_to_delete/
 
 # scraping per dataset generativi (non porta visite)
 User-agent: CCBot
 Disallow: /
-
-# i motori di risposta AI (ChatGPT search, Perplexity, Claude, Gemini) restano ammessi:
-# citano la fonte e portano traffico qualificato
 
 Sitemap: https://unicesd-olympo.com/sitemap.xml

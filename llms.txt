@@ -110,3 +110,6 @@
 - [Università online a Cefalù](https://unicesd-olympo.com/universita-online-cefalu/): Università online, master e diploma a Cefalù e nelle Madonie con il presidio territoriale UNICESD Olympo: orientamento, iscrizioni e tutor vicino casa.
 - [Università online a Licata](https://unicesd-olympo.com/universita-online-licata/): Global Campus Licata, polo 00001 della rete UNICESD Olympo in Corso Umberto 37: università online, diploma, certificazioni e orientamento in provincia di Agrigento.
 - [Università italiana online dal Portogallo](https://unicesd-olympo.com/universita-italiana-online-portogallo/): Vivi in Portogallo e vuoi una laurea o un diploma italiano online? La sede UNICESD Olympo di Lisbona, Rua Castilho 13, segue iscrizione, studio e pratiche.
+
+## Testo completo
+- [llms-full.txt](https://unicesd-olympo.com/llms-full.txt): il testo integrale di tutte le pagine del sito in un solo file.

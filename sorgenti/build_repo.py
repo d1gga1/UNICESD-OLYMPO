@@ -53,7 +53,7 @@ def main() -> None:
 
     for n in ("head.html", "content.html", "body.html", "script.html", "schema.html", "build.py", "build_repo.py",
               "build_pages.py", "pagine.py", "build_extra.py", "pagine_lauree.py", "pagine_diploma_estero.py",
-              "pagine_guide_local.py", "build_firenze.py"):
+              "pagine_guide_local.py", "build_firenze.py", "seo_finale.py"):
         shutil.copy2(HERE / n, REPO / "sorgenti" / n)
 
     kb = (REPO / "index.html").stat().st_size / 1024
@@ -66,6 +66,10 @@ def main() -> None:
     # sede di Firenze: /firenze/ (vedi build_firenze.py)
     import build_firenze
     build_firenze.main()
+
+    # controlli e rifiniture SEO finali (vedi seo_finale.py)
+    import seo_finale
+    seo_finale.main()
 
 
 if __name__ == "__main__":
